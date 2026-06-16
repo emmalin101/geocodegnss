@@ -9,8 +9,8 @@
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
-  --blue: #142889;
-  --blue-2: #2563eb;
+  --blue: #252a91;
+  --blue-2: #2457d6;
   --cyan: #43b9ff;
   --soft: #f5f8fc;
   --white: #ffffff;
@@ -73,7 +73,8 @@ button, input, select, textarea { font: inherit; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(220,230,245,0.8);
 }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--blue); letter-spacing: 0; font-size: 28px; text-transform: none; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 132px; color: var(--blue); }
+.brand img { display: block; width: 156px; max-width: 28vw; height: auto; object-fit: contain; }
 .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px; color: white; background: var(--blue); }
 nav { display: flex; gap: 28px; font-size: 14px; font-weight: 700; color: #263850; }
 nav a:hover { color: var(--blue-2); }
@@ -993,9 +994,28 @@ footer strong { color: white; font-size: 24px; }
 .product-hero-panel span { color: rgba(255,255,255,.78); line-height: 1.55; }
 .category-visual-card,
 .product-detail-image {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 24px;
+}
+.product-image-brand {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(220,230,245,.9);
+  border-radius: 6px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 10px 28px rgba(28,56,100,.08);
+}
+.product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
 }
 .category-visual-card img,
 .product-detail-image img {
@@ -1004,6 +1024,13 @@ footer strong { color: white; font-size: 24px; }
   max-height: 420px;
   object-fit: contain;
   filter: drop-shadow(0 24px 28px rgba(7,19,37,.16));
+}
+.product-detail-image .product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
+  padding: 0;
 }
 .product-section {
   padding: 86px 5vw;
@@ -1212,6 +1239,61 @@ footer strong { color: white; font-size: 24px; }
   font-weight: 900;
   white-space: nowrap;
 }
+.product-anchor-nav {
+  position: sticky;
+  top: 78px;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 5vw;
+  border-bottom: 1px solid rgba(220,230,245,.9);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px);
+}
+.product-anchor-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #33445c;
+  font-size: 13px;
+  font-weight: 900;
+}
+.product-anchor-nav a:hover {
+  color: var(--blue);
+  border-color: rgba(37,42,145,.18);
+  background: #f3f7ff;
+}
+.product-quick-spec-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 5vw;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.product-quick-spec-strip div {
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+  padding: 26px;
+  background: #f8fbff;
+}
+.product-quick-spec-strip strong {
+  color: var(--blue);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-quick-spec-strip span {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
 .product-detail-layout {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -1303,6 +1385,53 @@ footer strong { color: white; font-size: 24px; }
   color: #33445c;
   line-height: 1.45;
   font-weight: 800;
+}
+.product-benefit-grid,
+.product-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.product-benefit-grid article,
+.product-application-grid article {
+  min-height: 168px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbff;
+  box-shadow: 0 12px 30px rgba(28,56,100,.05);
+}
+.product-benefit-grid article {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+}
+.product-benefit-grid span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  color: white;
+  background: var(--blue);
+  font-weight: 900;
+}
+.product-benefit-grid p,
+.product-application-grid p {
+  margin: 0;
+  color: #42516a;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.product-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.product-application-grid strong {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.2;
 }
 .spec-table {
   display: grid;
@@ -1421,6 +1550,45 @@ footer strong { color: white; font-size: 24px; }
   font-size: 20px;
   line-height: 1.25;
 }
+.product-final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(67,185,255,.16), transparent 36%),
+    linear-gradient(145deg, #071325, #252a91);
+  box-shadow: var(--shadow);
+}
+.product-final-cta div {
+  display: grid;
+  gap: 10px;
+}
+.product-final-cta span {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-final-cta h2 {
+  margin: 0;
+  color: white;
+}
+.product-final-cta p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255,255,255,.78);
+}
+.product-final-cta .primary-button {
+  color: var(--blue);
+  background: white;
+  box-shadow: none;
+  white-space: nowrap;
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1479,6 +1647,9 @@ footer strong { color: white; font-size: 24px; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
+  .product-quick-spec-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-benefit-grid,
+  .product-application-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 980px) {
@@ -1518,6 +1689,18 @@ footer strong { color: white; font-size: 24px; }
     grid-template-columns: 1fr;
     align-items: start;
   }
+  .product-anchor-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .product-quick-spec-strip {
+    grid-template-columns: 1fr;
+  }
+  .product-final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
   .product-download-section {
     padding: 20px;
   }
@@ -1540,7 +1723,7 @@ footer strong { color: white; font-size: 24px; }
 <body>
 <main>
   <header class="site-header">
-    <a class="brand" href="../../index.html"><span>Toknav</span></a>
+    <a class="brand" href="../../index.html"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -1602,16 +1785,16 @@ footer strong { color: white; font-size: 24px; }
       <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">Auto-Steering / Land Leveling / 3D Guidance</span><h1>GNSS Auto-Steering, Land Leveling and Machine Control Systems</h1><p>Precision agriculture and machine-control systems for tractors, land leveling, dozer guidance and excavator guidance.</p><div class="product-meta-row"><span>4 products</span><span>Source: Precision Agriculture&amp;Machine Control.pdf</span></div></div>
       <div class="category-visual-card"><img src="../../public/assets/products/tag66.webp" alt="Precision Agriculture &amp; Machine Control"></div>
     </section>
-    <section class="product-section"><div class="product-index-top"><div><h2>Precision Agriculture &amp; Machine Control Lineup</h2><p>Build solution pages for farm dealers and construction machine-control projects.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="tag66.html">
+    <section class="product-section"><div class="product-index-top"><div><h2>Precision Agriculture &amp; Machine Control Lineup</h2><p>Build solution pages for farm dealers and construction machine-control projects.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="../../products/precision-agriculture-machine-control/tag66.html">
     <div class="product-list-image"><img src="../../public/assets/products/tag66.webp" alt="TAG66 Electric Steering Wheel Autonomous Driving System"></div>
     <div class="product-list-copy"><span>Auto-steering system</span><h3>TAG66 Electric Steering Wheel Autonomous Driving System</h3><p>Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.</p><div class="product-mini-specs"><em>2.5cm pass precision under RTK conditions</em><em>0.15-25km/h speed range</em><em>AB line, A+ line and custom curve modes</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tag88.html">
+  </a><a class="product-list-card" href="../../products/precision-agriculture-machine-control/tag88.html">
     <div class="product-list-image"><img src="../../public/assets/products/tag88.webp" alt="TAG88 Automated GNSS Land Leveling System"></div>
     <div class="product-list-copy"><span>Land leveling system</span><h3>TAG88 Automated GNSS Land Leveling System</h3><p>Automated GNSS land leveling system for precision agriculture leveling applications.</p><div class="product-mini-specs"><em>GNSS automated leveling</em><em>Full-network signal coverage</em><em>Base station coverage up to 30km described in brochure</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tmc10.html">
+  </a><a class="product-list-card" href="../../products/precision-agriculture-machine-control/tmc10.html">
     <div class="product-list-image"><img src="../../public/assets/products/tmc10.webp" alt="TMC10 Dozer 3D Guidance System"></div>
     <div class="product-list-copy"><span>Dozer guidance</span><h3>TMC10 Dozer 3D Guidance System</h3><p>Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.</p><div class="product-mini-specs"><em>GNSS positioning</em><em>Sensor fusion</em><em>3D guidance</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tmc20.html">
+  </a><a class="product-list-card" href="../../products/precision-agriculture-machine-control/tmc20.html">
     <div class="product-list-image"><img src="../../public/assets/products/tmc20.webp" alt="TMC20 Excavator Guidance System"></div>
     <div class="product-list-copy"><span>Excavator guidance</span><h3>TMC20 Excavator Guidance System</h3><p>Excavator guidance system with rugged industrial display and high-precision positioning workflow.</p><div class="product-mini-specs"><em>Industrial-grade display</em><em>Rugged durability</em><em>GNSS signal support</em></div><strong>View model details →</strong></div>
   </a></div></section>

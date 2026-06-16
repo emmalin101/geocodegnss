@@ -9,8 +9,8 @@
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
-  --blue: #142889;
-  --blue-2: #2563eb;
+  --blue: #252a91;
+  --blue-2: #2457d6;
   --cyan: #43b9ff;
   --soft: #f5f8fc;
   --white: #ffffff;
@@ -73,7 +73,8 @@ button, input, select, textarea { font: inherit; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(220,230,245,0.8);
 }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--blue); letter-spacing: 0; font-size: 28px; text-transform: none; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 132px; color: var(--blue); }
+.brand img { display: block; width: 156px; max-width: 28vw; height: auto; object-fit: contain; }
 .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px; color: white; background: var(--blue); }
 nav { display: flex; gap: 28px; font-size: 14px; font-weight: 700; color: #263850; }
 nav a:hover { color: var(--blue-2); }
@@ -993,9 +994,28 @@ footer strong { color: white; font-size: 24px; }
 .product-hero-panel span { color: rgba(255,255,255,.78); line-height: 1.55; }
 .category-visual-card,
 .product-detail-image {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 24px;
+}
+.product-image-brand {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(220,230,245,.9);
+  border-radius: 6px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 10px 28px rgba(28,56,100,.08);
+}
+.product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
 }
 .category-visual-card img,
 .product-detail-image img {
@@ -1004,6 +1024,13 @@ footer strong { color: white; font-size: 24px; }
   max-height: 420px;
   object-fit: contain;
   filter: drop-shadow(0 24px 28px rgba(7,19,37,.16));
+}
+.product-detail-image .product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
+  padding: 0;
 }
 .product-section {
   padding: 86px 5vw;
@@ -1212,6 +1239,61 @@ footer strong { color: white; font-size: 24px; }
   font-weight: 900;
   white-space: nowrap;
 }
+.product-anchor-nav {
+  position: sticky;
+  top: 78px;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 5vw;
+  border-bottom: 1px solid rgba(220,230,245,.9);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px);
+}
+.product-anchor-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #33445c;
+  font-size: 13px;
+  font-weight: 900;
+}
+.product-anchor-nav a:hover {
+  color: var(--blue);
+  border-color: rgba(37,42,145,.18);
+  background: #f3f7ff;
+}
+.product-quick-spec-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 5vw;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.product-quick-spec-strip div {
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+  padding: 26px;
+  background: #f8fbff;
+}
+.product-quick-spec-strip strong {
+  color: var(--blue);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-quick-spec-strip span {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
 .product-detail-layout {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -1303,6 +1385,53 @@ footer strong { color: white; font-size: 24px; }
   color: #33445c;
   line-height: 1.45;
   font-weight: 800;
+}
+.product-benefit-grid,
+.product-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.product-benefit-grid article,
+.product-application-grid article {
+  min-height: 168px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbff;
+  box-shadow: 0 12px 30px rgba(28,56,100,.05);
+}
+.product-benefit-grid article {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+}
+.product-benefit-grid span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  color: white;
+  background: var(--blue);
+  font-weight: 900;
+}
+.product-benefit-grid p,
+.product-application-grid p {
+  margin: 0;
+  color: #42516a;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.product-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.product-application-grid strong {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.2;
 }
 .spec-table {
   display: grid;
@@ -1421,6 +1550,45 @@ footer strong { color: white; font-size: 24px; }
   font-size: 20px;
   line-height: 1.25;
 }
+.product-final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(67,185,255,.16), transparent 36%),
+    linear-gradient(145deg, #071325, #252a91);
+  box-shadow: var(--shadow);
+}
+.product-final-cta div {
+  display: grid;
+  gap: 10px;
+}
+.product-final-cta span {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-final-cta h2 {
+  margin: 0;
+  color: white;
+}
+.product-final-cta p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255,255,255,.78);
+}
+.product-final-cta .primary-button {
+  color: var(--blue);
+  background: white;
+  box-shadow: none;
+  white-space: nowrap;
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1479,6 +1647,9 @@ footer strong { color: white; font-size: 24px; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
+  .product-quick-spec-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-benefit-grid,
+  .product-application-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 980px) {
@@ -1518,6 +1689,18 @@ footer strong { color: white; font-size: 24px; }
     grid-template-columns: 1fr;
     align-items: start;
   }
+  .product-anchor-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .product-quick-spec-strip {
+    grid-template-columns: 1fr;
+  }
+  .product-final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
   .product-download-section {
     padding: 20px;
   }
@@ -1540,7 +1723,7 @@ footer strong { color: white; font-size: 24px; }
 <body>
 <main>
   <header class="site-header">
-    <a class="brand" href="../../index.html"><span>Toknav</span></a>
+    <a class="brand" href="../../index.html"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -1602,52 +1785,52 @@ footer strong { color: white; font-size: 24px; }
       <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">RTK / CORS / Base Station</span><h1>High-Precision GNSS Receivers for Surveying, Mapping and Construction</h1><p>TOKNAV GNSS receiver line covers T series RTK rovers, tBase base station receivers and NET660 CORS/base-station receivers for distributors, contractors and system integrators.</p><div class="product-meta-row"><span>16 products</span><span>Source: GNSS Receiver.pdf</span></div></div>
       <div class="category-visual-card"><img src="../../public/assets/products/t50pro.webp" alt="GNSS Receivers"></div>
     </section>
-    <section class="product-section"><div class="product-index-top"><div><h2>GNSS Receivers Lineup</h2><p>Choose RTK receivers, base stations and CORS hardware by application.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="t5lite.html">
+    <section class="product-section"><div class="product-index-top"><div><h2>GNSS Receivers Lineup</h2><p>Choose RTK receivers, base stations and CORS hardware by application.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="../../products/gnss-receivers/t5lite.html">
     <div class="product-list-image"><img src="../../public/assets/products/t5.webp" alt="T5Lite GNSS Receiver"></div>
     <div class="product-list-copy"><span>Entry RTK receiver</span><h3>T5Lite GNSS Receiver</h3><p>Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.</p><div class="product-mini-specs"><em>ARM Cortex-A7 platform</em><em>Linux OS</em><em>Multi-constellation tracking</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t5.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t5.html">
     <div class="product-list-image"><img src="../../public/assets/products/t5.webp" alt="T5 GNSS Receiver"></div>
     <div class="product-list-copy"><span>RTK receiver</span><h3>T5 GNSS Receiver</h3><p>T series RTK receiver for standard field surveying, mapping and stakeout work.</p><div class="product-mini-specs"><em>410-470MHz radio option</em><em>Bluetooth and Wi-Fi</em><em>NMEA-0183 output</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t10pro.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t10pro.html">
     <div class="product-list-image"><img src="../../public/assets/products/t10pro.webp" alt="T10Pro GNSS Receiver"></div>
     <div class="product-list-copy"><span>Professional RTK receiver</span><h3>T10Pro GNSS Receiver</h3><p>Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.</p><div class="product-mini-specs"><em>410-470MHz radio</em><em>RTCM 3.x correction</em><em>LTE communication</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t20pro.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t20pro.html">
     <div class="product-list-image"><img src="../../public/assets/products/t20pro.webp" alt="T20Pro GNSS Receiver"></div>
     <div class="product-list-copy"><span>High-power radio RTK receiver</span><h3>T20Pro GNSS Receiver</h3><p>RTK receiver with integrated high-power transceiver for base-rover field operations.</p><div class="product-mini-specs"><em>1W/2W/5W radio power options</em><em>IMU tilt support</em><em>Long work-time design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tbase.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/tbase.html">
     <div class="product-list-image"><img src="../../public/assets/products/tbase.webp" alt="tBase GNSS Receiver"></div>
     <div class="product-list-copy"><span>Base station receiver</span><h3>tBase GNSS Receiver</h3><p>Base station receiver designed for stable correction transmission and RTK base deployment.</p><div class="product-mini-specs"><em>Integrated high-power radio</em><em>32GB storage</em><em>Base station workflows</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t30.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t30.html">
     <div class="product-list-image"><img src="../../public/assets/products/t30.webp" alt="T30 GNSS Receiver"></div>
     <div class="product-list-copy"><span>RTK receiver</span><h3>T30 GNSS Receiver</h3><p>High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.</p><div class="product-mini-specs"><em>Bluetooth BR+EDR+BLE</em><em>Wi-Fi 802.11 b/g/n</em><em>IP68 receiver class</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t30pro.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t30pro.html">
     <div class="product-list-image"><img src="../../public/assets/products/t30pro.webp" alt="T30Pro GNSS Receiver"></div>
     <div class="product-list-copy"><span>Image survey RTK receiver</span><h3>T30Pro GNSS Receiver</h3><p>Professional RTK receiver supporting image survey workflows for improved field productivity.</p><div class="product-mini-specs"><em>Supports image survey</em><em>Integrated radio</em><em>IMU tilt measurement</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t40.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t40.html">
     <div class="product-list-image"><img src="../../public/assets/products/t40.webp" alt="T40 GNSS Receiver"></div>
     <div class="product-list-copy"><span>AR stakeout RTK receiver</span><h3>T40 GNSS Receiver</h3><p>RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.</p><div class="product-mini-specs"><em>NFC and AR stakeout</em><em>Laser measurement/camera support on selected models</em><em>IP68</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t40pro.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t40pro.html">
     <div class="product-list-image"><img src="../../public/assets/products/t40pro.webp" alt="T40Pro GNSS Receiver"></div>
     <div class="product-list-copy"><span>Photogrammetry RTK receiver</span><h3>T40Pro GNSS Receiver</h3><p>Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.</p><div class="product-mini-specs"><em>Integrated receiver/transmitter</em><em>AR stakeout</em><em>Photogrammetry workflow</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t50basic.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t50basic.html">
     <div class="product-list-image"><img src="../../public/assets/products/t50basic.webp" alt="T50basic GNSS Receiver"></div>
     <div class="product-list-copy"><span>RTK receiver</span><h3>T50basic GNSS Receiver</h3><p>T50 family receiver for distributors needing a practical RTK model with modern field functions.</p><div class="product-mini-specs"><em>NFC</em><em>AR stakeout</em><em>Integrated transceiver radio</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t50.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t50.html">
     <div class="product-list-image"><img src="../../public/assets/products/t50.webp" alt="T50 GNSS Receiver"></div>
     <div class="product-list-copy"><span>Laser RTK receiver</span><h3>T50 GNSS Receiver</h3><p>T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.</p><div class="product-mini-specs"><em>Laser measurement and laser camera</em><em>NFC and AR stakeout</em><em>Integrated high-power transceiver</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="t50pro.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/t50pro.html">
     <div class="product-list-image"><img src="../../public/assets/products/t50pro.webp" alt="T50Pro GNSS Receiver"></div>
     <div class="product-list-copy"><span>Photogrammetry RTK receiver</span><h3>T50Pro GNSS Receiver</h3><p>High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.</p><div class="product-mini-specs"><em>Photogrammetry</em><em>AR stakeout</em><em>RTCM 3.x</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="net660.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/net660.html">
     <div class="product-list-image"><img src="../../public/assets/products/net660.webp" alt="NET660 GNSS Receiver"></div>
     <div class="product-list-copy"><span>CORS/base receiver</span><h3>NET660 GNSS Receiver</h3><p>High-precision CORS/base-station receiver for monitoring, reference station and network applications.</p><div class="product-mini-specs"><em>RJ45 Ethernet</em><em>Serial ports</em><em>32GB storage</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="net660i.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/net660i.html">
     <div class="product-list-image"><img src="../../public/assets/products/net660i.webp" alt="NET660i GNSS Receiver"></div>
     <div class="product-list-copy"><span>Miniaturized GNSS receiver</span><h3>NET660i GNSS Receiver</h3><p>Compact GNSS receiver designed for system integration, CORS and monitoring deployments.</p><div class="product-mini-specs"><em>ARM Cortex-A7 platform</em><em>RS232 serial</em><em>Ethernet</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="net660i-h.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/net660i-h.html">
     <div class="product-list-image"><img src="../../public/assets/products/net660i.webp" alt="NET660i-H GNSS Receiver"></div>
     <div class="product-list-copy"><span>Cost-effective compact GNSS receiver</span><h3>NET660i-H GNSS Receiver</h3><p>Miniaturized receiver for integration projects that need compact installation and robust interfaces.</p><div class="product-mini-specs"><em>Cost-effective miniaturized design</em><em>Industrial temperature range</em><em>Ethernet and serial connectivity</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="net660i-1u.html">
+  </a><a class="product-list-card" href="../../products/gnss-receivers/net660i-1u.html">
     <div class="product-list-image"><img src="../../public/assets/products/net660i.webp" alt="NET660i-1U GNSS Receiver"></div>
     <div class="product-list-copy"><span>Rack-style GNSS receiver</span><h3>NET660i-1U GNSS Receiver</h3><p>1U GNSS receiver variant for station-room deployment and professional infrastructure projects.</p><div class="product-mini-specs"><em>1U installation concept</em><em>GNSS and network interfaces</em><em>Industrial receiver design</em></div><strong>View model details →</strong></div>
   </a></div></section>

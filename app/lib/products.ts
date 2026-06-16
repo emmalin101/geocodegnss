@@ -15,6 +15,13 @@ export type ProductDownload = {
   kind: "catalog" | "datasheet" | "quote";
 };
 
+export type ProductDatasheet = {
+  label: string;
+  description: string;
+  href: string;
+  updated: string;
+};
+
 export type Product = {
   slug: string;
   name: string;
@@ -1171,6 +1178,105 @@ const catalogDownloads: Record<string, ProductDownload> = {
   }
 };
 
+const modelDatasheets: Record<string, ProductDatasheet> = {
+  t5lite: {
+    label: "Download T5Lite Datasheet",
+    description: "Latest T5Lite economical handheld RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t5lite.pdf",
+    updated: "2025-09"
+  },
+  t5: {
+    label: "Download T5 Datasheet",
+    description: "Latest T5 handheld convenient RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t5.pdf",
+    updated: "2025-09"
+  },
+  t10pro: {
+    label: "Download T10Pro Datasheet",
+    description: "Latest T10Pro engineering-level RTK datasheet, updated October 2025.",
+    href: "/assets/downloads/datasheets/t10pro.pdf",
+    updated: "2025-10"
+  },
+  t20pro: {
+    label: "Download T20Pro Datasheet",
+    description: "Latest T20Pro multifunctional intelligent RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t20pro.pdf",
+    updated: "2025-09"
+  },
+  tbase: {
+    label: "Download tBase Datasheet",
+    description: "Latest tBase professional base station RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/tbase.pdf",
+    updated: "2025-09"
+  },
+  t30: {
+    label: "Download T30 Datasheet",
+    description: "Latest T30 laser measurement RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t30.pdf",
+    updated: "2025-09"
+  },
+  t30pro: {
+    label: "Download T30Pro Datasheet",
+    description: "Latest T30Pro photogrammetry and AR stakeout RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t30pro.pdf",
+    updated: "2025-09"
+  },
+  t40: {
+    label: "Download T40 Datasheet",
+    description: "Latest T40 AR stakeout and laser RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t40.pdf",
+    updated: "2025-09"
+  },
+  t40pro: {
+    label: "Download T40Pro Datasheet",
+    description: "Latest T40Pro photogrammetry RTK datasheet, updated September 2025.",
+    href: "/assets/downloads/datasheets/t40pro.pdf",
+    updated: "2025-09"
+  },
+  t50basic: {
+    label: "Download T50basic Datasheet",
+    description: "Latest T50basic palm-sized AR IMU RTK datasheet, updated November 2025.",
+    href: "/assets/downloads/datasheets/t50basic.pdf",
+    updated: "2025-11"
+  },
+  t50: {
+    label: "Download T50 Datasheet",
+    description: "Latest T50 palm-sized laser RTK datasheet, updated April 2026.",
+    href: "/assets/downloads/datasheets/t50.pdf",
+    updated: "2026-04"
+  },
+  t50pro: {
+    label: "Download T50Pro Datasheet",
+    description: "Latest T50Pro palm-sized photogrammetry RTK datasheet, updated November 2025.",
+    href: "/assets/downloads/datasheets/t50pro.pdf",
+    updated: "2025-11"
+  },
+  net660: {
+    label: "Download NET660 Datasheet",
+    description: "NET660 CORS and base station receiver datasheet for infrastructure projects.",
+    href: "/assets/downloads/datasheets/net660.pdf",
+    updated: "2024-06"
+  },
+  net660i: {
+    label: "Download NET660i Datasheet",
+    description: "NET660i miniaturized GNSS receiver datasheet for CORS and system integration.",
+    href: "/assets/downloads/datasheets/net660i.pdf",
+    updated: "2023-11"
+  },
+  "net660i-h": {
+    label: "Download NET660i-H Datasheet",
+    description: "NET660i-H compact GNSS receiver datasheet for cost-effective integration projects.",
+    href: "/assets/downloads/datasheets/net660i-h.pdf",
+    updated: "2023-11"
+  },
+  "net660i-1u": {
+    label: "Download NET660i Family Datasheet",
+    description: "NET660i family datasheet for rack-style and station-room receiver planning.",
+    href: "/assets/downloads/datasheets/net660i.pdf",
+    updated: "2023-11"
+  }
+};
+
 export function getCategory(slug: string) {
   return productCategories.find((category) => category.slug === slug);
 }
@@ -1204,20 +1310,102 @@ export function getProductInquiryUrl(product: Product) {
 export function getProductDownloads(product: Product): ProductDownload[] {
   const inquiryHref = getProductInquiryUrl(product);
   const catalog = catalogDownloads[product.categorySlug];
+  const datasheet = modelDatasheets[product.slug];
   return [
     ...(catalog ? [catalog] : []),
-    {
-      label: "Ask for Latest Model Datasheet",
-      description: `Request the latest ${product.name} datasheet, packing list, dealer price and firmware-related notes before ordering.`,
-      href: inquiryHref,
-      kind: "datasheet"
-    },
+    ...(datasheet
+      ? [
+          {
+            label: datasheet.label,
+            description: datasheet.description,
+            href: datasheet.href,
+            kind: "datasheet"
+          }
+        ]
+      : [
+          {
+            label: "Ask for Latest Model Datasheet",
+            description: `Request the latest ${product.name} datasheet, packing list, dealer price and firmware-related notes before ordering.`,
+            href: inquiryHref,
+            kind: "datasheet"
+          }
+        ]),
     {
       label: "Send Project Requirements",
       description: "Share quantity, country, application, correction method and accessory needs for a faster quotation.",
       href: inquiryHref,
       kind: "quote"
     }
+  ];
+}
+
+export function getProductDatasheet(product: Product) {
+  return modelDatasheets[product.slug];
+}
+
+export function getProductQuickSpecs(product: Product): ProductSpec[] {
+  const specs = getProductSpecGroups(product).flatMap((group) => group.specs);
+  const preferredLabels = [
+    "Channels",
+    "Channels / output",
+    "Update frequency",
+    "RTK accuracy",
+    "Tilt correction",
+    "Radio power",
+    "Radio",
+    "Battery",
+    "Work time",
+    "Protection",
+    "Dimensions / weight"
+  ];
+  const picked: ProductSpec[] = [];
+  for (const label of preferredLabels) {
+    const spec = specs.find((item) => item.label === label);
+    if (spec) picked.push(spec);
+    if (picked.length >= 4) break;
+  }
+
+  if (picked.length >= 3) return picked;
+
+  return product.highlights.slice(0, 4).map((highlight) => ({
+    label: highlight,
+    value: product.type
+  }));
+}
+
+export function getProductBuyerBenefits(product: Product) {
+  if (["t30", "t40", "t50"].includes(product.slug)) {
+    return [
+      "Laser-assisted measurement helps crews collect difficult or unsafe points without occupying every point directly.",
+      "AR stakeout and visual workflows reduce field rework on construction and layout projects.",
+      "Rugged IP68 housing and long battery design support outdoor survey teams and dealer demo kits."
+    ];
+  }
+  if (["t30pro", "t40pro", "t50pro"].includes(product.slug)) {
+    return [
+      "Photogrammetry and AR workflows help overseas dealers position the model as a productivity upgrade.",
+      "Full-system GNSS tracking, IMU tilt and integrated communication options cover common survey scenarios.",
+      "The compact receiver package is suitable for distributor demos, tender preparation and project delivery."
+    ];
+  }
+  if (["t20pro", "tbase"].includes(product.slug)) {
+    return [
+      "High-power radio capability is useful for base-rover operations in open construction and survey sites.",
+      "Integrated 4G, radio, Bluetooth and Wi-Fi reduce the need for extra field accessories.",
+      "The model fits B2B buyers who need stable correction transmission and practical field endurance."
+    ];
+  }
+  if (product.slug.startsWith("net660")) {
+    return [
+      "Designed for CORS, monitoring and reference station infrastructure where interfaces and protocols matter.",
+      "Linux platform, Ethernet and serial connectivity support system integration and remote management workflows.",
+      "The receiver family is suitable for integrators that need project documentation and long-term deployment planning."
+    ];
+  }
+  return [
+    "Compact receiver design helps dealers offer an accessible RTK option for surveying and mapping customers.",
+    "Multi-constellation tracking, Linux platform and IMU support cover mainstream field requirements.",
+    "The model can be quoted with a complete kit, including controller, pole, charger, case and accessories."
   ];
 }
 

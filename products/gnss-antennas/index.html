@@ -9,8 +9,8 @@
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
-  --blue: #142889;
-  --blue-2: #2563eb;
+  --blue: #252a91;
+  --blue-2: #2457d6;
   --cyan: #43b9ff;
   --soft: #f5f8fc;
   --white: #ffffff;
@@ -73,7 +73,8 @@ button, input, select, textarea { font: inherit; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(220,230,245,0.8);
 }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--blue); letter-spacing: 0; font-size: 28px; text-transform: none; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 132px; color: var(--blue); }
+.brand img { display: block; width: 156px; max-width: 28vw; height: auto; object-fit: contain; }
 .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px; color: white; background: var(--blue); }
 nav { display: flex; gap: 28px; font-size: 14px; font-weight: 700; color: #263850; }
 nav a:hover { color: var(--blue-2); }
@@ -993,9 +994,28 @@ footer strong { color: white; font-size: 24px; }
 .product-hero-panel span { color: rgba(255,255,255,.78); line-height: 1.55; }
 .category-visual-card,
 .product-detail-image {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 24px;
+}
+.product-image-brand {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(220,230,245,.9);
+  border-radius: 6px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 10px 28px rgba(28,56,100,.08);
+}
+.product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
 }
 .category-visual-card img,
 .product-detail-image img {
@@ -1004,6 +1024,13 @@ footer strong { color: white; font-size: 24px; }
   max-height: 420px;
   object-fit: contain;
   filter: drop-shadow(0 24px 28px rgba(7,19,37,.16));
+}
+.product-detail-image .product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
+  padding: 0;
 }
 .product-section {
   padding: 86px 5vw;
@@ -1212,6 +1239,61 @@ footer strong { color: white; font-size: 24px; }
   font-weight: 900;
   white-space: nowrap;
 }
+.product-anchor-nav {
+  position: sticky;
+  top: 78px;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 5vw;
+  border-bottom: 1px solid rgba(220,230,245,.9);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px);
+}
+.product-anchor-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #33445c;
+  font-size: 13px;
+  font-weight: 900;
+}
+.product-anchor-nav a:hover {
+  color: var(--blue);
+  border-color: rgba(37,42,145,.18);
+  background: #f3f7ff;
+}
+.product-quick-spec-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 5vw;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.product-quick-spec-strip div {
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+  padding: 26px;
+  background: #f8fbff;
+}
+.product-quick-spec-strip strong {
+  color: var(--blue);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-quick-spec-strip span {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
 .product-detail-layout {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -1303,6 +1385,53 @@ footer strong { color: white; font-size: 24px; }
   color: #33445c;
   line-height: 1.45;
   font-weight: 800;
+}
+.product-benefit-grid,
+.product-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.product-benefit-grid article,
+.product-application-grid article {
+  min-height: 168px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbff;
+  box-shadow: 0 12px 30px rgba(28,56,100,.05);
+}
+.product-benefit-grid article {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+}
+.product-benefit-grid span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  color: white;
+  background: var(--blue);
+  font-weight: 900;
+}
+.product-benefit-grid p,
+.product-application-grid p {
+  margin: 0;
+  color: #42516a;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.product-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.product-application-grid strong {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.2;
 }
 .spec-table {
   display: grid;
@@ -1421,6 +1550,45 @@ footer strong { color: white; font-size: 24px; }
   font-size: 20px;
   line-height: 1.25;
 }
+.product-final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(67,185,255,.16), transparent 36%),
+    linear-gradient(145deg, #071325, #252a91);
+  box-shadow: var(--shadow);
+}
+.product-final-cta div {
+  display: grid;
+  gap: 10px;
+}
+.product-final-cta span {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-final-cta h2 {
+  margin: 0;
+  color: white;
+}
+.product-final-cta p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255,255,255,.78);
+}
+.product-final-cta .primary-button {
+  color: var(--blue);
+  background: white;
+  box-shadow: none;
+  white-space: nowrap;
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1479,6 +1647,9 @@ footer strong { color: white; font-size: 24px; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
+  .product-quick-spec-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-benefit-grid,
+  .product-application-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 980px) {
@@ -1518,6 +1689,18 @@ footer strong { color: white; font-size: 24px; }
     grid-template-columns: 1fr;
     align-items: start;
   }
+  .product-anchor-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .product-quick-spec-strip {
+    grid-template-columns: 1fr;
+  }
+  .product-final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
   .product-download-section {
     padding: 20px;
   }
@@ -1540,7 +1723,7 @@ footer strong { color: white; font-size: 24px; }
 <body>
 <main>
   <header class="site-header">
-    <a class="brand" href="../../index.html"><span>Toknav</span></a>
+    <a class="brand" href="../../index.html"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -1602,40 +1785,40 @@ footer strong { color: white; font-size: 24px; }
       <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">Choke Ring / Survey / Helix</span><h1>GNSS Antennas for High-Precision Positioning Systems</h1><p>Choke ring, survey and helix antenna families for CORS stations, monitoring, surveying, handheld and machine-control applications.</p><div class="product-meta-row"><span>12 products</span><span>Source: GNSS Antennas.pdf</span></div></div>
       <div class="category-visual-card"><img src="../../public/assets/products/tca930.webp" alt="GNSS Antennas"></div>
     </section>
-    <section class="product-section"><div class="product-index-top"><div><h2>GNSS Antennas Lineup</h2><p>Select antenna type by signal tracking, environment and installation method.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="tca920.html">
+    <section class="product-section"><div class="product-index-top"><div><h2>GNSS Antennas Lineup</h2><p>Select antenna type by signal tracking, environment and installation method.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="../../products/gnss-antennas/tca920.html">
     <div class="product-list-image"><img src="../../public/assets/products/tca930.webp" alt="TCA920 Choke Ring Antenna"></div>
     <div class="product-list-copy"><span>Choke ring antenna</span><h3>TCA920 Choke Ring Antenna</h3><p>High-performance choke ring antenna for stable multi-frequency GNSS signal reception.</p><div class="product-mini-specs"><em>GPS L1/L2/L5/L-Band</em><em>GLONASS L1/L2/L3</em><em>BDS B1/B2/B3</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tca930.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tca930.html">
     <div class="product-list-image"><img src="../../public/assets/products/tca930.webp" alt="TCA930 Choke Ring Antenna"></div>
     <div class="product-list-copy"><span>Choke ring antenna</span><h3>TCA930 Choke Ring Antenna</h3><p>High-performance choke ring antenna for CORS and monitoring applications.</p><div class="product-mini-specs"><em>Multi-frequency tracking</em><em>Choke ring structure</em><em>Professional base installation</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tca930m.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tca930m.html">
     <div class="product-list-image"><img src="../../public/assets/products/tca930.webp" alt="TCA930M Choke Ring Antenna"></div>
     <div class="product-list-copy"><span>Choke ring antenna</span><h3>TCA930M Choke Ring Antenna</h3><p>Choke ring antenna variant for high-precision fixed GNSS applications.</p><div class="product-mini-specs"><em>Multi-frequency GNSS</em><em>Professional fixed installation</em><em>Choke ring design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tsa320.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tsa320.html">
     <div class="product-list-image"><img src="../../public/assets/products/tsa520.webp" alt="TSA320 Survey GNSS Antenna"></div>
     <div class="product-list-copy"><span>Survey antenna</span><h3>TSA320 Survey GNSS Antenna</h3><p>External measurement antenna for survey-grade positioning workflows.</p><div class="product-mini-specs"><em>Survey GNSS antenna</em><em>External measurement antenna</em><em>Multi-frequency coverage</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tsa500.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tsa500.html">
     <div class="product-list-image"><img src="../../public/assets/products/tsa520.webp" alt="TSA500 Survey GNSS Antenna"></div>
     <div class="product-list-copy"><span>Survey antenna</span><h3>TSA500 Survey GNSS Antenna</h3><p>Survey GNSS antenna designed for superior field satellite reception.</p><div class="product-mini-specs"><em>External antenna</em><em>Survey-grade use</em><em>Stable GNSS reception</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tsa520.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tsa520.html">
     <div class="product-list-image"><img src="../../public/assets/products/tsa520.webp" alt="TSA520 Survey GNSS Antenna"></div>
     <div class="product-list-copy"><span>Survey antenna</span><h3>TSA520 Survey GNSS Antenna</h3><p>External measurement antenna covering four major GNSS systems for survey applications.</p><div class="product-mini-specs"><em>Covers four GNSS systems</em><em>External measurement antenna</em><em>Survey-grade reception</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tsa1000.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tsa1000.html">
     <div class="product-list-image"><img src="../../public/assets/products/tsa520.webp" alt="TSA1000 Survey GNSS Antenna"></div>
     <div class="product-list-copy"><span>Survey antenna</span><h3>TSA1000 Survey GNSS Antenna</h3><p>Survey antenna for high-precision GNSS signal reception in field applications.</p><div class="product-mini-specs"><em>External measurement antenna</em><em>Survey-grade design</em><em>Multi-system support</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tha-x601a.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tha-x601a.html">
     <div class="product-list-image"><img src="../../public/assets/products/tha-x601a.webp" alt="THA-X601A Helix Antenna"></div>
     <div class="product-list-copy"><span>Helix antenna</span><h3>THA-X601A Helix Antenna</h3><p>High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.</p><div class="product-mini-specs"><em>External handheld antenna</em><em>High-precision positioning support</em><em>Compact helix design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tha-x603a.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tha-x603a.html">
     <div class="product-list-image"><img src="../../public/assets/products/tha-x601a.webp" alt="THA-X603A Helix Antenna"></div>
     <div class="product-list-copy"><span>Helix antenna</span><h3>THA-X603A Helix Antenna</h3><p>High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.</p><div class="product-mini-specs"><em>External handheld antenna</em><em>High-precision positioning support</em><em>Compact helix design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tha-7603a.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tha-7603a.html">
     <div class="product-list-image"><img src="../../public/assets/products/tha-x601a.webp" alt="THA-7603A Helix Antenna"></div>
     <div class="product-list-copy"><span>Helix antenna</span><h3>THA-7603A Helix Antenna</h3><p>High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.</p><div class="product-mini-specs"><em>External handheld antenna</em><em>High-precision positioning support</em><em>Compact helix design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tha-7609a.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tha-7609a.html">
     <div class="product-list-image"><img src="../../public/assets/products/tha-x601a.webp" alt="THA-7609A Helix Antenna"></div>
     <div class="product-list-copy"><span>Helix antenna</span><h3>THA-7609A Helix Antenna</h3><p>High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.</p><div class="product-mini-specs"><em>External handheld antenna</em><em>High-precision positioning support</em><em>Compact helix design</em></div><strong>View model details →</strong></div>
-  </a><a class="product-list-card" href="tha-9603a.html">
+  </a><a class="product-list-card" href="../../products/gnss-antennas/tha-9603a.html">
     <div class="product-list-image"><img src="../../public/assets/products/tha-x601a.webp" alt="THA-9603A Helix Antenna"></div>
     <div class="product-list-copy"><span>Helix antenna</span><h3>THA-9603A Helix Antenna</h3><p>High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.</p><div class="product-mini-specs"><em>External handheld antenna</em><em>High-precision positioning support</em><em>Compact helix design</em></div><strong>View model details →</strong></div>
   </a></div></section>

@@ -5,9 +5,12 @@ import {
   getCategory,
   getProduct,
   getProductDownloads,
+  getProductDatasheet,
+  getProductBuyerBenefits,
   getProductFaqs,
   getProductInquiryUrl,
   getProductMetaDescription,
+  getProductQuickSpecs,
   getProductSeoTitle,
   getProductSpecGroups,
   getProductsByCategory,
@@ -47,6 +50,9 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     .slice(0, 4);
   const specGroups = getProductSpecGroups(product);
   const downloads = getProductDownloads(product);
+  const datasheet = getProductDatasheet(product);
+  const quickSpecs = getProductQuickSpecs(product);
+  const buyerBenefits = getProductBuyerBenefits(product);
   const inquiryUrl = getProductInquiryUrl(product);
   const faqs = getProductFaqs(product);
   const productSchema = {
@@ -115,8 +121,28 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
           </div>
         </div>
         <div className="product-detail-image">
+          <span className="product-image-brand">
+            <img src="/assets/toknav-logo-blue.png" alt="TOKNAV" />
+          </span>
           <img src={product.image} alt={product.name} />
         </div>
+      </section>
+
+      <nav className="product-anchor-nav" aria-label="Product sections">
+        <a href="#overview">Overview</a>
+        <a href="#applications">Applications</a>
+        <a href="#specifications">Specifications</a>
+        <a href="#downloads">Downloads</a>
+        <a href="#inquiry">Inquiry</a>
+      </nav>
+
+      <section className="product-quick-spec-strip">
+        {quickSpecs.map((spec) => (
+          <div key={spec.label}>
+            <strong>{spec.label}</strong>
+            <span>{spec.value}</span>
+          </div>
+        ))}
       </section>
 
       <section className="product-detail-layout">
@@ -132,6 +158,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
             <FileText size={24} />
             <strong>Catalog source</strong>
             <span>{product.source}</span>
+            {datasheet ? <span>Latest model file: {datasheet.updated}</span> : null}
           </div>
           <div className="product-aside-card muted-card">
             <Send size={24} />
@@ -141,7 +168,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         </aside>
 
         <div className="product-detail-main">
-          <section>
+          <section id="overview">
             <h2>Key Features</h2>
             <div className="feature-grid">
               {product.highlights.map((feature) => (
@@ -155,11 +182,56 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
 
           <section>
             <div className="product-section-heading">
+              <span>Buyer-focused value</span>
+              <h2>Why overseas buyers choose this model</h2>
+              <p>
+                Structured for dealers, contractors and system integrators
+                comparing receiver performance, kit completeness and after-sales
+                preparation.
+              </p>
+            </div>
+            <div className="product-benefit-grid">
+              {buyerBenefits.map((benefit) => (
+                <article key={benefit}>
+                  <span>✓</span>
+                  <p>{benefit}</p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="applications">
+            <div className="product-section-heading">
+              <span>Applications</span>
+              <h2>Typical project scenarios</h2>
+              <p>
+                Use the application cards as a quotation starting point. TOKNAV
+                can confirm the final kit after checking project environment and
+                delivery requirements.
+              </p>
+            </div>
+            <div className="product-application-grid">
+              {product.applications.map((item) => (
+                <article key={item}>
+                  <strong>{item}</strong>
+                  <p>
+                    Recommended configuration and accessories can be confirmed
+                    according to the project site, correction method and buyer's
+                    country.
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          <section id="specifications">
+            <div className="product-section-heading">
               <span>Brochure-based details</span>
               <h2>Complete Specifications</h2>
               <p>
                 The table below organizes key parameters from TOKNAV catalogs
-                into procurement-friendly groups for easier comparison.
+                and model datasheets into procurement-friendly groups for easier
+                comparison.
               </p>
             </div>
             <div className="spec-group-stack">
@@ -193,7 +265,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
               {downloads.map((item) => (
                 <a
                   className={`download-card ${item.kind}`}
-                  download={item.kind === "catalog" ? true : undefined}
+                  download={item.kind !== "quote" && item.href.endsWith(".pdf") ? true : undefined}
                   href={item.href}
                   key={item.label}
                 >
@@ -240,6 +312,21 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 </article>
               ))}
             </div>
+          </section>
+
+          <section className="product-final-cta" id="inquiry">
+            <div>
+              <span>Procurement support</span>
+              <h2>Need help choosing a complete receiver kit?</h2>
+              <p>
+                Send your model, target quantity, market country, application
+                and accessory preference. TOKNAV can prepare a practical quote
+                package for distributor review or project bidding.
+              </p>
+            </div>
+            <a className="primary-button" href={inquiryUrl}>
+              Get Model Quote <ArrowRight size={18} />
+            </a>
           </section>
 
           {related.length > 0 && (

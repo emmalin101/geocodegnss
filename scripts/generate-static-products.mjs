@@ -17,6 +17,7 @@ function loadProductModule() {
     .replace(/: ProductSpec\[\]/g, "")
     .replace(/: ProductSpecGroup\[\]/g, "")
     .replace(/: Record<string, ProductDownload>/g, "")
+    .replace(/: Record<string, ProductDatasheet>/g, "")
     .replace(/: Record<string, ProductSpecGroup\[\]>/g, "")
     .replace(/: Record<string, ProductSpecGroup\[\]\>/g, "")
     .replace(/: string/g, "")
@@ -35,6 +36,9 @@ globalThis.__toknavProducts = {
   getProductSpecGroups,
   getProductInquiryUrl,
   getProductDownloads,
+  getProductDatasheet,
+  getProductQuickSpecs,
+  getProductBuyerBenefits,
   getProductSeoTitle,
   getProductMetaDescription,
   getProductFaqs
@@ -55,6 +59,9 @@ const {
   getProductsByCategory,
   getProductSpecGroups,
   getProductDownloads,
+  getProductDatasheet,
+  getProductQuickSpecs,
+  getProductBuyerBenefits,
   getProductSeoTitle,
   getProductMetaDescription,
   getProductFaqs
@@ -108,7 +115,7 @@ ${schema}
 <body>
 <main>
   <header class="site-header">
-    <a class="brand" href="${prefix}index.html"><span>Toknav</span></a>
+    <a class="brand" href="${prefix}index.html"><img src="${prefix}public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -169,7 +176,7 @@ function productsIndex() {
 
 function categoryPage(category) {
   const categoryProducts = getProductsByCategory(category.slug);
-  const cards = categoryProducts.map((product) => `<a class="product-list-card" href="${product.slug}.html">
+  const cards = categoryProducts.map((product) => `<a class="product-list-card" href="${"../".repeat(2)}products/${category.slug}/${product.slug}.html">
     <div class="product-list-image"><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
     <div class="product-list-copy"><span>${esc(product.type)}</span><h3>${esc(product.name)}</h3><p>${esc(product.excerpt)}</p><div class="product-mini-specs">${product.highlights.slice(0, 3).map((item) => `<em>${esc(item)}</em>`).join("")}</div><strong>View model details →</strong></div>
   </a>`).join("");
@@ -191,6 +198,9 @@ function detailPage(category, product) {
   const related = getProductsByCategory(category.slug).filter((item) => item.slug !== product.slug).slice(0, 4);
   const specGroups = getProductSpecGroups(product);
   const downloads = getProductDownloads(product);
+  const quickSpecs = getProductQuickSpecs(product);
+  const datasheet = getProductDatasheet(product);
+  const buyerBenefits = getProductBuyerBenefits(product);
   const faqs = getProductFaqs(product);
   const inquiryHref = relDownload(downloads.find((item) => item.kind === "quote")?.href ?? "/inquiry", 2);
   const productSchema = {
@@ -213,11 +223,14 @@ function detailPage(category, product) {
   const specHtml = specGroups.map((group) => `<div class="spec-group"><h3>${esc(group.title)}</h3><div class="spec-table">${group.specs.map((spec) => `<div><strong>${esc(spec.label)}</strong><span>${esc(spec.value)}</span></div>`).join("")}</div></div>`).join("");
   const downloadHtml = downloads.map((item) => {
     const href = relDownload(item.href, 2);
-    const downloadAttr = item.kind === "catalog" ? " download" : "";
+    const downloadAttr = item.kind !== "quote" && href.endsWith(".pdf") ? " download" : "";
     return `<a class="download-card ${item.kind}" href="${attr(href)}"${downloadAttr}><span>${item.kind === "quote" ? "↗" : "↓"}</span><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span></a>`;
   }).join("");
   const faqHtml = faqs.map((faq) => `<article><span>?</span><div><h3>${esc(faq.question)}</h3><p>${esc(faq.answer)}</p></div></article>`).join("");
   const relatedHtml = related.map((item) => `<a href="${item.slug}.html"><img src="${relAsset(item.image, 2)}" alt="${attr(item.name)}"><strong>${esc(item.name)}</strong><span>${esc(item.type)}</span></a>`).join("");
+  const quickSpecHtml = quickSpecs.map((spec) => `<div><strong>${esc(spec.label)}</strong><span>${esc(spec.value)}</span></div>`).join("");
+  const benefitHtml = buyerBenefits.map((benefit) => `<article><span>✓</span><p>${esc(benefit)}</p></article>`).join("");
+  const appHtml = product.applications.map((app) => `<article><strong>${esc(app)}</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article>`).join("");
 
   return shell({
     title: getProductSeoTitle(product),
@@ -226,16 +239,21 @@ function detailPage(category, product) {
     schema: `<script type="application/ld+json">${JSON.stringify(productSchema)}</script><script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`,
     body: `<section class="product-detail-hero">
       <div class="product-detail-copy"><a class="back-link" href="index.html">← Back to ${esc(category.name)}</a><span class="contact-label">${esc(product.type)}</span><h1>${esc(product.name)}</h1><p>${esc(product.excerpt)}</p><div class="product-detail-actions"><a class="primary-button" href="${attr(inquiryHref)}">Get a Quote →</a><a class="secondary-button" href="#downloads">Download Catalog</a></div></div>
-      <div class="product-detail-image"><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
+      <div class="product-detail-image"><span class="product-image-brand"><img src="${"../".repeat(2)}public/assets/toknav-logo-blue.png" alt="TOKNAV"></span><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
     </section>
+    <nav class="product-anchor-nav" aria-label="Product sections"><a href="#overview">Overview</a><a href="#applications">Applications</a><a href="#specifications">Specifications</a><a href="#downloads">Downloads</a><a href="#inquiry">Inquiry</a></nav>
+    <section class="product-quick-spec-strip">${quickSpecHtml}</section>
     <section class="product-detail-layout">
-      <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong>${product.applications.map((item) => `<span>${esc(item)}</span>`).join("")}</div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>${esc(product.source)}</span></div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
+      <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong>${product.applications.map((item) => `<span>${esc(item)}</span>`).join("")}</div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>${esc(product.source)}</span>${datasheet ? `<span>Latest model file: ${esc(datasheet.updated)}</span>` : ""}</div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
       <div class="product-detail-main">
-        <section><h2>Key Features</h2><div class="feature-grid">${product.highlights.map((feature) => `<div><span>✓</span><span>${esc(feature)}</span></div>`).join("")}</div></section>
-        <section><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack">${specHtml}</div></section>
+        <section id="overview"><h2>Key Features</h2><div class="feature-grid">${product.highlights.map((feature) => `<div><span>✓</span><span>${esc(feature)}</span></div>`).join("")}</div></section>
+        <section><div class="product-section-heading"><span>Buyer-focused value</span><h2>Why overseas buyers choose this model</h2><p>Structured for dealers, contractors and system integrators comparing receiver performance, kit completeness and after-sales preparation.</p></div><div class="product-benefit-grid">${benefitHtml}</div></section>
+        <section id="applications"><div class="product-section-heading"><span>Applications</span><h2>Typical project scenarios</h2><p>Use the application cards as a quotation starting point. TOKNAV can confirm the final kit after checking project environment and delivery requirements.</p></div><div class="product-application-grid">${appHtml}</div></section>
+        <section id="specifications"><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs and model datasheets into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack">${specHtml}</div></section>
         <section class="product-download-section" id="downloads"><div class="product-section-heading"><span>Downloads and inquiry package</span><h2>Get Catalog, Datasheet and Quote Support</h2><p>Download the category brochure or send the model requirement directly to TOKNAV sales for the latest datasheet, price and recommended accessories.</p></div><div class="download-grid">${downloadHtml}</div><div class="quote-cta-panel"><div><span>Ready for quotation?</span><strong>Send your target quantity and application for ${esc(product.name)}.</strong></div><a class="primary-button" href="${attr(inquiryHref)}">Send Requirements →</a></div></section>
         <section><h2>Buyer Notes</h2><p>Parameters may be updated by the manufacturer. For quotation, distributor cooperation or OEM/ODM projects, please send your target application, quantity, country and required accessories so TOKNAV can confirm the latest configuration.</p></section>
         <section><div class="product-section-heading"><span>Procurement FAQ</span><h2>Common Questions Before Purchase</h2></div><div class="product-faq-list">${faqHtml}</div></section>
+        <section class="product-final-cta" id="inquiry"><div><span>Procurement support</span><h2>Need help choosing a complete receiver kit?</h2><p>Send your model, target quantity, market country, application and accessory preference. TOKNAV can prepare a practical quote package for distributor review or project bidding.</p></div><a class="primary-button" href="${attr(inquiryHref)}">Get Model Quote →</a></section>
         ${related.length ? `<section><h2>Related Models</h2><div class="related-products">${relatedHtml}</div></section>` : ""}
       </div>
     </section>`

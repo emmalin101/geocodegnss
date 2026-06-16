@@ -6,7 +6,7 @@ export default function SiteHeader() {
   return (
     <header className="site-header">
       <a className="brand" href="/">
-        <span>Toknav</span>
+        <img src="/assets/toknav-logo-blue.png" alt="TOKNAV" />
       </a>
       <nav className="main-nav" aria-label="Primary navigation">
         <details className="mega-nav-item">

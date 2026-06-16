@@ -9,8 +9,8 @@
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
-  --blue: #142889;
-  --blue-2: #2563eb;
+  --blue: #252a91;
+  --blue-2: #2457d6;
   --cyan: #43b9ff;
   --soft: #f5f8fc;
   --white: #ffffff;
@@ -73,7 +73,8 @@ button, input, select, textarea { font: inherit; }
   backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(220,230,245,0.8);
 }
-.brand { display: flex; align-items: center; gap: 12px; font-weight: 900; color: var(--blue); letter-spacing: 0; font-size: 28px; text-transform: none; }
+.brand { display: flex; align-items: center; gap: 12px; min-width: 132px; color: var(--blue); }
+.brand img { display: block; width: 156px; max-width: 28vw; height: auto; object-fit: contain; }
 .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 8px; color: white; background: var(--blue); }
 nav { display: flex; gap: 28px; font-size: 14px; font-weight: 700; color: #263850; }
 nav a:hover { color: var(--blue-2); }
@@ -993,9 +994,28 @@ footer strong { color: white; font-size: 24px; }
 .product-hero-panel span { color: rgba(255,255,255,.78); line-height: 1.55; }
 .category-visual-card,
 .product-detail-image {
+  position: relative;
   display: grid;
   place-items: center;
   padding: 24px;
+}
+.product-image-brand {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid rgba(220,230,245,.9);
+  border-radius: 6px;
+  background: rgba(255,255,255,.82);
+  box-shadow: 0 10px 28px rgba(28,56,100,.08);
+}
+.product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
 }
 .category-visual-card img,
 .product-detail-image img {
@@ -1004,6 +1024,13 @@ footer strong { color: white; font-size: 24px; }
   max-height: 420px;
   object-fit: contain;
   filter: drop-shadow(0 24px 28px rgba(7,19,37,.16));
+}
+.product-detail-image .product-image-brand img {
+  width: 110px;
+  height: auto;
+  max-height: none;
+  filter: none;
+  padding: 0;
 }
 .product-section {
   padding: 86px 5vw;
@@ -1212,6 +1239,61 @@ footer strong { color: white; font-size: 24px; }
   font-weight: 900;
   white-space: nowrap;
 }
+.product-anchor-nav {
+  position: sticky;
+  top: 78px;
+  z-index: 55;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 5vw;
+  border-bottom: 1px solid rgba(220,230,245,.9);
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(18px);
+}
+.product-anchor-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #33445c;
+  font-size: 13px;
+  font-weight: 900;
+}
+.product-anchor-nav a:hover {
+  color: var(--blue);
+  border-color: rgba(37,42,145,.18);
+  background: #f3f7ff;
+}
+.product-quick-spec-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 0 5vw;
+  background: var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.product-quick-spec-strip div {
+  display: grid;
+  gap: 8px;
+  min-height: 136px;
+  padding: 26px;
+  background: #f8fbff;
+}
+.product-quick-spec-strip strong {
+  color: var(--blue);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-quick-spec-strip span {
+  color: var(--ink);
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
 .product-detail-layout {
   display: grid;
   grid-template-columns: 300px minmax(0, 1fr);
@@ -1303,6 +1385,53 @@ footer strong { color: white; font-size: 24px; }
   color: #33445c;
   line-height: 1.45;
   font-weight: 800;
+}
+.product-benefit-grid,
+.product-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+.product-benefit-grid article,
+.product-application-grid article {
+  min-height: 168px;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f8fbff;
+  box-shadow: 0 12px 30px rgba(28,56,100,.05);
+}
+.product-benefit-grid article {
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  gap: 12px;
+}
+.product-benefit-grid span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 999px;
+  color: white;
+  background: var(--blue);
+  font-weight: 900;
+}
+.product-benefit-grid p,
+.product-application-grid p {
+  margin: 0;
+  color: #42516a;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.product-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+}
+.product-application-grid strong {
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1.2;
 }
 .spec-table {
   display: grid;
@@ -1421,6 +1550,45 @@ footer strong { color: white; font-size: 24px; }
   font-size: 20px;
   line-height: 1.25;
 }
+.product-final-cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px;
+  border-radius: 8px;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(67,185,255,.16), transparent 36%),
+    linear-gradient(145deg, #071325, #252a91);
+  box-shadow: var(--shadow);
+}
+.product-final-cta div {
+  display: grid;
+  gap: 10px;
+}
+.product-final-cta span {
+  color: var(--cyan);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+}
+.product-final-cta h2 {
+  margin: 0;
+  color: white;
+}
+.product-final-cta p {
+  max-width: 680px;
+  margin: 0;
+  color: rgba(255,255,255,.78);
+}
+.product-final-cta .primary-button {
+  color: var(--blue);
+  background: white;
+  box-shadow: none;
+  white-space: nowrap;
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1479,6 +1647,9 @@ footer strong { color: white; font-size: 24px; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
+  .product-quick-spec-strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .product-benefit-grid,
+  .product-application-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 980px) {
@@ -1518,6 +1689,18 @@ footer strong { color: white; font-size: 24px; }
     grid-template-columns: 1fr;
     align-items: start;
   }
+  .product-anchor-nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+  }
+  .product-quick-spec-strip {
+    grid-template-columns: 1fr;
+  }
+  .product-final-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
   .product-download-section {
     padding: 20px;
   }
@@ -1540,7 +1723,7 @@ footer strong { color: white; font-size: 24px; }
 <body>
 <main>
   <header class="site-header">
-    <a class="brand" href="../../index.html"><span>Toknav</span></a>
+    <a class="brand" href="../../index.html"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -1600,16 +1783,21 @@ footer strong { color: white; font-size: 24px; }
   </header>
 <section class="product-detail-hero">
       <div class="product-detail-copy"><a class="back-link" href="index.html">← Back to Rugged &amp; GIS</a><span class="contact-label">Portable RTK terminal</span><h1>P8Glo Portable RTK Receiver</h1><p>Portable intelligent positioning terminal for global high-precision field applications.</p><div class="product-detail-actions"><a class="primary-button" href="../../inquiry.html?product=P8Glo+Portable+RTK+Receiver&amp;message=I+am+interested+in+P8Glo+Portable+RTK+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Get a Quote →</a><a class="secondary-button" href="#downloads">Download Catalog</a></div></div>
-      <div class="product-detail-image"><img src="../../public/assets/products/pcr100t.webp" alt="P8Glo Portable RTK Receiver"></div>
+      <div class="product-detail-image"><span class="product-image-brand"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></span><img src="../../public/assets/products/pcr100t.webp" alt="P8Glo Portable RTK Receiver"></div>
     </section>
+    <nav class="product-anchor-nav" aria-label="Product sections"><a href="#overview">Overview</a><a href="#applications">Applications</a><a href="#specifications">Specifications</a><a href="#downloads">Downloads</a><a href="#inquiry">Inquiry</a></nav>
+    <section class="product-quick-spec-strip"><div><strong>Portable design</strong><span>Portable RTK terminal</span></div><div><strong>High-precision positioning</strong><span>Portable RTK terminal</span></div><div><strong>Global field workflow</strong><span>Portable RTK terminal</span></div><div><strong>Mobile operation</strong><span>Portable RTK terminal</span></div></section>
     <section class="product-detail-layout">
       <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong><span>Portable RTK</span><span>GIS</span><span>Mapping</span></div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>Rugged &amp; GIS.pdf, page 10</span></div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
       <div class="product-detail-main">
-        <section><h2>Key Features</h2><div class="feature-grid"><div><span>✓</span><span>Portable design</span></div><div><span>✓</span><span>High-precision positioning</span></div><div><span>✓</span><span>Global field workflow</span></div><div><span>✓</span><span>Mobile operation</span></div></div></section>
-        <section><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack"><div class="spec-group"><h3>Technical Snapshot</h3><div class="spec-table"><div><strong>Product family</strong><span>P8Global portable positioning terminal</span></div><div><strong>Use</strong><span>BDS high-precision positioning workflows</span></div><div><strong>Application</strong><span>GIS and mapping</span></div><div><strong>Form</strong><span>Portable RTK receiver</span></div></div></div></div></section>
+        <section id="overview"><h2>Key Features</h2><div class="feature-grid"><div><span>✓</span><span>Portable design</span></div><div><span>✓</span><span>High-precision positioning</span></div><div><span>✓</span><span>Global field workflow</span></div><div><span>✓</span><span>Mobile operation</span></div></div></section>
+        <section><div class="product-section-heading"><span>Buyer-focused value</span><h2>Why overseas buyers choose this model</h2><p>Structured for dealers, contractors and system integrators comparing receiver performance, kit completeness and after-sales preparation.</p></div><div class="product-benefit-grid"><article><span>✓</span><p>Compact receiver design helps dealers offer an accessible RTK option for surveying and mapping customers.</p></article><article><span>✓</span><p>Multi-constellation tracking, Linux platform and IMU support cover mainstream field requirements.</p></article><article><span>✓</span><p>The model can be quoted with a complete kit, including controller, pole, charger, case and accessories.</p></article></div></section>
+        <section id="applications"><div class="product-section-heading"><span>Applications</span><h2>Typical project scenarios</h2><p>Use the application cards as a quotation starting point. TOKNAV can confirm the final kit after checking project environment and delivery requirements.</p></div><div class="product-application-grid"><article><strong>Portable RTK</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article><article><strong>GIS</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article><article><strong>Mapping</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article></div></section>
+        <section id="specifications"><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs and model datasheets into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack"><div class="spec-group"><h3>Technical Snapshot</h3><div class="spec-table"><div><strong>Product family</strong><span>P8Global portable positioning terminal</span></div><div><strong>Use</strong><span>BDS high-precision positioning workflows</span></div><div><strong>Application</strong><span>GIS and mapping</span></div><div><strong>Form</strong><span>Portable RTK receiver</span></div></div></div></div></section>
         <section class="product-download-section" id="downloads"><div class="product-section-heading"><span>Downloads and inquiry package</span><h2>Get Catalog, Datasheet and Quote Support</h2><p>Download the category brochure or send the model requirement directly to TOKNAV sales for the latest datasheet, price and recommended accessories.</p></div><div class="download-grid"><a class="download-card catalog" href="../../public/assets/downloads/catalogs/rugged-gis.pdf" download><span>↓</span><strong>Download Rugged &amp; GIS Catalog</strong><span>Controller and portable RTK brochure for field software, GIS and surveying workflows.</span></a><a class="download-card datasheet" href="../../inquiry.html?product=P8Glo+Portable+RTK+Receiver&amp;message=I+am+interested+in+P8Glo+Portable+RTK+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories."><span>↓</span><strong>Ask for Latest Model Datasheet</strong><span>Request the latest P8Glo Portable RTK Receiver datasheet, packing list, dealer price and firmware-related notes before ordering.</span></a><a class="download-card quote" href="../../inquiry.html?product=P8Glo+Portable+RTK+Receiver&amp;message=I+am+interested+in+P8Glo+Portable+RTK+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories."><span>↗</span><strong>Send Project Requirements</strong><span>Share quantity, country, application, correction method and accessory needs for a faster quotation.</span></a></div><div class="quote-cta-panel"><div><span>Ready for quotation?</span><strong>Send your target quantity and application for P8Glo Portable RTK Receiver.</strong></div><a class="primary-button" href="../../inquiry.html?product=P8Glo+Portable+RTK+Receiver&amp;message=I+am+interested+in+P8Glo+Portable+RTK+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Send Requirements →</a></div></section>
         <section><h2>Buyer Notes</h2><p>Parameters may be updated by the manufacturer. For quotation, distributor cooperation or OEM/ODM projects, please send your target application, quantity, country and required accessories so TOKNAV can confirm the latest configuration.</p></section>
         <section><div class="product-section-heading"><span>Procurement FAQ</span><h2>Common Questions Before Purchase</h2></div><div class="product-faq-list"><article><span>?</span><div><h3>What is P8Glo Portable RTK Receiver mainly used for?</h3><p>P8Glo Portable RTK Receiver is mainly used for Portable RTK, GIS, Mapping. Buyers can confirm the final configuration based on project application, country, correction method and accessory requirements.</p></div></article><article><span>?</span><div><h3>Can I request the latest datasheet and price for P8Glo Portable RTK Receiver?</h3><p>Yes. Use the quote form on this page to request the latest datasheet, price, MOQ, lead time, packing list and recommended accessories for P8Glo Portable RTK Receiver.</p></div></article><article><span>?</span><div><h3>Are the parameters final for every market?</h3><p>Product parameters may be updated by the manufacturer and can vary by configuration or regional version. TOKNAV should confirm the latest configuration before quotation or shipment.</p></div></article></div></section>
+        <section class="product-final-cta" id="inquiry"><div><span>Procurement support</span><h2>Need help choosing a complete receiver kit?</h2><p>Send your model, target quantity, market country, application and accessory preference. TOKNAV can prepare a practical quote package for distributor review or project bidding.</p></div><a class="primary-button" href="../../inquiry.html?product=P8Glo+Portable+RTK+Receiver&amp;message=I+am+interested+in+P8Glo+Portable+RTK+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Get Model Quote →</a></section>
         <section><h2>Related Models</h2><div class="related-products"><a href="pcr100t.html"><img src="../../public/assets/products/pcr100t.webp" alt="PCR100T Data Controller"><strong>PCR100T Data Controller</strong><span>RTK data controller</span></a><a href="pcr500.html"><img src="../../public/assets/products/pcr500.webp" alt="PCR500 Data Controller"><strong>PCR500 Data Controller</strong><span>Android data controller</span></a><a href="pcr500pro.html"><img src="../../public/assets/products/pcr500.webp" alt="PCR500Pro Data Controller"><strong>PCR500Pro Data Controller</strong><span>Professional handheld terminal</span></a><a href="pcr600.html"><img src="../../public/assets/products/pcr500.webp" alt="PCR600 Data Controller"><strong>PCR600 Data Controller</strong><span>Full-keyboard surveying controller</span></a></div></section>
       </div>
     </section>
