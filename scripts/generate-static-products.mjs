@@ -1,0 +1,258 @@
+import fs from "node:fs";
+import path from "node:path";
+import vm from "node:vm";
+
+const root = process.cwd();
+
+function loadProductModule() {
+  const sourcePath = path.join(root, "app/lib/products.ts");
+  let source = fs.readFileSync(sourcePath, "utf8");
+
+  source = source
+    .replace(/export type [\s\S]*?};\n\n/g, "")
+    .replace(/export const /g, "const ")
+    .replace(/export function /g, "function ")
+    .replace(/: ProductCategory\[\]/g, "")
+    .replace(/: Product\[\]/g, "")
+    .replace(/: ProductSpec\[\]/g, "")
+    .replace(/: ProductSpecGroup\[\]/g, "")
+    .replace(/: Record<string, ProductDownload>/g, "")
+    .replace(/: Record<string, ProductSpecGroup\[\]>/g, "")
+    .replace(/: Record<string, ProductSpecGroup\[\]\>/g, "")
+    .replace(/: string/g, "")
+    .replace(/: Product/g, "")
+    .replace(/\)([A-Za-z][A-Za-z0-9_]*)\[\]/g, ")")
+    .replace(/\(([^()]*?): string([^()]*)\)/g, "($1$2)")
+    .replace(/\(([^()]*?): Product([^()]*)\)/g, "($1$2)");
+
+  source += `
+globalThis.__toknavProducts = {
+  productCategories,
+  products,
+  getCategory,
+  getProductsByCategory,
+  getProduct,
+  getProductSpecGroups,
+  getProductInquiryUrl,
+  getProductDownloads,
+  getProductSeoTitle,
+  getProductMetaDescription,
+  getProductFaqs
+};`;
+
+  const context = {
+    globalThis: {},
+    URLSearchParams
+  };
+  vm.createContext(context);
+  vm.runInContext(source, context, { filename: sourcePath });
+  return context.globalThis.__toknavProducts;
+}
+
+const {
+  productCategories,
+  products,
+  getProductsByCategory,
+  getProductSpecGroups,
+  getProductDownloads,
+  getProductSeoTitle,
+  getProductMetaDescription,
+  getProductFaqs
+} = loadProductModule();
+
+const css = fs.readFileSync(path.join(root, "app/globals.css"), "utf8");
+
+function esc(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function attr(value) {
+  return esc(value).replace(/'/g, "&#39;");
+}
+
+function relAsset(src, depth) {
+  const clean = src.replace(/^\//, "");
+  return `${"../".repeat(depth)}public/${clean}`;
+}
+
+function relDownload(href, depth) {
+  if (href.startsWith("/inquiry?")) {
+    return `${"../".repeat(depth)}inquiry.html${href.slice("/inquiry".length)}`;
+  }
+  const clean = href.replace(/^\//, "");
+  return `${"../".repeat(depth)}public/${clean}`;
+}
+
+function shell({ title, description, depth = 0, body, schema = "" }) {
+  const prefix = "../".repeat(depth);
+  const megaGrid = productCategories.map((category) => `<a href="${prefix}products/${category.slug}/index.html">
+        <img src="${prefix}public${category.image}" alt="">
+        <span>${esc(category.kicker)}</span>
+        <strong>${esc(category.name)}</strong>
+        <em>${esc(category.buyerIntent)}</em>
+      </a>`).join("");
+  return `<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${esc(title)}</title>
+<meta name="description" content="${attr(description)}">
+<style>${css}</style>
+${schema}
+</head>
+<body>
+<main>
+  <header class="site-header">
+    <a class="brand" href="${prefix}index.html"><span>Toknav</span></a>
+    <nav class="main-nav" aria-label="Primary navigation">
+      <details class="mega-nav-item">
+        <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
+        <div class="mega-menu" aria-label="TOKNAV product categories">
+          <div class="mega-menu-panel">
+            <div class="mega-menu-intro">
+              <span>Product Center</span>
+              <strong>High-precision GNSS products for B2B projects</strong>
+              <p>Compare RTK receivers, controllers, antennas, machine-control systems and complete GNSS application solutions.</p>
+              <a href="${prefix}products.html">View All Products →</a>
+            </div>
+            <div class="mega-menu-grid">${megaGrid}</div>
+            <div class="mega-menu-footer">
+              <div><span>▣</span><span>Catalog downloads, model specs and quote support are available on product pages.</span></div>
+              <a href="${prefix}inquiry.html">Send Requirements →</a>
+            </div>
+          </div>
+        </div>
+      </details>
+      <a href="${prefix}index.html#solutions">Solutions</a>
+      <a href="${prefix}index.html#oem">OEM/ODM</a>
+      <a href="${prefix}index.html#about">About</a>
+      <a href="${prefix}blog.html">Blog</a>
+      <a href="${prefix}contact.html">Contact</a>
+    </nav>
+    <a class="header-cta" href="${prefix}inquiry.html"><span>Get a Quote</span> →</a>
+  </header>
+${body}
+  <footer><strong>TOKNAV</strong><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM & ODM</span></footer>
+</main>
+<a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a>
+</body>
+</html>`;
+}
+
+function productsIndex() {
+  const cards = productCategories.map((category) => {
+    const count = products.filter((item) => item.categorySlug === category.slug).length;
+    return `<a class="product-category-card" href="products/${category.slug}/index.html">
+      <div class="product-card-image"><img src="${relAsset(category.image, 0)}" alt="${attr(category.name)}"></div>
+      <span>${esc(category.kicker)}</span>
+      <h2>${esc(category.name)}</h2>
+      <p>${esc(category.description)}</p>
+      <div class="product-card-footer"><strong>${count} items</strong><em>View category →</em></div>
+    </a>`;
+  }).join("");
+
+  return shell({
+    title: "TOKNAV Products | GNSS Receivers and RTK Solutions",
+    description: "Explore TOKNAV GNSS receivers, antennas, controllers, machine-control systems, accessories and application solutions.",
+    body: `<section class="product-hero">
+      <div><span class="contact-label">Product Center</span><h1>TOKNAV Product Categories for High-Precision Positioning</h1><p>Browse product lines from TOKNAV brochures: GNSS receivers, rugged controllers, antennas, precision agriculture, accessories and GNSS application solutions.</p><div class="product-hero-actions"><a class="primary-button" href="inquiry.html">Get a Quote →</a><a class="secondary-button" href="contact.html">Contact Sales</a></div></div>
+      <div class="product-hero-panel"><strong>${products.length}+ listed products and solutions</strong><span>Structured from TOKNAV product brochures and product asset folders.</span></div>
+    </section>
+    <section class="product-section"><div class="product-category-grid">${cards}</div></section>`
+  });
+}
+
+function categoryPage(category) {
+  const categoryProducts = getProductsByCategory(category.slug);
+  const cards = categoryProducts.map((product) => `<a class="product-list-card" href="${product.slug}.html">
+    <div class="product-list-image"><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
+    <div class="product-list-copy"><span>${esc(product.type)}</span><h3>${esc(product.name)}</h3><p>${esc(product.excerpt)}</p><div class="product-mini-specs">${product.highlights.slice(0, 3).map((item) => `<em>${esc(item)}</em>`).join("")}</div><strong>View model details →</strong></div>
+  </a>`).join("");
+
+  return shell({
+    title: `${category.name} | TOKNAV Product Category`,
+    description: category.description,
+    depth: 2,
+    body: `<section class="product-category-hero">
+      <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">${esc(category.kicker)}</span><h1>${esc(category.title)}</h1><p>${esc(category.description)}</p><div class="product-meta-row"><span>${categoryProducts.length} products</span><span>Source: ${esc(category.sourcePdf)}</span></div></div>
+      <div class="category-visual-card"><img src="${relAsset(category.image, 2)}" alt="${attr(category.name)}"></div>
+    </section>
+    <section class="product-section"><div class="product-index-top"><div><h2>${esc(category.name)} Lineup</h2><p>${esc(category.buyerIntent)}</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid">${cards}</div></section>
+    <section class="product-cta-band"><span>⌕</span><div><strong>Not sure which model fits your project?</strong><span>Send your country, application, quantity and preferred correction method. TOKNAV can recommend a suitable product package.</span></div><a href="../../inquiry.html">Get Recommendation →</a></section>`
+  });
+}
+
+function detailPage(category, product) {
+  const related = getProductsByCategory(category.slug).filter((item) => item.slug !== product.slug).slice(0, 4);
+  const specGroups = getProductSpecGroups(product);
+  const downloads = getProductDownloads(product);
+  const faqs = getProductFaqs(product);
+  const inquiryHref = relDownload(downloads.find((item) => item.kind === "quote")?.href ?? "/inquiry", 2);
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: product.name,
+    brand: { "@type": "Brand", name: "TOKNAV" },
+    category: category.name,
+    image: product.image,
+    description: product.excerpt,
+    manufacturer: { "@type": "Organization", name: "Guangzhou Toksurvey Information Technology Co., Ltd." },
+    additionalProperty: specGroups.flatMap((group) => group.specs.map((spec) => ({ "@type": "PropertyValue", name: spec.label, value: spec.value })))
+  };
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({ "@type": "Question", name: faq.question, acceptedAnswer: { "@type": "Answer", text: faq.answer } }))
+  };
+
+  const specHtml = specGroups.map((group) => `<div class="spec-group"><h3>${esc(group.title)}</h3><div class="spec-table">${group.specs.map((spec) => `<div><strong>${esc(spec.label)}</strong><span>${esc(spec.value)}</span></div>`).join("")}</div></div>`).join("");
+  const downloadHtml = downloads.map((item) => {
+    const href = relDownload(item.href, 2);
+    const downloadAttr = item.kind === "catalog" ? " download" : "";
+    return `<a class="download-card ${item.kind}" href="${attr(href)}"${downloadAttr}><span>${item.kind === "quote" ? "↗" : "↓"}</span><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span></a>`;
+  }).join("");
+  const faqHtml = faqs.map((faq) => `<article><span>?</span><div><h3>${esc(faq.question)}</h3><p>${esc(faq.answer)}</p></div></article>`).join("");
+  const relatedHtml = related.map((item) => `<a href="${item.slug}.html"><img src="${relAsset(item.image, 2)}" alt="${attr(item.name)}"><strong>${esc(item.name)}</strong><span>${esc(item.type)}</span></a>`).join("");
+
+  return shell({
+    title: getProductSeoTitle(product),
+    description: getProductMetaDescription(product),
+    depth: 2,
+    schema: `<script type="application/ld+json">${JSON.stringify(productSchema)}</script><script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`,
+    body: `<section class="product-detail-hero">
+      <div class="product-detail-copy"><a class="back-link" href="index.html">← Back to ${esc(category.name)}</a><span class="contact-label">${esc(product.type)}</span><h1>${esc(product.name)}</h1><p>${esc(product.excerpt)}</p><div class="product-detail-actions"><a class="primary-button" href="${attr(inquiryHref)}">Get a Quote →</a><a class="secondary-button" href="#downloads">Download Catalog</a></div></div>
+      <div class="product-detail-image"><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
+    </section>
+    <section class="product-detail-layout">
+      <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong>${product.applications.map((item) => `<span>${esc(item)}</span>`).join("")}</div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>${esc(product.source)}</span></div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
+      <div class="product-detail-main">
+        <section><h2>Key Features</h2><div class="feature-grid">${product.highlights.map((feature) => `<div><span>✓</span><span>${esc(feature)}</span></div>`).join("")}</div></section>
+        <section><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack">${specHtml}</div></section>
+        <section class="product-download-section" id="downloads"><div class="product-section-heading"><span>Downloads and inquiry package</span><h2>Get Catalog, Datasheet and Quote Support</h2><p>Download the category brochure or send the model requirement directly to TOKNAV sales for the latest datasheet, price and recommended accessories.</p></div><div class="download-grid">${downloadHtml}</div><div class="quote-cta-panel"><div><span>Ready for quotation?</span><strong>Send your target quantity and application for ${esc(product.name)}.</strong></div><a class="primary-button" href="${attr(inquiryHref)}">Send Requirements →</a></div></section>
+        <section><h2>Buyer Notes</h2><p>Parameters may be updated by the manufacturer. For quotation, distributor cooperation or OEM/ODM projects, please send your target application, quantity, country and required accessories so TOKNAV can confirm the latest configuration.</p></section>
+        <section><div class="product-section-heading"><span>Procurement FAQ</span><h2>Common Questions Before Purchase</h2></div><div class="product-faq-list">${faqHtml}</div></section>
+        ${related.length ? `<section><h2>Related Models</h2><div class="related-products">${relatedHtml}</div></section>` : ""}
+      </div>
+    </section>`
+  });
+}
+
+fs.rmSync(path.join(root, "products"), { recursive: true, force: true });
+fs.mkdirSync(path.join(root, "products"), { recursive: true });
+fs.writeFileSync(path.join(root, "products.html"), productsIndex());
+
+for (const category of productCategories) {
+  const categoryDir = path.join(root, "products", category.slug);
+  fs.mkdirSync(categoryDir, { recursive: true });
+  fs.writeFileSync(path.join(categoryDir, "index.html"), categoryPage(category));
+  for (const product of getProductsByCategory(category.slug)) {
+    fs.writeFileSync(path.join(categoryDir, `${product.slug}.html`), detailPage(category, product));
+  }
+}
+
+console.log(`Generated ${productCategories.length} category pages and ${products.length} product detail pages.`);

@@ -1,0 +1,14 @@
+import type { Metadata } from "next";
+import type React from "react";
+import { I18nProvider } from "./components/I18nProvider";
+import WhatsAppButton from "./components/WhatsAppButton";
+import "./globals.css";
+
+export const metadata: Metadata = {
+  title: "TOKNAV | GNSS Receivers & RTK Solutions Manufacturer",
+  description: "TOKNAV manufactures GNSS receivers, RTK systems, antennas, CORS/VRS solutions, precision agriculture and machine control products for global B2B buyers."
+};
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body><I18nProvider>{children}<WhatsAppButton /></I18nProvider></body></html>;
+}
