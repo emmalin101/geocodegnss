@@ -1,44 +1,335 @@
-import { ArrowRight, Building2, CheckCircle2, ChevronRight, Download, Factory, Globe2, Mail, MapPinned, MessageCircle, RadioTower, Satellite, ShieldCheck, Wrench } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  CheckCircle2,
+  ChevronRight,
+  Download,
+  Factory,
+  Globe2,
+  Layers3,
+  Mail,
+  RadioTower,
+  Satellite,
+  ShieldCheck,
+  Wrench
+} from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
+import { productCategories } from "./lib/products";
 
-const products = [
-  ["GNSS Receiver", "High-performance RTK devices for surveying, mapping and construction workflows.", "/products/gnss-receivers"],
-  ["Rugged & GIS", "Portable high-precision terminals and controllers for field data collection.", "/products/rugged-gis"],
-  ["GNSS Antenna", "Choke ring, survey and helix antennas for stable positioning accuracy.", "/products/gnss-antennas"],
-  ["Precision Agriculture", "Auto-steering and land leveling systems for modern farm operations.", "/products/precision-agriculture-machine-control"],
-  ["Machine Control", "Dozer and excavator guidance systems powered by high-precision GNSS.", "/products/precision-agriculture-machine-control"],
-  ["VRS Solution", "CORS/VRS services and base station networks for centimeter-level corrections.", "/products/gnss-application-solutions"]
+const heroProducts = [
+  { name: "T50Pro GNSS Receiver", href: "/products/gnss-receivers/t50pro", image: "/assets/products/t50pro.webp" },
+  { name: "TR10Pro Marking Robot", href: "/products/gnss-application-solutions/marking-robot", image: "/assets/products/tr10pro-marking-robot-front.png" },
+  { name: "U6 Monitoring System", href: "/products/gnss-application-solutions/deformation-monitoring", image: "/assets/products/u6.webp" }
 ];
 
-const advantages = [
-  ["OEM/ODM", "Custom product and solution support for distributors and brand partners."],
-  ["15+ Years R&D", "Founded by engineers with long-term GNSS and RTK development background."],
-  ["60%+ Engineers", "A technical team structure built for product iteration and project support."],
-  ["Global Project Support", "Serving surveying, monitoring, agriculture and construction customers worldwide."]
+const featuredProducts = [
+  {
+    name: "T50Pro GNSS Receiver",
+    type: "Professional RTK",
+    text: "A premium RTK receiver for survey, mapping and construction crews that need stable centimeter-level positioning.",
+    image: "/assets/products/t50pro.webp",
+    href: "/products/gnss-receivers/t50pro"
+  },
+  {
+    name: "T30Pro GNSS Receiver",
+    type: "Image Survey RTK",
+    text: "Designed for overseas dealers selling modern image survey, stakeout and daily field workflows.",
+    image: "/assets/products/t30pro.webp",
+    href: "/products/gnss-receivers/t30pro"
+  },
+  {
+    name: "TAG66 Auto Steering",
+    type: "Precision Agriculture",
+    text: "GNSS auto-steering system for farm dealers and smart agriculture projects.",
+    image: "/assets/products/tag66.webp",
+    href: "/products/precision-agriculture-machine-control/tag66"
+  },
+  {
+    name: "TR10Pro Marking Robot",
+    type: "Robotic Marking",
+    text: "Automated GNSS line marking solution for sports fields, roads and runway pre-marking.",
+    image: "/assets/products/tr10pro-marking-robot.png",
+    href: "/products/gnss-application-solutions/marking-robot"
+  }
 ];
 
-const applications = ["Surveying & Mapping", "Construction Monitoring", "CORS / VRS Networks", "Precision Agriculture", "Machine Control", "GIS Data Collection", "Marine & USV", "Deformation Monitoring"];
+const industries = [
+  ["Surveying & Mapping", "RTK receivers, controllers and antennas for field survey teams.", "/products/gnss-receivers", Satellite],
+  ["Machine Control", "Guidance and positioning systems for construction equipment.", "/products/precision-agriculture-machine-control", Wrench],
+  ["Precision Agriculture", "Auto-steering, land leveling and farm positioning solutions.", "/products/precision-agriculture-machine-control", Layers3],
+  ["Monitoring & CORS", "Base stations, CORS/VRS and deformation monitoring packages.", "/products/gnss-application-solutions", RadioTower]
+] as const;
 
-const faqs = [
-  ["Can TOKNAV support OEM or ODM projects?", "Yes. TOKNAV supports OEM/ODM cooperation for GNSS receivers, RTK systems and related positioning solutions."],
-  ["Which markets are suitable for TOKNAV products?", "The website plan focuses on global B2B buyers, especially importers, distributors, contractors and EPC companies in markets such as UAE, Saudi Arabia, Nigeria and South Africa."],
-  ["What should buyers include in an inquiry?", "Please share your country, buyer type, target application, product category, estimated quantity and WhatsApp or email contact."]
+const proofPoints = [
+  ["OEM/ODM Ready", "Product configuration, branding and channel cooperation for overseas partners."],
+  ["Factory Testing", "Receiver kits, radios, accessories and complete systems prepared before shipment."],
+  ["Global Project Fit", "Built for distributors, contractors, system integrators and government projects."],
+  ["Catalog + Datasheets", "Category pages support model comparison, downloads and fast quote requests."]
 ];
 
-function SectionTitle({ title, text, titleKey, textKey }: { title: string; text: string; titleKey?: string; textKey?: string }) {
-  return <div className="section-title"><h2 data-i18n={titleKey}>{title}</h2><p data-i18n={textKey}>{text}</p></div>;
+const blogCards = [
+  {
+    title: "How to Choose an RTK GNSS Receiver for Surveying and Construction",
+    text: "A buyer-focused guide for selecting receiver models, correction workflows and accessory kits.",
+    href: "/blog/how-to-choose-rtk-gnss-receiver-surveying-construction"
+  },
+  {
+    title: "CORS/VRS vs Base-Rover RTK GNSS Correction",
+    text: "Compare correction options before planning a receiver, base station or network project.",
+    href: "/blog/cors-vrs-vs-base-rover-rtk-gnss-correction"
+  },
+  {
+    title: "GNSS Auto-Steering and Machine Control Buying Guide",
+    text: "A practical overview for agriculture dealers and construction solution providers.",
+    href: "/blog/gnss-auto-steering-machine-control-buying-guide"
+  }
+];
+
+function HomeSectionTitle({ label, title, text }: { label: string; title: string; text: string }) {
+  return (
+    <div className="home-section-title">
+      <span>{label}</span>
+      <h2>{title}</h2>
+      <p>{text}</p>
+    </div>
+  );
 }
 
 export default function Home() {
-  return <main>
-    <SiteHeader />
-    <section className="hero"><div className="hero-copy"><h1 data-i18n="home.hero.title">High-Precision GNSS Receivers & RTK Solutions Manufacturer</h1><p data-i18n="home.hero.subtitle">OEM/ODM GNSS receivers, antennas, CORS/VRS systems and machine control solutions for global distributors, contractors and system integrators.</p><div className="hero-actions"><a className="primary-button" href="#contact"><span data-i18n="cta.getQuote">Get a Quote</span> <ArrowRight size={18} /></a><a className="secondary-button" href="#products"><span data-i18n="cta.exploreProducts">Explore Products</span> <ChevronRight size={18} /></a></div><div className="hero-proof">{advantages.map(([label]) => <span key={label}>{label}</span>)}</div></div><div className="hero-visual" aria-label="GNSS receiver product preview"><div className="receiver-shell"><div className="receiver-top" /><div className="receiver-body"><span>TOKNAV</span><div className="receiver-screen" /></div></div><div className="signal-ring ring-one" /><div className="signal-ring ring-two" /><div className="hero-panel"><Satellite size={20} /><span>Full-system, multi-frequency RTK positioning</span></div></div></section>
-    <section className="metric-band"><div><strong>2019</strong><span>Founded by R&D engineers</span></div><div><strong>2,500m²</strong><span>Office and factory footprint from catalog</span></div><div><strong>100+</strong><span>Countries and regions served in latest brochures</span></div><div><strong>CE / FCC / KC</strong><span>Certification signals listed in product materials</span></div></section>
-    <section className="products section" id="products"><SectionTitle title="Product Lines Built for Field Accuracy" text="Organize the site around buyer search intent: receivers, antennas, rugged terminals and complete positioning solutions." titleKey="home.products.title" textKey="home.products.text" /><div className="product-grid">{products.map(([name, text, href], index) => <a className="product-card" href={href} key={name}><span>{String(index + 1).padStart(2, "0")}</span><h3>{name}</h3><p>{text}</p><ChevronRight size={18} /></a>)}</div></section>
-    <section className="split-section section" id="oem"><div><SectionTitle title="Why Overseas Buyers Choose TOKNAV" text="The homepage should make manufacturing capability, technical support and distributor cooperation clear before buyers ask for price." titleKey="home.oem.title" textKey="home.oem.text" /><div className="advantage-list">{advantages.map(([label, text]) => <div className="advantage-item" key={label}><CheckCircle2 size={22} /><div><h3>{label}</h3><p>{text}</p></div></div>)}</div></div><div className="capability-panel"><Factory size={34} /><h3>Source manufacturer and solution partner</h3><p>Position the website for higher-quality inquiries: distributors, system integrators, contractors and OEM brand partners.</p><ul><li>GNSS RTK receiver series</li><li>CORS/VRS and deformation monitoring</li><li>Precision agriculture and machine control</li><li>Catalog download and quotation workflow</li></ul></div></section>
-    <section className="solutions section" id="solutions"><SectionTitle title="Application Pages for SEO and Paid Traffic" text="Each application page should explain the problem, recommended product mix, deployment workflow and inquiry path." titleKey="home.solutions.title" textKey="home.solutions.text" /><div className="solution-layout"><div className="solution-map"><RadioTower className="tower-icon" size={64} /><div className="map-line line-a" /><div className="map-line line-b" /><div className="map-node node-a">Base</div><div className="map-node node-b">Rover</div><div className="map-node node-c">Cloud</div></div><div className="application-list">{applications.map((item) => <div key={item}><MapPinned size={18} /><span>{item}</span></div>)}</div></div></section>
-    <section className="trust section" id="about"><div className="trust-copy"><SectionTitle title="Real Trust Assets, Not Empty Claims" text="Use Jeffrey, customer visits, field testing and project photos to make the website feel like a real export business with technical people behind it." titleKey="home.trust.title" textKey="home.trust.text" /><div className="advisor"><div className="advisor-photo">J</div><div><h3>Jeffrey · GNSS Project Contact</h3><p>A named contact gives buyers a clearer path for pricing, distributor cooperation and project discussion.</p></div></div></div><div className="trust-grid"><div><Building2 size={28} /><strong>Company strength</strong><span>R&D-led team, factory footprint and product catalog depth.</span></div><div><ShieldCheck size={28} /><strong>Quality signals</strong><span>Only show verified certifications and field proof.</span></div><div><Globe2 size={28} /><strong>Global markets</strong><span>Built for UAE, Saudi Arabia, Nigeria, South Africa and beyond.</span></div><div><Wrench size={28} /><strong>Solution support</strong><span>Hardware, software, training and project configuration.</span></div></div></section>
-    <section className="inquiry section" id="contact"><div><SectionTitle title="Turn Traffic Into Qualified Inquiries" text="The form asks for the fields that matter for sales follow-up without making first contact too heavy." titleKey="home.inquiry.title" textKey="home.inquiry.text" /><div className="contact-actions"><a href="mailto:info@toknavgnss.com"><Mail size={18} />info@toknavgnss.com</a><a href="#"><MessageCircle size={18} />WhatsApp Consultation</a><a href="/contact"><MapPinned size={18} />View Location</a><a href="#"><Download size={18} />Download Catalog</a></div><div className="location-card"><div><MapPinned size={22} /><strong data-i18n="home.location.title">Guangzhou Office</strong><span data-i18n="home.location.address">No. 9 Caipin Road, Huangpu District, Guangzhou, Guangdong, China</span></div><a href="/contact"><span data-i18n="home.location.map">Open company map</span> <ArrowRight size={16} /></a></div><div className="faq-list">{faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div><form className="quote-form"><label><span data-i18n="form.name">Name</span><input placeholder="Your name" data-i18n-placeholder="form.placeholder.name" /></label><label><span data-i18n="form.email">Email</span><input placeholder="name@company.com" data-i18n-placeholder="form.placeholder.email" type="email" /></label><label><span data-i18n="form.country">Country</span><input placeholder="UAE, Saudi Arabia, Nigeria..." data-i18n-placeholder="form.placeholder.country" /></label><label><span data-i18n="form.product">Product Requirement</span><select defaultValue=""><option value="" disabled>Select a category</option><option>GNSS Receiver</option><option>GNSS Antenna</option><option>CORS / VRS Solution</option><option>Precision Agriculture</option><option>Machine Control</option><option>OEM / ODM Project</option></select></label><label><span data-i18n="form.message">Message</span><textarea placeholder="Tell us your application, quantity and timeline." data-i18n-placeholder="form.placeholder.message" /></label><button type="button"><span data-i18n="form.submit">Submit Inquiry</span> <ArrowRight size={18} /></button></form></section>
-    <footer><strong>TOKNAV</strong><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span data-i18n="footer.tagline">GNSS Receiver Manufacturer · Professional OEM & ODM</span></footer>
-  </main>;
+  return (
+    <main className="home-page">
+      <SiteHeader />
+
+      <section className="home-hero">
+        <div className="home-hero-bg" aria-hidden="true" />
+        <div className="home-hero-copy">
+          <h1>High-Precision GNSS & RTK Solutions Manufacturer</h1>
+          <p>
+            TOKNAV supplies RTK GNSS receivers, antennas, CORS/VRS systems, precision agriculture
+            and robotic marking solutions for overseas distributors, contractors and system integrators.
+          </p>
+          <div className="home-hero-actions">
+            <a className="home-primary-button" href="/inquiry">
+              Get a Quote <ArrowRight size={18} />
+            </a>
+            <a className="home-secondary-button" href="/products">
+              Explore Products <ChevronRight size={18} />
+            </a>
+          </div>
+          <div className="home-hero-proof">
+            <span>OEM/ODM Manufacturing</span>
+            <span>RTK + CORS/VRS</span>
+            <span>Surveying · Agriculture · Construction</span>
+          </div>
+        </div>
+
+        <div className="home-hero-visual">
+          <img className="home-hero-banner" src="/assets/gnss-receiver-homepage-banner-original.png" alt="TOKNAV GNSS receiver product banner" />
+          <div className="home-hero-product-row">
+            {heroProducts.map((item) => (
+              <a href={item.href} key={item.name}>
+                <img src={item.image} alt={item.name} />
+                <span>{item.name}</span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-metrics" aria-label="Company capability overview">
+        <div>
+          <strong>15+ Years</strong>
+          <span>GNSS R&D and product experience</span>
+        </div>
+        <div>
+          <strong>OEM/ODM</strong>
+          <span>Support for distributors and brand partners</span>
+        </div>
+        <div>
+          <strong>Full Range</strong>
+          <span>Receivers, antennas, controllers and solutions</span>
+        </div>
+        <div>
+          <strong>Global B2B</strong>
+          <span>Built for export inquiries and project delivery</span>
+        </div>
+      </section>
+
+      <section className="home-section home-products" id="products">
+        <HomeSectionTitle
+          label="Product Center"
+          title="Choose Products by Buyer Intent"
+          text="A CHCNAV-style homepage needs fast category access: product families first, then model details, downloads and inquiry CTAs."
+        />
+        <div className="home-category-grid">
+          {productCategories.map((category) => (
+            <a href={`/products/${category.slug}`} className="home-category-card" key={category.slug}>
+              <img src={category.image} alt={category.name} />
+              <div>
+                <span>{category.kicker}</span>
+                <h3>{category.name}</h3>
+                <p>{category.buyerIntent}</p>
+              </div>
+              <ChevronRight size={18} />
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section home-featured">
+        <HomeSectionTitle
+          label="Featured Models"
+          title="Popular Models for Quotation Pages and Paid Traffic"
+          text="These entrances lead buyers from broad homepage interest into specific model pages with specifications, downloads and inquiry actions."
+        />
+        <div className="home-featured-grid">
+          {featuredProducts.map((product) => (
+            <a href={product.href} className="home-featured-card" key={product.name}>
+              <div className="home-featured-image">
+                <img src={product.image} alt={product.name} />
+              </div>
+              <div className="home-featured-content">
+                <span>{product.type}</span>
+                <h3>{product.name}</h3>
+                <p>{product.text}</p>
+                <strong>View model details <ArrowRight size={16} /></strong>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section home-industries" id="solutions">
+        <div className="home-industries-copy">
+          <HomeSectionTitle
+            label="Industries"
+            title="Application Entrances for SEO, GEO and Ads"
+            text="The homepage now gives overseas buyers a clearer path by application, so Google traffic and paid clicks land closer to the solution they need."
+          />
+          <div className="home-industries-list">
+            {industries.map(([title, text, href, Icon]) => (
+              <a href={href} key={title}>
+                <Icon size={24} />
+                <div>
+                  <strong>{title}</strong>
+                  <span>{text}</span>
+                </div>
+                <ChevronRight size={18} />
+              </a>
+            ))}
+          </div>
+        </div>
+        <div className="home-field-panel">
+          <img src="/assets/rtk-field-use-1.jpg" alt="TOKNAV GNSS receiver used in field surveying" />
+          <div>
+            <strong>Field-ready positioning workflows</strong>
+            <span>RTK survey, base-rover setup, CORS/VRS correction and project configuration support.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-oem" id="oem">
+        <div className="home-proof-visual">
+          <img src="/assets/customer-visit.jpg" alt="TOKNAV customer visit and business cooperation" />
+        </div>
+        <div className="home-proof-copy">
+          <HomeSectionTitle
+            label="OEM / ODM"
+            title="Make the Website Feel Like a Real Manufacturer"
+            text="For B2B buyers, trust comes from product range, technical people, shipment preparation and visible cooperation proof."
+          />
+          <div className="home-proof-grid">
+            {proofPoints.map(([title, text]) => (
+              <div key={title}>
+                <CheckCircle2 size={22} />
+                <strong>{title}</strong>
+                <span>{text}</span>
+              </div>
+            ))}
+          </div>
+          <a className="home-secondary-button" href="/contact">
+            Contact TOKNAV <ArrowRight size={18} />
+          </a>
+        </div>
+      </section>
+
+      <section className="home-section home-trust" id="about">
+        <HomeSectionTitle
+          label="Why TOKNAV"
+          title="Trust Signals for Overseas Procurement"
+          text="The homepage combines product proof, people proof and project proof so new visitors can decide whether to send requirements."
+        />
+        <div className="home-trust-grid">
+          <div>
+            <Factory size={30} />
+            <strong>Manufacturing Capability</strong>
+            <span>GNSS receiver kits, antennas, controllers, accessories and solution packages for export orders.</span>
+          </div>
+          <div>
+            <ShieldCheck size={30} />
+            <strong>Quality and Testing</strong>
+            <span>Use product testing, inspection and datasheet downloads to support serious procurement decisions.</span>
+          </div>
+          <div>
+            <Globe2 size={30} />
+            <strong>Distributor Support</strong>
+            <span>OEM/ODM cooperation, catalog support and application-based quotation for global partners.</span>
+          </div>
+          <div>
+            <Building2 size={30} />
+            <strong>Guangzhou Office</strong>
+            <span>No. 9 Caipin Road, Huangpu District, Guangzhou, Guangdong, China.</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="home-section home-news">
+        <HomeSectionTitle
+          label="Resources"
+          title="SEO Content That Supports Buyer Decisions"
+          text="Blog content should answer product selection, comparison and application questions that overseas buyers ask before inquiry."
+        />
+        <div className="home-news-grid">
+          {blogCards.map((post) => (
+            <a href={post.href} key={post.title}>
+              <span>Buying Guide</span>
+              <h3>{post.title}</h3>
+              <p>{post.text}</p>
+              <strong>Read article <ArrowRight size={16} /></strong>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section className="home-section home-cta" id="contact">
+        <div>
+          <BadgeCheck size={34} />
+          <h2>Send Your Product Requirements and Get a Faster TOKNAV Quotation</h2>
+          <p>
+            Share your target product, quantity, country, application and correction method.
+            TOKNAV can recommend receiver kits, antennas, accessories and solution packages.
+          </p>
+        </div>
+        <div className="home-cta-actions">
+          <a className="home-primary-button" href="/inquiry">
+            Submit Inquiry <ArrowRight size={18} />
+          </a>
+          <a className="home-secondary-button" href="/assets/downloads/catalogs/gnss-receiver.pdf">
+            <Download size={18} /> Download Catalog
+          </a>
+          <a className="home-text-link" href="mailto:info@toknavgnss.com">
+            <Mail size={18} /> info@toknavgnss.com
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <strong>TOKNAV</strong>
+        <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
+        <span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span>
+        <span>GNSS Receiver Manufacturer · Professional OEM & ODM</span>
+      </footer>
+    </main>
+  );
 }
