@@ -18,6 +18,7 @@ function loadProductModule() {
     .replace(/: ProductSpecGroup\[\]/g, "")
     .replace(/: Record<string, ProductDownload>/g, "")
     .replace(/: Record<string, ProductDatasheet>/g, "")
+    .replace(/: Record<string, \{ title: string; text: string; products: string \}\[\]>/g, "")
     .replace(/: Record<string, ProductSpecGroup\[\]>/g, "")
     .replace(/: Record<string, ProductSpecGroup\[\]\>/g, "")
     .replace(/: string/g, "")
@@ -32,12 +33,14 @@ globalThis.__toknavProducts = {
   products,
   getCategory,
   getProductsByCategory,
+  getCategoryApplications,
   getProduct,
   getProductSpecGroups,
   getProductInquiryUrl,
   getProductDownloads,
   getProductDatasheet,
   getProductQuickSpecs,
+  getProductGallery,
   getProductBuyerBenefits,
   getProductSeoTitle,
   getProductMetaDescription,
@@ -57,10 +60,12 @@ const {
   productCategories,
   products,
   getProductsByCategory,
+  getCategoryApplications,
   getProductSpecGroups,
   getProductDownloads,
   getProductDatasheet,
   getProductQuickSpecs,
+  getProductGallery,
   getProductBuyerBenefits,
   getProductSeoTitle,
   getProductMetaDescription,
@@ -176,10 +181,12 @@ function productsIndex() {
 
 function categoryPage(category) {
   const categoryProducts = getProductsByCategory(category.slug);
+  const applications = getCategoryApplications(category.slug);
   const cards = categoryProducts.map((product) => `<a class="product-list-card" href="${"../".repeat(2)}products/${category.slug}/${product.slug}.html">
     <div class="product-list-image"><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
     <div class="product-list-copy"><span>${esc(product.type)}</span><h3>${esc(product.name)}</h3><p>${esc(product.excerpt)}</p><div class="product-mini-specs">${product.highlights.slice(0, 3).map((item) => `<em>${esc(item)}</em>`).join("")}</div><strong>View model details →</strong></div>
   </a>`).join("");
+  const applicationHtml = applications.map((item) => `<article><strong>${esc(item.title)}</strong><p>${esc(item.text)}</p><span>${esc(item.products)}</span></article>`).join("");
 
   return shell({
     title: `${category.name} | TOKNAV Product Category`,
@@ -189,6 +196,7 @@ function categoryPage(category) {
       <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">${esc(category.kicker)}</span><h1>${esc(category.title)}</h1><p>${esc(category.description)}</p><div class="product-meta-row"><span>${categoryProducts.length} products</span><span>Source: ${esc(category.sourcePdf)}</span></div></div>
       <div class="category-visual-card"><img src="${relAsset(category.image, 2)}" alt="${attr(category.name)}"></div>
     </section>
+    ${applicationHtml ? `<section class="category-application-section"><div class="product-index-top"><div><h2>Application Scenarios</h2><p>Typical buying contexts for this product category, organized for overseas distributors, contractors and system integrators.</p></div></div><div class="category-application-grid">${applicationHtml}</div></section>` : ""}
     <section class="product-section"><div class="product-index-top"><div><h2>${esc(category.name)} Lineup</h2><p>${esc(category.buyerIntent)}</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid">${cards}</div></section>
     <section class="product-cta-band"><span>⌕</span><div><strong>Not sure which model fits your project?</strong><span>Send your country, application, quantity and preferred correction method. TOKNAV can recommend a suitable product package.</span></div><a href="../../inquiry.html">Get Recommendation →</a></section>`
   });
@@ -200,6 +208,7 @@ function detailPage(category, product) {
   const downloads = getProductDownloads(product);
   const quickSpecs = getProductQuickSpecs(product);
   const datasheet = getProductDatasheet(product);
+  const gallery = getProductGallery(product);
   const buyerBenefits = getProductBuyerBenefits(product);
   const faqs = getProductFaqs(product);
   const inquiryHref = relDownload(downloads.find((item) => item.kind === "quote")?.href ?? "/inquiry", 2);
@@ -224,27 +233,29 @@ function detailPage(category, product) {
   const downloadHtml = downloads.map((item) => {
     const href = relDownload(item.href, 2);
     const downloadAttr = item.kind !== "quote" && href.endsWith(".pdf") ? " download" : "";
-    return `<a class="download-card ${item.kind}" href="${attr(href)}"${downloadAttr}><span>${item.kind === "quote" ? "↗" : "↓"}</span><strong>${esc(item.label)}</strong><span>${esc(item.description)}</span></a>`;
+    return `<a class="download-card ${item.kind}" href="${attr(href)}"${downloadAttr}><span>${item.kind === "quote" ? "↗" : "↓"}</span><strong>${esc(item.label)}</strong></a>`;
   }).join("");
   const faqHtml = faqs.map((faq) => `<article><span>?</span><div><h3>${esc(faq.question)}</h3><p>${esc(faq.answer)}</p></div></article>`).join("");
   const relatedHtml = related.map((item) => `<a href="${item.slug}.html"><img src="${relAsset(item.image, 2)}" alt="${attr(item.name)}"><strong>${esc(item.name)}</strong><span>${esc(item.type)}</span></a>`).join("");
+  const relatedBlock = related.length ? `\n        <section><h2>Related Models</h2><div class="related-products">${relatedHtml}</div></section>` : "";
   const quickSpecHtml = quickSpecs.map((spec) => `<div><strong>${esc(spec.label)}</strong><span>${esc(spec.value)}</span></div>`).join("");
   const benefitHtml = buyerBenefits.map((benefit) => `<article><span>✓</span><p>${esc(benefit)}</p></article>`).join("");
   const appHtml = product.applications.map((app) => `<article><strong>${esc(app)}</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article>`).join("");
+  const robotStory = product.slug === "marking-robot" ? `<section class="robot-story-section"><div class="robot-story-copy"><h2>From design file to field marking</h2><p>The TR10Pro workflow is built around practical marking work: import a design file, calculate the task, plan the route, locate with RTK and let the robot mark repeatable lines on the field.</p><div class="robot-steps"><span>Import DXF / CSV</span><span>Plan route</span><span>RTK locate</span><span>Automatic marking</span></div></div><div class="robot-gallery">${gallery.slice(1).map((src) => `<figure><img src="${relAsset(src, 2)}" alt="${attr(product.name)} product view"></figure>`).join("")}</div></section>` : "";
 
   return shell({
     title: getProductSeoTitle(product),
     description: getProductMetaDescription(product),
     depth: 2,
     schema: `<script type="application/ld+json">${JSON.stringify(productSchema)}</script><script type="application/ld+json">${JSON.stringify(faqSchema)}</script>`,
-    body: `<section class="product-detail-hero">
+    body: `<section class="product-detail-hero ${product.slug === "marking-robot" ? "robot-detail-hero" : ""}">
       <div class="product-detail-copy"><a class="back-link" href="index.html">← Back to ${esc(category.name)}</a><span class="contact-label">${esc(product.type)}</span><h1>${esc(product.name)}</h1><p>${esc(product.excerpt)}</p><div class="product-detail-actions"><a class="primary-button" href="${attr(inquiryHref)}">Get a Quote →</a><a class="secondary-button" href="#downloads">Download Catalog</a></div></div>
       <div class="product-detail-image"><span class="product-image-brand"><img src="${"../".repeat(2)}public/assets/toknav-logo-blue.png" alt="TOKNAV"></span><img src="${relAsset(product.image, 2)}" alt="${attr(product.name)}"></div>
     </section>
     <nav class="product-anchor-nav" aria-label="Product sections"><a href="#overview">Overview</a><a href="#applications">Applications</a><a href="#specifications">Specifications</a><a href="#downloads">Downloads</a><a href="#inquiry">Inquiry</a></nav>
     <section class="product-quick-spec-strip">${quickSpecHtml}</section>
+${robotStory}
     <section class="product-detail-layout">
-      <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong>${product.applications.map((item) => `<span>${esc(item)}</span>`).join("")}</div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>${esc(product.source)}</span>${datasheet ? `<span>Latest model file: ${esc(datasheet.updated)}</span>` : ""}</div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
       <div class="product-detail-main">
         <section id="overview"><h2>Key Features</h2><div class="feature-grid">${product.highlights.map((feature) => `<div><span>✓</span><span>${esc(feature)}</span></div>`).join("")}</div></section>
         <section><div class="product-section-heading"><span>Buyer-focused value</span><h2>Why overseas buyers choose this model</h2><p>Structured for dealers, contractors and system integrators comparing receiver performance, kit completeness and after-sales preparation.</p></div><div class="product-benefit-grid">${benefitHtml}</div></section>
@@ -254,7 +265,7 @@ function detailPage(category, product) {
         <section><h2>Buyer Notes</h2><p>Parameters may be updated by the manufacturer. For quotation, distributor cooperation or OEM/ODM projects, please send your target application, quantity, country and required accessories so TOKNAV can confirm the latest configuration.</p></section>
         <section><div class="product-section-heading"><span>Procurement FAQ</span><h2>Common Questions Before Purchase</h2></div><div class="product-faq-list">${faqHtml}</div></section>
         <section class="product-final-cta" id="inquiry"><div><span>Procurement support</span><h2>Need help choosing a complete receiver kit?</h2><p>Send your model, target quantity, market country, application and accessory preference. TOKNAV can prepare a practical quote package for distributor review or project bidding.</p></div><a class="primary-button" href="${attr(inquiryHref)}">Get Model Quote →</a></section>
-        ${related.length ? `<section><h2>Related Models</h2><div class="related-products">${relatedHtml}</div></section>` : ""}
+${relatedBlock}
       </div>
     </section>`
   });

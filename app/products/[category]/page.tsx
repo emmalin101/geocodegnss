@@ -1,7 +1,7 @@
 import { ArrowRight, FileText, Layers3, Search } from "lucide-react";
 import { notFound } from "next/navigation";
 import SiteHeader from "../../components/SiteHeader";
-import { getCategory, getProductsByCategory, productCategories } from "../../lib/products";
+import { getCategory, getCategoryApplications, getProductsByCategory, productCategories } from "../../lib/products";
 
 type CategoryPageProps = {
   params: { category: string };
@@ -26,6 +26,7 @@ export default function ProductCategoryPage({ params }: CategoryPageProps) {
   if (!category) notFound();
 
   const categoryProducts = getProductsByCategory(category.slug);
+  const categoryApplications = getCategoryApplications(category.slug);
 
   return (
     <main>
@@ -48,6 +49,26 @@ export default function ProductCategoryPage({ params }: CategoryPageProps) {
           <img src={category.image} alt={category.name} />
         </div>
       </section>
+
+      {categoryApplications.length > 0 && (
+        <section className="category-application-section">
+          <div className="product-index-top">
+            <div>
+              <h2>Application Scenarios</h2>
+              <p>Typical buying contexts for this product category, organized for overseas distributors, contractors and system integrators.</p>
+            </div>
+          </div>
+          <div className="category-application-grid">
+            {categoryApplications.map((item) => (
+              <article key={item.title}>
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+                <span>{item.products}</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="product-section">
         <div className="product-index-top">

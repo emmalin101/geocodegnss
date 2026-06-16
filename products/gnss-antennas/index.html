@@ -786,7 +786,8 @@ footer strong { color: white; font-size: 24px; }
   border-bottom: 1px solid var(--line);
 }
 .back-link {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 28px;
@@ -1035,6 +1036,45 @@ footer strong { color: white; font-size: 24px; }
 .product-section {
   padding: 86px 5vw;
   background: white;
+}
+.category-application-section {
+  padding: 74px 5vw;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  border-bottom: 1px solid var(--line);
+}
+.category-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.category-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 38px rgba(28,56,100,.06);
+}
+.category-application-grid strong {
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.18;
+}
+.category-application-grid p {
+  margin: 0;
+  color: #42516a;
+  line-height: 1.65;
+}
+.category-application-grid span {
+  margin-top: auto;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
 }
 .product-category-grid {
   display: grid;
@@ -1295,10 +1335,7 @@ footer strong { color: white; font-size: 24px; }
   line-height: 1.35;
 }
 .product-detail-layout {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  gap: 54px;
-  align-items: start;
+  display: block;
   padding: 70px 5vw 96px;
   background: white;
 }
@@ -1334,7 +1371,8 @@ footer strong { color: white; font-size: 24px; }
 .product-detail-main {
   display: grid;
   gap: 48px;
-  max-width: 980px;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 .product-detail-main h2 {
   margin: 0 0 20px;
@@ -1487,7 +1525,7 @@ footer strong { color: white; font-size: 24px; }
 .download-card {
   display: grid;
   gap: 10px;
-  min-height: 178px;
+  min-height: 128px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1589,6 +1627,82 @@ footer strong { color: white; font-size: 24px; }
   box-shadow: none;
   white-space: nowrap;
 }
+.robot-detail-hero {
+  grid-template-columns: minmax(0, .95fr) minmax(420px, .9fr);
+  background:
+    radial-gradient(circle at 76% 20%, rgba(67,185,255,.22), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #f3f9ff 50%, #dceeff 100%);
+}
+.robot-detail-hero .product-detail-image {
+  min-height: 500px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.96), rgba(239,247,255,.9));
+}
+.robot-detail-hero .product-detail-image > img {
+  max-height: 520px;
+}
+.robot-story-section {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 34px;
+  align-items: center;
+  padding: 78px 5vw;
+  background: #061126;
+  color: white;
+}
+.robot-story-copy {
+  display: grid;
+  gap: 18px;
+}
+.robot-story-copy h2 {
+  margin: 0;
+  color: white;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.05;
+}
+.robot-story-copy p {
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.robot-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.robot-steps span {
+  padding: 12px 14px;
+  border: 1px solid rgba(158,220,255,.22);
+  border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  color: #dff3ff;
+  font-weight: 900;
+}
+.robot-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.robot-gallery figure {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(158,220,255,.18);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(67,185,255,.15), transparent 46%),
+    rgba(255,255,255,.06);
+  overflow: hidden;
+}
+.robot-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 24px rgba(0,0,0,.28));
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1644,6 +1758,7 @@ footer strong { color: white; font-size: 24px; }
 
 @media (max-width: 1120px) {
   .product-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .category-application-grid { grid-template-columns: 1fr; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
@@ -1659,6 +1774,7 @@ footer strong { color: white; font-size: 24px; }
   .product-detail-layout {
     grid-template-columns: 1fr;
   }
+  .robot-story-section { grid-template-columns: 1fr; }
   .product-detail-aside { position: static; order: 2; }
   .product-proof-band { grid-template-columns: 1fr; }
   .product-index-top { align-items: flex-start; flex-direction: column; }
@@ -1678,6 +1794,7 @@ footer strong { color: white; font-size: 24px; }
     padding-top: 58px;
   }
   .product-category-grid,
+  .category-application-grid,
   .feature-grid,
   .related-products {
     grid-template-columns: 1fr;
@@ -1715,6 +1832,15 @@ footer strong { color: white; font-size: 24px; }
   .product-detail-image,
   .product-hero-panel {
     min-height: 280px;
+  }
+  .robot-gallery {
+    grid-template-columns: 1fr;
+  }
+  .robot-gallery figure {
+    min-height: 240px;
+  }
+  .robot-gallery img {
+    height: 220px;
   }
 }
 </style>
@@ -1785,6 +1911,7 @@ footer strong { color: white; font-size: 24px; }
       <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">Choke Ring / Survey / Helix</span><h1>GNSS Antennas for High-Precision Positioning Systems</h1><p>Choke ring, survey and helix antenna families for CORS stations, monitoring, surveying, handheld and machine-control applications.</p><div class="product-meta-row"><span>12 products</span><span>Source: GNSS Antennas.pdf</span></div></div>
       <div class="category-visual-card"><img src="../../public/assets/products/tca930.webp" alt="GNSS Antennas"></div>
     </section>
+    <section class="category-application-section"><div class="product-index-top"><div><h2>Application Scenarios</h2><p>Typical buying contexts for this product category, organized for overseas distributors, contractors and system integrators.</p></div></div><div class="category-application-grid"><article><strong>CORS and Monitoring</strong><p>Choke ring antennas for stable fixed-station reception and multipath-sensitive environments.</p><span>TCA920, TCA930, TCA930M</span></article><article><strong>Survey and Base Setup</strong><p>Survey antennas for external measurement workflows, base stations and mobile mapping kits.</p><span>TSA320, TSA500, TSA520</span></article><article><strong>Compact Integration</strong><p>Helix antennas for handheld GNSS, UAV, machine-control and embedded high-precision positioning.</p><span>THA series</span></article></div></section>
     <section class="product-section"><div class="product-index-top"><div><h2>GNSS Antennas Lineup</h2><p>Select antenna type by signal tracking, environment and installation method.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="../../products/gnss-antennas/tca920.html">
     <div class="product-list-image"><img src="../../public/assets/products/tca930.webp" alt="TCA920 Choke Ring Antenna"></div>
     <div class="product-list-copy"><span>Choke ring antenna</span><h3>TCA920 Choke Ring Antenna</h3><p>High-performance choke ring antenna for stable multi-frequency GNSS signal reception.</p><div class="product-mini-specs"><em>GPS L1/L2/L5/L-Band</em><em>GLONASS L1/L2/L3</em><em>BDS B1/B2/B3</em></div><strong>View model details →</strong></div>

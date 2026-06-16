@@ -786,7 +786,8 @@ footer strong { color: white; font-size: 24px; }
   border-bottom: 1px solid var(--line);
 }
 .back-link {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 28px;
@@ -1035,6 +1036,45 @@ footer strong { color: white; font-size: 24px; }
 .product-section {
   padding: 86px 5vw;
   background: white;
+}
+.category-application-section {
+  padding: 74px 5vw;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  border-bottom: 1px solid var(--line);
+}
+.category-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.category-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 38px rgba(28,56,100,.06);
+}
+.category-application-grid strong {
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.18;
+}
+.category-application-grid p {
+  margin: 0;
+  color: #42516a;
+  line-height: 1.65;
+}
+.category-application-grid span {
+  margin-top: auto;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
 }
 .product-category-grid {
   display: grid;
@@ -1295,10 +1335,7 @@ footer strong { color: white; font-size: 24px; }
   line-height: 1.35;
 }
 .product-detail-layout {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  gap: 54px;
-  align-items: start;
+  display: block;
   padding: 70px 5vw 96px;
   background: white;
 }
@@ -1334,7 +1371,8 @@ footer strong { color: white; font-size: 24px; }
 .product-detail-main {
   display: grid;
   gap: 48px;
-  max-width: 980px;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 .product-detail-main h2 {
   margin: 0 0 20px;
@@ -1487,7 +1525,7 @@ footer strong { color: white; font-size: 24px; }
 .download-card {
   display: grid;
   gap: 10px;
-  min-height: 178px;
+  min-height: 128px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1589,6 +1627,82 @@ footer strong { color: white; font-size: 24px; }
   box-shadow: none;
   white-space: nowrap;
 }
+.robot-detail-hero {
+  grid-template-columns: minmax(0, .95fr) minmax(420px, .9fr);
+  background:
+    radial-gradient(circle at 76% 20%, rgba(67,185,255,.22), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #f3f9ff 50%, #dceeff 100%);
+}
+.robot-detail-hero .product-detail-image {
+  min-height: 500px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.96), rgba(239,247,255,.9));
+}
+.robot-detail-hero .product-detail-image > img {
+  max-height: 520px;
+}
+.robot-story-section {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 34px;
+  align-items: center;
+  padding: 78px 5vw;
+  background: #061126;
+  color: white;
+}
+.robot-story-copy {
+  display: grid;
+  gap: 18px;
+}
+.robot-story-copy h2 {
+  margin: 0;
+  color: white;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.05;
+}
+.robot-story-copy p {
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.robot-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.robot-steps span {
+  padding: 12px 14px;
+  border: 1px solid rgba(158,220,255,.22);
+  border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  color: #dff3ff;
+  font-weight: 900;
+}
+.robot-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.robot-gallery figure {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(158,220,255,.18);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(67,185,255,.15), transparent 46%),
+    rgba(255,255,255,.06);
+  overflow: hidden;
+}
+.robot-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 24px rgba(0,0,0,.28));
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1644,6 +1758,7 @@ footer strong { color: white; font-size: 24px; }
 
 @media (max-width: 1120px) {
   .product-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .category-application-grid { grid-template-columns: 1fr; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
@@ -1659,6 +1774,7 @@ footer strong { color: white; font-size: 24px; }
   .product-detail-layout {
     grid-template-columns: 1fr;
   }
+  .robot-story-section { grid-template-columns: 1fr; }
   .product-detail-aside { position: static; order: 2; }
   .product-proof-band { grid-template-columns: 1fr; }
   .product-index-top { align-items: flex-start; flex-direction: column; }
@@ -1678,6 +1794,7 @@ footer strong { color: white; font-size: 24px; }
     padding-top: 58px;
   }
   .product-category-grid,
+  .category-application-grid,
   .feature-grid,
   .related-products {
     grid-template-columns: 1fr;
@@ -1715,6 +1832,15 @@ footer strong { color: white; font-size: 24px; }
   .product-detail-image,
   .product-hero-panel {
     min-height: 280px;
+  }
+  .robot-gallery {
+    grid-template-columns: 1fr;
+  }
+  .robot-gallery figure {
+    min-height: 240px;
+  }
+  .robot-gallery img {
+    height: 220px;
   }
 }
 </style>
@@ -1781,23 +1907,24 @@ footer strong { color: white; font-size: 24px; }
     </nav>
     <a class="header-cta" href="../../inquiry.html"><span>Get a Quote</span> →</a>
   </header>
-<section class="product-detail-hero">
+<section class="product-detail-hero ">
       <div class="product-detail-copy"><a class="back-link" href="index.html">← Back to GNSS Receivers</a><span class="contact-label">Rack-style GNSS receiver</span><h1>NET660i-1U GNSS Receiver</h1><p>1U GNSS receiver variant for station-room deployment and professional infrastructure projects.</p><div class="product-detail-actions"><a class="primary-button" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Get a Quote →</a><a class="secondary-button" href="#downloads">Download Catalog</a></div></div>
       <div class="product-detail-image"><span class="product-image-brand"><img src="../../public/assets/toknav-logo-blue.png" alt="TOKNAV"></span><img src="../../public/assets/products/net660i.webp" alt="NET660i-1U GNSS Receiver"></div>
     </section>
     <nav class="product-anchor-nav" aria-label="Product sections"><a href="#overview">Overview</a><a href="#applications">Applications</a><a href="#specifications">Specifications</a><a href="#downloads">Downloads</a><a href="#inquiry">Inquiry</a></nav>
     <section class="product-quick-spec-strip"><div><strong>Channels</strong><span>1408 on NET660i / NET660i-H family</span></div><div><strong>RTK accuracy</strong><span>Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)</span></div><div><strong>Protection</strong><span>IP68</span></div><div><strong>Dimensions / weight</strong><span>NET660i family 148.8 x 105 x 50.3mm, 490g</span></div></section>
+
     <section class="product-detail-layout">
-      <aside class="product-detail-aside"><div class="product-aside-card"><strong>Recommended for</strong><span>CORS station room</span><span>Reference network</span><span>Monitoring center</span></div><div class="product-aside-card muted-card"><strong>Catalog source</strong><span>GNSS Receiver.pdf, page 22</span><span>Latest model file: 2023-11</span></div><div class="product-aside-card muted-card"><strong>Fast quote checklist</strong><span>Model, quantity, country, application, correction method and required accessories.</span></div></aside>
       <div class="product-detail-main">
         <section id="overview"><h2>Key Features</h2><div class="feature-grid"><div><span>✓</span><span>1U installation concept</span></div><div><span>✓</span><span>GNSS and network interfaces</span></div><div><span>✓</span><span>Industrial receiver design</span></div><div><span>✓</span><span>Long-term operation</span></div></div></section>
         <section><div class="product-section-heading"><span>Buyer-focused value</span><h2>Why overseas buyers choose this model</h2><p>Structured for dealers, contractors and system integrators comparing receiver performance, kit completeness and after-sales preparation.</p></div><div class="product-benefit-grid"><article><span>✓</span><p>Designed for CORS, monitoring and reference station infrastructure where interfaces and protocols matter.</p></article><article><span>✓</span><p>Linux platform, Ethernet and serial connectivity support system integration and remote management workflows.</p></article><article><span>✓</span><p>The receiver family is suitable for integrators that need project documentation and long-term deployment planning.</p></article></div></section>
         <section id="applications"><div class="product-section-heading"><span>Applications</span><h2>Typical project scenarios</h2><p>Use the application cards as a quotation starting point. TOKNAV can confirm the final kit after checking project environment and delivery requirements.</p></div><div class="product-application-grid"><article><strong>CORS station room</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article><article><strong>Reference network</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article><article><strong>Monitoring center</strong><p>Recommended configuration and accessories can be confirmed according to the project site, correction method and buyer's country.</p></article></div></section>
         <section id="specifications"><div class="product-section-heading"><span>Brochure-based details</span><h2>Complete Specifications</h2><p>The table below organizes key parameters from TOKNAV catalogs and model datasheets into procurement-friendly groups for easier comparison.</p></div><div class="spec-group-stack"><div class="spec-group"><h3>GNSS and Data</h3><div class="spec-table"><div><strong>Platform</strong><span>ARM Cortex-A7 1.8GHz with Linux OS</span></div><div><strong>GNSS signals</strong><span>GPS, GLONASS, BDS, Galileo, QZSS, SBAS and NavIC depending on model; NET660i-H supports dual-antenna directed positioning</span></div><div><strong>Channels</strong><span>1408 on NET660i / NET660i-H family</span></div><div><strong>Data format</strong><span>RINEX and custom data format</span></div><div><strong>Position data</strong><span>NMEA-0183</span></div><div><strong>Differential data</strong><span>RTCM 3.x</span></div><div><strong>Data update frequency</strong><span>1Hz, 2Hz, 5Hz, 10Hz, 20Hz</span></div><div><strong>RTK accuracy</strong><span>Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)</span></div><div><strong>Static accuracy</strong><span>Horizontal +/- (2.5mm+0.5ppm), Vertical +/- (5mm+0.5ppm)</span></div><div><strong>Timing accuracy</strong><span>20ns RMS</span></div></div></div><div class="spec-group"><h3>Interfaces and Protocols</h3><div class="spec-table"><div><strong>Serial port</strong><span>Standard RS232, baud rates 1200 to 230400bps on NET660i family</span></div><div><strong>Network port</strong><span>RJ45 10/100Mbps adaptive Ethernet</span></div><div><strong>Ports</strong><span>Power, DATA, PPS, SIM, Ethernet, GNSS antenna and 4G antenna ports depending on model</span></div><div><strong>Storage</strong><span>32GB circular storage, multi-channel storage support</span></div><div><strong>Protocols</strong><span>Ntrip Client/Server/Caster, TCP Client/Server, FTP, HTTP/HTTPS and private network transfer</span></div><div><strong>Cloud service</strong><span>Reports location, network status, signal strength and satellite reception; supports remote restart, reset and upgrade</span></div></div></div><div class="spec-group"><h3>Electrical, Environment and Body</h3><div class="spec-table"><div><strong>Voltage input</strong><span>9-24V DC, 12V typical on NET660i family</span></div><div><strong>Power dissipation</strong><span>1.8W typical for NET660i, 2W typical for NET660i-H</span></div><div><strong>Operating temperature</strong><span>-40°C to +85°C</span></div><div><strong>Storage temperature</strong><span>-40°C to +85°C</span></div><div><strong>Protection</strong><span>IP68</span></div><div><strong>Material</strong><span>Magnesium alloy main body</span></div><div><strong>Dimensions / weight</strong><span>NET660i family 148.8 x 105 x 50.3mm, 490g</span></div><div><strong>Heading accuracy</strong><span>NET660i-H lists 0.2 degrees/m heading accuracy</span></div></div></div></div></section>
-        <section class="product-download-section" id="downloads"><div class="product-section-heading"><span>Downloads and inquiry package</span><h2>Get Catalog, Datasheet and Quote Support</h2><p>Download the category brochure or send the model requirement directly to TOKNAV sales for the latest datasheet, price and recommended accessories.</p></div><div class="download-grid"><a class="download-card catalog" href="../../public/assets/downloads/catalogs/gnss-receiver.pdf" download><span>↓</span><strong>Download GNSS Receiver Catalog</strong><span>Full TOKNAV GNSS receiver brochure for RTK rover, base station and CORS model comparison.</span></a><a class="download-card datasheet" href="../../public/assets/downloads/datasheets/net660i.pdf" download><span>↓</span><strong>Download NET660i Family Datasheet</strong><span>NET660i family datasheet for rack-style and station-room receiver planning.</span></a><a class="download-card quote" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories."><span>↗</span><strong>Send Project Requirements</strong><span>Share quantity, country, application, correction method and accessory needs for a faster quotation.</span></a></div><div class="quote-cta-panel"><div><span>Ready for quotation?</span><strong>Send your target quantity and application for NET660i-1U GNSS Receiver.</strong></div><a class="primary-button" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Send Requirements →</a></div></section>
+        <section class="product-download-section" id="downloads"><div class="product-section-heading"><span>Downloads and inquiry package</span><h2>Get Catalog, Datasheet and Quote Support</h2><p>Download the category brochure or send the model requirement directly to TOKNAV sales for the latest datasheet, price and recommended accessories.</p></div><div class="download-grid"><a class="download-card catalog" href="../../public/assets/downloads/catalogs/gnss-receiver.pdf" download><span>↓</span><strong>Download GNSS Receiver Catalog</strong></a><a class="download-card datasheet" href="../../public/assets/downloads/datasheets/net660i.pdf" download><span>↓</span><strong>Download NET660i Family Datasheet</strong></a><a class="download-card quote" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories."><span>↗</span><strong>Send Project Requirements</strong></a></div><div class="quote-cta-panel"><div><span>Ready for quotation?</span><strong>Send your target quantity and application for NET660i-1U GNSS Receiver.</strong></div><a class="primary-button" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Send Requirements →</a></div></section>
         <section><h2>Buyer Notes</h2><p>Parameters may be updated by the manufacturer. For quotation, distributor cooperation or OEM/ODM projects, please send your target application, quantity, country and required accessories so TOKNAV can confirm the latest configuration.</p></section>
         <section><div class="product-section-heading"><span>Procurement FAQ</span><h2>Common Questions Before Purchase</h2></div><div class="product-faq-list"><article><span>?</span><div><h3>What is NET660i-1U GNSS Receiver mainly used for?</h3><p>NET660i-1U GNSS Receiver is mainly used for CORS station room, Reference network, Monitoring center. Buyers can confirm the final configuration based on project application, country, correction method and accessory requirements.</p></div></article><article><span>?</span><div><h3>Can I request the latest datasheet and price for NET660i-1U GNSS Receiver?</h3><p>Yes. Use the quote form on this page to request the latest datasheet, price, MOQ, lead time, packing list and recommended accessories for NET660i-1U GNSS Receiver.</p></div></article><article><span>?</span><div><h3>Are the parameters final for every market?</h3><p>Product parameters may be updated by the manufacturer and can vary by configuration or regional version. TOKNAV should confirm the latest configuration before quotation or shipment.</p></div></article></div></section>
         <section class="product-final-cta" id="inquiry"><div><span>Procurement support</span><h2>Need help choosing a complete receiver kit?</h2><p>Send your model, target quantity, market country, application and accessory preference. TOKNAV can prepare a practical quote package for distributor review or project bidding.</p></div><a class="primary-button" href="../../inquiry.html?product=NET660i-1U+GNSS+Receiver&amp;message=I+am+interested+in+NET660i-1U+GNSS+Receiver.+Please+send+the+latest+datasheet%2C+price%2C+MOQ%2C+lead+time+and+recommended+accessories.">Get Model Quote →</a></section>
+
         <section><h2>Related Models</h2><div class="related-products"><a href="t5lite.html"><img src="../../public/assets/products/t5.webp" alt="T5Lite GNSS Receiver"><strong>T5Lite GNSS Receiver</strong><span>Entry RTK receiver</span></a><a href="t5.html"><img src="../../public/assets/products/t5.webp" alt="T5 GNSS Receiver"><strong>T5 GNSS Receiver</strong><span>RTK receiver</span></a><a href="t10pro.html"><img src="../../public/assets/products/t10pro.webp" alt="T10Pro GNSS Receiver"><strong>T10Pro GNSS Receiver</strong><span>Professional RTK receiver</span></a><a href="t20pro.html"><img src="../../public/assets/products/t20pro.webp" alt="T20Pro GNSS Receiver"><strong>T20Pro GNSS Receiver</strong><span>High-power radio RTK receiver</span></a></div></section>
       </div>
     </section>

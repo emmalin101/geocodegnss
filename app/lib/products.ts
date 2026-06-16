@@ -33,6 +33,8 @@ export type Product = {
   highlights: string[];
   specs: ProductSpec[];
   source: string;
+  gallery?: string[];
+  pageVariant?: "markingRobot";
 };
 
 export type ProductCategory = {
@@ -701,20 +703,27 @@ export const products: Product[] = [
   },
   {
     slug: "marking-robot",
-    name: "Marking Robot Solution",
+    name: "TR10Pro Line Marking Robot",
     categorySlug: "gnss-application-solutions",
-    type: "Robotic marking",
-    image: "/assets/products/t50.webp",
-    excerpt: "Automated line marking robot solution for measuring, marking and auxiliary field automation.",
-    applications: ["Line marking", "Sports field marking", "Construction layout"],
-    highlights: ["Automatic measuring and marking", "GNSS positioning workflow", "Reduced manual layout work", "Robotic auxiliary operation"],
+    type: "Intelligent marking robot",
+    image: "/assets/products/tr10pro-marking-robot.png",
+    excerpt: "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
+    applications: ["Sports field marking", "Highway pre-marking", "Municipal road marking", "Airport runway marking"],
+    highlights: ["Centimeter-level marking accuracy", "3 times faster than manual work", "Built-in sports field templates", "DXF and CSV file import", "5cm-15cm adjustable side nozzle", "0-degree turn in place"],
     specs: [
-      { label: "Solution", value: "TR10Pro line marking robot application" },
-      { label: "Use", value: "Automatic measuring and marking" },
-      { label: "Technology", value: "GNSS positioning and robotic operation" },
-      { label: "Buyer fit", value: "Automation and marking service providers" }
+      { label: "Product", value: "TR10Pro line marking robot" },
+      { label: "Accuracy", value: "+/-1.5cm marking accuracy listed in the latest TR10 series brochure" },
+      { label: "Drawing width", value: "5cm-15cm adjustable side nozzle" },
+      { label: "Templates", value: "Running track, tennis court, soccer field, football field, lacrosse court and baseball field" }
     ],
-    source: "Solution Brochure.pdf, page 6"
+    source: "TR10series.pdf, updated 2026-04-27",
+    gallery: [
+      "/assets/products/tr10pro-marking-robot.png",
+      "/assets/products/tr10pro-marking-robot-front.png",
+      "/assets/products/tr10pro-marking-robot-top.png",
+      "/assets/products/tr10pro-marking-robot-side.png"
+    ],
+    pageVariant: "markingRobot"
   }
 ];
 
@@ -1111,6 +1120,54 @@ const agriMachineSpecs: Record<string, ProductSpecGroup[]> = {
   ]
 };
 
+const markingRobotSpecs: ProductSpecGroup[] = [
+  {
+    title: "Positioning and Workflow",
+    specs: [
+      { label: "GNSS positioning", value: "Full-constellation RTK positioning with 1408 channels" },
+      { label: "Supported constellations", value: "BDS, GPS, GLONASS, Galileo, SBAS and QZSS listed in the latest TR10 series brochure" },
+      { label: "File import", value: "DXF, CSV and other design file formats supported by the app" },
+      { label: "Templates", value: "Built-in sports field models, icons, arrows and numbers, with user-defined editing and template import" },
+      { label: "Workflow", value: "Import design file, calculation, task scheduling, route planning, measuring and locating, automatic marking and report output" }
+    ]
+  },
+  {
+    title: "Marking Performance",
+    specs: [
+      { label: "Marking accuracy", value: "+/-1.5cm listed in the latest TR10 series brochure" },
+      { label: "Line types", value: "Dots, lines, curves, numbers, letters and patterns" },
+      { label: "Drawing width", value: "5cm-15cm adjustable side nozzle" },
+      { label: "Material", value: "Latex paint / titanium white slurry" },
+      { label: "Hopper capacity", value: "10L" },
+      { label: "Operating speed", value: "Maximum speed 1m/s; mobility speed listed as 2.6km/h" },
+      { label: "Productivity", value: "Brochure describes the workflow as 3 times faster than manual work" }
+    ]
+  },
+  {
+    title: "Robot Platform",
+    specs: [
+      { label: "Dimensions", value: "TR10Pro: 525 x 746 x 527mm, with removable side scribing mechanism width of 243mm; TR10: 558 x 610 x 527mm" },
+      { label: "Weight", value: "TR10: 36kg; TR10Pro: 39.3kg" },
+      { label: "Motor", value: "400W x 2 hub motors" },
+      { label: "Turning radius", value: "0-degree turn in place" },
+      { label: "Climbing ability", value: "20 degrees" },
+      { label: "Wheelbase / wheel track", value: "400mm wheelbase, 465mm wheel track" }
+    ]
+  },
+  {
+    title: "Controller, Battery and Environment",
+    specs: [
+      { label: "Controller", value: "Android tablet control" },
+      { label: "Battery", value: "TR10: 48V / 15Ah lithium; TR10Pro: 48V / 7.5Ah lithium" },
+      { label: "Battery life", value: "8 hours listed in the brochure" },
+      { label: "Endurance", value: "Up to 30km listed in the brochure; customized battery capacity supported" },
+      { label: "Communication", value: "CAN" },
+      { label: "IP rating", value: "IP3X" },
+      { label: "Temperature", value: "Operating -10°C to 60°C; storage -10°C to 45°C" }
+    ]
+  }
+];
+
 const detailedSpecGroups: Record<string, ProductSpecGroup[]> = {
   t5lite: t5FamilySpecs,
   t5: t5FamilySpecs,
@@ -1136,7 +1193,41 @@ const detailedSpecGroups: Record<string, ProductSpecGroup[]> = {
   tag66: agriMachineSpecs.tag66,
   tag88: agriMachineSpecs.tag88,
   tmc10: agriMachineSpecs.tmc10,
-  tmc20: agriMachineSpecs.tmc20
+  tmc20: agriMachineSpecs.tmc20,
+  "marking-robot": markingRobotSpecs
+};
+
+const categoryApplications: Record<string, { title: string; text: string; products: string }[]> = {
+  "gnss-receivers": [
+    { title: "Surveying and Mapping", text: "RTK rovers, controllers and accessories for cadastral survey, topographic mapping and daily field stakeout.", products: "T5Lite, T5, T10Pro, T30, T50" },
+    { title: "Construction Layout", text: "Laser, AR and photogrammetry receiver options for contractors that need faster point collection and layout confirmation.", products: "T30, T40, T50, T50Pro" },
+    { title: "Base Station and CORS", text: "Base receivers and infrastructure units for correction transmission, monitoring and long-term reference networks.", products: "tBase, NET660, NET660i" }
+  ],
+  "rugged-gis": [
+    { title: "Field Survey Control", text: "Rugged Android controllers for RTK setup, stakeout, collection and field software operation.", products: "PCR100T, PCR500, PCR500Pro" },
+    { title: "GIS Data Collection", text: "Portable terminals and controllers for mobile crews collecting assets, boundaries and inspection data.", products: "P8 / P8Pro, P8Glo" },
+    { title: "Harsh Outdoor Work", text: "Rugged hardware for long workdays, strong sunlight, dust and mobile communication requirements.", products: "PCR500, PCR600" }
+  ],
+  "gnss-antennas": [
+    { title: "CORS and Monitoring", text: "Choke ring antennas for stable fixed-station reception and multipath-sensitive environments.", products: "TCA920, TCA930, TCA930M" },
+    { title: "Survey and Base Setup", text: "Survey antennas for external measurement workflows, base stations and mobile mapping kits.", products: "TSA320, TSA500, TSA520" },
+    { title: "Compact Integration", text: "Helix antennas for handheld GNSS, UAV, machine-control and embedded high-precision positioning.", products: "THA series" }
+  ],
+  "precision-agriculture-machine-control": [
+    { title: "Precision Farming", text: "Auto-steering and land-leveling workflows for sowing, spraying, plowing and field preparation.", products: "TAG66, TAG88" },
+    { title: "Earthwork Guidance", text: "3D guidance systems for dozer grading, excavation and digital construction workflows.", products: "TMC10, TMC20" },
+    { title: "Dealer Solution Packages", text: "Bundle GNSS antennas, controllers and installation support for agriculture and construction-machine dealers.", products: "TAG / TMC series" }
+  ],
+  accessories: [
+    { title: "Complete RTK Kits", text: "Cases, chargers, brackets, tripods and poles for receiver kits shipped to field crews or distributors.", products: "RTK cases, power adapters, brackets" },
+    { title: "Base Station Setup", text: "Cables, antennas and mounting parts for CORS, base-rover and monitoring station deployments.", products: "GNSS cables, antenna accessories" },
+    { title: "Spare Parts Planning", text: "Accessory lists for overseas dealers preparing service inventory and replacement packages.", products: "Accessory kit families" }
+  ],
+  "gnss-application-solutions": [
+    { title: "Deformation Monitoring", text: "GNSS monitoring packages for landslides, dams, bridges, mining subsidence and structural safety projects.", products: "Monitoring solution" },
+    { title: "CORS / VRS Service", text: "Reference station hardware and correction-service concepts for regional positioning infrastructure.", products: "CORS and VRS solution" },
+    { title: "Robotic Line Marking", text: "RTK-guided marking workflows for sports fields, roads, runways and pre-marking service providers.", products: "TR10Pro Line Marking Robot" }
+  ]
 };
 
 const catalogDownloads: Record<string, ProductDownload> = {
@@ -1274,6 +1365,12 @@ const modelDatasheets: Record<string, ProductDatasheet> = {
     description: "NET660i family datasheet for rack-style and station-room receiver planning.",
     href: "/assets/downloads/datasheets/net660i.pdf",
     updated: "2023-11"
+  },
+  "marking-robot": {
+    label: "Download TR10 Series Datasheet",
+    description: "Latest TR10 series intelligent marking robot brochure, updated April 2026.",
+    href: "/assets/downloads/datasheets/tr10series.pdf",
+    updated: "2026-04"
   }
 };
 
@@ -1283,6 +1380,10 @@ export function getCategory(slug: string) {
 
 export function getProductsByCategory(categorySlug: string) {
   return products.filter((product) => product.categorySlug === categorySlug);
+}
+
+export function getCategoryApplications(categorySlug: string) {
+  return categoryApplications[categorySlug] ?? [];
 }
 
 export function getProduct(categorySlug: string, productSlug: string) {
@@ -1344,6 +1445,15 @@ export function getProductDatasheet(product: Product) {
 }
 
 export function getProductQuickSpecs(product: Product): ProductSpec[] {
+  if (product.slug === "marking-robot") {
+    return [
+      { label: "Marking accuracy", value: "+/-1.5cm" },
+      { label: "Speed", value: "Up to 1m/s" },
+      { label: "Drawing width", value: "5cm-15cm adjustable nozzle" },
+      { label: "Endurance", value: "Up to 30km" }
+    ];
+  }
+
   const specs = getProductSpecGroups(product).flatMap((group) => group.specs);
   const preferredLabels = [
     "Channels",
@@ -1373,7 +1483,18 @@ export function getProductQuickSpecs(product: Product): ProductSpec[] {
   }));
 }
 
+export function getProductGallery(product: Product) {
+  return product.gallery ?? [product.image];
+}
+
 export function getProductBuyerBenefits(product: Product) {
+  if (product.slug === "marking-robot") {
+    return [
+      "Built-in field templates and imported DXF/CSV files help crews move from design to marking with fewer manual layout steps.",
+      "RTK positioning and robotic route planning support repeatable centimeter-level line marking on sports fields, roads and runways.",
+      "The adjustable side nozzle, 10L hopper and 0-degree turn-in-place design make the robot practical for different marking jobs and tight spaces."
+    ];
+  }
   if (["t30", "t40", "t50"].includes(product.slug)) {
     return [
       "Laser-assisted measurement helps crews collect difficult or unsafe points without occupying every point directly.",
@@ -1414,6 +1535,9 @@ export function getProductSeoTitle(product: Product) {
 }
 
 export function getProductMetaDescription(product: Product) {
+  if (product.slug === "marking-robot") {
+    return "Review TR10Pro line marking robot features, RTK positioning, sports field templates, DXF/CSV import, marking accuracy, specifications and quote options.";
+  }
   return `Review ${product.name} specifications, applications, catalog source, downloadable brochure and quote options for B2B GNSS purchasing.`;
 }
 

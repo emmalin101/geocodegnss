@@ -1,13 +1,13 @@
-import { ArrowLeft, ArrowRight, CheckCircle2, Download, FileText, HelpCircle, PackageCheck, Send } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, Download, HelpCircle, Send } from "lucide-react";
 import { notFound } from "next/navigation";
 import SiteHeader from "../../../components/SiteHeader";
 import {
   getCategory,
   getProduct,
   getProductDownloads,
-  getProductDatasheet,
   getProductBuyerBenefits,
   getProductFaqs,
+  getProductGallery,
   getProductInquiryUrl,
   getProductMetaDescription,
   getProductQuickSpecs,
@@ -50,7 +50,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
     .slice(0, 4);
   const specGroups = getProductSpecGroups(product);
   const downloads = getProductDownloads(product);
-  const datasheet = getProductDatasheet(product);
+  const gallery = getProductGallery(product);
   const quickSpecs = getProductQuickSpecs(product);
   const buyerBenefits = getProductBuyerBenefits(product);
   const inquiryUrl = getProductInquiryUrl(product);
@@ -103,7 +103,7 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
-      <section className="product-detail-hero">
+      <section className={`product-detail-hero ${product.slug === "marking-robot" ? "robot-detail-hero" : ""}`}>
         <div className="product-detail-copy">
           <a className="back-link" href={`/products/${category.slug}`}>
             <ArrowLeft size={17} /> Back to {category.name}
@@ -145,28 +145,33 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
         ))}
       </section>
 
-      <section className="product-detail-layout">
-        <aside className="product-detail-aside">
-          <div className="product-aside-card">
-            <PackageCheck size={24} />
-            <strong>Recommended for</strong>
-            {product.applications.map((item) => (
-              <span key={item}>{item}</span>
+      {product.slug === "marking-robot" && (
+        <section className="robot-story-section">
+          <div className="robot-story-copy">
+            <h2>From design file to field marking</h2>
+            <p>
+              The TR10Pro workflow is built around practical marking work:
+              import a design file, calculate the task, plan the route, locate
+              with RTK and let the robot mark repeatable lines on the field.
+            </p>
+            <div className="robot-steps">
+              <span>Import DXF / CSV</span>
+              <span>Plan route</span>
+              <span>RTK locate</span>
+              <span>Automatic marking</span>
+            </div>
+          </div>
+          <div className="robot-gallery">
+            {gallery.slice(1).map((src) => (
+              <figure key={src}>
+                <img src={src} alt={`${product.name} product view`} />
+              </figure>
             ))}
           </div>
-          <div className="product-aside-card muted-card">
-            <FileText size={24} />
-            <strong>Catalog source</strong>
-            <span>{product.source}</span>
-            {datasheet ? <span>Latest model file: {datasheet.updated}</span> : null}
-          </div>
-          <div className="product-aside-card muted-card">
-            <Send size={24} />
-            <strong>Fast quote checklist</strong>
-            <span>Model, quantity, country, application, correction method and required accessories.</span>
-          </div>
-        </aside>
+        </section>
+      )}
 
+      <section className="product-detail-layout">
         <div className="product-detail-main">
           <section id="overview">
             <h2>Key Features</h2>
@@ -271,7 +276,6 @@ export default function ProductDetailPage({ params }: ProductDetailPageProps) {
                 >
                   {item.kind === "quote" ? <Send size={22} /> : <Download size={22} />}
                   <strong>{item.label}</strong>
-                  <span>{item.description}</span>
                 </a>
               ))}
             </div>
