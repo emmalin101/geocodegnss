@@ -2486,6 +2486,351 @@ footer strong { color: white; font-size: 24px; }
     height: 220px;
   }
 }
+
+/* Simplified homepage v2: closer to the clean TOKNAV reference direction. */
+.home-hero.simple {
+  grid-template-columns: minmax(420px, .82fr) minmax(560px, 1.18fr);
+  min-height: 560px;
+  padding: 56px 5vw 52px;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 45%, #eef7ff 100%);
+}
+.home-hero.simple .home-hero-copy {
+  max-width: 560px;
+}
+.home-hero.simple h1 {
+  color: #07398f;
+  font-size: clamp(40px, 4vw, 58px);
+  line-height: 1.03;
+}
+.home-hero.simple .home-hero-copy p {
+  max-width: 520px;
+  margin-top: 22px;
+  color: #42546d;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.home-hero-stage {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: 470px;
+}
+.home-hero-banner-clean {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  object-position: 100% center;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+.home-hero-product-row.simple {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: -36px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.home-hero-product-row.simple a {
+  min-height: 82px;
+  border: 0;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 12px 26px rgba(20,40,137,.14);
+}
+.home-hero-proof.mini {
+  gap: 22px;
+}
+.home-hero-proof.mini span {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #35506f;
+  font-size: 12px;
+}
+.home-section-title.compact {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-section-title.compact > span {
+  display: none;
+}
+.home-section-title.compact h2 {
+  color: #071325;
+  font-size: clamp(28px, 3vw, 40px);
+}
+.home-section-title.compact p {
+  max-width: none;
+  margin-top: 10px;
+  color: #617086;
+  font-size: 15px;
+}
+.home-section.home-products.compact,
+.home-section.home-why {
+  padding: 74px 5vw;
+}
+.home-category-grid.compact {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+.home-category-card.compact,
+.home-category-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  min-width: 0;
+  min-height: 254px;
+  padding: 22px 16px;
+  overflow: hidden;
+  text-align: center;
+}
+.home-category-card.compact img,
+.home-category-card img {
+  width: 132px;
+  height: 118px;
+  background: transparent;
+}
+.home-category-card.compact h3,
+.home-category-card h3 {
+  margin: 14px 0 8px;
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 1.2;
+}
+.home-category-card.compact p,
+.home-category-card.compact span,
+.home-category-card p,
+.home-category-card span {
+  display: none;
+}
+.home-category-card.compact strong,
+.home-category-card strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--blue);
+  font-size: 13px;
+}
+.home-why {
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+}
+.home-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1080px;
+  margin: 38px auto 0;
+}
+.home-why-grid div {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  padding: 18px 22px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.home-why-grid div:last-child {
+  border-right: 0;
+}
+.home-why-grid span {
+  color: var(--blue);
+  font-size: 30px;
+  line-height: 1;
+}
+.home-why-grid strong {
+  color: var(--blue);
+  font-size: 15px;
+}
+.home-why-grid p {
+  margin: 0;
+  color: #5c6a80;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.home-applications {
+  padding: 32px 0 0;
+  background: #ffffff;
+}
+.home-application-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 28px;
+}
+.home-application-strip a {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  border-right: 2px solid white;
+  color: white;
+  background: #071325;
+}
+.home-application-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: .82;
+  transition: transform .22s ease, opacity .22s ease;
+}
+.home-application-strip a:hover img {
+  transform: scale(1.04);
+  opacity: .95;
+}
+.home-application-strip a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 44%, rgba(7,19,37,.78));
+}
+.home-application-strip span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 20px;
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+}
+.home-trusted-band {
+  display: grid;
+  grid-template-columns: .95fr 1.45fr;
+  gap: 34px;
+  align-items: center;
+  padding: 42px 9vw;
+  color: white;
+  background: linear-gradient(90deg, #071325, #142889);
+}
+.home-trusted-band h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+}
+.home-trusted-band p {
+  max-width: 460px;
+  margin: 14px 0 18px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.55;
+}
+.home-trusted-band a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+  font-weight: 900;
+}
+.home-trusted-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+.home-trusted-metrics strong {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  min-height: 120px;
+  padding: 18px 12px;
+  border-left: 1px solid rgba(255,255,255,.28);
+  font-size: 38px;
+  line-height: 1;
+}
+.home-trusted-metrics span {
+  color: rgba(255,255,255,.76);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+}
+.home-section.home-cta.compact {
+  grid-template-columns: 1fr auto;
+  margin: 0;
+  padding: 56px 9vw;
+  border-radius: 0;
+  background: #f6f9fd;
+  color: #071325;
+  box-shadow: none;
+}
+.home-cta.compact h2 {
+  color: #071325;
+  font-size: clamp(28px, 3vw, 40px);
+}
+.home-cta.compact p {
+  max-width: 620px;
+  color: #5c6a80;
+}
+.home-cta.compact .home-secondary-button {
+  color: var(--blue);
+  border-color: var(--line);
+  background: white;
+}
+
+@media (max-width: 1120px) {
+  .home-category-grid.compact,
+  .home-application-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .home-hero.simple {
+    grid-template-columns: 1fr;
+  }
+  .home-hero-stage {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero.simple {
+    padding: 44px 5vw 54px;
+  }
+  .home-hero.simple h1 {
+    font-size: 38px;
+  }
+  .home-hero-stage {
+    min-height: 360px;
+  }
+  .home-hero-banner-clean {
+    height: 300px;
+    border-radius: 8px;
+  }
+  .home-hero-product-row.simple {
+    position: static;
+    grid-template-columns: 1fr;
+    margin-top: 12px;
+  }
+  .home-category-grid.compact,
+  .home-why-grid,
+  .home-application-strip,
+  .home-trusted-band,
+  .home-trusted-metrics,
+  .home-section.home-cta.compact {
+    grid-template-columns: 1fr;
+  }
+  .home-category-card.compact {
+    min-height: 210px;
+  }
+  .home-why-grid div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .home-application-strip a {
+    min-height: 260px;
+  }
+  .home-trusted-band {
+    padding: 34px 5vw;
+  }
+  .home-trusted-metrics strong {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.22);
+  }
+  .home-section.home-cta.compact {
+    padding: 42px 5vw;
+  }
+}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"T5Lite GNSS Receiver","brand":{"@type":"Brand","name":"TOKNAV"},"category":"GNSS Receivers","image":"/assets/products/t5.webp","description":"Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.","manufacturer":{"@type":"Organization","name":"Guangzhou Toksurvey Information Technology Co., Ltd."},"additionalProperty":[{"@type":"PropertyValue","name":"GNSS signals","value":"GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."},{"@type":"PropertyValue","name":"Update frequency","value":"5Hz max"},{"@type":"PropertyValue","name":"Channels","value":"1408"},{"@type":"PropertyValue","name":"Standard output","value":"NMEA-0183"},{"@type":"PropertyValue","name":"Correction protocol","value":"RTCM 3.x, with RTCM 2.x also listed for T10Pro"},{"@type":"PropertyValue","name":"Single point accuracy","value":"Horizontal 1.5m RMS / Vertical 2.5m RMS"},{"@type":"PropertyValue","name":"DGPS accuracy","value":"Horizontal 0.4m RMS / Vertical 0.8m RMS"},{"@type":"PropertyValue","name":"RTK accuracy","value":"Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"},{"@type":"PropertyValue","name":"Static accuracy","value":"Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"},{"@type":"PropertyValue","name":"Speed accuracy","value":"0.03m/s RMS"},{"@type":"PropertyValue","name":"Reacquisition","value":"<1s"},{"@type":"PropertyValue","name":"Platform","value":"ARM Cortex-A7 with Linux OS"},{"@type":"PropertyValue","name":"Bluetooth","value":"BR + EDR + BLE"},{"@type":"PropertyValue","name":"Wi-Fi","value":"802.11 b/g/n"},{"@type":"PropertyValue","name":"4G network","value":"LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"},{"@type":"PropertyValue","name":"Storage","value":"32GB storage"},{"@type":"PropertyValue","name":"Tilt correction","value":"<2cm within 60 degrees on IMU-supported receiver models"},{"@type":"PropertyValue","name":"Data radio","value":"T5 supports receive-only 410-470MHz radio; T5Lite focuses on 4G, Bluetooth and Wi-Fi workflows"},{"@type":"PropertyValue","name":"Radio protocol","value":"TRIMTALK, TRIMMK3, SOUTH, TRANSEOT on T5"},{"@type":"PropertyValue","name":"Battery","value":"3.7V, 9600mAh"},{"@type":"PropertyValue","name":"Work time","value":"More than 16 hours typical rover GSM; static collection up to 24 hours"},{"@type":"PropertyValue","name":"Charging","value":"MTK PE+ 9V/2A and USB PD 12V/1.25A or 5V/3A fast charging support"},{"@type":"PropertyValue","name":"Operating temperature","value":"-20°C to +60°C"},{"@type":"PropertyValue","name":"Storage temperature","value":"-40°C to +85°C"},{"@type":"PropertyValue","name":"Protection","value":"IP65"},{"@type":"PropertyValue","name":"Drop resistance","value":"Can withstand a 1.5m drop at normal temperature"},{"@type":"PropertyValue","name":"Dimensions / weight","value":"T5Lite 100.5 x 100.5 x 69mm, 600g; T5 100.5 x 100.5 x 72mm, 630g"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is T5Lite GNSS Receiver mainly used for?","acceptedAnswer":{"@type":"Answer","text":"T5Lite GNSS Receiver is mainly used for Surveying, Mapping, GIS field work. Buyers can confirm the final configuration based on project application, country, correction method and accessory requirements."}},{"@type":"Question","name":"Can I request the latest datasheet and price for T5Lite GNSS Receiver?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the quote form on this page to request the latest datasheet, price, MOQ, lead time, packing list and recommended accessories for T5Lite GNSS Receiver."}},{"@type":"Question","name":"Are the parameters final for every market?","acceptedAnswer":{"@type":"Answer","text":"Product parameters may be updated by the manufacturer and can vary by configuration or regional version. TOKNAV should confirm the latest configuration before quotation or shipment."}}]}</script>
 </head>
