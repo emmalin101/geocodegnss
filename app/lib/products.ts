@@ -56,7 +56,7 @@ export const productCategories: ProductCategory[] = [
     title: "High-Precision GNSS Receivers for Surveying, Mapping and Construction",
     description:
       "TOKNAV GNSS receiver line covers T series RTK rovers, tBase base station receivers and NET660 CORS/base-station receivers for distributors, contractors and system integrators.",
-    image: "/assets/products/t50pro.webp",
+    image: "/assets/products/gnss-receiver-series-combo.webp",
     sourcePdf: "GNSS Receiver.pdf",
     buyerIntent: "Choose RTK receivers, base stations and CORS hardware by application."
   },
