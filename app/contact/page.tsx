@@ -2,16 +2,47 @@ import {
   ArrowRight,
   Building2,
   Clock,
+  Handshake,
+  ListChecks,
   Globe2,
   Mail,
   MapPinned,
   MessageCircle,
-  ShieldCheck
+  Search,
+  ShieldCheck,
+  Store
 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 
 const mapSrc =
   "https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&layer=mapnik&marker=23.1646848%2C113.4295982";
+
+const contactEntries = [
+  {
+    href: "#locations",
+    title: "Locations",
+    text: "TOKNAV Guangzhou office and OpenStreetMap location.",
+    icon: MapPinned
+  },
+  {
+    href: "#dealer-support",
+    title: "Find a Dealer",
+    text: "Contact TOKNAV for regional distributor and local support guidance.",
+    icon: Search
+  },
+  {
+    href: "#inquiry",
+    title: "Product Inquiry",
+    text: "Send GNSS receiver, antenna, CORS/VRS or machine-control requirements.",
+    icon: ListChecks
+  },
+  {
+    href: "#dealer-support",
+    title: "Become a Dealer",
+    text: "Apply for OEM/ODM, channel cooperation and catalog support.",
+    icon: Store
+  }
+];
 
 export default function ContactPage() {
   return (
@@ -19,38 +50,27 @@ export default function ContactPage() {
       <SiteHeader />
 
       <section className="contact-hero">
-        <div className="contact-hero-copy">
-          <h1 data-i18n="contact.hero.title">Visit TOKNAV in Guangzhou</h1>
-          <p data-i18n="contact.hero.text">
-            Contact our team for GNSS receiver quotations, OEM/ODM cooperation,
-            distributor support and high-precision positioning solution
-            projects.
-          </p>
-          <div className="contact-hero-actions">
-            <a className="primary-button" href="#inquiry">
-              <span data-i18n="cta.sendInquiry">Send Inquiry</span> <ArrowRight size={18} />
-            </a>
-            <a
-              className="secondary-button"
-              href="https://www.openstreetmap.org/?mlat=23.1646848&mlon=113.4295982#map=17/23.1646848/113.4295982"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <span data-i18n="contact.map.open">Open in OpenStreetMap</span>
-            </a>
-          </div>
-        </div>
-        <div className="contact-photo-card">
-          <img src="/assets/jeffrey.jpg" alt="TOKNAV GNSS project contact" />
-          <div className="photo-badge">TOKNAV</div>
-          <div className="photo-caption">
-            <strong>GNSS Project Contact</strong>
-            <span>Quotation, distributor cooperation and technical matching</span>
-          </div>
+        <span className="contact-label">Contact TOKNAV</span>
+        <h1>How Can We Help?</h1>
+        <p>
+          Reach TOKNAV for GNSS product quotation, distributor cooperation,
+          OEM/ODM projects and technical solution support.
+        </p>
+        <div className="contact-quick-grid" aria-label="TOKNAV contact options">
+          {contactEntries.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a href={item.href} key={item.title}>
+                <Icon size={46} strokeWidth={1.8} />
+                <strong>{item.title}</strong>
+                <span>{item.text}</span>
+              </a>
+            );
+          })}
         </div>
       </section>
 
-      <section className="contact-section">
+      <section className="contact-section" id="locations">
         <div className="contact-info-panel">
           <span className="contact-label" data-i18n="contact.location.label">Company Location</span>
           <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
@@ -58,8 +78,8 @@ export default function ContactPage() {
             <div>
               <MapPinned size={22} />
               <span data-i18n="home.location.address">
-                No. 9 Caipin Road, Huangpu District, Guangzhou, Guangdong,
-                China
+                Room 801-6, Building B, No. 9 Caipin Road, Huangpu District,
+                Guangzhou, China 510000
               </span>
             </div>
             <div>
@@ -68,7 +88,9 @@ export default function ContactPage() {
             </div>
             <div>
               <MessageCircle size={22} />
-              <span>WhatsApp consultation available</span>
+              <a href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." target="_blank" rel="noopener noreferrer">
+                WhatsApp: +86 191 9534 6957
+              </a>
             </div>
             <div>
               <Clock size={22} />
@@ -86,6 +108,10 @@ export default function ContactPage() {
               <Globe2 size={18} /> Global project support
             </span>
           </div>
+          <div className="contact-panel-actions">
+            <a href="#inquiry">Product Inquiry <ArrowRight size={16} /></a>
+            <a href="mailto:info@toknavgnss.com">Email TOKNAV</a>
+          </div>
         </div>
 
         <div className="osm-card" aria-label="OpenStreetMap company location">
@@ -96,8 +122,37 @@ export default function ContactPage() {
           />
           <div className="map-overlay">
             <strong>TOKNAV Guangzhou Office</strong>
-            <span>Caipin Road, Huangpu District</span>
+            <span>No. 9 Caipin Road, Huangpu District</span>
           </div>
+        </div>
+      </section>
+
+      <section className="dealer-support-section" id="dealer-support">
+        <div>
+          <span className="contact-label">Dealer Cooperation</span>
+          <h2>Distributor and OEM/ODM Support</h2>
+          <p>
+            TOKNAV supports overseas dealers, project contractors and system
+            integrators with product catalogs, model selection, technical
+            matching, sample orders and market cooperation.
+          </p>
+        </div>
+        <div className="dealer-support-grid">
+          <article>
+            <Handshake size={30} />
+            <strong>Become a Dealer</strong>
+            <span>Tell us your country, customer type and target product line.</span>
+          </article>
+          <article>
+            <Building2 size={30} />
+            <strong>OEM/ODM Cooperation</strong>
+            <span>Discuss branding, firmware, packaging and market customization.</span>
+          </article>
+          <article>
+            <Globe2 size={30} />
+            <strong>Regional Support</strong>
+            <span>Request channel materials, catalogs and solution documents.</span>
+          </article>
         </div>
       </section>
 
