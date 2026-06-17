@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GNSS Application Solutions | TOKNAV Product Category</title>
-<meta name="description" content="Solution packages for deformation monitoring, CORS/VRS service deployment and automated line marking applications.">
-<style>:root {
+<meta name="description" content="Solution packages for deformation monitoring, CORS/VRS deployment, automated line marking, unmanned surface vehicle survey and handheld LiDAR SLAM mapping.">
+<style>
+:root {
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
@@ -561,13 +562,15 @@ footer strong { color: white; font-size: 24px; }
     linear-gradient(rgba(6,20,38,.74), rgba(6,20,38,.74)),
     url("/assets/about/toknav-history-slide.webp") center / cover;
 }
+.about-section.about-blue-band { padding-top: 58px; }
 .about-section-heading.light h2,
 .about-section-heading.light p { color: #fff; }
 .about-section-heading.light span { color: #8fd1ff; }
 .about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 260px;
+  grid-auto-rows: 230px;
+  grid-auto-flow: dense;
   gap: 14px;
 }
 .about-gallery-grid a {
@@ -608,6 +611,13 @@ footer strong { color: white; font-size: 24px; }
 }
 .about-cert-gallery {
   grid-auto-rows: 300px;
+}
+.about-feedback-gallery { margin-top: 34px; }
+.about-feedback-gallery a:nth-child(6n + 1) {
+  grid-column: span 2;
+}
+.about-feedback-gallery a:nth-child(9n + 3) {
+  grid-row: span 2;
 }
 .about-cert-gallery figure {
   display: grid;
@@ -1331,6 +1341,8 @@ footer strong { color: white; font-size: 24px; }
 .contact-info-panel { padding: 34px; border-radius: 8px; color: white; background: linear-gradient(145deg, #142889, #252a91); box-shadow: var(--shadow); }
 .contact-label { display: inline-block; margin-bottom: 18px; color: #9edcff; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .contact-info-panel h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+.contact-company-heading { display: grid; gap: 10px; }
+.contact-company-heading span { color: rgba(255,255,255,.78); font-size: 18px; font-weight: 800; letter-spacing: 0; }
 .contact-info-list { display: grid; gap: 16px; margin-top: 30px; }
 .contact-info-list div { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; color: rgba(255,255,255,.84); line-height: 1.55; }
 .contact-info-list svg { color: var(--cyan); }
@@ -1421,12 +1433,21 @@ footer strong { color: white; font-size: 24px; }
 }
 .contact-inquiry { border-top: 1px solid var(--line); }
 .contact-page-address { margin-top: 28px; }
+.contact-bilingual-card { grid-template-columns: 32px 1fr; align-items: flex-start; width: 100%; }
+.contact-bilingual-list { display: grid; grid-template-columns: 1fr; gap: 18px; min-width: 0; }
+.location-card .contact-bilingual-list { grid-template-columns: 1fr; gap: 18px; align-items: stretch; }
+.contact-bilingual-list article { display: grid; gap: 6px; }
+.contact-bilingual-list strong { color: #071325; font-size: 18px; }
+.contact-bilingual-list span { color: var(--muted); font-size: 17px; line-height: 1.65; word-break: normal; overflow-wrap: anywhere; }
+.contact-bilingual-list span[lang="zh-CN"] { letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
 
 @media (max-width: 980px) {
   .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
   .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid a.featured { grid-column: span 2; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -1485,6 +1506,8 @@ footer strong { color: white; font-size: 24px; }
   .about-timeline { grid-template-columns: 1fr; }
   .about-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .about-gallery-grid a.featured { grid-column: span 1; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-cert-gallery { grid-auto-rows: 300px; }
   .about-lightbox { padding: 18px; }
   .about-lightbox-close { top: 14px; right: 14px; }
@@ -3269,6 +3292,7 @@ footer strong { color: white; font-size: 24px; }
     padding: 42px 5vw;
   }
 }
+
 </style>
 
 </head>
@@ -3313,8 +3337,8 @@ footer strong { color: white; font-size: 24px; }
         <strong>Accessories</strong>
         <em>Help buyers complete receiver kits and replacement accessory lists.</em>
       </a><a href="../../products/gnss-application-solutions/index.html">
-        <img src="../../public/assets/products/u6.webp" alt="">
-        <span>Monitoring / CORS / Marking Robot</span>
+        <img src="../../public/assets/products/tboat20.webp" alt="">
+        <span>Monitoring / CORS / Marking Robot / USV / SLAM</span>
         <strong>GNSS Application Solutions</strong>
         <em>Explain complete project solutions and recommended product mix.</em>
       </a></div>
@@ -3334,10 +3358,10 @@ footer strong { color: white; font-size: 24px; }
     <a class="header-cta" href="../../inquiry.html"><span>Get a Quote</span> →</a>
   </header>
 <section class="product-category-hero">
-      <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">Monitoring / CORS / Marking Robot</span><h1>GNSS Application Solutions for Monitoring, CORS/VRS and Marking</h1><p>Solution packages for deformation monitoring, CORS/VRS service deployment and automated line marking applications.</p><div class="product-meta-row"><span>3 products</span><span>Source: Solution Brochure.pdf</span></div></div>
-      <div class="category-visual-card"><img src="../../public/assets/products/u6.webp" alt="GNSS Application Solutions"></div>
+      <div><a class="back-link" href="../../products.html">← All Products</a><span class="contact-label">Monitoring / CORS / Marking Robot / USV / SLAM</span><h1>GNSS Application Solutions for Monitoring, CORS/VRS, Marking, USV and SLAM</h1><p>Solution packages for deformation monitoring, CORS/VRS deployment, automated line marking, unmanned surface vehicle survey and handheld LiDAR SLAM mapping.</p><div class="product-meta-row"><span>5 products</span><span>Source: Solution Brochure.pdf</span></div></div>
+      <div class="category-visual-card"><img src="../../public/assets/products/tboat20.webp" alt="GNSS Application Solutions"></div>
     </section>
-    <section class="category-application-section"><div class="product-index-top"><div><h2>Application Scenarios</h2><p>Typical buying contexts for this product category, organized for overseas distributors, contractors and system integrators.</p></div></div><div class="category-application-grid"><article><strong>Deformation Monitoring</strong><p>GNSS monitoring packages for landslides, dams, bridges, mining subsidence and structural safety projects.</p><span>Monitoring solution</span></article><article><strong>CORS / VRS Service</strong><p>Reference station hardware and correction-service concepts for regional positioning infrastructure.</p><span>CORS and VRS solution</span></article><article><strong>Robotic Line Marking</strong><p>RTK-guided marking workflows for sports fields, roads, runways and pre-marking service providers.</p><span>TR10Pro Line Marking Robot</span></article></div></section>
+    <section class="category-application-section"><div class="product-index-top"><div><h2>Application Scenarios</h2><p>Typical buying contexts for this product category, organized for overseas distributors, contractors and system integrators.</p></div></div><div class="category-application-grid"><article><strong>Deformation Monitoring</strong><p>GNSS monitoring packages for landslides, dams, bridges, mining subsidence and structural safety projects.</p><span>Monitoring solution</span></article><article><strong>CORS / VRS Service</strong><p>Reference station hardware and correction-service concepts for regional positioning infrastructure.</p><span>CORS and VRS solution</span></article><article><strong>Robotic Line Marking</strong><p>RTK-guided marking workflows for sports fields, roads, runways and pre-marking service providers.</p><span>TR10Pro Line Marking Robot</span></article><article><strong>USV Hydrographic Survey</strong><p>Unmanned surface vehicle workflows for bathymetric survey, water quality monitoring, patrol and underwater surveying projects.</p><span>Tboat10 / Tboat20 USV</span></article><article><strong>Handheld LiDAR SLAM</strong><p>Mobile 3D scanning for indoor mapping, outdoor buildings, digital twins, power line patrol and GNSS-denied environments.</p><span>TSR20 Handheld LiDAR SLAM</span></article></div></section>
     <section class="product-section"><div class="product-index-top"><div><h2>GNSS Application Solutions Lineup</h2><p>Explain complete project solutions and recommended product mix.</p></div><a class="secondary-button" href="../../inquiry.html">Send Requirements →</a></div><div class="product-list-grid"><a class="product-list-card" href="../../products/gnss-application-solutions/deformation-monitoring.html">
     <div class="product-list-image"><img src="../../public/assets/products/u6.webp" alt="Deformation Monitoring Solution"></div>
     <div class="product-list-copy"><span>Monitoring solution</span><h3>Deformation Monitoring Solution</h3><p>GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.</p><div class="product-mini-specs"><em>Flexible control without line-of-sight between stations</em><em>Real-time data output</em><em>Safety-focused monitoring workflow</em></div><strong>View model details →</strong></div>
@@ -3347,6 +3371,12 @@ footer strong { color: white; font-size: 24px; }
   </a><a class="product-list-card" href="../../products/gnss-application-solutions/marking-robot.html">
     <div class="product-list-image"><img src="../../public/assets/products/tr10pro-marking-robot.png" alt="TR10Pro Line Marking Robot"></div>
     <div class="product-list-copy"><span>Intelligent marking robot</span><h3>TR10Pro Line Marking Robot</h3><p>RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.</p><div class="product-mini-specs"><em>Centimeter-level marking accuracy</em><em>3 times faster than manual work</em><em>Built-in sports field templates</em></div><strong>View model details →</strong></div>
+  </a><a class="product-list-card" href="../../products/gnss-application-solutions/tboat-usv-series.html">
+    <div class="product-list-image"><img src="../../public/assets/products/tboat20.webp" alt="Tboat USV Series"></div>
+    <div class="product-list-copy"><span>Unmanned surface vehicle</span><h3>Tboat USV Series</h3><p>Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.</p><div class="product-mini-specs"><em>Tboat10 and Tboat20 platforms</em><em>RTK positioning accuracy</em><em>4G / 2.4G / optional radio communication</em></div><strong>View model details →</strong></div>
+  </a><a class="product-list-card" href="../../products/gnss-application-solutions/tsr20-slam.html">
+    <div class="product-list-image"><img src="../../public/assets/products/tsr20.webp" alt="TSR20 Handheld LiDAR SLAM Scanner"></div>
+    <div class="product-list-copy"><span>Handheld LiDAR SLAM scanner</span><h3>TSR20 Handheld LiDAR SLAM Scanner</h3><p>Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.</p><div class="product-mini-specs"><em>Livox Mid-360 LiDAR</em><em>SLAM / RTK-SLAM / PPK-SLAM modes</em><em>1.0kg handheld design</em></div><strong>View model details →</strong></div>
   </a></div></section>
     <section class="product-cta-band"><span>⌕</span><div><strong>Not sure which model fits your project?</strong><span>Send your country, application, quantity and preferred correction method. TOKNAV can recommend a suitable product package.</span></div><a href="../../inquiry.html">Get Recommendation →</a></section>
   <footer class="site-footer">

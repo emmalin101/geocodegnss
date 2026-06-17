@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>PCR500Pro Data Controller Specs, Datasheet and Quote | TOKNAV</title>
 <meta name="description" content="Review PCR500Pro Data Controller specifications, applications, catalog source, downloadable brochure and quote options for B2B GNSS purchasing.">
-<style>:root {
+<style>
+:root {
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
@@ -561,13 +562,15 @@ footer strong { color: white; font-size: 24px; }
     linear-gradient(rgba(6,20,38,.74), rgba(6,20,38,.74)),
     url("/assets/about/toknav-history-slide.webp") center / cover;
 }
+.about-section.about-blue-band { padding-top: 58px; }
 .about-section-heading.light h2,
 .about-section-heading.light p { color: #fff; }
 .about-section-heading.light span { color: #8fd1ff; }
 .about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 260px;
+  grid-auto-rows: 230px;
+  grid-auto-flow: dense;
   gap: 14px;
 }
 .about-gallery-grid a {
@@ -608,6 +611,13 @@ footer strong { color: white; font-size: 24px; }
 }
 .about-cert-gallery {
   grid-auto-rows: 300px;
+}
+.about-feedback-gallery { margin-top: 34px; }
+.about-feedback-gallery a:nth-child(6n + 1) {
+  grid-column: span 2;
+}
+.about-feedback-gallery a:nth-child(9n + 3) {
+  grid-row: span 2;
 }
 .about-cert-gallery figure {
   display: grid;
@@ -1331,6 +1341,8 @@ footer strong { color: white; font-size: 24px; }
 .contact-info-panel { padding: 34px; border-radius: 8px; color: white; background: linear-gradient(145deg, #142889, #252a91); box-shadow: var(--shadow); }
 .contact-label { display: inline-block; margin-bottom: 18px; color: #9edcff; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .contact-info-panel h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+.contact-company-heading { display: grid; gap: 10px; }
+.contact-company-heading span { color: rgba(255,255,255,.78); font-size: 18px; font-weight: 800; letter-spacing: 0; }
 .contact-info-list { display: grid; gap: 16px; margin-top: 30px; }
 .contact-info-list div { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; color: rgba(255,255,255,.84); line-height: 1.55; }
 .contact-info-list svg { color: var(--cyan); }
@@ -1421,12 +1433,21 @@ footer strong { color: white; font-size: 24px; }
 }
 .contact-inquiry { border-top: 1px solid var(--line); }
 .contact-page-address { margin-top: 28px; }
+.contact-bilingual-card { grid-template-columns: 32px 1fr; align-items: flex-start; width: 100%; }
+.contact-bilingual-list { display: grid; grid-template-columns: 1fr; gap: 18px; min-width: 0; }
+.location-card .contact-bilingual-list { grid-template-columns: 1fr; gap: 18px; align-items: stretch; }
+.contact-bilingual-list article { display: grid; gap: 6px; }
+.contact-bilingual-list strong { color: #071325; font-size: 18px; }
+.contact-bilingual-list span { color: var(--muted); font-size: 17px; line-height: 1.65; word-break: normal; overflow-wrap: anywhere; }
+.contact-bilingual-list span[lang="zh-CN"] { letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
 
 @media (max-width: 980px) {
   .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
   .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid a.featured { grid-column: span 2; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -1485,6 +1506,8 @@ footer strong { color: white; font-size: 24px; }
   .about-timeline { grid-template-columns: 1fr; }
   .about-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .about-gallery-grid a.featured { grid-column: span 1; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-cert-gallery { grid-auto-rows: 300px; }
   .about-lightbox { padding: 18px; }
   .about-lightbox-close { top: 14px; right: 14px; }
@@ -3269,6 +3292,7 @@ footer strong { color: white; font-size: 24px; }
     padding: 42px 5vw;
   }
 }
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"PCR500Pro Data Controller","brand":{"@type":"Brand","name":"TOKNAV"},"category":"Rugged & GIS","image":"/assets/products/pcr500.webp","description":"Professional handheld terminal for high-efficiency mobile field operations.","manufacturer":{"@type":"Organization","name":"Guangzhou Toksurvey Information Technology Co., Ltd."},"additionalProperty":[{"@type":"PropertyValue","name":"OS","value":"PCR100T Android 11; PCR500 Android 12; PCR500Pro Android 12 GMS support"},{"@type":"PropertyValue","name":"Processor","value":"8-core 2.0GHz class processor; PCR500 uses Qualcomm SM6115, PCR500Pro uses Qualcomm SDM662"},{"@type":"PropertyValue","name":"Memory","value":"4GB RAM + 64GB ROM"},{"@type":"PropertyValue","name":"Display","value":"PCR100T 5.45-inch 720 x 1440; PCR500/PCR500Pro 5.5-inch 1080 x 1920, 500 nit"},{"@type":"PropertyValue","name":"Keyboard","value":"Surveying-focused English keypad / QWERTY keypad depending on model"},{"@type":"PropertyValue","name":"Camera","value":"Rear 13MP camera with flash or autofocus depending on model"},{"@type":"PropertyValue","name":"Wi-Fi","value":"IEEE 802.11 a/b/g/n/ac, dual-band 2.4G/5G"},{"@type":"PropertyValue","name":"Bluetooth","value":"BT5.0 BLE"},{"@type":"PropertyValue","name":"NFC","value":"Supported"},{"@type":"PropertyValue","name":"Cellular","value":"GSM, WCDMA, LTE-TDD and LTE-FDD global bands depending on region version"},{"@type":"PropertyValue","name":"GNSS","value":"GPS, BDS, GLONASS, Galileo and A-GPS support depending on model"},{"@type":"PropertyValue","name":"PCR500Pro RTK","value":"1408 channels, RTK 2cm HRMS, SBAS <1m HRMS listed in brochure"},{"@type":"PropertyValue","name":"Battery","value":"9000mAh non-removable battery, rapid charging support"},{"@type":"PropertyValue","name":"Working time","value":"PCR100T 18 hours; PCR500/PCR500Pro 22 hours typical"},{"@type":"PropertyValue","name":"Protection","value":"IP68 dust and water protection"},{"@type":"PropertyValue","name":"Drop resistance","value":"1.2m pole drop / fall on concrete depending on model"},{"@type":"PropertyValue","name":"Operating temperature","value":"PCR100T -20°C to +55°C; PCR500/PCR500Pro -20°C to +65°C"},{"@type":"PropertyValue","name":"Dimensions / weight","value":"Around 228 x 96 x 21mm and 420g for PCR500/PCR500Pro; PCR100T 221 x 78 x 16.5mm and 410.6g"},{"@type":"PropertyValue","name":"Certifications","value":"CE, FCC and regional certifications listed for controller line"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is PCR500Pro Data Controller mainly used for?","acceptedAnswer":{"@type":"Answer","text":"PCR500Pro Data Controller is mainly used for GIS, Mobile mapping, Surveying. Buyers can confirm the final configuration based on project application, country, correction method and accessory requirements."}},{"@type":"Question","name":"Can I request the latest datasheet and price for PCR500Pro Data Controller?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the quote form on this page to request the latest datasheet, price, MOQ, lead time, packing list and recommended accessories for PCR500Pro Data Controller."}},{"@type":"Question","name":"Are the parameters final for every market?","acceptedAnswer":{"@type":"Answer","text":"Product parameters may be updated by the manufacturer and can vary by configuration or regional version. TOKNAV should confirm the latest configuration before quotation or shipment."}}]}</script>
 </head>
@@ -3313,8 +3337,8 @@ footer strong { color: white; font-size: 24px; }
         <strong>Accessories</strong>
         <em>Help buyers complete receiver kits and replacement accessory lists.</em>
       </a><a href="../../products/gnss-application-solutions/index.html">
-        <img src="../../public/assets/products/u6.webp" alt="">
-        <span>Monitoring / CORS / Marking Robot</span>
+        <img src="../../public/assets/products/tboat20.webp" alt="">
+        <span>Monitoring / CORS / Marking Robot / USV / SLAM</span>
         <strong>GNSS Application Solutions</strong>
         <em>Explain complete project solutions and recommended product mix.</em>
       </a></div>

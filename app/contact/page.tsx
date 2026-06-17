@@ -16,6 +16,7 @@ import SiteHeader from "../components/SiteHeader";
 
 const mapSrc =
   "https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&layer=mapnik&marker=23.1646848%2C113.4295982";
+const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
 
 const contactEntries = [
   {
@@ -73,7 +74,10 @@ export default function ContactPage() {
       <section className="contact-section" id="locations">
         <div className="contact-info-panel">
           <span className="contact-label" data-i18n="contact.location.label">Company Location</span>
-          <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
+          <div className="contact-company-heading">
+            <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
+            <span>广州图科测绘信息技术有限公司</span>
+          </div>
           <div className="contact-info-list">
             <div>
               <MapPinned size={22} />
@@ -84,7 +88,7 @@ export default function ContactPage() {
             </div>
             <div>
               <Mail size={22} />
-              <a href="mailto:info@toknavgnss.com">info@toknavgnss.com</a>
+              <a href="mailto:emma@toknav.cn">emma@toknav.cn</a>
             </div>
             <div>
               <MessageCircle size={22} />
@@ -110,7 +114,7 @@ export default function ContactPage() {
           </div>
           <div className="contact-panel-actions">
             <a href="#inquiry">Product Inquiry <ArrowRight size={16} /></a>
-            <a href="mailto:info@toknavgnss.com">Email TOKNAV</a>
+            <a href="mailto:emma@toknav.cn">Email TOKNAV</a>
           </div>
         </div>
 
@@ -167,29 +171,54 @@ export default function ContactPage() {
             </p>
           </div>
           <div className="location-card contact-page-address">
-            <div>
+            <div className="contact-bilingual-card">
               <MapPinned size={22} />
-              <strong>Address in Chinese</strong>
-              <span>广州市黄埔区彩频路9号</span>
+              <div className="contact-bilingual-list">
+                <article>
+                  <strong>Company Name</strong>
+                  <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
+                </article>
+                <article>
+                  <strong>公司名称</strong>
+                  <span lang="zh-CN">广州图科测绘信息技术有限公司</span>
+                </article>
+                <article>
+                  <strong>Address in English</strong>
+                  <span>Room 801-6, Building B, No. 9 Caipin Road, Huangpu District, Guangzhou, China 510000</span>
+                </article>
+                <article>
+                  <strong>中文地址</strong>
+                  <span lang="zh-CN">广州市黄埔区彩频路9号B栋801-6室</span>
+                </article>
+              </div>
             </div>
           </div>
         </div>
-        <form className="quote-form">
+        <form action={inquiryFormAction} className="quote-form" method="POST">
+          <input type="hidden" name="_subject" value="New TOKNAV Contact Page Inquiry" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html" />
+          <input type="text" name="_honey" className="honeypot" tabIndex={-1} autoComplete="off" />
           <label>
             <span data-i18n="form.name">Name</span>
-            <input placeholder="Your name" data-i18n-placeholder="form.placeholder.name" />
+            <input name="name" placeholder="Your name" data-i18n-placeholder="form.placeholder.name" required />
           </label>
           <label>
             <span data-i18n="form.email">Email</span>
-            <input placeholder="name@company.com" data-i18n-placeholder="form.placeholder.email" type="email" />
+            <input name="email" placeholder="name@company.com" data-i18n-placeholder="form.placeholder.email" type="email" required />
+          </label>
+          <label>
+            <span data-i18n="form.phone">Phone / WhatsApp</span>
+            <input name="phone" placeholder="+86 191 9534 6957" data-i18n-placeholder="form.placeholder.phone" type="tel" required />
           </label>
           <label>
             <span data-i18n="form.country">Country</span>
-            <input placeholder="Your country or region" data-i18n-placeholder="form.placeholder.country" />
+            <input name="country" placeholder="Your country or region" data-i18n-placeholder="form.placeholder.country" />
           </label>
           <label>
             <span data-i18n="form.product">Product Requirement</span>
-            <select defaultValue="">
+            <select name="product" defaultValue="">
               <option value="" disabled>
                 Select a category
               </option>
@@ -203,9 +232,9 @@ export default function ContactPage() {
           </label>
           <label>
             <span data-i18n="form.message">Message</span>
-            <textarea placeholder="Tell us your application, quantity and timeline." data-i18n-placeholder="form.placeholder.message" />
+            <textarea name="message" placeholder="Tell us your application, quantity and timeline." data-i18n-placeholder="form.placeholder.message" />
           </label>
-          <button type="button">
+          <button type="submit">
             <span data-i18n="form.submit">Submit Inquiry</span> <ArrowRight size={18} />
           </button>
         </form>

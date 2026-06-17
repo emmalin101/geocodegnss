@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TOKNAV Contact | OpenStreetMap</title>
-<style>:root {
+<style>
+:root {
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
@@ -560,13 +561,15 @@ footer strong { color: white; font-size: 24px; }
     linear-gradient(rgba(6,20,38,.74), rgba(6,20,38,.74)),
     url("/assets/about/toknav-history-slide.webp") center / cover;
 }
+.about-section.about-blue-band { padding-top: 58px; }
 .about-section-heading.light h2,
 .about-section-heading.light p { color: #fff; }
 .about-section-heading.light span { color: #8fd1ff; }
 .about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 260px;
+  grid-auto-rows: 230px;
+  grid-auto-flow: dense;
   gap: 14px;
 }
 .about-gallery-grid a {
@@ -607,6 +610,13 @@ footer strong { color: white; font-size: 24px; }
 }
 .about-cert-gallery {
   grid-auto-rows: 300px;
+}
+.about-feedback-gallery { margin-top: 34px; }
+.about-feedback-gallery a:nth-child(6n + 1) {
+  grid-column: span 2;
+}
+.about-feedback-gallery a:nth-child(9n + 3) {
+  grid-row: span 2;
 }
 .about-cert-gallery figure {
   display: grid;
@@ -1330,6 +1340,8 @@ footer strong { color: white; font-size: 24px; }
 .contact-info-panel { padding: 34px; border-radius: 8px; color: white; background: linear-gradient(145deg, #142889, #252a91); box-shadow: var(--shadow); }
 .contact-label { display: inline-block; margin-bottom: 18px; color: #9edcff; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .contact-info-panel h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+.contact-company-heading { display: grid; gap: 10px; }
+.contact-company-heading span { color: rgba(255,255,255,.78); font-size: 18px; font-weight: 800; letter-spacing: 0; }
 .contact-info-list { display: grid; gap: 16px; margin-top: 30px; }
 .contact-info-list div { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; color: rgba(255,255,255,.84); line-height: 1.55; }
 .contact-info-list svg { color: var(--cyan); }
@@ -1420,12 +1432,21 @@ footer strong { color: white; font-size: 24px; }
 }
 .contact-inquiry { border-top: 1px solid var(--line); }
 .contact-page-address { margin-top: 28px; }
+.contact-bilingual-card { grid-template-columns: 32px 1fr; align-items: flex-start; width: 100%; }
+.contact-bilingual-list { display: grid; grid-template-columns: 1fr; gap: 18px; min-width: 0; }
+.location-card .contact-bilingual-list { grid-template-columns: 1fr; gap: 18px; align-items: stretch; }
+.contact-bilingual-list article { display: grid; gap: 6px; }
+.contact-bilingual-list strong { color: #071325; font-size: 18px; }
+.contact-bilingual-list span { color: var(--muted); font-size: 17px; line-height: 1.65; word-break: normal; overflow-wrap: anywhere; }
+.contact-bilingual-list span[lang="zh-CN"] { letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
 
 @media (max-width: 980px) {
   .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
   .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid a.featured { grid-column: span 2; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -1484,6 +1505,8 @@ footer strong { color: white; font-size: 24px; }
   .about-timeline { grid-template-columns: 1fr; }
   .about-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .about-gallery-grid a.featured { grid-column: span 1; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-cert-gallery { grid-auto-rows: 300px; }
   .about-lightbox { padding: 18px; }
   .about-lightbox-close { top: 14px; right: 14px; }
@@ -3268,59 +3291,44 @@ footer strong { color: white; font-size: 24px; }
     padding: 42px 5vw;
   }
 }
+
 </style>
 </head>
 <body>
-<main>
-  <header class="site-header"><a class="brand" href="index.html"><img src="public/assets/toknav-logo-blue.png" alt="TOKNAV"></a><nav class="main-nav" aria-label="Primary navigation"><details class="mega-nav-item"><summary class="mega-nav-trigger">Products <span>⌄</span></summary><div class="mega-menu" aria-label="TOKNAV product categories"><div class="mega-menu-panel"><div class="mega-menu-intro"><span>Product Center</span><strong>High-precision GNSS products for B2B projects</strong><p>Compare RTK receivers, controllers, antennas, machine-control systems and complete GNSS application solutions.</p><a href="products.html">View All Products →</a></div><div class="mega-menu-grid"><a href="products/gnss-receivers/index.html"><img src="public/assets/products/t50pro.webp" alt=""><span>RTK / CORS / Base Station</span><strong>GNSS Receivers</strong><em>Choose RTK receivers, base stations and CORS hardware by application.</em></a><a href="products/rugged-gis/index.html"><img src="public/assets/products/pcr500.webp" alt=""><span>Controllers / Portable RTK</span><strong>Rugged &amp; GIS</strong><em>Compare controllers and portable RTK terminals for field workflows.</em></a><a href="products/gnss-antennas/index.html"><img src="public/assets/products/tca930.webp" alt=""><span>Choke Ring / Survey / Helix</span><strong>GNSS Antennas</strong><em>Select antenna type by signal tracking, environment and installation method.</em></a><a href="products/precision-agriculture-machine-control/index.html"><img src="public/assets/products/tag66.webp" alt=""><span>Auto-Steering / Land Leveling / 3D Guidance</span><strong>Precision Agriculture &amp; Machine Control</strong><em>Build solution pages for farm dealers and construction machine-control projects.</em></a><a href="products/accessories/index.html"><img src="public/assets/products/tbase.webp" alt=""><span>Power / Antenna / Cables / Cases</span><strong>Accessories</strong><em>Help buyers complete receiver kits and replacement accessory lists.</em></a><a href="products/gnss-application-solutions/index.html"><img src="public/assets/products/u6.webp" alt=""><span>Monitoring / CORS / Marking Robot</span><strong>GNSS Application Solutions</strong><em>Explain complete project solutions and recommended product mix.</em></a></div><div class="mega-menu-footer"><div><span>▣</span><span>Catalog downloads, model specs and quote support are available on product pages.</span></div><a href="inquiry.html">Send Requirements →</a></div></div></div></details><a href="index.html#solutions">Solutions</a><a href="index.html#oem">OEM/ODM</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a></nav><a class="header-cta" href="inquiry.html">Get a Quote →</a></header>
-  <section class="contact-hero">
+<main><section class="contact-hero">
     <span class="contact-label">Contact TOKNAV</span>
     <h1>How Can We Help?</h1>
     <p>Reach TOKNAV for GNSS product quotation, distributor cooperation, OEM/ODM projects and technical solution support.</p>
     <div class="contact-quick-grid" aria-label="TOKNAV contact options">
-      <a href="#locations"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s7-5.2 7-11a7 7 0 0 0-14 0c0 5.8 7 11 7 11Z" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="10" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><strong>Locations</strong><span>TOKNAV Guangzhou office and OpenStreetMap location.</span></a>
-      <a href="#dealer-support"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="m16 16 4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M8 10.5h5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><strong>Find a Dealer</strong><span>Contact TOKNAV for regional distributor and local support guidance.</span></a>
-      <a href="#inquiry"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 5h14M5 12h14M5 19h14" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="m3 5 .5.5L4.8 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Product Inquiry</strong><span>Send GNSS receiver, antenna, CORS/VRS or machine-control requirements.</span></a>
-      <a href="#dealer-support"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 10h16l-1.5-5h-13L4 10Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M6 10v9h12v-9M9 19v-5h6v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg><strong>Become a Dealer</strong><span>Apply for OEM/ODM, channel cooperation and catalog support.</span></a>
+      <a href="#locations"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg><strong>Locations</strong><span>TOKNAV Guangzhou office and OpenStreetMap location.</span></a>
+      <a href="#dealer-support"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></svg><strong>Find a Dealer</strong><span>Contact TOKNAV for regional distributor and local support guidance.</span></a>
+      <a href="#inquiry"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg><strong>Product Inquiry</strong><span>Send GNSS receiver, antenna, CORS/VRS or machine-control requirements.</span></a>
+      <a href="#dealer-support"><svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l1.5-5h15L21 9"/><path d="M4 9h16v11H4z"/><path d="M8 13h8"/></svg><strong>Become a Dealer</strong><span>Apply for OEM/ODM, channel cooperation and catalog support.</span></a>
     </div>
   </section>
   <section class="contact-section" id="locations">
     <div class="contact-info-panel">
       <span class="contact-label">Company Location</span>
-      <h2>Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
+      <div class="contact-company-heading"><h2>Guangzhou Toksurvey Information Technology Co., Ltd.</h2><span>广州图科测绘信息技术有限公司</span></div>
       <div class="contact-info-list">
         <div><span>⌖</span><span>Room 801-6, Building B, No. 9 Caipin Road, Huangpu District, Guangzhou, China 510000</span></div>
-        <div><span>✉</span><a href="mailto:info@toknavgnss.com">info@toknavgnss.com</a></div>
+        <div><span>✉</span><a href="mailto:emma@toknav.cn">emma@toknav.cn</a></div>
         <div><span>☏</span><a href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." target="_blank" rel="noopener noreferrer">WhatsApp: +86 191 9534 6957</a></div>
         <div><span>◷</span><span>We usually reply within 24 hours on business days.</span></div>
       </div>
-      <div class="contact-proof-row"><span>▣ Source manufacturer</span><span>✓ OEM/ODM support</span><span>◎ Global project support</span></div>
-      <div class="contact-panel-actions"><a href="#inquiry">Product Inquiry →</a><a href="mailto:info@toknavgnss.com">Email TOKNAV</a></div>
+      <div class="contact-proof-row"><span>◇ Source manufacturer</span><span>◇ OEM/ODM support</span><span>◇ Global project support</span></div>
+      <div class="contact-panel-actions"><a href="#inquiry">Product Inquiry →</a><a href="mailto:emma@toknav.cn">Email TOKNAV</a></div>
     </div>
-    <div class="osm-card" aria-label="OpenStreetMap company location">
-      <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&amp;layer=mapnik&amp;marker=23.1646848%2C113.4295982" title="TOKNAV location on OpenStreetMap" loading="lazy"></iframe>
-      <div class="map-overlay"><strong>TOKNAV Guangzhou Office</strong><span>No. 9 Caipin Road, Huangpu District</span></div>
-    </div>
+    <div class="osm-card" aria-label="OpenStreetMap company location"><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&amp;layer=mapnik&amp;marker=23.1646848%2C113.4295982" title="TOKNAV location on OpenStreetMap" loading="lazy"></iframe><div class="map-overlay"><strong>TOKNAV Guangzhou Office</strong><span>No. 9 Caipin Road, Huangpu District</span></div></div>
   </section>
   <section class="dealer-support-section" id="dealer-support">
     <div><span class="contact-label">Dealer Cooperation</span><h2>Distributor and OEM/ODM Support</h2><p>TOKNAV supports overseas dealers, project contractors and system integrators with product catalogs, model selection, technical matching, sample orders and market cooperation.</p></div>
-    <div class="dealer-support-grid">
-      <article><span>◇</span><strong>Become a Dealer</strong><span>Tell us your country, customer type and target product line.</span></article>
-      <article><span>▣</span><strong>OEM/ODM Cooperation</strong><span>Discuss branding, firmware, packaging and market customization.</span></article>
-      <article><span>◎</span><strong>Regional Support</strong><span>Request channel materials, catalogs and solution documents.</span></article>
-    </div>
+    <div class="dealer-support-grid"><article><span>◇</span><strong>Become a Dealer</strong><span>Tell us your country, customer type and target product line.</span></article><article><span>□</span><strong>OEM/ODM Cooperation</strong><span>Discuss branding, firmware, packaging and market customization.</span></article><article><span>◎</span><strong>Regional Support</strong><span>Request channel materials, catalogs and solution documents.</span></article></div>
   </section>
   <section class="inquiry contact-inquiry" id="inquiry">
-    <div><div class="section-title"><h2>Tell Us About Your Project</h2><p>Share your country, application, product category and estimated quantity. Our team can recommend the suitable GNSS receiver, antenna or solution package.</p></div><div class="location-card contact-page-address"><div><span>⌖</span><strong>Address in Chinese</strong><span>广州市黄埔区彩频路9号</span></div></div></div>
-    <form class="quote-form">
-      <label>Name<input placeholder="Your name"></label>
-      <label>Email<input placeholder="name@company.com" type="email"></label>
-      <label>Country<input placeholder="Your country or region"></label>
-      <label>Product Requirement<select><option>Select a category</option><option>GNSS Receiver</option><option>GNSS Antenna</option><option>CORS / VRS Solution</option><option>Precision Agriculture</option><option>Machine Control</option><option>OEM / ODM Project</option></select></label>
-      <label>Message<textarea placeholder="Tell us your application, quantity and timeline."></textarea></label>
-      <button type="button">Submit Inquiry →</button>
-    </form>
-  </section>
+    <div><div class="section-title"><h2>Tell Us About Your Project</h2><p>Share your country, application, product category and estimated quantity. Our team can recommend the suitable GNSS receiver, antenna or solution package.</p></div><div class="location-card contact-page-address"><div class="contact-bilingual-card"><span>⌖</span><div class="contact-bilingual-list"><article><strong>Company Name</strong><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span></article><article><strong>公司名称</strong><span lang="zh-CN">广州图科测绘信息技术有限公司</span></article><article><strong>Address in English</strong><span>Room 801-6, Building B, No. 9 Caipin Road, Huangpu District, Guangzhou, China 510000</span></article><article><strong>中文地址</strong><span lang="zh-CN">广州市黄埔区彩频路9号B栋801-6室</span></article></div></div></div></div>
+    <form class="quote-form" action="https://formsubmit.co/emma@toknav.cn" method="POST"><input type="hidden" name="_subject" value="New TOKNAV Contact Page Inquiry"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html"><input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off"><label><span>Name</span><input name="name" placeholder="Your name" required></label><label><span>Email</span><input name="email" placeholder="name@company.com" type="email" required></label><label><span>Phone / WhatsApp</span><input name="phone" placeholder="+86 191 9534 6957" type="tel" required></label><label><span>Country</span><input name="country" placeholder="Your country or region"></label><label><span>Product Requirement</span><select name="product"><option>Select a category</option><option>GNSS Receiver</option><option>GNSS Antenna</option><option>CORS / VRS Solution</option><option>Precision Agriculture</option><option>Machine Control</option><option>OEM / ODM Project</option></select></label><label><span>Message</span><textarea name="message" placeholder="Tell us your application, quantity and timeline."></textarea></label><button type="submit">Submit Inquiry →</button></form>
+  </section></main>
 <footer class="site-footer"><div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div><div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div><div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div></footer>
 </main>
 <a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a><script src="public/assets/i18n-static.js" defer></script></body>

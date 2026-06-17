@@ -31,7 +31,7 @@ async function sendInquiryEmail(payload: {
   createdAt: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.INQUIRY_TO_EMAIL || "info@toknavgnss.com";
+  const toEmail = process.env.INQUIRY_TO_EMAIL || "emma@toknav.cn";
   const fromEmail = process.env.INQUIRY_FROM_EMAIL || "TOKNAV Website <onboarding@resend.dev>";
 
   if (!apiKey) return;
@@ -114,7 +114,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, message: "Inquiry submitted successfully." });
   } catch {
     return NextResponse.json(
-      { ok: false, message: "Submission failed. Please email info@toknavgnss.com directly." },
+      { ok: false, message: "Submission failed. Please email emma@toknav.cn directly." },
       { status: 500 }
     );
   }

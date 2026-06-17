@@ -19,7 +19,7 @@ export default function InquiryPage() {
           <div className="inquiry-contact-list">
             <div>
               <Mail size={20} />
-              <span>info@toknavgnss.com</span>
+              <span>emma@toknav.cn</span>
             </div>
             <div>
               <MessageCircle size={20} />

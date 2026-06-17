@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>T10Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV</title>
 <meta name="description" content="Review T10Pro GNSS Receiver specifications, applications, catalog source, downloadable brochure and quote options for B2B GNSS purchasing.">
-<style>:root {
+<style>
+:root {
   --ink: #071325;
   --muted: #5c6a80;
   --line: #dce6f5;
@@ -561,13 +562,15 @@ footer strong { color: white; font-size: 24px; }
     linear-gradient(rgba(6,20,38,.74), rgba(6,20,38,.74)),
     url("/assets/about/toknav-history-slide.webp") center / cover;
 }
+.about-section.about-blue-band { padding-top: 58px; }
 .about-section-heading.light h2,
 .about-section-heading.light p { color: #fff; }
 .about-section-heading.light span { color: #8fd1ff; }
 .about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  grid-auto-rows: 260px;
+  grid-auto-rows: 230px;
+  grid-auto-flow: dense;
   gap: 14px;
 }
 .about-gallery-grid a {
@@ -608,6 +611,13 @@ footer strong { color: white; font-size: 24px; }
 }
 .about-cert-gallery {
   grid-auto-rows: 300px;
+}
+.about-feedback-gallery { margin-top: 34px; }
+.about-feedback-gallery a:nth-child(6n + 1) {
+  grid-column: span 2;
+}
+.about-feedback-gallery a:nth-child(9n + 3) {
+  grid-row: span 2;
 }
 .about-cert-gallery figure {
   display: grid;
@@ -1331,6 +1341,8 @@ footer strong { color: white; font-size: 24px; }
 .contact-info-panel { padding: 34px; border-radius: 8px; color: white; background: linear-gradient(145deg, #142889, #252a91); box-shadow: var(--shadow); }
 .contact-label { display: inline-block; margin-bottom: 18px; color: #9edcff; font-weight: 900; font-size: 13px; text-transform: uppercase; letter-spacing: .08em; }
 .contact-info-panel h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); line-height: 1.1; }
+.contact-company-heading { display: grid; gap: 10px; }
+.contact-company-heading span { color: rgba(255,255,255,.78); font-size: 18px; font-weight: 800; letter-spacing: 0; }
 .contact-info-list { display: grid; gap: 16px; margin-top: 30px; }
 .contact-info-list div { display: grid; grid-template-columns: 28px 1fr; gap: 14px; align-items: start; color: rgba(255,255,255,.84); line-height: 1.55; }
 .contact-info-list svg { color: var(--cyan); }
@@ -1421,12 +1433,21 @@ footer strong { color: white; font-size: 24px; }
 }
 .contact-inquiry { border-top: 1px solid var(--line); }
 .contact-page-address { margin-top: 28px; }
+.contact-bilingual-card { grid-template-columns: 32px 1fr; align-items: flex-start; width: 100%; }
+.contact-bilingual-list { display: grid; grid-template-columns: 1fr; gap: 18px; min-width: 0; }
+.location-card .contact-bilingual-list { grid-template-columns: 1fr; gap: 18px; align-items: stretch; }
+.contact-bilingual-list article { display: grid; gap: 6px; }
+.contact-bilingual-list strong { color: #071325; font-size: 18px; }
+.contact-bilingual-list span { color: var(--muted); font-size: 17px; line-height: 1.65; word-break: normal; overflow-wrap: anywhere; }
+.contact-bilingual-list span[lang="zh-CN"] { letter-spacing: 0; word-break: keep-all; overflow-wrap: normal; }
 
 @media (max-width: 980px) {
   .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
   .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .about-gallery-grid a.featured { grid-column: span 2; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -1485,6 +1506,8 @@ footer strong { color: white; font-size: 24px; }
   .about-timeline { grid-template-columns: 1fr; }
   .about-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
   .about-gallery-grid a.featured { grid-column: span 1; grid-row: span 1; }
+  .about-feedback-gallery a:nth-child(6n + 1),
+  .about-feedback-gallery a:nth-child(9n + 3) { grid-column: span 1; grid-row: span 1; }
   .about-cert-gallery { grid-auto-rows: 300px; }
   .about-lightbox { padding: 18px; }
   .about-lightbox-close { top: 14px; right: 14px; }
@@ -3269,6 +3292,7 @@ footer strong { color: white; font-size: 24px; }
     padding: 42px 5vw;
   }
 }
+
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Product","name":"T10Pro GNSS Receiver","brand":{"@type":"Brand","name":"TOKNAV"},"category":"GNSS Receivers","image":"/assets/products/t10pro.webp","description":"Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.","manufacturer":{"@type":"Organization","name":"Guangzhou Toksurvey Information Technology Co., Ltd."},"additionalProperty":[{"@type":"PropertyValue","name":"GNSS signals","value":"GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."},{"@type":"PropertyValue","name":"Channels","value":"1408"},{"@type":"PropertyValue","name":"Update frequency","value":"T10Pro 5Hz typical / 20Hz max; T20Pro 20Hz max"},{"@type":"PropertyValue","name":"Standard output","value":"NMEA-0183"},{"@type":"PropertyValue","name":"Correction protocol","value":"RTCM 3.x, with RTCM 2.x also listed for T10Pro"},{"@type":"PropertyValue","name":"Single point accuracy","value":"Horizontal 1.5m RMS / Vertical 2.5m RMS"},{"@type":"PropertyValue","name":"DGPS accuracy","value":"Horizontal 0.4m RMS / Vertical 0.8m RMS"},{"@type":"PropertyValue","name":"RTK accuracy","value":"Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"},{"@type":"PropertyValue","name":"Static accuracy","value":"Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"},{"@type":"PropertyValue","name":"Speed accuracy","value":"0.03m/s RMS"},{"@type":"PropertyValue","name":"Reacquisition","value":"<1s"},{"@type":"PropertyValue","name":"Platform","value":"ARM Cortex-A7 with Linux OS"},{"@type":"PropertyValue","name":"Bluetooth","value":"BR + EDR + BLE"},{"@type":"PropertyValue","name":"Wi-Fi","value":"802.11 b/g/n"},{"@type":"PropertyValue","name":"4G network","value":"LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"},{"@type":"PropertyValue","name":"Storage","value":"32GB storage"},{"@type":"PropertyValue","name":"Tilt correction","value":"<2cm within 60 degrees on IMU-supported receiver models"},{"@type":"PropertyValue","name":"Radio frequency","value":"410-470MHz"},{"@type":"PropertyValue","name":"Radio power","value":"T10Pro 0.5W/1.5W; T20Pro adjustable 1W/2W/5W"},{"@type":"PropertyValue","name":"Radio protocol","value":"TRIMTALK, TRIMMK3, SOUTH, TRANSEOT"},{"@type":"PropertyValue","name":"Open area distance","value":"T20Pro built-in 5W radio is described for up to 16km in open areas"},{"@type":"PropertyValue","name":"Display","value":"T20Pro includes 1.3-inch TFT LCD, 240 x 240"},{"@type":"PropertyValue","name":"Battery","value":"T10Pro 3.7V 9600mAh; T20Pro 7.4V 6500mAh"},{"@type":"PropertyValue","name":"Work time","value":"T10Pro more than 16 hours typical; T20Pro more than 18 hours typical and static mode up to 26 hours"},{"@type":"PropertyValue","name":"Charging","value":"USB PD fast charging support"},{"@type":"PropertyValue","name":"Operating temperature","value":"-20°C to +60°C"},{"@type":"PropertyValue","name":"Protection","value":"IP68"},{"@type":"PropertyValue","name":"Dimensions / weight","value":"T10Pro Phi147.9 x 68mm, 740g; T20Pro Phi143.5 x 90.7mm, 900g"},{"@type":"PropertyValue","name":"Certification","value":"T10Pro NGS, CE, FCC, KC; T20Pro NGS, CE, FCC"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is T10Pro GNSS Receiver mainly used for?","acceptedAnswer":{"@type":"Answer","text":"T10Pro GNSS Receiver is mainly used for Surveying, Road construction, Contractor projects. Buyers can confirm the final configuration based on project application, country, correction method and accessory requirements."}},{"@type":"Question","name":"Can I request the latest datasheet and price for T10Pro GNSS Receiver?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use the quote form on this page to request the latest datasheet, price, MOQ, lead time, packing list and recommended accessories for T10Pro GNSS Receiver."}},{"@type":"Question","name":"Are the parameters final for every market?","acceptedAnswer":{"@type":"Answer","text":"Product parameters may be updated by the manufacturer and can vary by configuration or regional version. TOKNAV should confirm the latest configuration before quotation or shipment."}}]}</script>
 </head>
@@ -3313,8 +3337,8 @@ footer strong { color: white; font-size: 24px; }
         <strong>Accessories</strong>
         <em>Help buyers complete receiver kits and replacement accessory lists.</em>
       </a><a href="../../products/gnss-application-solutions/index.html">
-        <img src="../../public/assets/products/u6.webp" alt="">
-        <span>Monitoring / CORS / Marking Robot</span>
+        <img src="../../public/assets/products/tboat20.webp" alt="">
+        <span>Monitoring / CORS / Marking Robot / USV / SLAM</span>
         <strong>GNSS Application Solutions</strong>
         <em>Explain complete project solutions and recommended product mix.</em>
       </a></div>

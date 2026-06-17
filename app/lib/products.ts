@@ -107,11 +107,11 @@ export const productCategories: ProductCategory[] = [
   {
     slug: "gnss-application-solutions",
     name: "GNSS Application Solutions",
-    kicker: "Monitoring / CORS / Marking Robot",
-    title: "GNSS Application Solutions for Monitoring, CORS/VRS and Marking",
+    kicker: "Monitoring / CORS / Marking Robot / USV / SLAM",
+    title: "GNSS Application Solutions for Monitoring, CORS/VRS, Marking, USV and SLAM",
     description:
-      "Solution packages for deformation monitoring, CORS/VRS service deployment and automated line marking applications.",
-    image: "/assets/products/u6.webp",
+      "Solution packages for deformation monitoring, CORS/VRS deployment, automated line marking, unmanned surface vehicle survey and handheld LiDAR SLAM mapping.",
+    image: "/assets/products/tboat20.webp",
     sourcePdf: "Solution Brochure.pdf",
     buyerIntent: "Explain complete project solutions and recommended product mix."
   }
@@ -724,6 +724,54 @@ export const products: Product[] = [
       "/assets/products/tr10pro-marking-robot-side.png"
     ],
     pageVariant: "markingRobot"
+  },
+  {
+    slug: "tboat-usv-series",
+    name: "Tboat USV Series",
+    categorySlug: "gnss-application-solutions",
+    type: "Unmanned surface vehicle",
+    image: "/assets/products/tboat20.webp",
+    excerpt: "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
+    applications: ["Bathymetric survey", "Water quality monitoring", "Patrol USV with side-scan sonar", "Hydrological monitoring"],
+    highlights: ["Tboat10 and Tboat20 platforms", "RTK positioning accuracy", "4G / 2.4G / optional radio communication", "Up to 7 hours endurance", "IP67 hull design", "Multiple payload options"],
+    specs: [
+      { label: "Series", value: "Tboat10 and Tboat20 unmanned surface vehicle platforms" },
+      { label: "Applications", value: "Bathymetric survey, water quality monitoring, water quality sampling, patrol, hydrological monitoring and underwater surveying" },
+      { label: "Navigation", value: "Full-system multi-frequency GNSS positioning with RTK support" },
+      { label: "Source", value: "PDF合并-Tboat.pdf, 2025 brochure" }
+    ],
+    source: "PDF合并-Tboat.pdf, pages 1-8",
+    gallery: [
+      "/assets/products/tboat20.webp",
+      "/assets/products/tboat10.webp",
+      "/assets/products/tboat10-side.webp",
+      "/assets/products/tboat20-annotated.webp",
+      "/assets/products/tboat10-series.webp"
+    ]
+  },
+  {
+    slug: "tsr20-slam",
+    name: "TSR20 Handheld LiDAR SLAM Scanner",
+    categorySlug: "gnss-application-solutions",
+    type: "Handheld LiDAR SLAM scanner",
+    image: "/assets/products/tsr20.webp",
+    excerpt: "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
+    applications: ["Indoor mapping", "Outdoor building scanning", "Digital twin modeling", "Power line patrol", "Forestry and low-canopy survey"],
+    highlights: ["Livox Mid-360 LiDAR", "SLAM / RTK-SLAM / PPK-SLAM modes", "1.0kg handheld design", "Dual 20MP cameras", "200,000 points/sec", "Up to 5cm absolute accuracy"],
+    specs: [
+      { label: "Mapping modes", value: "SLAM, RTK-SLAM and PPK-SLAM" },
+      { label: "Accuracy", value: "≤3cm relative accuracy, ≤5cm absolute accuracy listed in TSR20 EN brochure" },
+      { label: "Sensor", value: "Livox Mid-360 LiDAR with 40m range at 10% reflectivity" },
+      { label: "Source", value: "TSR20 EN.pdf, 2026-06" }
+    ],
+    source: "TSR20 EN.pdf, pages 1-4",
+    gallery: [
+      "/assets/products/tsr20.webp",
+      "/assets/products/tsr20-angle.webp",
+      "/assets/products/tsr20-side.webp",
+      "/assets/products/tsr20-studio.webp",
+      "/assets/products/tsr20-kit.webp"
+    ]
   }
 ];
 
@@ -1168,6 +1216,95 @@ const markingRobotSpecs: ProductSpecGroup[] = [
   }
 ];
 
+const tboatSpecs: ProductSpecGroup[] = [
+  {
+    title: "Series and Applications",
+    specs: [
+      { label: "Models", value: "Tboat10 for compact unmanned surface operations; Tboat20 for full-function professional USV projects" },
+      { label: "Application scenarios", value: "Bathymetric survey, water quality monitoring, water quality sampling, patrol USV with side-scan sonar, hydrological monitoring and underwater surveying" },
+      { label: "Payload", value: "Tboat10 maximum payload 35kg; Tboat20 maximum payload 50kg" },
+      { label: "Hull protection", value: "IP67 waterproof and dustproof hull design with reinforced bumper protection" }
+    ]
+  },
+  {
+    title: "Hull, Power and Endurance",
+    specs: [
+      { label: "Tboat10 hull dimensions", value: "980 x 520 x 254mm; draft 8.5cm; hull 7kg, total weight 30kg" },
+      { label: "Tboat20 hull dimensions", value: "1280 x 580 x 430mm; draft 10cm; hull 12kg, total weight 40kg" },
+      { label: "Battery", value: "33.6V 25Ah x 2 rechargeable ternary lithium battery packs with hot-swap replacement" },
+      { label: "Operating time", value: "3 hours at 2m/s; up to 7 hours at 1.5m/s" },
+      { label: "Maximum speed", value: "Tboat10 up to 7m/s and supports safe passage through 4m/s current cross-sections; Tboat20 up to 6m/s" },
+      { label: "Motor", value: "Brushless dual motors; Tboat10 rated 900W, Tboat20 rated 1100W" }
+    ]
+  },
+  {
+    title: "Navigation, Control and Communication",
+    specs: [
+      { label: "GNSS", value: "Built-in GNSS positioning and orientation dual antenna with BDS, GPS, GLONASS, Galileo, QZSS and SBAS signal support" },
+      { label: "RTK positioning accuracy", value: "Horizontal +/-8mm + 1ppm; vertical +/-15mm + 1ppm" },
+      { label: "Directional accuracy", value: "0.1 degree accuracy with 1m baseline" },
+      { label: "Control modes", value: "Manual, automatic, hover and return-to-home modes" },
+      { label: "Communication", value: "4G and 2.4G data/video communication; optional base station radio and network CORS" },
+      { label: "Interfaces", value: "2 x RJ45 Ethernet ports, 2 x RS232 serial ports, 2 x RS485 serial ports" }
+    ]
+  },
+  {
+    title: "Depth Measurement and Payload Options",
+    specs: [
+      { label: "Depth frequency", value: "200kHz single-beam depth measurement listed in series brochure" },
+      { label: "Depth range", value: "0.15-200m, with extended range available as an option" },
+      { label: "Depth accuracy", value: "+/-1cm + 0.1% D, where D is water depth" },
+      { label: "Payload options", value: "Echo sounder, side-scan sonar, multibeam echo sounder, ADCP, in-situ analyzer, cameras, LiDAR and water quality sensors depending on configuration" }
+    ]
+  }
+];
+
+const tsr20Specs: ProductSpecGroup[] = [
+  {
+    title: "SLAM Mapping System",
+    specs: [
+      { label: "Mapping mode", value: "SLAM, RTK-SLAM and PPK-SLAM" },
+      { label: "Accuracy", value: "≤3cm relative accuracy and ≤5cm absolute accuracy listed in TSR20 EN brochure" },
+      { label: "Point cloud thickness", value: "1cm" },
+      { label: "Point cloud update frequency", value: "10Hz" },
+      { label: "Typical applications", value: "Underground, indoor, stairs, parking lots, outdoor buildings, low-canopy forest and power line patrol" }
+    ]
+  },
+  {
+    title: "LiDAR and Camera",
+    specs: [
+      { label: "Laser sensor", value: "Livox Mid-360 LiDAR" },
+      { label: "Measuring range", value: "40m at 10% reflectivity" },
+      { label: "Scan rate", value: "Single echo, 200,000 points/sec" },
+      { label: "Field of view", value: "Horizontal 360 degrees; vertical -7 degrees to 52 degrees" },
+      { label: "Range accuracy", value: "≤2cm at 10m, ≤3cm at 0.2m" },
+      { label: "Camera", value: "Dual 20MP cameras with 200-degree ultra-wide time-synchronized scanning" }
+    ]
+  },
+  {
+    title: "GNSS / POS",
+    specs: [
+      { label: "GNSS system", value: "GPS L1/L2/L5, GLONASS L1/L2, Galileo E1/E5a/E5b and BDS signals listed in brochure" },
+      { label: "Positioning accuracy", value: "Horizontal +/-0.02m, vertical +/-0.03m" },
+      { label: "IMU update rate", value: "200Hz" },
+      { label: "Pitch accuracy", value: "0.015 degrees" },
+      { label: "Roll accuracy", value: "0.015 degrees" },
+      { label: "Heading accuracy", value: "0.040 degrees" }
+    ]
+  },
+  {
+    title: "Hardware and Storage",
+    specs: [
+      { label: "Dimensions", value: "16.5 x 12.0 x 32.4cm" },
+      { label: "Weight", value: "1.0kg including battery" },
+      { label: "Operating temperature", value: "-20°C to 55°C" },
+      { label: "System consumption", value: "25W" },
+      { label: "Storage", value: "64GB internal flash memory and 128GB MicroSD card support" },
+      { label: "Wi-Fi transmission", value: "Smooth data reception within 5m" }
+    ]
+  }
+];
+
 const detailedSpecGroups: Record<string, ProductSpecGroup[]> = {
   t5lite: t5FamilySpecs,
   t5: t5FamilySpecs,
@@ -1194,7 +1331,9 @@ const detailedSpecGroups: Record<string, ProductSpecGroup[]> = {
   tag88: agriMachineSpecs.tag88,
   tmc10: agriMachineSpecs.tmc10,
   tmc20: agriMachineSpecs.tmc20,
-  "marking-robot": markingRobotSpecs
+  "marking-robot": markingRobotSpecs,
+  "tboat-usv-series": tboatSpecs,
+  "tsr20-slam": tsr20Specs
 };
 
 const categoryApplications: Record<string, { title: string; text: string; products: string }[]> = {
@@ -1226,7 +1365,9 @@ const categoryApplications: Record<string, { title: string; text: string; produc
   "gnss-application-solutions": [
     { title: "Deformation Monitoring", text: "GNSS monitoring packages for landslides, dams, bridges, mining subsidence and structural safety projects.", products: "Monitoring solution" },
     { title: "CORS / VRS Service", text: "Reference station hardware and correction-service concepts for regional positioning infrastructure.", products: "CORS and VRS solution" },
-    { title: "Robotic Line Marking", text: "RTK-guided marking workflows for sports fields, roads, runways and pre-marking service providers.", products: "TR10Pro Line Marking Robot" }
+    { title: "Robotic Line Marking", text: "RTK-guided marking workflows for sports fields, roads, runways and pre-marking service providers.", products: "TR10Pro Line Marking Robot" },
+    { title: "USV Hydrographic Survey", text: "Unmanned surface vehicle workflows for bathymetric survey, water quality monitoring, patrol and underwater surveying projects.", products: "Tboat10 / Tboat20 USV" },
+    { title: "Handheld LiDAR SLAM", text: "Mobile 3D scanning for indoor mapping, outdoor buildings, digital twins, power line patrol and GNSS-denied environments.", products: "TSR20 Handheld LiDAR SLAM" }
   ]
 };
 
@@ -1371,6 +1512,18 @@ const modelDatasheets: Record<string, ProductDatasheet> = {
     description: "Latest TR10 series intelligent marking robot brochure, updated April 2026.",
     href: "/assets/downloads/datasheets/tr10series.pdf",
     updated: "2026-04"
+  },
+  "tboat-usv-series": {
+    label: "Download Tboat Series Datasheet",
+    description: "Tboat10 and Tboat20 unmanned surface vehicle brochure for USV survey and monitoring projects.",
+    href: "/assets/downloads/datasheets/tboat-series.pdf",
+    updated: "2025"
+  },
+  "tsr20-slam": {
+    label: "Download TSR20 Datasheet",
+    description: "TSR20 handheld LiDAR SLAM scanner brochure with mapping modes, LiDAR, camera and POS specifications.",
+    href: "/assets/downloads/datasheets/tsr20.pdf",
+    updated: "2026-06"
   }
 };
 
@@ -1453,6 +1606,22 @@ export function getProductQuickSpecs(product: Product): ProductSpec[] {
       { label: "Endurance", value: "Up to 30km" }
     ];
   }
+  if (product.slug === "tboat-usv-series") {
+    return [
+      { label: "Models", value: "Tboat10 / Tboat20" },
+      { label: "Payload", value: "35kg / 50kg" },
+      { label: "RTK accuracy", value: "H +/-8mm + 1ppm, V +/-15mm + 1ppm" },
+      { label: "Endurance", value: "Up to 7 hours at 1.5m/s" }
+    ];
+  }
+  if (product.slug === "tsr20-slam") {
+    return [
+      { label: "Mapping mode", value: "SLAM / RTK-SLAM / PPK-SLAM" },
+      { label: "Accuracy", value: "≤3cm relative, ≤5cm absolute" },
+      { label: "Scan rate", value: "200,000 points/sec" },
+      { label: "Weight", value: "1.0kg including battery" }
+    ];
+  }
 
   const specs = getProductSpecGroups(product).flatMap((group) => group.specs);
   const preferredLabels = [
@@ -1493,6 +1662,20 @@ export function getProductBuyerBenefits(product: Product) {
       "Built-in field templates and imported DXF/CSV files help crews move from design to marking with fewer manual layout steps.",
       "RTK positioning and robotic route planning support repeatable centimeter-level line marking on sports fields, roads and runways.",
       "The adjustable side nozzle, 10L hopper and 0-degree turn-in-place design make the robot practical for different marking jobs and tight spaces."
+    ];
+  }
+  if (product.slug === "tboat-usv-series") {
+    return [
+      "The Tboat series gives distributors two USV sizes for different water-area projects, from compact bathymetric survey to professional multi-payload operations.",
+      "RTK positioning, 4G/2.4G communication and optional radio/CORS workflows help integrators plan reliable unmanned water-surface data collection.",
+      "Payload options such as echo sounder, side-scan sonar, ADCP and water quality sensors make the platform practical for survey, patrol and monitoring bids."
+    ];
+  }
+  if (product.slug === "tsr20-slam") {
+    return [
+      "SLAM, RTK-SLAM and PPK-SLAM modes help buyers cover both GNSS and GNSS-denied mapping environments with one handheld scanner.",
+      "The 1.0kg body, Livox Mid-360 LiDAR and dual 20MP cameras support fast field capture for indoor mapping, digital twins and infrastructure inspection.",
+      "Built-in storage, Wi-Fi transfer and dedicated post-processing workflow make it easier for dealers to demonstrate a complete 3D scanning solution."
     ];
   }
   if (["t30", "t40", "t50"].includes(product.slug)) {
@@ -1537,6 +1720,12 @@ export function getProductSeoTitle(product: Product) {
 export function getProductMetaDescription(product: Product) {
   if (product.slug === "marking-robot") {
     return "Review TR10Pro line marking robot features, RTK positioning, sports field templates, DXF/CSV import, marking accuracy, specifications and quote options.";
+  }
+  if (product.slug === "tboat-usv-series") {
+    return "Review TOKNAV Tboat10 and Tboat20 USV specifications, payloads, RTK navigation, bathymetric survey applications, datasheet download and quote support.";
+  }
+  if (product.slug === "tsr20-slam") {
+    return "Review TSR20 handheld LiDAR SLAM scanner specifications, SLAM/RTK-SLAM/PPK-SLAM modes, Livox Mid-360 LiDAR, camera system and quote support.";
   }
   return `Review ${product.name} specifications, applications, catalog source, downloadable brochure and quote options for B2B GNSS purchasing.`;
 }

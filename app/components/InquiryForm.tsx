@@ -30,6 +30,7 @@ const initialValues: InquiryFormValues = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const phonePattern = /^\+?[0-9 ()-]{7,22}$/;
+const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
 const productOptions = [
   "GNSS Receiver",
   "Rugged & GIS",
@@ -100,8 +101,9 @@ export default function InquiryForm() {
     }
   }
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const form = event.currentTarget;
     const nextErrors = validate(values, t);
     setErrors(nextErrors);
 
@@ -114,33 +116,24 @@ export default function InquiryForm() {
     setStatus("submitting");
     setStatusMessage(t("form.status.submitting"));
 
-    try {
-      const response = await fetch("/api/inquiry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(values)
-      });
-      const result = await response.json();
-
-      if (!response.ok || !result.ok) {
-        throw new Error(result.message || "Submission failed.");
-      }
-
-      setStatus("success");
-      setStatusMessage(t("form.status.success"));
-      setValues(initialValues);
-    } catch (error) {
-      setStatus("error");
-      setStatusMessage(
-        error instanceof Error
-          ? error.message
-          : t("form.status.failed")
-      );
-    }
+    window.setTimeout(() => {
+      form.submit();
+    }, 120);
   }
 
   return (
-    <form className="b2b-inquiry-form" onSubmit={handleSubmit} noValidate>
+    <form
+      action={inquiryFormAction}
+      className="b2b-inquiry-form"
+      method="POST"
+      onSubmit={handleSubmit}
+      noValidate
+    >
+      <input type="hidden" name="_subject" value="New TOKNAV Website Inquiry" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html" />
+      <input type="text" name="_honey" className="honeypot" tabIndex={-1} autoComplete="off" />
       <input
         aria-hidden="true"
         autoComplete="off"

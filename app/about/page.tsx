@@ -31,7 +31,19 @@ const feedbackPhotos = [
   ["/assets/about/feedback-las-vegas-group.webp", "Customer meeting at TOKNAV booth"],
   ["/assets/about/feedback-russia-group.webp", "Partner feedback at Russia CTT Expo"],
   ["/assets/about/feedback-saudi-storefront.webp", "TOKNAV partner storefront in Saudi Arabia"],
-  ["/assets/about/feedback-cameroon-office.webp", "Customer office display with TOKNAV equipment"]
+  ["/assets/about/feedback-cameroon-office.webp", "Customer office display with TOKNAV equipment"],
+  ["/assets/about/feedback-las-vegas-robot-demo.webp", "Visitors watching TOKNAV robot demonstration in Las Vegas"],
+  ["/assets/about/feedback-las-vegas-visitors.webp", "Overseas customers visiting the TOKNAV exhibition booth"],
+  ["/assets/about/feedback-las-vegas-usv-talk.webp", "Customer discussion beside TOKNAV USV and GNSS products"],
+  ["/assets/about/feedback-las-vegas-booth-crowd.webp", "Busy exhibition booth with international visitors"],
+  ["/assets/about/feedback-las-vegas-slam-demo.webp", "TOKNAV SLAM and GNSS product demonstration"],
+  ["/assets/about/feedback-las-vegas-display.webp", "TOKNAV product display at overseas exhibition"],
+  ["/assets/about/feedback-russia-outdoor-booth.webp", "TOKNAV booth at Russia CTT Expo outdoor area"],
+  ["/assets/about/feedback-russia-field-demo.webp", "Field demonstration at Russia construction exhibition"],
+  ["/assets/about/feedback-factory-customer-visit.webp", "Customers visiting TOKNAV product demo room"],
+  ["/assets/about/feedback-factory-training.webp", "Product training session with visiting customers"],
+  ["/assets/about/feedback-factory-handshake.webp", "Customer cooperation discussion at TOKNAV office"],
+  ["/assets/about/feedback-factory-demo-table.webp", "Product demo table prepared for customer visit"]
 ];
 
 const certificates = [
