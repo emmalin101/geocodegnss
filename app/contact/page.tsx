@@ -76,7 +76,7 @@ export default function ContactPage() {
           <span className="contact-label" data-i18n="contact.location.label">Company Location</span>
           <div className="contact-company-heading">
             <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
-            <span>广州图科测绘信息技术有限公司</span>
+            <span>广州市图科信息技术有限公司</span>
           </div>
           <div className="contact-info-list">
             <div>
@@ -180,7 +180,7 @@ export default function ContactPage() {
                 </article>
                 <article>
                   <strong>公司名称</strong>
-                  <span lang="zh-CN">广州图科测绘信息技术有限公司</span>
+                  <span lang="zh-CN">广州市图科信息技术有限公司</span>
                 </article>
                 <article>
                   <strong>Address in English</strong>
