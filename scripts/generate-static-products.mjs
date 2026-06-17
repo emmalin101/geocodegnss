@@ -73,6 +73,44 @@ const {
 } = loadProductModule();
 
 const css = fs.readFileSync(path.join(root, "app/globals.css"), "utf8");
+const socialLinks = JSON.parse(fs.readFileSync(path.join(root, "public/assets/social-links.json"), "utf8"));
+const aboutTimeline = [
+  ["2020", "GNSS RTK T5", "TOKNAV launched its T5 RTK receiver line for practical field surveying."],
+  ["2022.4", "T10Pro GNSS Receiver", "T10Pro was launched as a professional RTK receiver for survey and mapping teams."],
+  ["2022.6", "NET660i CORS/VRS", "VRS CORS NET660i expanded TOKNAV's base-station and correction-service portfolio."],
+  ["2022.11", "U6 Monitoring", "U6 deformation monitoring solution was launched for structural and slope monitoring projects."],
+  ["2023.3", "T20Pro Receiver", "T20Pro entered the receiver family for higher-performance GNSS field applications."],
+  ["2023.8", "P8 / P8Pro", "Rugged controller products supported integrated field data workflows."],
+  ["2023.11", "Marking Robot", "TOKNAV launched the marking robot solution for automated field marking."],
+  ["2024.2", "tBase", "tBase was introduced for compact base-station and RTK correction work."],
+  ["2024.3", "P8Glo", "P8Glo was launched for portable GNSS and GIS data collection."],
+  ["2024.5", "NET660", "NET660 strengthened the CORS and base-station receiver range."],
+  ["2024.7", "T30 / T30Pro", "T30 and T30Pro added AR stakeout, laser measurement and photogrammetry options."],
+  ["2024.7", "NET660i-1U", "NET660i-1U was released for rack-mounted CORS infrastructure."],
+  ["2025.1", "TAG66 System", "Electric steering wheel autonomous driving system expanded agricultural automation."],
+  ["2025.2", "T40 Series", "T40 Series was launched for next-generation RTK receiver projects."],
+  ["2025.8", "Unmanned Surface Vehicle", "TOKNAV extended GNSS applications into unmanned water-surface survey scenarios."],
+  ["2025.11", "Handheld LiDAR Scanner", "Handheld LiDAR scanner was added to the spatial data capture portfolio."]
+];
+const aboutFeedbackPhotos = [
+  ["/assets/about/feedback-las-vegas-demo.webp", "Product demonstration at a Las Vegas exhibition booth"],
+  ["/assets/about/feedback-las-vegas-talk.webp", "Customer discussion around TOKNAV GNSS solutions"],
+  ["/assets/about/feedback-las-vegas-booth.webp", "Overseas visitors reviewing TOKNAV products"],
+  ["/assets/about/feedback-las-vegas-field.webp", "TR10 Pro field-marking demonstration with customers"],
+  ["/assets/about/feedback-las-vegas-group.webp", "Customer meeting at TOKNAV booth"],
+  ["/assets/about/feedback-russia-group.webp", "Partner feedback at Russia CTT Expo"],
+  ["/assets/about/feedback-saudi-storefront.webp", "TOKNAV partner storefront in Saudi Arabia"],
+  ["/assets/about/feedback-cameroon-office.webp", "Customer office display with TOKNAV equipment"]
+];
+const aboutCertificates = [
+  ["/assets/about/cert-ce-p8.webp", "CE certificate for P8 series"],
+  ["/assets/about/cert-ce-t10pro.webp", "CE certificate for T10Pro"],
+  ["/assets/about/cert-fcc-t30.webp", "FCC grant for T30 series"],
+  ["/assets/about/cert-igs-t10pro.webp", "IGS certification for T10Pro"],
+  ["/assets/about/cert-ngs.webp", "NGS calibration certificate"],
+  ["/assets/about/cert-kc.webp", "KC certification"],
+  ["/assets/about/cert-iso9001.webp", "ISO9001 company certificate"]
+];
 
 function esc(value) {
   return String(value ?? "")
@@ -97,6 +135,29 @@ function relDownload(href, depth) {
   }
   const clean = href.replace(/^\//, "");
   return `${"../".repeat(depth)}public/${clean}`;
+}
+
+function socialIcon(platform) {
+  if (platform === "Facebook") {
+    return `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg>`;
+  }
+  if (platform === "Instagram") {
+    return `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg>`;
+  }
+  return `<svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg>`;
+}
+
+function socialLinksHtml() {
+  const links = socialLinks.map((item) => `<a class="social-link social-link-${attr(item.platform.toLowerCase())}" href="${attr(item.url)}" target="_blank" rel="noopener noreferrer" aria-label="${attr(item.ariaLabel)}" title="${attr(item.platform)}">${socialIcon(item.platform)}</a>`).join("");
+  return `<div class="social-links" aria-label="TOKNAV social media links">${links}</div>`;
+}
+
+function footerHtml() {
+  return `<footer class="site-footer">
+    <div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div>
+    <div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div>
+    ${socialLinksHtml()}
+  </footer>`;
 }
 
 function homeIndex() {
@@ -221,14 +282,14 @@ ${schema}
       </details>
       <a href="${prefix}index.html#solutions">Solutions</a>
       <a href="${prefix}index.html#oem">OEM/ODM</a>
-      <a href="${prefix}index.html#about">About</a>
+      <a href="${prefix}about.html">About</a>
       <a href="${prefix}blog.html">Blog</a>
       <a href="${prefix}contact.html">Contact</a>
     </nav>
     <a class="header-cta" href="${prefix}inquiry.html"><span>Get a Quote</span> →</a>
   </header>
 ${body}
-  <footer><strong>TOKNAV</strong><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM & ODM</span></footer>
+  ${footerHtml()}
 </main>
 <a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a>
 <script src="${prefix}public/assets/i18n-static.js" defer></script>
@@ -256,6 +317,56 @@ function productsIndex() {
       <div class="product-hero-panel"><strong>${products.length}+ listed products and solutions</strong><span>Structured from TOKNAV product brochures and product asset folders.</span></div>
     </section>
     <section class="product-section"><div class="product-category-grid">${cards}</div></section>`
+  });
+}
+
+function aboutPage() {
+  const timelineHtml = aboutTimeline.map(([date, title, text]) => `<article><div><span>◎</span><strong>${esc(date)}</strong></div><h3>${esc(title)}</h3><p>${esc(text)}</p></article>`).join("");
+  const feedbackHtml = aboutFeedbackPhotos.map(([src, alt], index) => `<figure class="${index === 3 ? "wide" : ""}"><img src="${relAsset(src, 0)}" alt="${attr(alt)}" loading="lazy"><figcaption>${esc(alt)}</figcaption></figure>`).join("");
+  const certificateHtml = aboutCertificates.map(([src, alt]) => `<figure><img src="${relAsset(src, 0)}" alt="${attr(alt)}" loading="lazy"><figcaption><span>✓</span>${esc(alt)}</figcaption></figure>`).join("");
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Guangzhou Toksurvey Information Technology Co., Ltd.",
+    alternateName: "TOKNAV",
+    url: "https://www.geocodegnss.com/about",
+    logo: "https://www.geocodegnss.com/public/assets/toknav-logo-blue.png",
+    sameAs: socialLinks.map((item) => item.url)
+  };
+
+  return shell({
+    title: "About TOKNAV | GNSS Receiver Manufacturer, Certifications and Global Customers",
+    description: "Learn about TOKNAV's GNSS product history, latest company video, overseas customer feedback and certification portfolio including CE, FCC, IGS, NGS, KC and ISO9001.",
+    schema: `<script type="application/ld+json">${JSON.stringify(orgSchema)}</script>`,
+    body: `<section class="about-hero">
+      <div class="about-hero-copy">
+        <span class="contact-label">About TOKNAV</span>
+        <h1>High-Precision GNSS Innovation Built for Global B2B Projects</h1>
+        <p>TOKNAV develops GNSS receivers, CORS/VRS systems, rugged controllers, precision agriculture products and application solutions for surveying, construction, machine control and monitoring customers worldwide.</p>
+        <div class="about-hero-actions"><a class="primary-button" href="inquiry.html">Send Requirements →</a><a class="secondary-button" href="https://www.youtube.com/@Toknav2024" target="_blank" rel="noopener noreferrer">Visit YouTube Channel</a></div>
+        <div class="about-proof-row"><span>◎ Global projects</span><span>◎ Distributor support</span><span>◎ Certified products</span></div>
+      </div>
+      <div class="about-video-card">
+        <iframe src="https://www.youtube.com/embed/sTQLH1sJG7g" title="TOKNAV TR10 Pro: A New Era of Field Marking" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div><strong>Latest company video from TOKNAV YouTube</strong><span>Published on June 16, 2026</span></div>
+      </div>
+    </section>
+    <section class="about-section">
+      <div class="about-section-heading"><span>Product Roadmap</span><h2>Product Launch Timeline</h2><p>Structured from the latest TOKNAV company profile material in the shared company folder.</p></div>
+      <div class="about-timeline">${timelineHtml}</div>
+    </section>
+    <section class="about-section about-blue-band">
+      <div class="about-section-heading light"><span>Customer Feedback</span><h2>Field Photos from Global Customers and Exhibitions</h2><p>Selected photos emphasize real customer visits, booth discussions, overseas storefronts and product demonstrations.</p></div>
+      <div class="about-photo-wall">${feedbackHtml}</div>
+    </section>
+    <section class="about-section">
+      <div class="about-section-heading"><span>Quality and Compliance</span><h2>Certification Gallery</h2><p>Selected certificate covers from TOKNAV shared certification folders, including product and company-level compliance materials.</p></div>
+      <div class="about-cert-grid">${certificateHtml}</div>
+    </section>
+    <section class="about-final-cta">
+      <div><span>Work with TOKNAV</span><h2>Need product documents, certificates or distributor support?</h2><p>Send your market, target product line and project requirements. TOKNAV can prepare a practical quotation and document package.</p></div>
+      <a class="primary-button" href="inquiry.html">Get a Quote →</a>
+    </section>`
   });
 }
 
@@ -355,6 +466,7 @@ fs.rmSync(path.join(root, "products"), { recursive: true, force: true });
 fs.mkdirSync(path.join(root, "products"), { recursive: true });
 fs.writeFileSync(path.join(root, "index.html"), homeIndex());
 fs.writeFileSync(path.join(root, "products.html"), productsIndex());
+fs.writeFileSync(path.join(root, "about.html"), aboutPage());
 
 for (const category of productCategories) {
   const categoryDir = path.join(root, "products", category.slug);

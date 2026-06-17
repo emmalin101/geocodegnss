@@ -50,7 +50,7 @@ export default function SiteHeader() {
         </details>
         <a href="/#solutions" data-i18n="nav.solutions">Solutions</a>
         <a href="/#oem" data-i18n="nav.oem">OEM/ODM</a>
-        <a href="/#about" data-i18n="nav.about">About</a>
+        <a href="/about" data-i18n="nav.about">About</a>
         <a href="/blog" data-i18n="nav.blog">Blog</a>
         <a href="/contact" data-i18n="nav.contact">Contact</a>
       </nav>

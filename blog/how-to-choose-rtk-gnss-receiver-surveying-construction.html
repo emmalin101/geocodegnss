@@ -421,8 +421,785 @@ summary { cursor: pointer; font-weight: 900; } details p { color: var(--muted); 
 .quote-form textarea { min-height: 116px; resize: vertical; }
 .quote-form input:focus, .quote-form select:focus, .quote-form textarea:focus { border-color: var(--blue-2); box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
 .quote-form button { border: 0; padding: 0 20px; cursor: pointer; }
+.site-footer,
 footer { display: flex; flex-wrap: wrap; gap: 18px 34px; align-items: center; padding: 28px 5vw; background: #050b18; color: rgba(255,255,255,.72); }
+.site-footer { justify-content: space-between; border-top: 1px solid rgba(255,255,255,.08); }
+.site-footer strong,
 footer strong { color: white; font-size: 24px; }
+.site-footer-brand { display: grid; gap: 6px; min-width: 230px; }
+.site-footer-brand span { color: rgba(255,255,255,.64); line-height: 1.5; }
+.site-footer-info { display: flex; flex-wrap: wrap; gap: 12px 22px; align-items: center; max-width: 820px; }
+.social-links { display: inline-flex; align-items: center; gap: 10px; }
+.social-link {
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  background: linear-gradient(145deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+  color: #ffffff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.18);
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+}
+.social-link svg { width: 21px; height: 21px; fill: currentColor; }
+.social-link:hover {
+  transform: translateY(-2px) scale(1.06);
+  border-color: rgba(108,181,255,.7);
+  background: linear-gradient(145deg, rgba(39,102,214,.92), rgba(19,40,137,.95));
+  box-shadow: 0 14px 30px rgba(37,99,235,.34);
+}
+.social-link:focus-visible { outline: 3px solid rgba(108,181,255,.5); outline-offset: 3px; }
+
+.about-hero {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(460px, 1fr);
+  gap: 48px;
+  align-items: center;
+  padding: 86px 5vw 74px;
+  background:
+    radial-gradient(circle at 88% 12%, rgba(66,154,255,.18), transparent 34%),
+    linear-gradient(118deg, #ffffff 0%, #f7fbff 48%, #e8f4ff 100%);
+  border-bottom: 1px solid var(--line);
+}
+.about-hero-copy h1 {
+  margin: 18px 0 0;
+  color: #061426;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+.about-hero-copy p {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: #5b6b82;
+  font-size: 20px;
+  line-height: 1.7;
+}
+.about-hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 32px; }
+.about-proof-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.about-proof-row span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,.8);
+  color: #263d5d;
+  font-weight: 900;
+}
+.about-video-card {
+  overflow: hidden;
+  border: 1px solid rgba(37,99,235,.18);
+  border-radius: 8px;
+  background: #061426;
+  box-shadow: 0 32px 80px rgba(20,40,137,.16);
+}
+.about-video-card iframe {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  background: #071325;
+}
+.about-video-card div {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  color: rgba(255,255,255,.72);
+}
+.about-video-card strong { color: #fff; }
+.about-section { padding: 78px 5vw; background: #fff; }
+.about-section-heading { max-width: 900px; margin: 0 auto 34px; text-align: center; }
+.about-section-heading span,
+.about-final-cta span {
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 950;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.about-section-heading h2,
+.about-final-cta h2 {
+  margin: 10px 0 0;
+  color: #061426;
+  font-size: clamp(34px, 3.5vw, 52px);
+  line-height: 1.08;
+  letter-spacing: 0;
+}
+.about-section-heading p,
+.about-final-cta p {
+  margin: 14px auto 0;
+  color: #5b6b82;
+  font-size: 17px;
+  line-height: 1.65;
+}
+.about-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+.about-timeline article {
+  min-height: 206px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffffff, #f4f8ff);
+  box-shadow: 0 16px 38px rgba(20,40,137,.06);
+}
+.about-timeline article div { display: flex; align-items: center; gap: 8px; color: var(--blue); }
+.about-timeline article div span { color: var(--blue-2); }
+.about-timeline article div strong { font-size: 18px; }
+.about-timeline h3 { margin: 16px 0 0; color: #081426; font-size: 20px; line-height: 1.25; }
+.about-timeline p { margin: 12px 0 0; color: #5b6b82; line-height: 1.6; }
+.about-blue-band {
+  background:
+    linear-gradient(rgba(6,20,38,.74), rgba(6,20,38,.74)),
+    url("/assets/about/toknav-history-slide.webp") center / cover;
+}
+.about-section-heading.light h2,
+.about-section-heading.light p { color: #fff; }
+.about-section-heading.light span { color: #8fd1ff; }
+.about-photo-wall {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: 260px;
+  gap: 14px;
+}
+.about-photo-wall figure,
+.about-cert-grid figure {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 42px rgba(0,0,0,.15);
+}
+.about-photo-wall figure.wide { grid-column: span 2; }
+.about-photo-wall img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+.about-photo-wall figure:hover img { transform: scale(1.04); }
+.about-photo-wall figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 16px 14px;
+  color: white;
+  font-weight: 900;
+  line-height: 1.35;
+  background: linear-gradient(transparent, rgba(3,11,25,.86));
+}
+.about-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+}
+.about-cert-grid figure {
+  display: grid;
+  grid-template-rows: 260px auto;
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 42px rgba(20,40,137,.08);
+}
+.about-cert-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  background: linear-gradient(145deg, #ffffff, #f3f8ff);
+}
+.about-cert-grid figcaption {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  color: #173052;
+  font-weight: 900;
+  border-top: 1px solid var(--line);
+}
+.about-cert-grid figcaption span { color: var(--blue); }
+.about-final-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 28px;
+  margin: 0 5vw 78px;
+  padding: 34px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f8fbff, #e7f3ff);
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 60px rgba(20,40,137,.1);
+}
+.about-final-cta div { max-width: 820px; }
+
+.home-page {
+  background: #ffffff;
+}
+.home-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(500px, 1.02fr);
+  gap: 44px;
+  min-height: calc(100vh - 78px);
+  padding: 76px 5vw 44px;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(116deg, rgba(255,255,255,.98) 0%, rgba(255,255,255,.94) 47%, rgba(222,240,255,.58) 100%),
+    linear-gradient(135deg, #ffffff 0%, #eef6ff 100%);
+}
+.home-hero-bg {
+  position: absolute;
+  inset: auto -10% -34% 44%;
+  height: 80%;
+  background: linear-gradient(145deg, rgba(37,42,145,.96), rgba(36,87,214,.92));
+  clip-path: polygon(16% 0, 100% 8%, 82% 100%, 0 86%);
+  box-shadow: 0 36px 90px rgba(20,40,137,.18);
+}
+.home-hero-copy,
+.home-hero-visual {
+  position: relative;
+  z-index: 1;
+}
+.home-hero h1 {
+  margin: 0;
+  max-width: 860px;
+  color: #071325;
+  font-size: clamp(42px, 4.3vw, 62px);
+  line-height: 1.02;
+  letter-spacing: 0;
+}
+.home-hero-copy p {
+  max-width: 700px;
+  margin: 26px 0 0;
+  color: #53647b;
+  font-size: 20px;
+  line-height: 1.65;
+}
+.home-hero-actions,
+.home-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 34px;
+}
+.home-primary-button,
+.home-secondary-button,
+.home-text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 900;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.home-primary-button {
+  color: white;
+  background: var(--blue);
+  box-shadow: 0 18px 36px rgba(20,40,137,.22);
+}
+.home-secondary-button {
+  color: var(--blue);
+  background: rgba(255,255,255,.92);
+  border: 1px solid var(--line);
+}
+.home-text-link {
+  color: var(--blue);
+  padding-inline: 4px;
+}
+.home-primary-button:hover,
+.home-secondary-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(20,40,137,.16);
+}
+.home-hero-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+.home-hero-proof span {
+  padding: 10px 13px;
+  border: 1px solid rgba(20,40,137,.14);
+  border-radius: 6px;
+  color: #263850;
+  background: rgba(255,255,255,.78);
+  font-size: 13px;
+  font-weight: 900;
+}
+.home-hero-visual {
+  display: grid;
+  gap: 16px;
+  align-self: stretch;
+  align-content: center;
+}
+.home-hero-banner {
+  width: 100%;
+  min-height: 372px;
+  object-fit: cover;
+  object-position: 100% center;
+  border-radius: 8px;
+  background: #eef6ff;
+  box-shadow: 0 28px 80px rgba(7,19,37,.22);
+}
+.home-hero-product-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.home-hero-product-row a {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 12px;
+  align-items: center;
+  min-height: 96px;
+  padding: 12px;
+  border: 1px solid rgba(220,230,245,.8);
+  border-radius: 8px;
+  background: rgba(255,255,255,.9);
+  box-shadow: 0 16px 42px rgba(7,19,37,.1);
+}
+.home-hero-product-row img {
+  width: 74px;
+  height: 70px;
+  object-fit: contain;
+}
+.home-hero-product-row span {
+  color: #10213c;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+.home-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-block: 1px solid var(--line);
+}
+.home-metrics div {
+  min-height: 138px;
+  padding: 26px 5vw 26px 28px;
+  background: white;
+}
+.home-metrics strong {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--blue);
+  font-size: 26px;
+  line-height: 1.1;
+}
+.home-metrics span {
+  color: var(--muted);
+  line-height: 1.48;
+}
+.home-section {
+  padding: 94px 5vw;
+}
+.home-section-title {
+  max-width: 820px;
+}
+.home-section-title > span {
+  display: block;
+  margin-bottom: 12px;
+  color: var(--blue-2);
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.home-section-title h2 {
+  margin: 0;
+  color: #071325;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.04;
+  letter-spacing: 0;
+}
+.home-section-title p {
+  max-width: 760px;
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.65;
+}
+.home-category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 42px;
+}
+.home-category-card {
+  position: relative;
+  display: grid;
+  grid-template-columns: 96px 1fr 24px;
+  gap: 18px;
+  align-items: center;
+  min-height: 176px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 14px 42px rgba(28,56,100,.07);
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.home-category-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(37,99,235,.34);
+  box-shadow: 0 22px 56px rgba(28,56,100,.11);
+}
+.home-category-card img {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #f0f7ff;
+}
+.home-category-card span,
+.home-featured-content span,
+.home-news-grid span {
+  color: var(--blue-2);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+.home-category-card h3,
+.home-featured-card h3,
+.home-news-grid h3 {
+  margin: 7px 0 8px;
+  color: #071325;
+  font-size: 22px;
+  line-height: 1.12;
+}
+.home-category-card p,
+.home-featured-card p,
+.home-news-grid p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+.home-category-card > svg,
+.home-card-arrow,
+.home-featured-card strong svg,
+.home-news-grid strong svg {
+  color: var(--blue);
+  flex: 0 0 auto;
+}
+.home-card-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 25px;
+  font-weight: 900;
+}
+.home-featured {
+  background: linear-gradient(180deg, #f5f9ff, #ffffff);
+}
+.home-featured-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 42px;
+}
+.home-featured-card {
+  display: grid;
+  grid-template-rows: 260px 1fr;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 18px 52px rgba(28,56,100,.08);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.home-featured-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 68px rgba(28,56,100,.13);
+}
+.home-featured-image {
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(67,185,255,.18), transparent 45%),
+    #edf6ff;
+}
+.home-featured-image img {
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 18px 22px rgba(7,19,37,.14));
+}
+.home-featured-content {
+  display: grid;
+  align-content: start;
+  padding: 22px;
+}
+.home-featured-card strong,
+.home-news-grid strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: fit-content;
+  margin-top: 20px;
+  color: var(--blue);
+}
+.home-industries {
+  display: grid;
+  grid-template-columns: .9fr 1fr;
+  gap: 46px;
+  align-items: center;
+  background: #071325;
+  color: white;
+}
+.home-industries .home-section-title h2,
+.home-trust .home-section-title h2,
+.home-cta h2 {
+  color: white;
+}
+.home-industries .home-section-title p,
+.home-trust .home-section-title p,
+.home-cta p {
+  color: rgba(255,255,255,.74);
+}
+.home-industries-list {
+  display: grid;
+  gap: 12px;
+  margin-top: 32px;
+}
+.home-industries-list a {
+  display: grid;
+  grid-template-columns: 34px 1fr 24px;
+  gap: 14px;
+  align-items: center;
+  padding: 18px;
+  border: 1px solid rgba(255,255,255,.13);
+  border-radius: 8px;
+  background: rgba(255,255,255,.06);
+  transition: background .18s ease, transform .18s ease;
+}
+.home-industries-list a:hover {
+  transform: translateX(3px);
+  background: rgba(255,255,255,.1);
+}
+.home-industries-list svg {
+  color: var(--cyan);
+}
+.home-industry-icon,
+.home-check,
+.home-trust-icon,
+.home-cta-icon {
+  display: inline-grid;
+  place-items: center;
+  color: var(--cyan);
+  font-weight: 900;
+}
+.home-industry-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  background: rgba(67,185,255,.1);
+}
+.home-check,
+.home-trust-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  color: var(--blue-2);
+  background: #eef6ff;
+}
+.home-cta-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  color: #071325;
+  background: var(--cyan);
+}
+.home-industries-list strong {
+  display: block;
+  margin-bottom: 4px;
+  color: white;
+}
+.home-industries-list span {
+  color: rgba(255,255,255,.68);
+  line-height: 1.5;
+}
+.home-field-panel {
+  position: relative;
+  min-height: 590px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0,0,0,.24);
+  background: #10213c;
+}
+.home-field-panel img {
+  width: 100%;
+  height: 590px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(1.02) contrast(1.03);
+}
+.home-field-panel::after {
+  content: "";
+  position: absolute;
+  inset: 45% 0 0;
+  background: linear-gradient(180deg, transparent, rgba(7,19,37,.88));
+}
+.home-field-panel div {
+  position: absolute;
+  left: 24px;
+  right: 24px;
+  bottom: 24px;
+  z-index: 1;
+  display: grid;
+  gap: 8px;
+  max-width: 540px;
+  color: white;
+}
+.home-field-panel strong {
+  font-size: clamp(25px, 3vw, 36px);
+  line-height: 1.08;
+}
+.home-field-panel span {
+  color: rgba(255,255,255,.76);
+  font-size: 17px;
+  line-height: 1.55;
+}
+.home-oem {
+  display: grid;
+  grid-template-columns: .92fr 1fr;
+  gap: 52px;
+  align-items: center;
+  background: #f6f9fd;
+}
+.home-proof-visual {
+  min-height: 520px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: #dfeaf7;
+}
+.home-proof-visual img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  display: block;
+}
+.home-proof-grid,
+.home-trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 34px 0;
+}
+.home-proof-grid div,
+.home-trust-grid div {
+  display: grid;
+  gap: 10px;
+  min-height: 160px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+}
+.home-proof-grid svg,
+.home-trust-grid svg {
+  color: var(--blue-2);
+}
+.home-proof-grid strong,
+.home-trust-grid strong {
+  color: #071325;
+  font-size: 18px;
+}
+.home-proof-grid span,
+.home-trust-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+.home-trust {
+  color: white;
+  background:
+    radial-gradient(circle at 84% 10%, rgba(67,185,255,.16), transparent 34%),
+    linear-gradient(145deg, #071325, #111f70);
+}
+.home-trust-grid div {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.07);
+}
+.home-trust-grid strong {
+  color: white;
+}
+.home-trust-grid span {
+  color: rgba(255,255,255,.72);
+}
+.home-news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 42px;
+}
+.home-news-grid a {
+  min-height: 260px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #ffffff, #f7fbff);
+  box-shadow: 0 14px 42px rgba(28,56,100,.07);
+}
+.home-cta {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 42px;
+  align-items: center;
+  margin: 0 5vw 80px;
+  padding: 44px;
+  border-radius: 8px;
+  color: white;
+  background:
+    linear-gradient(135deg, rgba(7,19,37,.92), rgba(20,40,137,.94)),
+    var(--blue);
+  box-shadow: 0 28px 80px rgba(20,40,137,.2);
+}
+.home-cta svg {
+  color: var(--cyan);
+}
+.home-cta h2 {
+  max-width: 820px;
+  margin: 14px 0 16px;
+  font-size: clamp(30px, 4vw, 50px);
+  line-height: 1.05;
+  letter-spacing: 0;
+}
+.home-cta p {
+  max-width: 760px;
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.62;
+}
+.home-cta-actions {
+  align-content: center;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+.home-cta .home-secondary-button,
+.home-cta .home-text-link {
+  color: white;
+  border-color: rgba(255,255,255,.24);
+  background: rgba(255,255,255,.1);
+}
 
 .contact-hero { display: grid; grid-template-columns: minmax(0, 1fr) 380px; gap: 54px; align-items: center; padding: 86px 5vw; background: linear-gradient(135deg, #ffffff 0%, #eef6ff 52%, #dcecff 100%); border-bottom: 1px solid var(--line); }
 .contact-hero h1 { margin: 0; max-width: 780px; font-size: clamp(42px, 6vw, 72px); line-height: 1; letter-spacing: 0; }
@@ -453,6 +1230,11 @@ footer strong { color: white; font-size: 24px; }
 .contact-page-address { margin-top: 28px; }
 
 @media (max-width: 980px) {
+  .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
+  .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-photo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
   .main-nav { align-items: center; }
@@ -472,9 +1254,49 @@ footer strong { color: white; font-size: 24px; }
   .contact-hero, .contact-section { grid-template-columns: 1fr; }
   .hero { min-height: auto; padding-top: 54px; }
   .metric-band, .product-grid, .application-list, .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .home-hero,
+  .home-industries,
+  .home-oem,
+  .home-cta {
+    grid-template-columns: 1fr;
+  }
+  .home-hero {
+    min-height: auto;
+    padding-top: 58px;
+  }
+  .home-hero-bg {
+    inset: auto -22% -18% 24%;
+    height: 52%;
+  }
+  .home-hero-visual {
+    align-self: auto;
+  }
+  .home-metrics,
+  .home-category-grid,
+  .home-featured-grid,
+  .home-news-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .home-cta {
+    margin-inline: 5vw;
+  }
 }
 
 @media (max-width: 640px) {
+  .about-hero { padding: 42px 22px 52px; }
+  .about-hero-copy h1 { font-size: 40px; }
+  .about-video-card div { display: grid; }
+  .about-section { padding: 54px 22px; }
+  .about-timeline { grid-template-columns: 1fr; }
+  .about-photo-wall { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+  .about-photo-wall figure.wide { grid-column: span 1; }
+  .about-cert-grid { grid-template-columns: 1fr; }
+  .about-final-cta { margin: 0 22px 54px; padding: 24px; }
+  .site-footer,
+  footer { align-items: flex-start; gap: 16px; padding: 28px 22px 84px; }
+  .site-footer-info { display: grid; gap: 8px; }
+  .social-links { width: 100%; justify-content: flex-start; }
+  .social-link { width: 40px; height: 40px; }
   .whatsapp-float {
     right: 16px;
     bottom: 16px;
@@ -501,6 +1323,62 @@ footer strong { color: white; font-size: 24px; }
   .receiver-shell { width: 310px; height: 190px; }
   .receiver-body { height: 128px; }
   .receiver-top { height: 72px; }
+  .home-hero {
+    padding: 48px 5vw 34px;
+  }
+  .home-hero h1 {
+    font-size: 41px;
+  }
+  .home-hero-copy p,
+  .home-section-title p,
+  .home-cta p {
+    font-size: 17px;
+  }
+  .home-hero-banner {
+    min-height: 260px;
+  }
+  .home-hero-product-row,
+  .home-metrics,
+  .home-category-grid,
+  .home-featured-grid,
+  .home-news-grid,
+  .home-proof-grid,
+  .home-trust-grid {
+    grid-template-columns: 1fr;
+  }
+  .home-hero-product-row a,
+  .home-category-card {
+    grid-template-columns: 84px 1fr;
+  }
+  .home-category-card > svg {
+    display: none;
+  }
+  .home-section {
+    padding: 68px 5vw;
+  }
+  .home-featured-card {
+    grid-template-rows: 230px 1fr;
+  }
+  .home-field-panel,
+  .home-field-panel img,
+  .home-proof-visual,
+  .home-proof-visual img {
+    min-height: 380px;
+    height: 380px;
+  }
+  .home-industries-list a {
+    grid-template-columns: 30px 1fr;
+  }
+  .home-industries-list a > svg:last-child {
+    display: none;
+  }
+  .home-cta {
+    padding: 30px;
+    margin-bottom: 54px;
+  }
+  .home-cta-actions {
+    display: grid;
+  }
 }
 
 .inquiry-page-shell {
@@ -786,7 +1664,8 @@ footer strong { color: white; font-size: 24px; }
   border-bottom: 1px solid var(--line);
 }
 .back-link {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 8px;
   margin-bottom: 28px;
@@ -1035,6 +1914,45 @@ footer strong { color: white; font-size: 24px; }
 .product-section {
   padding: 86px 5vw;
   background: white;
+}
+.category-application-section {
+  padding: 74px 5vw;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+  border-bottom: 1px solid var(--line);
+}
+.category-application-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.category-application-grid article {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-height: 210px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: white;
+  box-shadow: 0 16px 38px rgba(28,56,100,.06);
+}
+.category-application-grid strong {
+  color: var(--ink);
+  font-size: 22px;
+  line-height: 1.18;
+}
+.category-application-grid p {
+  margin: 0;
+  color: #42516a;
+  line-height: 1.65;
+}
+.category-application-grid span {
+  margin-top: auto;
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.35;
 }
 .product-category-grid {
   display: grid;
@@ -1295,10 +2213,7 @@ footer strong { color: white; font-size: 24px; }
   line-height: 1.35;
 }
 .product-detail-layout {
-  display: grid;
-  grid-template-columns: 300px minmax(0, 1fr);
-  gap: 54px;
-  align-items: start;
+  display: block;
   padding: 70px 5vw 96px;
   background: white;
 }
@@ -1334,7 +2249,8 @@ footer strong { color: white; font-size: 24px; }
 .product-detail-main {
   display: grid;
   gap: 48px;
-  max-width: 980px;
+  max-width: 1050px;
+  margin: 0 auto;
 }
 .product-detail-main h2 {
   margin: 0 0 20px;
@@ -1487,7 +2403,7 @@ footer strong { color: white; font-size: 24px; }
 .download-card {
   display: grid;
   gap: 10px;
-  min-height: 178px;
+  min-height: 128px;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -1589,6 +2505,82 @@ footer strong { color: white; font-size: 24px; }
   box-shadow: none;
   white-space: nowrap;
 }
+.robot-detail-hero {
+  grid-template-columns: minmax(0, .95fr) minmax(420px, .9fr);
+  background:
+    radial-gradient(circle at 76% 20%, rgba(67,185,255,.22), transparent 30%),
+    linear-gradient(135deg, #ffffff 0%, #f3f9ff 50%, #dceeff 100%);
+}
+.robot-detail-hero .product-detail-image {
+  min-height: 500px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.96), rgba(239,247,255,.9));
+}
+.robot-detail-hero .product-detail-image > img {
+  max-height: 520px;
+}
+.robot-story-section {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+  gap: 34px;
+  align-items: center;
+  padding: 78px 5vw;
+  background: #061126;
+  color: white;
+}
+.robot-story-copy {
+  display: grid;
+  gap: 18px;
+}
+.robot-story-copy h2 {
+  margin: 0;
+  color: white;
+  font-size: clamp(32px, 4vw, 54px);
+  line-height: 1.05;
+}
+.robot-story-copy p {
+  margin: 0;
+  color: rgba(255,255,255,.76);
+  font-size: 18px;
+  line-height: 1.7;
+}
+.robot-steps {
+  display: grid;
+  gap: 10px;
+  margin-top: 10px;
+}
+.robot-steps span {
+  padding: 12px 14px;
+  border: 1px solid rgba(158,220,255,.22);
+  border-radius: 8px;
+  background: rgba(255,255,255,.07);
+  color: #dff3ff;
+  font-weight: 900;
+}
+.robot-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.robot-gallery figure {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(158,220,255,.18);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 34%, rgba(67,185,255,.15), transparent 46%),
+    rgba(255,255,255,.06);
+  overflow: hidden;
+}
+.robot-gallery img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 24px rgba(0,0,0,.28));
+}
 .product-faq-list {
   display: grid;
   gap: 12px;
@@ -1644,6 +2636,7 @@ footer strong { color: white; font-size: 24px; }
 
 @media (max-width: 1120px) {
   .product-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .category-application-grid { grid-template-columns: 1fr; }
   .product-list-grid { grid-template-columns: 1fr; }
   .related-products { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .download-grid { grid-template-columns: 1fr; }
@@ -1659,6 +2652,7 @@ footer strong { color: white; font-size: 24px; }
   .product-detail-layout {
     grid-template-columns: 1fr;
   }
+  .robot-story-section { grid-template-columns: 1fr; }
   .product-detail-aside { position: static; order: 2; }
   .product-proof-band { grid-template-columns: 1fr; }
   .product-index-top { align-items: flex-start; flex-direction: column; }
@@ -1678,6 +2672,7 @@ footer strong { color: white; font-size: 24px; }
     padding-top: 58px;
   }
   .product-category-grid,
+  .category-application-grid,
   .feature-grid,
   .related-products {
     grid-template-columns: 1fr;
@@ -1716,10 +2711,364 @@ footer strong { color: white; font-size: 24px; }
   .product-hero-panel {
     min-height: 280px;
   }
+  .robot-gallery {
+    grid-template-columns: 1fr;
+  }
+  .robot-gallery figure {
+    min-height: 240px;
+  }
+  .robot-gallery img {
+    height: 220px;
+  }
+}
+
+/* Simplified homepage v2: closer to the clean TOKNAV reference direction. */
+.home-hero.simple {
+  grid-template-columns: minmax(420px, .82fr) minmax(560px, 1.18fr);
+  min-height: 560px;
+  padding: 56px 5vw 52px;
+  background: linear-gradient(90deg, #ffffff 0%, #ffffff 45%, #eef7ff 100%);
+}
+.home-hero.simple .home-hero-copy {
+  max-width: 560px;
+}
+.home-hero.simple h1 {
+  color: #07398f;
+  font-size: clamp(40px, 4vw, 58px);
+  line-height: 1.03;
+}
+.home-hero.simple .home-hero-copy p {
+  max-width: 520px;
+  margin-top: 22px;
+  color: #42546d;
+  font-size: 17px;
+  line-height: 1.55;
+}
+.home-hero-stage {
+  position: relative;
+  display: grid;
+  align-content: end;
+  min-height: 470px;
+}
+.home-hero-banner-clean {
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  object-position: 100% center;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+}
+.home-hero-product-row.simple {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: -36px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.home-hero-product-row.simple a {
+  min-height: 82px;
+  border: 0;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 12px 26px rgba(20,40,137,.14);
+}
+.home-hero-proof.mini {
+  gap: 22px;
+}
+.home-hero-proof.mini span {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #35506f;
+  font-size: 12px;
+}
+.home-section-title.compact {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-section-title.compact > span {
+  display: none;
+}
+.home-section-title.compact h2 {
+  color: #071325;
+  font-size: clamp(28px, 3vw, 40px);
+}
+.home-section-title.compact p {
+  max-width: none;
+  margin-top: 10px;
+  color: #617086;
+  font-size: 15px;
+}
+.home-section.home-products.compact,
+.home-section.home-why {
+  padding: 74px 5vw;
+}
+.home-category-grid.compact {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 34px;
+}
+.home-category-card.compact,
+.home-category-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  min-width: 0;
+  min-height: 254px;
+  padding: 22px 16px;
+  overflow: hidden;
+  text-align: center;
+}
+.home-category-card.compact img,
+.home-category-card img {
+  width: 132px;
+  height: 118px;
+  background: transparent;
+}
+.home-category-card.compact h3,
+.home-category-card h3 {
+  margin: 14px 0 8px;
+  color: var(--blue);
+  font-size: 16px;
+  line-height: 1.2;
+}
+.home-category-card.compact p,
+.home-category-card.compact span,
+.home-category-card p,
+.home-category-card span {
+  display: none;
+}
+.home-category-card.compact strong,
+.home-category-card strong {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--blue);
+  font-size: 13px;
+}
+.home-why {
+  background: #ffffff;
+  border-top: 1px solid var(--line);
+}
+.home-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  max-width: 1080px;
+  margin: 38px auto 0;
+}
+.home-why-grid div {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  padding: 18px 22px;
+  border-right: 1px solid var(--line);
+  text-align: center;
+}
+.home-why-grid div:last-child {
+  border-right: 0;
+}
+.home-why-grid span {
+  color: var(--blue);
+  font-size: 30px;
+  line-height: 1;
+}
+.home-why-grid strong {
+  color: var(--blue);
+  font-size: 15px;
+}
+.home-why-grid p {
+  margin: 0;
+  color: #5c6a80;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.home-applications {
+  padding: 32px 0 0;
+  background: #ffffff;
+}
+.home-application-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 28px;
+}
+.home-application-strip a {
+  position: relative;
+  min-height: 330px;
+  overflow: hidden;
+  border-right: 2px solid white;
+  color: white;
+  background: #071325;
+}
+.home-application-strip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: .82;
+  transition: transform .22s ease, opacity .22s ease;
+}
+.home-application-strip a:hover img {
+  transform: scale(1.04);
+  opacity: .95;
+}
+.home-application-strip a::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 44%, rgba(7,19,37,.78));
+}
+.home-application-strip span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 20px;
+  z-index: 1;
+  color: white;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.15;
+  text-align: center;
+}
+.home-trusted-band {
+  display: grid;
+  grid-template-columns: .95fr 1.45fr;
+  gap: 34px;
+  align-items: center;
+  padding: 42px 9vw;
+  color: white;
+  background: linear-gradient(90deg, #071325, #142889);
+}
+.home-trusted-band h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+}
+.home-trusted-band p {
+  max-width: 460px;
+  margin: 14px 0 18px;
+  color: rgba(255,255,255,.78);
+  line-height: 1.55;
+}
+.home-trusted-band a {
+  display: inline-flex;
+  min-height: 38px;
+  align-items: center;
+  padding: 0 14px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 4px;
+  font-weight: 900;
+}
+.home-trusted-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+}
+.home-trusted-metrics strong {
+  display: grid;
+  justify-items: center;
+  gap: 6px;
+  min-height: 120px;
+  padding: 18px 12px;
+  border-left: 1px solid rgba(255,255,255,.28);
+  font-size: 38px;
+  line-height: 1;
+}
+.home-trusted-metrics span {
+  color: rgba(255,255,255,.76);
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+}
+.home-section.home-cta.compact {
+  grid-template-columns: 1fr auto;
+  margin: 0;
+  padding: 56px 9vw;
+  border-radius: 0;
+  background: #f6f9fd;
+  color: #071325;
+  box-shadow: none;
+}
+.home-cta.compact h2 {
+  color: #071325;
+  font-size: clamp(28px, 3vw, 40px);
+}
+.home-cta.compact p {
+  max-width: 620px;
+  color: #5c6a80;
+}
+.home-cta.compact .home-secondary-button {
+  color: var(--blue);
+  border-color: var(--line);
+  background: white;
+}
+
+@media (max-width: 1120px) {
+  .home-category-grid.compact,
+  .home-application-strip {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .home-hero.simple {
+    grid-template-columns: 1fr;
+  }
+  .home-hero-stage {
+    min-height: 420px;
+  }
+}
+
+@media (max-width: 760px) {
+  .home-hero.simple {
+    padding: 44px 5vw 54px;
+  }
+  .home-hero.simple h1 {
+    font-size: 38px;
+  }
+  .home-hero-stage {
+    min-height: 360px;
+  }
+  .home-hero-banner-clean {
+    height: 300px;
+    border-radius: 8px;
+  }
+  .home-hero-product-row.simple {
+    position: static;
+    grid-template-columns: 1fr;
+    margin-top: 12px;
+  }
+  .home-category-grid.compact,
+  .home-why-grid,
+  .home-application-strip,
+  .home-trusted-band,
+  .home-trusted-metrics,
+  .home-section.home-cta.compact {
+    grid-template-columns: 1fr;
+  }
+  .home-category-card.compact {
+    min-height: 210px;
+  }
+  .home-why-grid div {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .home-application-strip a {
+    min-height: 260px;
+  }
+  .home-trusted-band {
+    padding: 34px 5vw;
+  }
+  .home-trusted-metrics strong {
+    border-left: 0;
+    border-top: 1px solid rgba(255,255,255,.22);
+  }
+  .home-section.home-cta.compact {
+    padding: 42px 5vw;
+  }
 }
 </style>
 </head>
-<body><main><header class="site-header"><a class="brand" href="../index.html"><img src="../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a><nav class="main-nav" aria-label="Primary navigation"><details class="mega-nav-item"><summary class="mega-nav-trigger">Products <span>⌄</span></summary><div class="mega-menu" aria-label="TOKNAV product categories"><div class="mega-menu-panel"><div class="mega-menu-intro"><span>Product Center</span><strong>High-precision GNSS products for B2B projects</strong><p>Compare RTK receivers, controllers, antennas, machine-control systems and complete GNSS application solutions.</p><a href="../products.html">View All Products →</a></div><div class="mega-menu-grid"><a href="../products/gnss-receivers/index.html"><img src="../public/assets/products/t50pro.webp" alt=""><span>RTK / CORS / Base Station</span><strong>GNSS Receivers</strong><em>Choose RTK receivers, base stations and CORS hardware by application.</em></a><a href="../products/rugged-gis/index.html"><img src="../public/assets/products/pcr500.webp" alt=""><span>Controllers / Portable RTK</span><strong>Rugged &amp; GIS</strong><em>Compare controllers and portable RTK terminals for field workflows.</em></a><a href="../products/gnss-antennas/index.html"><img src="../public/assets/products/tca930.webp" alt=""><span>Choke Ring / Survey / Helix</span><strong>GNSS Antennas</strong><em>Select antenna type by signal tracking, environment and installation method.</em></a><a href="../products/precision-agriculture-machine-control/index.html"><img src="../public/assets/products/tag66.webp" alt=""><span>Auto-Steering / Land Leveling / 3D Guidance</span><strong>Precision Agriculture &amp; Machine Control</strong><em>Build solution pages for farm dealers and construction machine-control projects.</em></a><a href="../products/accessories/index.html"><img src="../public/assets/products/tbase.webp" alt=""><span>Power / Antenna / Cables / Cases</span><strong>Accessories</strong><em>Help buyers complete receiver kits and replacement accessory lists.</em></a><a href="../products/gnss-application-solutions/index.html"><img src="../public/assets/products/u6.webp" alt=""><span>Monitoring / CORS / Marking Robot</span><strong>GNSS Application Solutions</strong><em>Explain complete project solutions and recommended product mix.</em></a></div><div class="mega-menu-footer"><div><span>▣</span><span>Catalog downloads, model specs and quote support are available on product pages.</span></div><a href="../inquiry.html">Send Requirements →</a></div></div></div></details><a href="../index.html#solutions">Solutions</a><a href="../index.html#oem">OEM/ODM</a><a href="../index.html#about">About</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a></nav><a class="header-cta" href="../inquiry.html">Get a Quote →</a></header><article class="blog-detail"><div class="blog-detail-hero"><a class="back-link" href="../blog.html">← Back to Blog</a><div class="blog-detail-meta"><span>1,868 words</span><span>RTK GNSS receiver</span></div><h1>How to Choose an RTK GNSS Receiver for Surveying, Mapping and Construction Projects</h1><p>Learn how to choose an RTK GNSS receiver for surveying, mapping and construction projects, including accuracy, satellite tracking, IMU tilt, radio, battery, rugged design and supplier evaluation.</p><div class="blog-detail-actions"><a class="primary-button" href="../inquiry.html">Get a Quote →</a><a class="secondary-button" href="../contact.html">Contact Us</a></div></div><div class="blog-layout"><aside class="blog-aside"><div class="blog-aside-card"><strong>Need a recommendation?</strong><span>Send your target application, country and quantity. TOKNAV can recommend a suitable product or solution package.</span><a href="../inquiry.html">Send Your Requirements →</a></div><div class="blog-aside-card muted-card"><strong>More guides</strong><a href="cors-vrs-vs-base-rover-rtk-gnss-correction.html">CORS/VRS vs Base-Rover RTK: Which GNSS Correction Setup Is Right for Your Project?</a><a href="gnss-auto-steering-machine-control-buying-guide.html">GNSS Auto-Steering and Machine Control: A Practical Buying Guide for Precision Agriculture Dealers</a></div></aside><div class="blog-content"><h2>Introduction</h2>
+<body><main><header class="site-header"><a class="brand" href="../index.html"><img src="../public/assets/toknav-logo-blue.png" alt="TOKNAV"></a><nav class="main-nav" aria-label="Primary navigation"><details class="mega-nav-item"><summary class="mega-nav-trigger">Products <span>⌄</span></summary><div class="mega-menu" aria-label="TOKNAV product categories"><div class="mega-menu-panel"><div class="mega-menu-intro"><span>Product Center</span><strong>High-precision GNSS products for B2B projects</strong><p>Compare RTK receivers, controllers, antennas, machine-control systems and complete GNSS application solutions.</p><a href="../products.html">View All Products →</a></div><div class="mega-menu-grid"><a href="../products/gnss-receivers/index.html"><img src="../public/assets/products/t50pro.webp" alt=""><span>RTK / CORS / Base Station</span><strong>GNSS Receivers</strong><em>Choose RTK receivers, base stations and CORS hardware by application.</em></a><a href="../products/rugged-gis/index.html"><img src="../public/assets/products/pcr500.webp" alt=""><span>Controllers / Portable RTK</span><strong>Rugged &amp; GIS</strong><em>Compare controllers and portable RTK terminals for field workflows.</em></a><a href="../products/gnss-antennas/index.html"><img src="../public/assets/products/tca930.webp" alt=""><span>Choke Ring / Survey / Helix</span><strong>GNSS Antennas</strong><em>Select antenna type by signal tracking, environment and installation method.</em></a><a href="../products/precision-agriculture-machine-control/index.html"><img src="../public/assets/products/tag66.webp" alt=""><span>Auto-Steering / Land Leveling / 3D Guidance</span><strong>Precision Agriculture &amp; Machine Control</strong><em>Build solution pages for farm dealers and construction machine-control projects.</em></a><a href="../products/accessories/index.html"><img src="../public/assets/products/tbase.webp" alt=""><span>Power / Antenna / Cables / Cases</span><strong>Accessories</strong><em>Help buyers complete receiver kits and replacement accessory lists.</em></a><a href="../products/gnss-application-solutions/index.html"><img src="../public/assets/products/u6.webp" alt=""><span>Monitoring / CORS / Marking Robot</span><strong>GNSS Application Solutions</strong><em>Explain complete project solutions and recommended product mix.</em></a></div><div class="mega-menu-footer"><div><span>▣</span><span>Catalog downloads, model specs and quote support are available on product pages.</span></div><a href="../inquiry.html">Send Requirements →</a></div></div></div></details><a href="../index.html#solutions">Solutions</a><a href="../index.html#oem">OEM/ODM</a><a href="../about.html">About</a><a href="../blog.html">Blog</a><a href="../contact.html">Contact</a></nav><a class="header-cta" href="../inquiry.html">Get a Quote →</a></header><article class="blog-detail"><div class="blog-detail-hero"><a class="back-link" href="../blog.html">← Back to Blog</a><div class="blog-detail-meta"><span>1,868 words</span><span>RTK GNSS receiver</span></div><h1>How to Choose an RTK GNSS Receiver for Surveying, Mapping and Construction Projects</h1><p>Learn how to choose an RTK GNSS receiver for surveying, mapping and construction projects, including accuracy, satellite tracking, IMU tilt, radio, battery, rugged design and supplier evaluation.</p><div class="blog-detail-actions"><a class="primary-button" href="../inquiry.html">Get a Quote →</a><a class="secondary-button" href="../contact.html">Contact Us</a></div></div><div class="blog-layout"><aside class="blog-aside"><div class="blog-aside-card"><strong>Need a recommendation?</strong><span>Send your target application, country and quantity. TOKNAV can recommend a suitable product or solution package.</span><a href="../inquiry.html">Send Your Requirements →</a></div><div class="blog-aside-card muted-card"><strong>More guides</strong><a href="cors-vrs-vs-base-rover-rtk-gnss-correction.html">CORS/VRS vs Base-Rover RTK: Which GNSS Correction Setup Is Right for Your Project?</a><a href="gnss-auto-steering-machine-control-buying-guide.html">GNSS Auto-Steering and Machine Control: A Practical Buying Guide for Precision Agriculture Dealers</a></div></aside><div class="blog-content"><h2>Introduction</h2>
 <p>Choosing an RTK GNSS receiver is not only a comparison of price, channels or battery capacity. For overseas distributors, surveying companies and construction contractors, the right receiver affects field productivity, data reliability, after-sales workload and customer satisfaction. A receiver that looks attractive in a catalog may still create problems if it cannot maintain a fixed solution under tree lines, if the radio range is not suitable for the local jobsite, or if the accessories and software workflow are not ready for daily field use.</p>
 <p>In real procurement conversations, buyers usually ask practical questions: Will the receiver track the constellations used in our region? Does it support our correction method? Can the rover work a full day? Is the controller easy for local crews to use? What should be inspected before shipment? Can the manufacturer support OEM/ODM branding or distributor training?</p>
 <p>This guide explains how to evaluate an RTK GNSS receiver from a field-use and procurement perspective. It is written for importers, dealers, surveying teams, engineering contractors and system integrators who need a reliable product for surveying, mapping, construction staking, GIS data collection or monitoring projects.</p>
@@ -1800,5 +3149,5 @@ footer strong { color: white; font-size: 24px; }
 <h2>Final CTA</h2>
 <p>Looking for an RTK GNSS receiver supplier for your market or project? Send your application, country, correction method and estimated quantity to TOKNAV. Our team can recommend a suitable receiver model, accessory kit and OEM/ODM option.</p>
 <p><strong>CTA Button:</strong> Get a Quote</p>
-<p><strong>Suggested Link:</strong> <code>/inquiry</code></p></div></div></article><footer><strong>TOKNAV</strong><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM & ODM</span></footer></main><a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a><script src="../public/assets/i18n-static.js" defer></script></body>
+<p><strong>Suggested Link:</strong> <code>/inquiry</code></p></div></div></article><footer class="site-footer"><div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div><div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div><div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div></footer></main><a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a><script src="../public/assets/i18n-static.js" defer></script></body>
 </html>

@@ -156,12 +156,6 @@ export default function ContactPage() {
         </form>
       </section>
 
-      <footer>
-        <strong>TOKNAV</strong>
-        <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
-        <span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span>
-        <span data-i18n="footer.tagline">GNSS Receiver Manufacturer · Professional OEM & ODM</span>
-      </footer>
     </main>
   );
 }

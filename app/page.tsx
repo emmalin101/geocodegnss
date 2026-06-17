@@ -137,12 +137,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer>
-        <strong>TOKNAV</strong>
-        <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
-        <span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span>
-        <span>GNSS Receiver Manufacturer · Professional OEM & ODM</span>
-      </footer>
     </main>
   );
 }

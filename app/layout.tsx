@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import type React from "react";
 import { I18nProvider } from "./components/I18nProvider";
+import SiteFooter from "./components/SiteFooter";
 import WhatsAppButton from "./components/WhatsAppButton";
 import "./globals.css";
 
@@ -10,5 +11,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body><I18nProvider>{children}<WhatsAppButton /></I18nProvider></body></html>;
+  return <html lang="en"><body><I18nProvider>{children}<SiteFooter /><WhatsAppButton /></I18nProvider></body></html>;
 }
