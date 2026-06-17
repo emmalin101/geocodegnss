@@ -564,30 +564,38 @@ footer strong { color: white; font-size: 24px; }
 .about-section-heading.light h2,
 .about-section-heading.light p { color: #fff; }
 .about-section-heading.light span { color: #8fd1ff; }
-.about-photo-wall {
+.about-gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   grid-auto-rows: 260px;
   gap: 14px;
 }
-.about-photo-wall figure,
-.about-cert-grid figure {
+.about-gallery-grid a {
+  display: block;
+  min-width: 0;
+  color: inherit;
+}
+.about-gallery-grid a.featured {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.about-gallery-grid figure {
   position: relative;
   overflow: hidden;
   margin: 0;
   border-radius: 8px;
   background: white;
   box-shadow: 0 16px 42px rgba(0,0,0,.15);
+  height: 100%;
 }
-.about-photo-wall figure.wide { grid-column: span 2; }
-.about-photo-wall img {
+.about-gallery-grid img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform .35s ease;
 }
-.about-photo-wall figure:hover img { transform: scale(1.04); }
-.about-photo-wall figcaption {
+.about-gallery-grid a:hover img { transform: scale(1.04); }
+.about-gallery-grid figcaption {
   position: absolute;
   left: 0;
   right: 0;
@@ -598,34 +606,82 @@ footer strong { color: white; font-size: 24px; }
   line-height: 1.35;
   background: linear-gradient(transparent, rgba(3,11,25,.86));
 }
-.about-cert-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 18px;
+.about-cert-gallery {
+  grid-auto-rows: 300px;
 }
-.about-cert-grid figure {
+.about-cert-gallery figure {
   display: grid;
   grid-template-rows: 260px auto;
   border: 1px solid var(--line);
   box-shadow: 0 18px 42px rgba(20,40,137,.08);
 }
-.about-cert-grid img {
+.about-cert-gallery a.featured {
+  grid-row: span 1;
+}
+.about-cert-gallery img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   padding: 16px;
   background: linear-gradient(145deg, #ffffff, #f3f8ff);
 }
-.about-cert-grid figcaption {
+.about-cert-gallery figcaption {
   display: flex;
   align-items: center;
   gap: 8px;
+  position: static;
   padding: 14px 16px;
   color: #173052;
   font-weight: 900;
+  background: #fff;
   border-top: 1px solid var(--line);
 }
-.about-cert-grid figcaption span { color: var(--blue); }
+.about-cert-gallery figcaption span { color: var(--blue); }
+.about-lightbox-set {
+  display: contents;
+}
+.about-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  place-items: center;
+  padding: 38px;
+  background: rgba(3,11,25,.88);
+}
+.about-lightbox:target {
+  display: grid;
+}
+.about-lightbox img {
+  max-width: min(1120px, 92vw);
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(0,0,0,.4);
+}
+.about-lightbox p {
+  max-width: min(900px, 92vw);
+  margin: 16px 0 0;
+  color: white;
+  font-weight: 900;
+  text-align: center;
+}
+.about-lightbox-close {
+  position: fixed;
+  top: 22px;
+  right: 24px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255,255,255,.24);
+  border-radius: 999px;
+  color: white;
+  background: rgba(255,255,255,.12);
+  font-weight: 900;
+}
+.about-cert-lightbox img {
+  background: #fff;
+  padding: 20px;
+}
 .about-final-cta {
   display: flex;
   justify-content: space-between;
@@ -1232,8 +1288,8 @@ footer strong { color: white; font-size: 24px; }
 @media (max-width: 980px) {
   .about-hero { grid-template-columns: 1fr; padding-top: 56px; }
   .about-timeline { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .about-photo-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .about-cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .about-gallery-grid a.featured { grid-column: span 2; grid-row: span 1; }
   .about-final-cta { align-items: flex-start; flex-direction: column; }
   .site-header { position: static; flex-wrap: wrap; padding-block: 18px; }
   nav { order: 3; width: 100%; overflow-x: auto; padding-bottom: 4px; }
@@ -1288,9 +1344,11 @@ footer strong { color: white; font-size: 24px; }
   .about-video-card div { display: grid; }
   .about-section { padding: 54px 22px; }
   .about-timeline { grid-template-columns: 1fr; }
-  .about-photo-wall { grid-template-columns: 1fr; grid-auto-rows: 250px; }
-  .about-photo-wall figure.wide { grid-column: span 1; }
-  .about-cert-grid { grid-template-columns: 1fr; }
+  .about-gallery-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+  .about-gallery-grid a.featured { grid-column: span 1; grid-row: span 1; }
+  .about-cert-gallery { grid-auto-rows: 300px; }
+  .about-lightbox { padding: 18px; }
+  .about-lightbox-close { top: 14px; right: 14px; }
   .about-final-cta { margin: 0 22px 54px; padding: 24px; }
   .site-footer,
   footer { align-items: flex-start; gap: 16px; padding: 28px 22px 84px; }
@@ -3151,7 +3209,11 @@ footer strong { color: white; font-size: 24px; }
         <section><h2>Related Models</h2><div class="related-products"><a href="accessory-kit.html"><img src="../../public/assets/products/tbase.webp" alt="RTK Receiver Accessory Kit"><strong>RTK Receiver Accessory Kit</strong><span>Accessory</span></a><a href="power-adapter.html"><img src="../../public/assets/products/tbase.webp" alt="Power Adapter"><strong>Power Adapter</strong><span>Accessory</span></a><a href="antenna-accessories.html"><img src="../../public/assets/products/tbase.webp" alt="Antenna Accessories"><strong>Antenna Accessories</strong><span>Accessory</span></a><a href="wire-cables.html"><img src="../../public/assets/products/tbase.webp" alt="GNSS Cables and Wires"><strong>GNSS Cables and Wires</strong><span>Accessory</span></a></div></section>
       </div>
     </section>
-  <footer class="site-footer"><div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div><div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div><div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div></footer>
+  <footer class="site-footer">
+    <div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div>
+    <div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div>
+    <div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div>
+  </footer>
 </main>
 <a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a>
 <script src="../../public/assets/i18n-static.js" defer></script>

@@ -1,23 +1,26 @@
 import { ArrowRight, BadgeCheck, CalendarDays, Globe2, ShieldCheck, UsersRound } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
 
+const youtubeUploadsEmbed = "https://www.youtube.com/embed/videoseries?list=UU7YvmJlQYioSnNjsoxlBPxQ";
+
 const timeline = [
-  ["2020", "GNSS RTK T5", "TOKNAV launched its T5 RTK receiver line for practical field surveying."],
-  ["2022.4", "T10Pro GNSS Receiver", "T10Pro was launched as a professional RTK receiver for survey and mapping teams."],
-  ["2022.6", "NET660i CORS/VRS", "VRS CORS NET660i expanded TOKNAV's base-station and correction-service portfolio."],
-  ["2022.11", "U6 Monitoring", "U6 deformation monitoring solution was launched for structural and slope monitoring projects."],
-  ["2023.3", "T20Pro Receiver", "T20Pro entered the receiver family for higher-performance GNSS field applications."],
-  ["2023.8", "P8 / P8Pro", "Rugged controller products supported integrated field data workflows."],
-  ["2023.11", "Marking Robot", "TOKNAV launched the marking robot solution for automated field marking."],
-  ["2024.2", "tBase", "tBase was introduced for compact base-station and RTK correction work."],
-  ["2024.3", "P8Glo", "P8Glo was launched for portable GNSS and GIS data collection."],
+  ["2020", "GNSS RTK T5", "TOKNAV introduced the T5 RTK receiver line for practical field surveying."],
+  ["2022.4", "T10Pro", "T10Pro joined the GNSS receiver portfolio for professional survey and mapping work."],
+  ["2022.6", "VRS CORS NET660i", "NET660i expanded TOKNAV correction-service and CORS infrastructure capability."],
+  ["2022.11", "U6 Deformation Monitoring", "U6 was released for monitoring scenarios such as structures, slopes and long-term displacement projects."],
+  ["2023.3", "T20Pro", "T20Pro strengthened TOKNAV's receiver family for higher-performance RTK applications."],
+  ["2023.8", "P8 / P8Pro", "Rugged GIS controllers were added to support integrated field data workflows."],
+  ["2023.11", "Marking Robot", "TOKNAV launched its robotic marking solution for automated line marking projects."],
+  ["2024.2", "tBase", "tBase was introduced for compact base station and RTK correction work."],
+  ["2024.3", "P8Global", "P8Global expanded portable GNSS and GIS data collection options."],
   ["2024.5", "NET660", "NET660 strengthened the CORS and base-station receiver range."],
-  ["2024.7", "T30 / T30Pro", "T30 and T30Pro added AR stakeout, laser measurement and photogrammetry options."],
-  ["2024.7", "NET660i-1U", "NET660i-1U was released for rack-mounted CORS infrastructure."],
-  ["2025.1", "TAG66 System", "Electric steering wheel autonomous driving system expanded agricultural automation."],
-  ["2025.2", "T40 Series", "T40 Series was launched for next-generation RTK receiver projects."],
-  ["2025.8", "Unmanned Surface Vehicle", "TOKNAV extended GNSS applications into unmanned water-surface survey scenarios."],
-  ["2025.11", "Handheld LiDAR Scanner", "Handheld LiDAR scanner was added to the spatial data capture portfolio."]
+  ["2024.7", "T30 / T30Pro / NET660i-1U", "T30 and T30Pro brought AR stakeout, laser measurement and photogrammetry options, while NET660i-1U supported rack-mounted CORS deployment."],
+  ["2025.1", "TAG66", "The electric steering wheel autonomous driving system expanded TOKNAV's agriculture automation line."],
+  ["2025.2", "TAG88 / TMC10 / TMC20 / T40 Series", "TOKNAV continued its agriculture and machine-control product expansion with land leveling, dozer guidance, excavator guidance and T40 Series receivers."],
+  ["2025.8", "Unmanned Surface Vehicle", "TOKNAV extended high-precision positioning into unmanned water-surface survey scenarios."],
+  ["2025.10", "T50 Series", "The T50 Series was added to the receiver roadmap for updated RTK project requirements."],
+  ["2025.11", "TSR20 Handheld LiDAR Scanner", "TOKNAV added handheld LiDAR scanning for spatial data capture and mapping workflows."],
+  ["2026.1", "Terrestrial Laser Scanner", "TOKNAV's roadmap expanded toward terrestrial laser scanning for professional geospatial projects."]
 ];
 
 const feedbackPhotos = [
@@ -77,14 +80,15 @@ export default function AboutPage() {
         </div>
         <div className="about-video-card">
           <iframe
-            src="https://www.youtube.com/embed/sTQLH1sJG7g"
-            title="TOKNAV TR10 Pro: A New Era of Field Marking"
+            src={youtubeUploadsEmbed}
+            title="Latest TOKNAV YouTube uploads"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            loading="lazy"
             allowFullScreen
           />
           <div>
-            <strong>Latest company video from TOKNAV YouTube</strong>
-            <span>Published on June 16, 2026</span>
+            <strong>Latest TOKNAV YouTube uploads</strong>
+            <span>Auto-updates from the official channel playlist</span>
           </div>
         </div>
       </section>
@@ -93,7 +97,7 @@ export default function AboutPage() {
         <div className="about-section-heading">
           <span>Product Roadmap</span>
           <h2>Product Launch Timeline</h2>
-          <p>Structured from the latest TOKNAV company profile material in the shared company folder.</p>
+          <p>Structured to match TOKNAV's official History section, with concise B2B product context.</p>
         </div>
         <div className="about-timeline">
           {timeline.map(([date, title, text]) => (
@@ -106,34 +110,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-section about-blue-band">
+      <section className="about-section about-blue-band" id="customer-feedback">
         <div className="about-section-heading light">
           <span>Customer Feedback</span>
           <h2>Field Photos from Global Customers and Exhibitions</h2>
           <p>Selected photos emphasize real customer visits, booth discussions, overseas storefronts and product demonstrations.</p>
         </div>
-        <div className="about-photo-wall">
+        <div className="about-gallery-grid about-feedback-gallery">
           {feedbackPhotos.map(([src, alt], index) => (
-            <figure className={index === 3 ? "wide" : ""} key={src}>
-              <img src={src} alt={alt} loading="lazy" />
-              <figcaption>{alt}</figcaption>
-            </figure>
+            <a className={index === 0 ? "featured" : ""} href={`#feedback-gallery-${index + 1}`} key={src} aria-label={`Open ${alt}`}>
+              <figure>
+                <img src={src} alt={alt} loading="lazy" />
+                <figcaption>{alt}</figcaption>
+              </figure>
+            </a>
+          ))}
+        </div>
+        <div className="about-lightbox-set" aria-hidden="true">
+          {feedbackPhotos.map(([src, alt], index) => (
+            <div className="about-lightbox" id={`feedback-gallery-${index + 1}`} key={`${src}-lightbox`}>
+              <a className="about-lightbox-close" href="#customer-feedback">Close</a>
+              <img src={src} alt={alt} />
+              <p>{alt}</p>
+            </div>
           ))}
         </div>
       </section>
 
-      <section className="about-section">
+      <section className="about-section" id="certification-gallery">
         <div className="about-section-heading">
           <span>Quality and Compliance</span>
           <h2>Certification Gallery</h2>
           <p>Selected certificate covers from TOKNAV shared certification folders, including product and company-level compliance materials.</p>
         </div>
-        <div className="about-cert-grid">
-          {certificates.map(([src, alt]) => (
-            <figure key={src}>
-              <img src={src} alt={alt} loading="lazy" />
-              <figcaption><BadgeCheck size={16} /> {alt}</figcaption>
-            </figure>
+        <div className="about-gallery-grid about-cert-gallery">
+          {certificates.map(([src, alt], index) => (
+            <a className={index === 0 ? "featured" : ""} href={`#certificate-gallery-${index + 1}`} key={src} aria-label={`Open ${alt}`}>
+              <figure>
+                <img src={src} alt={alt} loading="lazy" />
+                <figcaption><BadgeCheck size={16} /> {alt}</figcaption>
+              </figure>
+            </a>
+          ))}
+        </div>
+        <div className="about-lightbox-set" aria-hidden="true">
+          {certificates.map(([src, alt], index) => (
+            <div className="about-lightbox about-cert-lightbox" id={`certificate-gallery-${index + 1}`} key={`${src}-lightbox`}>
+              <a className="about-lightbox-close" href="#certification-gallery">Close</a>
+              <img src={src} alt={alt} />
+              <p>{alt}</p>
+            </div>
           ))}
         </div>
       </section>
