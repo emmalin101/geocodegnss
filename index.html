@@ -3306,14 +3306,30 @@ footer strong { color: white; font-size: 24px; }
   box-shadow: 0 10px 30px rgba(4, 31, 105, .18);
 }
 .toknav-home .brand img {
-  width: 150px;
+  width: 140px;
   filter: none;
 }
 .toknav-home nav {
-  gap: 24px;
+  gap: 18px;
   color: #fff;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
+}
+.toknav-home .language-switcher {
+  gap: 6px;
+  min-height: 40px;
+  padding: 0 10px;
+}
+.toknav-home .language-switcher-label {
+  display: none;
+}
+.toknav-home .language-switcher-select {
+  min-width: 84px;
+}
+.toknav-home .toknav-site-search-button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
 }
 .toknav-home .main-nav > .mega-nav-item {
   min-height: auto;
@@ -3368,15 +3384,15 @@ footer strong { color: white; font-size: 24px; }
 .toknav-home .ref-hero h1 {
   margin: 0;
   color: #07398f;
-  font-size: clamp(42px, 4.35vw, 66px);
-  line-height: .98;
+  font-size: clamp(36px, 3.75vw, 56px);
+  line-height: 1.04;
   letter-spacing: 0;
 }
 .toknav-home .ref-hero p {
   max-width: 480px;
   margin: 24px 0 0;
   color: #34445c;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.58;
 }
 .toknav-home .ref-actions {
@@ -3439,13 +3455,13 @@ footer strong { color: white; font-size: 24px; }
 .toknav-home .ref-title h2 {
   margin: 0;
   color: #071325;
-  font-size: clamp(30px, 3vw, 42px);
+  font-size: clamp(28px, 2.8vw, 38px);
   line-height: 1.1;
 }
 .toknav-home .ref-title p {
   margin: 12px 0 0;
   color: #6a7484;
-  font-size: 15px;
+  font-size: 16px;
 }
 .toknav-home .home-products {
   background: #f8fbff;
@@ -3528,11 +3544,12 @@ footer strong { color: white; font-size: 24px; }
 .toknav-home .ref-application-strip {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  margin-top: 28px;
+  margin-top: 24px;
+  border-top: 3px solid #fff;
 }
 .toknav-home .ref-application-card {
   position: relative;
-  min-height: 360px;
+  min-height: 372px;
   overflow: hidden;
   border-right: 3px solid #fff;
   background: #071325;
@@ -3554,19 +3571,20 @@ footer strong { color: white; font-size: 24px; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(7,19,37,.05) 25%, rgba(7,19,37,.82) 100%);
+  background: linear-gradient(180deg, rgba(7,19,37,.04) 22%, rgba(7,19,37,.22) 52%, rgba(7,19,37,.9) 100%);
 }
 .toknav-home .ref-application-card span {
   position: absolute;
   left: 18px;
   right: 18px;
-  bottom: 28px;
+  bottom: 30px;
   z-index: 1;
   color: #fff;
   font-size: 20px;
   font-weight: 900;
   line-height: 1.12;
   text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
 }
 .toknav-home .ref-trust {
   position: relative;
@@ -3574,15 +3592,17 @@ footer strong { color: white; font-size: 24px; }
   grid-template-columns: .9fr 1.5fr;
   gap: 36px;
   align-items: center;
-  padding: 54px 8vw;
+  min-height: 300px;
+  padding: 48px 8vw;
   color: #fff;
   background:
     linear-gradient(90deg, rgba(4,31,105,.94), rgba(4,31,105,.82)),
     url("public/assets/customer-visit.jpg") center / cover no-repeat;
+  border-top: 3px solid #fff;
 }
 .toknav-home .ref-trust h2 {
   margin: 0;
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(26px, 2.8vw, 38px);
   line-height: 1.08;
 }
 .toknav-home .ref-trust p {
@@ -3625,7 +3645,7 @@ footer strong { color: white; font-size: 24px; }
   font-size: 18px;
 }
 .toknav-home .ref-metric strong {
-  font-size: 40px;
+  font-size: 42px;
   line-height: 1;
 }
 .toknav-home .ref-metric span {
@@ -3852,7 +3872,7 @@ footer strong { color: white; font-size: 24px; }
       url("public/assets/gnss-receiver-homepage-banner-original.png") right bottom / cover no-repeat;
   }
   .toknav-home .ref-hero h1 {
-    font-size: 38px;
+    font-size: 34px;
   }
   .toknav-home .ref-proof {
     gap: 12px;
@@ -4009,19 +4029,19 @@ footer strong { color: white; font-size: 24px; }
       <img src="public/assets/rtk-field-use-1.jpg" alt="Land Surveying">
       <span>Land Surveying<br>&amp; Mapping</span>
     </a><a class="ref-application-card" href="products/gnss-receivers/index.html">
-      <img src="public/assets/gnss-receiver-homepage-banner-original.png" alt="Construction">
+      <img src="public/assets/home-app-construction.jpg" alt="Construction">
       <span>Construction &amp;<br>Engineering</span>
     </a><a class="ref-application-card" href="products/precision-agriculture-machine-control/index.html">
-      <img src="public/assets/products/tag66.webp" alt="Precision Agriculture">
+      <img src="public/assets/home-app-agriculture.jpg" alt="Precision Agriculture">
       <span>Precision<br>Agriculture</span>
     </a><a class="ref-application-card" href="products/precision-agriculture-machine-control/index.html">
-      <img src="public/assets/products/tmc20.webp" alt="Machine Control">
+      <img src="public/assets/home-app-machine.jpg" alt="Machine Control">
       <span>Machine<br>Control</span>
     </a><a class="ref-application-card" href="products/gnss-application-solutions/index.html">
-      <img src="public/assets/products/u6.webp" alt="Monitoring">
+      <img src="public/assets/home-app-monitoring.jpg" alt="Monitoring">
       <span>Monitoring &amp;<br>Deformation</span>
     </a><a class="ref-application-card" href="products/rugged-gis/index.html">
-      <img src="public/assets/products/pcr500.webp" alt="GIS Data Collection">
+      <img src="public/assets/home-app-gis.jpg" alt="GIS Data Collection">
       <span>GIS Data<br>Collection</span>
     </a></div>
     </section>
@@ -4078,11 +4098,11 @@ footer strong { color: white; font-size: 24px; }
     <div class="footer-col"><strong>Solutions</strong><a href="products/gnss-receivers/index.html">Land Surveying &amp; Mapping</a><a href="products/gnss-receivers/index.html">Construction &amp; Engineering</a><a href="products/precision-agriculture-machine-control/index.html">Machine Control</a><a href="products/gnss-application-solutions/index.html">Monitoring &amp; Deformation</a><a href="products/rugged-gis/index.html">GIS Data Collection</a></div>
     <div class="footer-col"><strong>Support</strong><a href="products.html">Download</a><a href="blog.html">Knowledge Base</a><a href="news.html">News</a><a href="contact.html">Contact Support</a></div>
     <div class="footer-col"><strong>About Us</strong><a href="about.html">Company Profile</a><a href="news.html">News</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a></div>
-    <div class="footer-col"><strong>Contact Us</strong><span>Email: emma@toknav.cn</span><span>Phone: +86 20 8202 0064</span><span>WhatsApp: +86 191 9534 6957</span><span>Addr: Room C2-03, 8th Floor, No. 28, Zhujiang Road, Tianhe District, Guangzhou, China</span></div>
+    <div class="footer-col"><strong>Contact Us</strong><span>Email: emma@toknav.cn</span><span>WhatsApp: +86 191 9534 6957</span><span>Addr: Room C2-03, 8th Floor, No. 28, Zhujiang Road, Tianhe District, Guangzhou, China</span></div>
     <div class="footer-bottom"><span>© 2026 Guangzhou Toksurvey Information Technology Co., Ltd. All rights reserved.</span><span>Privacy Policy · Terms of Use</span></div>
   </footer>
 </main>
 <a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a>
-<script src="public/assets/i18n-static.js" defer></script>
+<script src="public/assets/i18n-static.js?v=20260618c" defer></script>
 </body>
 </html>

@@ -209,8 +209,8 @@ export default function ContactPage() {
             <input name="email" placeholder="name@company.com" data-i18n-placeholder="form.placeholder.email" type="email" required />
           </label>
           <label>
-            <span data-i18n="form.phone">Phone / WhatsApp</span>
-            <input name="phone" placeholder="+86 191 9534 6957" data-i18n-placeholder="form.placeholder.phone" type="tel" required />
+            <span data-i18n="form.whatsapp">WhatsApp</span>
+            <input name="whatsapp" placeholder="+86 191 9534 6957" data-i18n-placeholder="form.placeholder.whatsapp" type="tel" required />
           </label>
           <label>
             <span data-i18n="form.country">Country</span>

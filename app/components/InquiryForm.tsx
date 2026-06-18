@@ -7,7 +7,7 @@ import { useI18n } from "./I18nProvider";
 type InquiryFormValues = {
   name: string;
   email: string;
-  phone: string;
+  whatsapp: string;
   company: string;
   country: string;
   product: string;
@@ -20,7 +20,7 @@ type FormErrors = Partial<Record<keyof InquiryFormValues, string>>;
 const initialValues: InquiryFormValues = {
   name: "",
   email: "",
-  phone: "",
+  whatsapp: "",
   company: "",
   country: "",
   product: "",
@@ -29,7 +29,7 @@ const initialValues: InquiryFormValues = {
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phonePattern = /^\+?[0-9 ()-]{7,22}$/;
+const whatsappPattern = /^\+?[0-9 ()-]{7,22}$/;
 const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
 const productOptions = [
   "GNSS Receiver",
@@ -54,10 +54,10 @@ function validate(values: InquiryFormValues, t: (key: string) => string) {
     errors.email = t("form.error.emailInvalid");
   }
 
-  if (!values.phone.trim()) {
-    errors.phone = t("form.error.phoneRequired");
-  } else if (!phonePattern.test(values.phone.trim())) {
-    errors.phone = t("form.error.phoneInvalid");
+  if (!values.whatsapp.trim()) {
+    errors.whatsapp = t("form.error.whatsappRequired");
+  } else if (!whatsappPattern.test(values.whatsapp.trim())) {
+    errors.whatsapp = t("form.error.whatsappInvalid");
   }
 
   return errors;
@@ -74,8 +74,8 @@ export default function InquiryForm() {
     : productOptions;
 
   const hasRequiredInput = useMemo(
-    () => values.name.trim() && values.email.trim() && values.phone.trim(),
-    [values.email, values.name, values.phone]
+    () => values.name.trim() && values.email.trim() && values.whatsapp.trim(),
+    [values.email, values.name, values.whatsapp]
   );
 
   useEffect(() => {
@@ -181,18 +181,18 @@ export default function InquiryForm() {
       <div className="form-row two-cols">
         <label>
           <span>
-            <span data-i18n="form.phone">{t("form.phone")}</span> <b>*</b>
+            <span data-i18n="form.whatsapp">{t("form.whatsapp")}</span> <b>*</b>
           </span>
           <input
-            aria-invalid={Boolean(errors.phone)}
+            aria-invalid={Boolean(errors.whatsapp)}
             autoComplete="tel"
             inputMode="tel"
-            name="phone"
-            placeholder={t("form.placeholder.phone")}
-            value={values.phone}
-            onChange={(event) => updateValue("phone", event.target.value)}
+            name="whatsapp"
+            placeholder={t("form.placeholder.whatsapp")}
+            value={values.whatsapp}
+            onChange={(event) => updateValue("whatsapp", event.target.value)}
           />
-          {errors.phone && <small>{errors.phone}</small>}
+          {errors.whatsapp && <small>{errors.whatsapp}</small>}
         </label>
 
         <label>

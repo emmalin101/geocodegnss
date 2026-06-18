@@ -3,12 +3,12 @@ import { join } from "node:path";
 import { NextResponse } from "next/server";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const phonePattern = /^\+?[0-9 ()-]{7,22}$/;
+const whatsappPattern = /^\+?[0-9 ()-]{7,22}$/;
 
 type InquiryPayload = {
   name?: string;
   email?: string;
-  phone?: string;
+  whatsapp?: string;
   company?: string;
   country?: string;
   product?: string;
@@ -23,7 +23,7 @@ function clean(value: unknown) {
 async function sendInquiryEmail(payload: {
   name: string;
   email: string;
-  phone: string;
+  whatsapp: string;
   company: string;
   country: string;
   product: string;
@@ -40,7 +40,7 @@ async function sendInquiryEmail(payload: {
     <h2>New TOKNAV Website Inquiry</h2>
     <p><strong>Name:</strong> ${payload.name}</p>
     <p><strong>Email:</strong> ${payload.email}</p>
-    <p><strong>Phone:</strong> ${payload.phone}</p>
+    <p><strong>WhatsApp:</strong> ${payload.whatsapp}</p>
     <p><strong>Company:</strong> ${payload.company || "-"}</p>
     <p><strong>Country / Region:</strong> ${payload.country || "-"}</p>
     <p><strong>Product Requirement:</strong> ${payload.product || "-"}</p>
@@ -80,7 +80,7 @@ export async function POST(request: Request) {
     const payload = {
       name: clean(body.name),
       email: clean(body.email),
-      phone: clean(body.phone),
+      whatsapp: clean(body.whatsapp),
       company: clean(body.company),
       country: clean(body.country),
       product: clean(body.product),
@@ -92,8 +92,8 @@ export async function POST(request: Request) {
     if (!payload.name) errors.name = "Name is required.";
     if (!payload.email) errors.email = "Email is required.";
     if (payload.email && !emailPattern.test(payload.email)) errors.email = "Invalid email format.";
-    if (!payload.phone) errors.phone = "Phone is required.";
-    if (payload.phone && !phonePattern.test(payload.phone)) errors.phone = "Invalid phone format.";
+    if (!payload.whatsapp) errors.whatsapp = "WhatsApp is required.";
+    if (payload.whatsapp && !whatsappPattern.test(payload.whatsapp)) errors.whatsapp = "Invalid WhatsApp format.";
 
     if (Object.keys(errors).length > 0) {
       return NextResponse.json(
