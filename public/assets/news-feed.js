@@ -13,35 +13,40 @@
       link: "https://insidegnss.com/",
       source: "Inside GNSS",
       pubDate: new Date().toISOString(),
-      description: "Industry buyers are watching RTK receivers, correction services and field software become more connected across surveying and construction workflows."
+      description: "Industry buyers are watching RTK receivers, correction services and field software become more connected across surveying and construction workflows.",
+      image: "public/assets/products/gnss-receiver-series-combo.webp"
     },
     {
       title: "Geospatial teams are using LiDAR, UAV mapping and mobile scanning for faster site documentation",
       link: "https://www.geoweeknews.com/news",
       source: "Geo Week News",
       pubDate: new Date().toISOString(),
-      description: "Recent geospatial coverage often highlights LiDAR scanning, reality capture and drone mapping as practical tools for project inspection and digital-twin workflows."
+      description: "Recent geospatial coverage often highlights LiDAR scanning, reality capture and drone mapping as practical tools for project inspection and digital-twin workflows.",
+      image: "public/assets/products/tsr20.webp"
     },
     {
       title: "Surveying buyers compare receiver durability, correction methods and software compatibility",
       link: "https://www.xyht.com/",
       source: "xyHt",
       pubDate: new Date().toISOString(),
-      description: "For professional field crews, product selection is usually about stable positioning, rugged design, software fit and supplier support rather than one single specification."
+      description: "For professional field crews, product selection is usually about stable positioning, rugged design, software fit and supplier support rather than one single specification.",
+      image: "public/assets/about/feedback-las-vegas-field.webp"
     },
     {
       title: "Hydrographic survey projects increasingly use compact USVs for safer water data collection",
       link: "https://www.gim-international.com/news",
       source: "GIM International",
       pubDate: new Date().toISOString(),
-      description: "Unmanned surface vessels can help teams collect bathymetry or water-monitoring data while reducing manual work in difficult water environments."
+      description: "Unmanned surface vessels can help teams collect bathymetry or water-monitoring data while reducing manual work in difficult water environments.",
+      image: "public/assets/products/tboat20.webp"
     },
     {
       title: "Machine control and precision agriculture remain strong GNSS application areas",
       link: "https://www.gpsworld.com/",
       source: "GPS World",
       pubDate: new Date().toISOString(),
-      description: "GNSS positioning continues to support machine guidance, land leveling and precision agriculture workflows where repeatability and field efficiency matter."
+      description: "GNSS positioning continues to support machine guidance, land leveling and precision agriculture workflows where repeatability and field efficiency matter.",
+      image: "public/assets/products/tmc20.webp"
     }
   ];
 
@@ -54,6 +59,17 @@
 
   const topics = ["All", "GNSS", "Surveying", "GIS", "LiDAR", "UAV", "USV", "SLAM", "Machine Control"];
   const commentsKey = "toknav-news-comments-v1";
+  const fallbackImages = {
+    GNSS: "public/assets/products/gnss-receiver-series-combo.webp",
+    Surveying: "public/assets/about/feedback-las-vegas-field.webp",
+    GIS: "public/assets/products/pcr500.webp",
+    LiDAR: "public/assets/products/tsr20.webp",
+    UAV: "public/assets/products/tha-x601a.webp",
+    USV: "public/assets/products/tboat20.webp",
+    SLAM: "public/assets/products/tsr20-angle.webp",
+    "Machine Control": "public/assets/products/tmc20.webp",
+    Default: "public/assets/products/gnss-receiver-series-combo.webp"
+  };
 
   const els = {};
 
@@ -67,6 +83,24 @@
       .replace(/\s+/g, " ")
       .replace(/View Full Coverage on Google News/gi, "")
       .trim();
+  }
+
+  function absoluteImageUrl(url) {
+    if (!url) return "";
+    const clean = String(url).trim();
+    if (!clean) return "";
+    if (clean.startsWith("//")) return `https:${clean}`;
+    if (/^https?:\/\//i.test(clean)) return clean;
+    return clean;
+  }
+
+  function imageFromHtml(value = "") {
+    const match = String(value).match(/<img[^>]+src=["']([^"']+)["']/i);
+    return absoluteImageUrl(match?.[1] || "");
+  }
+
+  function fallbackImageForTopic(topic) {
+    return fallbackImages[topic] || fallbackImages.Default;
   }
 
   function escapeHtml(value) {
@@ -97,7 +131,12 @@
           link: item.querySelector("link")?.textContent || url,
           source: stripHtml(sourceNode?.textContent || "Google News"),
           pubDate: item.querySelector("pubDate")?.textContent || new Date().toISOString(),
-          description: stripHtml(item.querySelector("description")?.textContent || "")
+          description: stripHtml(item.querySelector("description")?.textContent || ""),
+          image: absoluteImageUrl(
+            item.querySelector("media\\:content, content")?.getAttribute("url") ||
+            item.querySelector("enclosure")?.getAttribute("url") ||
+            imageFromHtml(item.querySelector("description")?.textContent || "")
+          )
         };
       });
       if (items.length) return items;
@@ -114,7 +153,13 @@
       link: item.link || url,
       source: stripHtml(item.author || item.source || "Google News"),
       pubDate: item.pubDate || new Date().toISOString(),
-      description: stripHtml(item.description || item.content || "")
+      description: stripHtml(item.description || item.content || ""),
+      image: absoluteImageUrl(
+        item.thumbnail ||
+        item.enclosure?.link ||
+        item.enclosure?.url ||
+        imageFromHtml(item.description || item.content || "")
+      )
     }));
   }
 
@@ -142,13 +187,17 @@
     const seen = new Set();
     return items
       .filter((item) => item.title && item.link)
-      .map((item) => ({
-        ...item,
-        source: item.source || "Google News",
-        topic: topicForItem(item),
-        summary: makeSummary(item),
-        time: new Date(item.pubDate || Date.now())
-      }))
+      .map((item) => {
+        const topic = topicForItem(item);
+        return {
+          ...item,
+          source: item.source || "Google News",
+          topic,
+          summary: makeSummary(item),
+          image: item.image || fallbackImageForTopic(topic),
+          time: new Date(item.pubDate || Date.now())
+        };
+      })
       .filter((item) => {
         const key = item.title.toLowerCase().replace(/\W+/g, " ").slice(0, 90);
         if (seen.has(key)) return false;
@@ -189,7 +238,8 @@
   function renderNews() {
     const items = filteredItems();
     els.newsGrid.innerHTML = items.length ? items.map((item, index) => `
-      <article class="news-card ${index === 0 && state.activeTopic === "All" ? "featured" : ""}">
+      <article class="news-card ${index === 0 && state.activeTopic === "All" ? "featured" : ""}" style="--news-image: url('${escapeHtml(item.image)}')">
+        <div class="news-card-bg" aria-hidden="true"></div>
         <div class="news-card-top">
           <span class="news-topic">${escapeHtml(item.topic)}</span>
           <span>${escapeHtml(formatDate(item.time))}</span>

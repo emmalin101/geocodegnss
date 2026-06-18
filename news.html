@@ -186,6 +186,8 @@
       box-shadow: var(--shadow);
     }
     .news-card {
+      position: relative;
+      overflow: hidden;
       display: grid;
       gap: 16px;
       min-height: 300px;
@@ -193,10 +195,37 @@
     }
     .news-card.featured {
       grid-column: span 2;
-      color: white;
+      color: var(--ink);
+      background: white;
+    }
+    .news-card-bg {
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(135deg, rgba(6,27,98,.96), rgba(27,44,150,.84)),
-        radial-gradient(circle at 80% 10%, rgba(75,169,255,.45), transparent 34%);
+        linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.72) 48%, rgba(255,255,255,.52) 100%),
+        var(--news-image) right center / min(52%, 360px) auto no-repeat,
+        linear-gradient(135deg, rgba(244,248,255,.92), rgba(255,255,255,.92));
+      opacity: .98;
+      pointer-events: none;
+    }
+    .news-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(75,169,255,.18), transparent 34%),
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.42));
+      pointer-events: none;
+    }
+    .news-card.featured .news-card-bg {
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.96) 0%, rgba(255,255,255,.76) 44%, rgba(255,255,255,.5) 100%),
+        var(--news-image) right center / min(48%, 460px) auto no-repeat,
+        linear-gradient(135deg, #fff, #eef6ff);
+    }
+    .news-card > :not(.news-card-bg) {
+      position: relative;
+      z-index: 1;
     }
     .news-card-top,
     .news-card-footer {
@@ -209,17 +238,14 @@
       font-weight: 900;
     }
     .news-card.featured .news-card-top,
-    .news-card.featured .news-card-footer { color: rgba(255,255,255,.74); }
+    .news-card.featured .news-card-footer { color: var(--muted); }
     .news-topic {
       color: var(--blue);
       background: #eef6ff;
       border-radius: 999px;
       padding: 6px 10px;
     }
-    .news-card.featured .news-topic {
-      color: white;
-      background: rgba(255,255,255,.16);
-    }
+    .news-card.featured .news-topic { color: var(--blue); background: #eef6ff; }
     .news-card h2 {
       margin: 0;
       font-size: 24px;
@@ -231,7 +257,7 @@
       color: var(--muted);
       line-height: 1.7;
     }
-    .news-card.featured p { color: rgba(255,255,255,.78); }
+    .news-card.featured p { color: var(--muted); }
     .news-card-footer { margin-top: auto; }
     .news-card-footer button,
     .comment-form button,
