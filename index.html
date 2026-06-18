@@ -3293,13 +3293,603 @@ footer strong { color: white; font-size: 24px; }
   }
 }
 
+/* Reference homepage pass: matched to the clean TOKNAV blue/white mockup. */
+.toknav-home {
+  background: #fff;
+}
+.toknav-home .site-header {
+  position: sticky;
+  min-height: 76px;
+  padding: 0 3.2vw;
+  background: linear-gradient(90deg, #082f8f, #041f69);
+  border-bottom: 0;
+  box-shadow: 0 10px 30px rgba(4, 31, 105, .18);
+}
+.toknav-home .brand img {
+  width: 150px;
+  filter: none;
+}
+.toknav-home nav {
+  gap: 24px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+}
+.toknav-home .main-nav > .mega-nav-item {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.toknav-home .main-nav > .mega-nav-item[open],
+.toknav-home .main-nav > .mega-nav-item:hover,
+.toknav-home .main-nav > .mega-nav-item:focus-within {
+  background: transparent;
+}
+.toknav-home .mega-nav-trigger {
+  min-height: 44px;
+  padding: 0;
+  color: #fff;
+  font-weight: 800;
+}
+.toknav-home nav a:hover,
+.toknav-home .mega-nav-trigger:hover {
+  color: #d7ecff;
+}
+.toknav-home .header-cta {
+  min-height: 40px;
+  padding: 0 22px;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,.78);
+  box-shadow: none;
+}
+.toknav-home .mega-menu {
+  top: 76px;
+}
+.toknav-home .ref-hero {
+  position: relative;
+  min-height: 540px;
+  display: grid;
+  grid-template-columns: minmax(360px, 0.78fr) minmax(520px, 1.22fr);
+  align-items: center;
+  padding: 74px 5vw 56px;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, #fff 0%, rgba(255,255,255,.96) 34%, rgba(255,255,255,.6) 50%, rgba(232,244,255,.2) 100%),
+    url("public/assets/gnss-receiver-homepage-banner-original.png") right center / cover no-repeat;
+}
+.toknav-home .ref-hero-copy {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+}
+.toknav-home .ref-hero h1 {
+  margin: 0;
+  color: #07398f;
+  font-size: clamp(42px, 4.35vw, 66px);
+  line-height: .98;
+  letter-spacing: 0;
+}
+.toknav-home .ref-hero p {
+  max-width: 480px;
+  margin: 24px 0 0;
+  color: #34445c;
+  font-size: 17px;
+  line-height: 1.58;
+}
+.toknav-home .ref-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+.toknav-home .ref-primary,
+.toknav-home .ref-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 28px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.toknav-home .ref-primary {
+  color: #fff;
+  background: #07398f;
+  box-shadow: 0 16px 32px rgba(7,57,143,.18);
+}
+.toknav-home .ref-secondary {
+  color: #07398f;
+  background: rgba(255,255,255,.86);
+  border: 2px solid #07398f;
+}
+.toknav-home .ref-proof {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 36px;
+  color: #24436a;
+  font-size: 12px;
+  font-weight: 800;
+}
+.toknav-home .ref-proof span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+.toknav-home .ref-proof span::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  border: 2px solid #07398f;
+  border-radius: 999px;
+  background: rgba(255,255,255,.7);
+}
+.toknav-home .ref-section {
+  padding: 58px 5vw;
+}
+.toknav-home .ref-title {
+  max-width: 780px;
+  margin: 0 auto;
+  text-align: center;
+}
+.toknav-home .ref-title h2 {
+  margin: 0;
+  color: #071325;
+  font-size: clamp(30px, 3vw, 42px);
+  line-height: 1.1;
+}
+.toknav-home .ref-title p {
+  margin: 12px 0 0;
+  color: #6a7484;
+  font-size: 15px;
+}
+.toknav-home .home-products {
+  background: #f8fbff;
+}
+.toknav-home .home-category-grid.compact {
+  max-width: 1280px;
+  margin: 34px auto 0;
+  gap: 12px;
+}
+.toknav-home .home-category-card {
+  min-height: 292px;
+  padding: 26px 16px 20px;
+  border: 1px solid #e2ebf7;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 12px 28px rgba(18, 48, 91, .08);
+}
+.toknav-home .home-category-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+}
+.toknav-home .home-category-card h3 {
+  min-height: 38px;
+  margin-top: 16px;
+  color: #07398f;
+  font-size: 15px;
+}
+.toknav-home .home-category-card strong {
+  color: #07398f;
+  font-size: 13px;
+}
+.toknav-home .ref-why {
+  background: #fff;
+}
+.toknav-home .ref-why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  max-width: 1080px;
+  margin: 44px auto 0;
+}
+.toknav-home .ref-why-item {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  min-height: 150px;
+  padding: 8px 28px;
+  text-align: center;
+  border-right: 1px solid #dbe5f2;
+}
+.toknav-home .ref-why-item:last-child {
+  border-right: 0;
+}
+.toknav-home .ref-why-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  color: #07398f;
+  border: 2px solid rgba(7,57,143,.22);
+  border-radius: 999px;
+  font-size: 18px;
+  font-weight: 900;
+}
+.toknav-home .ref-why-item strong {
+  color: #07398f;
+  font-size: 14px;
+}
+.toknav-home .ref-why-item p {
+  margin: 0;
+  max-width: 190px;
+  color: #5d697c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.toknav-home .ref-applications {
+  padding: 28px 0 0;
+  background: #fff;
+}
+.toknav-home .ref-application-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 28px;
+}
+.toknav-home .ref-application-card {
+  position: relative;
+  min-height: 360px;
+  overflow: hidden;
+  border-right: 3px solid #fff;
+  background: #071325;
+  color: #fff;
+}
+.toknav-home .ref-application-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  opacity: .86;
+  transition: transform .22s ease, opacity .22s ease;
+}
+.toknav-home .ref-application-card:hover img {
+  transform: scale(1.04);
+  opacity: .95;
+}
+.toknav-home .ref-application-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7,19,37,.05) 25%, rgba(7,19,37,.82) 100%);
+}
+.toknav-home .ref-application-card span {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 28px;
+  z-index: 1;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.12;
+  text-align: center;
+}
+.toknav-home .ref-trust {
+  position: relative;
+  display: grid;
+  grid-template-columns: .9fr 1.5fr;
+  gap: 36px;
+  align-items: center;
+  padding: 54px 8vw;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(4,31,105,.94), rgba(4,31,105,.82)),
+    url("public/assets/customer-visit.jpg") center / cover no-repeat;
+}
+.toknav-home .ref-trust h2 {
+  margin: 0;
+  font-size: clamp(28px, 3vw, 42px);
+  line-height: 1.08;
+}
+.toknav-home .ref-trust p {
+  max-width: 460px;
+  margin: 16px 0 20px;
+  color: rgba(255,255,255,.82);
+  line-height: 1.55;
+}
+.toknav-home .ref-trust a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 0 15px;
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 900;
+}
+.toknav-home .ref-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.toknav-home .ref-metric {
+  display: grid;
+  justify-items: center;
+  gap: 8px;
+  min-height: 140px;
+  padding: 18px 12px;
+  text-align: center;
+  border-left: 1px solid rgba(255,255,255,.28);
+}
+.toknav-home .ref-metric i {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 2px solid rgba(255,255,255,.65);
+  border-radius: 999px;
+  font-style: normal;
+  font-size: 18px;
+}
+.toknav-home .ref-metric strong {
+  font-size: 40px;
+  line-height: 1;
+}
+.toknav-home .ref-metric span {
+  color: rgba(255,255,255,.82);
+  font-size: 13px;
+  font-weight: 800;
+}
+.toknav-home .ref-lead {
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(440px, 1.05fr);
+  gap: 90px;
+  padding: 58px 9vw 70px;
+  background: #f7fbff;
+}
+.toknav-home .ref-faq h2,
+.toknav-home .ref-quote h2 {
+  margin: 0 0 20px;
+  color: #071325;
+  font-size: 24px;
+}
+.toknav-home .ref-faq details {
+  padding: 0;
+  border: 1px solid #dfe8f5;
+  border-radius: 4px;
+  background: #fff;
+}
+.toknav-home .ref-faq summary {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  color: #172841;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 800;
+}
+.toknav-home .ref-faq summary::after {
+  content: "+";
+  color: #07398f;
+}
+.toknav-home .ref-faq details[open] summary::after {
+  content: "-";
+}
+.toknav-home .ref-faq p {
+  margin: 0;
+  padding: 0 18px 18px;
+  color: #647187;
+  line-height: 1.55;
+}
+.toknav-home .ref-download {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: 16px;
+  align-items: center;
+  margin-top: 28px;
+  padding: 22px;
+  border: 1px solid #dfe8f5;
+  border-radius: 5px;
+  background: #fff;
+}
+.toknav-home .ref-download-icon {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  color: #07398f;
+  border: 2px solid #07398f;
+  font-size: 24px;
+  font-weight: 900;
+}
+.toknav-home .ref-download strong {
+  display: block;
+  color: #071325;
+  margin-bottom: 6px;
+}
+.toknav-home .ref-download span {
+  display: block;
+  color: #68778d;
+  font-size: 13px;
+  line-height: 1.45;
+}
+.toknav-home .ref-download a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  margin-top: 10px;
+  padding: 0 14px;
+  color: #fff;
+  background: #07398f;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 900;
+}
+.toknav-home .ref-quote p {
+  margin: -10px 0 22px;
+  color: #647187;
+  line-height: 1.5;
+}
+.toknav-home .ref-quote-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+.toknav-home .ref-quote-form label {
+  display: grid;
+  gap: 6px;
+  color: #30415a;
+  font-size: 12px;
+  font-weight: 800;
+}
+.toknav-home .ref-quote-form input,
+.toknav-home .ref-quote-form select,
+.toknav-home .ref-quote-form textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 10px 12px;
+  border: 1px solid #d9e4f2;
+  border-radius: 3px;
+  background: #fff;
+  color: #071325;
+  outline: none;
+}
+.toknav-home .ref-quote-form textarea,
+.toknav-home .ref-quote-form button {
+  grid-column: 1 / -1;
+}
+.toknav-home .ref-quote-form textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+.toknav-home .ref-quote-form button {
+  width: 220px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 4px;
+  color: #fff;
+  background: #07398f;
+  font-weight: 900;
+  cursor: pointer;
+}
+.toknav-home .site-footer {
+  display: grid;
+  grid-template-columns: 1.2fr repeat(5, minmax(130px, .75fr));
+  gap: 34px;
+  align-items: start;
+  padding: 48px 6vw 28px;
+  color: #fff;
+  background: #003c96;
+  border-top: 0;
+}
+.toknav-home .site-footer-brand strong {
+  font-size: 32px;
+  letter-spacing: .02em;
+}
+.toknav-home .site-footer-brand span,
+.toknav-home .footer-col a,
+.toknav-home .footer-col span {
+  color: rgba(255,255,255,.78);
+  font-size: 13px;
+  line-height: 1.65;
+}
+.toknav-home .footer-col {
+  display: grid;
+  gap: 8px;
+}
+.toknav-home .footer-col strong {
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 14px;
+}
+.toknav-home .site-footer .social-links {
+  margin-top: 18px;
+}
+.toknav-home .site-footer .social-link {
+  background: rgba(255,255,255,.12);
+  border-color: rgba(255,255,255,.22);
+}
+.toknav-home .footer-bottom {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 18px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  color: rgba(255,255,255,.72);
+  font-size: 12px;
+}
+@media (max-width: 1180px) {
+  .toknav-home .site-header {
+    flex-wrap: wrap;
+    min-height: auto;
+    padding: 16px 5vw;
+  }
+  .toknav-home .ref-hero,
+  .toknav-home .ref-lead,
+  .toknav-home .ref-trust {
+    grid-template-columns: 1fr;
+  }
+  .toknav-home .ref-application-strip,
+  .toknav-home .home-category-grid.compact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .toknav-home .site-footer {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 760px) {
+  .toknav-home .site-header {
+    gap: 14px;
+  }
+  .toknav-home nav {
+    width: 100%;
+    overflow-x: auto;
+    gap: 18px;
+    padding-bottom: 4px;
+  }
+  .toknav-home .ref-hero {
+    min-height: 620px;
+    padding: 50px 5vw;
+    background:
+      linear-gradient(180deg, #fff 0%, rgba(255,255,255,.94) 48%, rgba(255,255,255,.2) 100%),
+      url("public/assets/gnss-receiver-homepage-banner-original.png") right bottom / cover no-repeat;
+  }
+  .toknav-home .ref-hero h1 {
+    font-size: 38px;
+  }
+  .toknav-home .ref-proof {
+    gap: 12px;
+  }
+  .toknav-home .ref-section {
+    padding: 44px 5vw;
+  }
+  .toknav-home .ref-why-grid,
+  .toknav-home .ref-metrics,
+  .toknav-home .ref-application-strip,
+  .toknav-home .home-category-grid.compact,
+  .toknav-home .ref-quote-form,
+  .toknav-home .site-footer {
+    grid-template-columns: 1fr;
+  }
+  .toknav-home .ref-why-item {
+    border-right: 0;
+    border-bottom: 1px solid #dbe5f2;
+  }
+  .toknav-home .ref-application-card {
+    min-height: 260px;
+  }
+  .toknav-home .ref-lead {
+    gap: 34px;
+    padding: 42px 5vw 54px;
+  }
+  .toknav-home .footer-bottom {
+    display: grid;
+  }
+}
 </style>
 
 </head>
-<body>
+<body class="toknav-home">
 <main>
   <header class="site-header">
-    <a class="brand" href="index.html"><img src="public/assets/toknav-logo-blue.png" alt="TOKNAV"></a>
+    <a class="brand" href="index.html"><img src="public/assets/toknav-logo-white.png" alt="TOKNAV"></a>
     <nav class="main-nav" aria-label="Primary navigation">
       <details class="mega-nav-item">
         <summary class="mega-nav-trigger">Products <span>⌄</span></summary>
@@ -3350,40 +3940,35 @@ footer strong { color: white; font-size: 24px; }
         </div>
       </details>
       <a href="index.html#solutions">Solutions</a>
-      <a href="index.html#oem">OEM/ODM</a>
-      <a href="about.html">About</a>
-      <a href="blog.html">Blog</a>
+      <a href="products.html">Support</a>
       <a href="news.html">News</a>
-      <a href="contact.html">Contact</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact Us</a>
     </nav>
     <a class="header-cta" href="inquiry.html"><span>Get a Quote</span> →</a>
   </header>
-<section class="home-hero simple">
-      <div class="home-hero-copy">
-        <h1>High-Precision GNSS Receivers &amp; RTK Solutions Manufacturer</h1>
-        <p>Reliable centimeter-level positioning solutions for surveying, construction, agriculture and industrial applications worldwide.</p>
-        <div class="home-hero-actions"><a class="home-primary-button" href="inquiry.html">Get a Quote →</a><a class="home-secondary-button" href="products.html">Explore Products ›</a></div>
-        <div class="home-hero-proof mini"><span>OEM/ODM</span><span>15+ Years R&amp;D</span><span>60%+ Engineers</span><span>Global Support</span></div>
+  <section class="ref-hero">
+    <div class="ref-hero-copy">
+      <h1>High-Precision GNSS Receivers &amp; RTK Solutions Manufacturer</h1>
+      <p>Delivering reliable, centimeter-level positioning solutions for surveying, construction, agriculture, and industrial applications worldwide.</p>
+      <div class="ref-actions">
+        <a class="ref-primary" href="inquiry.html">Get a Quote</a>
+        <a class="ref-secondary" href="products.html">Explore Products</a>
       </div>
-      <div class="home-hero-stage">
-        <img class="home-hero-banner-clean" src="public/assets/gnss-receiver-homepage-banner-original.png" alt="TOKNAV GNSS receiver product banner">
-        <div class="home-hero-product-row simple"><a href="products/gnss-receivers/t50pro.html">
-      <img src="public/assets/products/t50pro.webp" alt="T50Pro">
-      <span>T50Pro</span>
-    </a><a href="products/gnss-application-solutions/marking-robot.html">
-      <img src="public/assets/products/tr10pro-marking-robot-front.png" alt="TR10Pro">
-      <span>TR10Pro</span>
-    </a><a href="products/gnss-application-solutions/deformation-monitoring.html">
-      <img src="public/assets/products/u6.webp" alt="U6 Monitoring System">
-      <span>U6 Monitoring System</span>
-    </a></div>
+      <div class="ref-proof">
+        <span>OEM/ODM</span>
+        <span>15+ Years R&amp;D</span>
+        <span>60%+ Engineers</span>
+        <span>Global Project Support</span>
       </div>
-    </section>
-    <section class="home-section home-products compact" id="products">
-      <div class="home-section-title compact"><h2>Our Product Categories</h2><p>Professional GNSS and positioning solutions for diverse industries and applications.</p></div>
+    </div>
+  </section>
+
+  <section class="ref-section home-products compact" id="products">
+      <div class="ref-title"><h2>Our Product Categories</h2><p>Professional GNSS and positioning solutions for diverse industries and applications.</p></div>
       <div class="home-category-grid compact"><a href="products/gnss-receivers/index.html" class="home-category-card">
       <img src="public/assets/products/gnss-receiver-series-combo.webp" alt="GNSS Receivers">
-      <h3>GNSS Receivers</h3>
+      <h3>GNSS Receiver</h3>
       <strong>View More ›</strong>
     </a><a href="products/rugged-gis/index.html" class="home-category-card">
       <img src="public/assets/products/pcr500.webp" alt="Rugged &amp; GIS">
@@ -3403,53 +3988,98 @@ footer strong { color: white; font-size: 24px; }
       <strong>View More ›</strong>
     </a><a href="products/gnss-application-solutions/index.html" class="home-category-card">
       <img src="public/assets/products/tboat20.webp" alt="GNSS Application Solutions">
-      <h3>GNSS Application Solutions</h3>
+      <h3>VRS Solution</h3>
       <strong>View More ›</strong>
     </a></div>
     </section>
-    <section class="home-section home-why">
-      <div class="home-section-title compact"><h2>Why Choose TOKNAV</h2><p>Built on innovation. Backed by experience. Trusted worldwide.</p></div>
-      <div class="home-why-grid"><div><span>◎</span><strong>OEM/ODM</strong><p>Flexible customization</p></div><div><span>◎</span><strong>15+ Years R&amp;D</strong><p>GNSS experience</p></div><div><span>◎</span><strong>60%+ Engineers</strong><p>Technical support</p></div><div><span>◎</span><strong>Global Projects</strong><p>Export service</p></div></div>
-    </section>
-    <section class="home-applications" id="solutions">
-      <div class="home-section-title compact"><h2>Applications</h2><p>High-precision positioning empowers a wide range of industries.</p></div>
-      <div class="home-application-strip"><a href="products/gnss-receivers/index.html">
-      <img src="public/assets/rtk-field-use-1.jpg" alt="Land Surveying">
-      <span>Land Surveying</span>
-    </a><a href="products/gnss-receivers/index.html">
-      <img src="public/assets/gnss-receiver-homepage-banner-original.png" alt="Construction">
-      <span>Construction</span>
-    </a><a href="products/precision-agriculture-machine-control/index.html">
-      <img src="public/assets/products/tag66.webp" alt="Precision Agriculture">
-      <span>Precision Agriculture</span>
-    </a><a href="products/precision-agriculture-machine-control/index.html">
-      <img src="public/assets/products/tmc20.webp" alt="Machine Control">
-      <span>Machine Control</span>
-    </a><a href="products/gnss-application-solutions/index.html">
-      <img src="public/assets/products/u6.webp" alt="Monitoring">
-      <span>Monitoring</span>
-    </a><a href="products/rugged-gis/index.html">
-      <img src="public/assets/products/pcr500.webp" alt="GIS Data Collection">
-      <span>GIS Data Collection</span>
-    </a></div>
-    </section>
-    <section class="home-trusted-band" id="about">
-      <div><h2>Trusted by Professionals Around the World</h2><p>TOKNAV products support reliable positioning work across surveying, construction, agriculture and monitoring projects.</p><a href="contact.html">Learn More About Us</a></div>
-      <div class="home-trusted-metrics">
-        <strong>100+<span>Countries &amp; Regions</span></strong>
-        <strong>15+<span>Years of Innovation</span></strong>
-        <strong>60%+<span>R&amp;D Engineers</span></strong>
-        <strong>24/7<span>Global Support</span></strong>
+
+    <section class="ref-section ref-why" id="oem">
+      <div class="ref-title"><h2>Why Choose TOKNAV</h2><p>Built on innovation. Backed by experience. Trusted worldwide.</p></div>
+      <div class="ref-why-grid">
+        <div class="ref-why-item"><span class="ref-why-icon">01</span><strong>OEM/ODM Services</strong><p>Flexible customization for hardware, firmware and branding.</p></div>
+        <div class="ref-why-item"><span class="ref-why-icon">02</span><strong>15+ Years R&amp;D Experience</strong><p>Continuous innovation in GNSS algorithms and platforms.</p></div>
+        <div class="ref-why-item"><span class="ref-why-icon">03</span><strong>60%+ Engineers</strong><p>A strong R&amp;D team dedicated to high-precision positioning.</p></div>
+        <div class="ref-why-item"><span class="ref-why-icon">04</span><strong>Global Project Support</strong><p>Localized technical support and after-sales service.</p></div>
       </div>
     </section>
-    <section class="home-section home-cta compact" id="contact">
-      <div><h2>Need a GNSS Solution?</h2><p>Tell us your product, quantity, country and application. TOKNAV will recommend a practical quote package.</p></div>
-      <div class="home-cta-actions"><a class="home-primary-button" href="inquiry.html">Get a Quote →</a><a class="home-secondary-button" href="public/assets/downloads/catalogs/gnss-receiver.pdf">Download Catalog</a></div>
+
+    <section class="ref-applications" id="solutions">
+      <div class="ref-title"><h2>Applications</h2><p>High-precision positioning empowers a wide range of industries.</p></div>
+      <div class="ref-application-strip"><a class="ref-application-card" href="products/gnss-receivers/index.html">
+      <img src="public/assets/rtk-field-use-1.jpg" alt="Land Surveying">
+      <span>Land Surveying<br>&amp; Mapping</span>
+    </a><a class="ref-application-card" href="products/gnss-receivers/index.html">
+      <img src="public/assets/gnss-receiver-homepage-banner-original.png" alt="Construction">
+      <span>Construction &amp;<br>Engineering</span>
+    </a><a class="ref-application-card" href="products/precision-agriculture-machine-control/index.html">
+      <img src="public/assets/products/tag66.webp" alt="Precision Agriculture">
+      <span>Precision<br>Agriculture</span>
+    </a><a class="ref-application-card" href="products/precision-agriculture-machine-control/index.html">
+      <img src="public/assets/products/tmc20.webp" alt="Machine Control">
+      <span>Machine<br>Control</span>
+    </a><a class="ref-application-card" href="products/gnss-application-solutions/index.html">
+      <img src="public/assets/products/u6.webp" alt="Monitoring">
+      <span>Monitoring &amp;<br>Deformation</span>
+    </a><a class="ref-application-card" href="products/rugged-gis/index.html">
+      <img src="public/assets/products/pcr500.webp" alt="GIS Data Collection">
+      <span>GIS Data<br>Collection</span>
+    </a></div>
+    </section>
+
+    <section class="ref-trust" id="about">
+      <div>
+        <h2>Trusted by Professionals Around the World</h2>
+        <p>TOKNAV products are widely used in more than 100 countries and regions, helping clients improve efficiency and accuracy in every project.</p>
+        <a href="about.html">Learn More About Us</a>
+      </div>
+      <div class="ref-metrics">
+        <div class="ref-metric"><i>G</i><strong>100+</strong><span>Countries &amp; Regions</span></div>
+        <div class="ref-metric"><i>Y</i><strong>15+</strong><span>Years of Innovation</span></div>
+        <div class="ref-metric"><i>R</i><strong>60%+</strong><span>R&amp;D Engineers</span></div>
+        <div class="ref-metric"><i>S</i><strong>24/7</strong><span>Global Support</span></div>
+      </div>
+    </section>
+
+    <section class="ref-lead" id="contact">
+      <div class="ref-faq">
+        <h2>FAQ</h2>
+        <details><summary>What accuracy can TOKNAV GNSS receivers achieve?</summary><p>With proper RTK correction and field conditions, TOKNAV receivers support centimeter-level positioning for surveying, mapping and construction workflows.</p></details>
+        <details><summary>Do you provide OEM or ODM services?</summary><p>Yes. TOKNAV supports logo, firmware, interface and project-level customization for distributors and system integrators.</p></details>
+        <details><summary>What is the warranty and after-sales support?</summary><p>Our team provides technical guidance, remote troubleshooting and project support for global B2B customers.</p></details>
+        <details><summary>Which industries are your products suitable for?</summary><p>Common applications include land surveying, construction, precision agriculture, machine control, monitoring, GIS and USV/SLAM solutions.</p></details>
+        <div class="ref-download">
+          <div class="ref-download-icon">↓</div>
+          <div><strong>Download Product Catalog</strong><span>Get the latest product brochure and technical information.</span><a href="public/assets/downloads/catalogs/gnss-receiver.pdf">Download Now</a></div>
+        </div>
+      </div>
+      <div class="ref-quote">
+        <h2>Get a Quote</h2>
+        <p>Tell us about your project needs. Our team will respond within 24 hours.</p>
+        <form class="ref-quote-form" action="https://formsubmit.co/emma@toknav.cn" method="POST">
+          <input type="hidden" name="_subject" value="New TOKNAV Homepage Inquiry">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off">
+          <label>Name *<input name="name" placeholder="Your name" required></label>
+          <label>Email *<input name="email" type="email" placeholder="name@company.com" required></label>
+          <label>Company<input name="company" placeholder="Company name"></label>
+          <label>Country *<input name="country" placeholder="Your country" required></label>
+          <label>Product Interest<select name="product"><option>Please select</option><option>GNSS Receiver</option><option>Rugged &amp; GIS</option><option>GNSS Antenna</option><option>Precision Agriculture</option><option>Machine Control</option><option>VRS Solution</option></select></label>
+          <label>Application<select name="application"><option>Please select</option><option>Surveying &amp; Mapping</option><option>Construction</option><option>Precision Agriculture</option><option>Monitoring</option><option>GIS Data Collection</option></select></label>
+          <label>Message<textarea name="message" placeholder="Please describe your project or requirements."></textarea></label>
+          <button type="submit">Submit Inquiry</button>
+        </form>
+      </div>
     </section>
   <footer class="site-footer">
-    <div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision GNSS positioning solutions for a smarter world.</span></div>
-    <div class="site-footer-info"><span>Guangzhou Toksurvey Information Technology Co., Ltd.</span><span>No. 9 Caipin Road, Huangpu District, Guangzhou, China</span><span>GNSS Receiver Manufacturer · Professional OEM &amp; ODM</span></div>
-    <div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div>
+    <div class="site-footer-brand"><strong>TOKNAV</strong><span>High-precision positioning solutions for a smarter world.</span><div class="social-links" aria-label="TOKNAV social media links"><a class="social-link social-link-facebook" href="https://www.facebook.com/Toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Facebook" title="Facebook"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M14.45 8.58V6.9c0-.72.18-1.08 1.16-1.08h1.44V3.02h-2.3c-2.76 0-3.73 1.37-3.73 3.68v1.88H8.95v2.88h2.07v8.52h3.43v-8.52h2.3l.31-2.88h-2.61Z"/></svg></a><a class="social-link social-link-instagram" href="https://www.instagram.com/toknavgnss/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on Instagram" title="Instagram"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7.8 3h8.4A4.8 4.8 0 0 1 21 7.8v8.4a4.8 4.8 0 0 1-4.8 4.8H7.8A4.8 4.8 0 0 1 3 16.2V7.8A4.8 4.8 0 0 1 7.8 3Zm0 2.1a2.7 2.7 0 0 0-2.7 2.7v8.4a2.7 2.7 0 0 0 2.7 2.7h8.4a2.7 2.7 0 0 0 2.7-2.7V7.8a2.7 2.7 0 0 0-2.7-2.7H7.8Zm4.2 3.1a3.8 3.8 0 1 1 0 7.6 3.8 3.8 0 0 1 0-7.6Zm0 2.1a1.7 1.7 0 1 0 0 3.4 1.7 1.7 0 0 0 0-3.4Zm4.15-2.45a.95.95 0 1 1 0-1.9.95.95 0 0 1 0 1.9Z"/></svg></a><a class="social-link social-link-linkedin" href="https://www.linkedin.com/company/toknav-information-technology/" target="_blank" rel="noopener noreferrer" aria-label="Follow TOKNAV on LinkedIn" title="LinkedIn"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6.65 8.9H3.5v11.1h3.15V8.9ZM5.08 4a1.83 1.83 0 1 0 0 3.66A1.83 1.83 0 0 0 5.08 4Zm14.92 9.85c0-3.02-1.61-4.43-3.76-4.43a3.25 3.25 0 0 0-2.94 1.62V8.9h-3.02v11.1h3.15v-5.49c0-1.45.27-2.86 2.08-2.86 1.78 0 1.81 1.67 1.81 2.95v5.4H20v-6.15Z"/></svg></a></div></div>
+    <div class="footer-col"><strong>Products</strong><a href="products/gnss-receivers/index.html">GNSS Receiver</a><a href="products/rugged-gis/index.html">Rugged &amp; GIS</a><a href="products/gnss-antennas/index.html">GNSS Antenna</a><a href="products/precision-agriculture-machine-control/index.html">Precision Agriculture</a><a href="products/gnss-application-solutions/index.html">VRS Solution</a></div>
+    <div class="footer-col"><strong>Solutions</strong><a href="products/gnss-receivers/index.html">Land Surveying &amp; Mapping</a><a href="products/gnss-receivers/index.html">Construction &amp; Engineering</a><a href="products/precision-agriculture-machine-control/index.html">Machine Control</a><a href="products/gnss-application-solutions/index.html">Monitoring &amp; Deformation</a><a href="products/rugged-gis/index.html">GIS Data Collection</a></div>
+    <div class="footer-col"><strong>Support</strong><a href="products.html">Download</a><a href="blog.html">Knowledge Base</a><a href="news.html">News</a><a href="contact.html">Contact Support</a></div>
+    <div class="footer-col"><strong>About Us</strong><a href="about.html">Company Profile</a><a href="news.html">News</a><a href="blog.html">Blog</a><a href="contact.html">Contact Us</a></div>
+    <div class="footer-col"><strong>Contact Us</strong><span>Email: emma@toknav.cn</span><span>Phone: +86 20 8202 0064</span><span>WhatsApp: +86 191 9534 6957</span><span>Addr: Room C2-03, 8th Floor, No. 28, Zhujiang Road, Tianhe District, Guangzhou, China</span></div>
+    <div class="footer-bottom"><span>© 2026 Guangzhou Toksurvey Information Technology Co., Ltd. All rights reserved.</span><span>Privacy Policy · Terms of Use</span></div>
   </footer>
 </main>
 <a aria-label="Contact TOKNAV on WhatsApp" class="whatsapp-float" href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." rel="noopener noreferrer" target="_blank" title="Contact TOKNAV on WhatsApp"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16.02 4.2c-6.45 0-11.7 5.14-11.7 11.46 0 2.18.64 4.29 1.84 6.11L4.2 27.8l6.28-1.91a11.98 11.98 0 0 0 5.54 1.37c6.45 0 11.7-5.14 11.7-11.46S22.47 4.2 16.02 4.2Zm0 20.99c-1.78 0-3.52-.49-5.04-1.42l-.36-.22-3.72 1.13 1.16-3.56-.24-.37a9.33 9.33 0 0 1-1.43-4.95c0-5.18 4.32-9.39 9.63-9.39s9.63 4.21 9.63 9.39-4.32 9.39-9.63 9.39Zm5.29-7.04c-.29-.14-1.71-.83-1.98-.92-.27-.1-.46-.14-.66.14-.19.28-.76.92-.93 1.11-.17.19-.34.21-.63.07-.29-.14-1.22-.44-2.32-1.41-.86-.75-1.44-1.68-1.61-1.96-.17-.28-.02-.43.13-.57.13-.13.29-.33.44-.49.15-.16.19-.28.29-.47.1-.19.05-.35-.02-.49-.07-.14-.66-1.55-.9-2.13-.24-.56-.48-.48-.66-.49h-.56c-.19 0-.51.07-.78.35-.27.28-1.02.98-1.02 2.39s1.05 2.77 1.2 2.96c.15.19 2.07 3.1 5.02 4.34.7.3 1.25.48 1.68.61.71.22 1.35.19 1.86.12.57-.08 1.71-.69 1.95-1.35.24-.66.24-1.23.17-1.35-.07-.12-.27-.19-.56-.33Z"/></svg></a>
