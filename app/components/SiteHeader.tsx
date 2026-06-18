@@ -52,6 +52,7 @@ export default function SiteHeader() {
         <a href="/#oem" data-i18n="nav.oem">OEM/ODM</a>
         <a href="/about" data-i18n="nav.about">About</a>
         <a href="/blog" data-i18n="nav.blog">Blog</a>
+        <a href="/news" data-i18n="nav.news">News</a>
         <a href="/contact" data-i18n="nav.contact">Contact</a>
       </nav>
       <LanguageSwitcher />

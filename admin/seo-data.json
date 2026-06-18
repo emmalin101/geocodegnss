@@ -120,6 +120,20 @@
       "notes": "Add product comparison table and link to GNSS receivers category."
     },
     {
+      "id": "news",
+      "type": "News",
+      "priority": "Medium",
+      "status": "Live",
+      "url": "/news.html",
+      "focusKeyword": "surveying industry news",
+      "seoTitle": "Surveying, GNSS, GIS and Geospatial Industry News | TOKNAV",
+      "metaDescription": "Daily surveying, GNSS, GIS, LiDAR, UAV, USV and geospatial industry news briefs with source links and comments.",
+      "h1": "Surveying News, Industry Buzz and Field Tech Updates",
+      "cta": "Read Briefing",
+      "internalLinks": 4,
+      "notes": "Auto-updated client-side news feed. Use this page for topical freshness and blog inspiration."
+    },
+    {
       "id": "blog-cors-vrs",
       "type": "Blog",
       "priority": "Medium",
