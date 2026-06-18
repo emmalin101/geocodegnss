@@ -4,6 +4,9 @@ const STORAGE_KEY = "toknav-seo-admin-v1";
 const state = {
   data: null,
   selectedId: null,
+  selectedTextId: null,
+  selectedAssetId: null,
+  selectedBlogDraftId: null,
   unlocked: false
 };
 
@@ -25,14 +28,250 @@ function slugId() {
   return `page-${Date.now()}`;
 }
 
+function contentId(prefix) {
+  return `${prefix}-${Date.now()}`;
+}
+
+function todayDate() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+function makeSlug(value) {
+  return String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 80) || `blog-${Date.now()}`;
+}
+
+const DEFAULT_TEXT_SLOTS = [
+  {
+    id: "copy-home-hero-title",
+    label: "首页首屏标题",
+    page: "index.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "High-Precision GNSS Receivers & RTK Solutions Manufacturer",
+    newText: "",
+    notes: "建议保持 1-2 行，突出 GNSS receiver、RTK solutions 和 manufacturer。"
+  },
+  {
+    id: "copy-home-hero-subtitle",
+    label: "首页首屏说明",
+    page: "index.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "Delivering reliable, centimeter-level positioning solutions for surveying, construction, agriculture, and industrial applications worldwide.",
+    newText: "",
+    notes: "适合广告落地页，建议简洁说明客户行业和核心价值。"
+  },
+  {
+    id: "copy-home-products-title",
+    label: "首页产品类目标题",
+    page: "index.html",
+    section: "Our Product Categories",
+    locale: "English",
+    currentText: "Our Product Categories",
+    newText: "",
+    notes: "该区域配图保持不变，只建议调整标题和说明文字。"
+  },
+  {
+    id: "copy-home-applications-title",
+    label: "首页应用场景标题",
+    page: "index.html",
+    section: "Applications",
+    locale: "English",
+    currentText: "Applications",
+    newText: "",
+    notes: "用于承接测绘、施工、农业、机械控制、监测、GIS 等行业流量。"
+  },
+  {
+    id: "copy-contact-company-cn",
+    label: "联系页中文公司名",
+    page: "contact.html",
+    section: "Company Information",
+    locale: "Chinese",
+    currentText: "广州市图科信息技术有限公司",
+    newText: "",
+    notes: "中文公司名必须保持一行展示，不要拆成竖排。"
+  },
+  {
+    id: "copy-contact-company-en",
+    label: "联系页英文公司名",
+    page: "contact.html",
+    section: "Company Information",
+    locale: "English",
+    currentText: "Guangzhou Toksurvey Information Technology Co., Ltd",
+    newText: "",
+    notes: "英文公司名用于海外客户识别和表单信任。"
+  },
+  {
+    id: "copy-contact-address-cn",
+    label: "联系页中文地址",
+    page: "contact.html",
+    section: "Address",
+    locale: "Chinese",
+    currentText: "广州市黄埔区彩频路9号",
+    newText: "",
+    notes: "中文地址建议和英文地址并列展示。"
+  },
+  {
+    id: "copy-contact-address-en",
+    label: "联系页英文地址",
+    page: "contact.html",
+    section: "Address",
+    locale: "English",
+    currentText: "No. 9 Caipin Road, Huangpu District, Guangzhou, China",
+    newText: "",
+    notes: "适合 Google Business、GSC 和海外询盘客户查看。"
+  },
+  {
+    id: "copy-footer-tagline",
+    label: "全站页脚品牌语",
+    page: "Global Footer",
+    section: "Footer",
+    locale: "English",
+    currentText: "High-precision positioning solutions for a smarter world.",
+    newText: "",
+    notes: "保持简短，适合全站页脚。"
+  }
+];
+
+const DEFAULT_ASSET_SLOTS = [
+  {
+    id: "asset-home-hero",
+    label: "首页首屏主图",
+    page: "index.html",
+    currentPath: "public/assets/gnss-receiver-homepage-banner-original.png",
+    recommendedSize: "1920 x 760 px",
+    alt: "TOKNAV GNSS receivers and RTK solutions for construction surveying",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "首屏图需要蓝白科技风，文字区域保持干净。"
+  },
+  {
+    id: "asset-home-application-survey",
+    label: "首页应用场景 - Land Surveying",
+    page: "index.html",
+    currentPath: "public/assets/rtk-field-use-1.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "Land surveying and mapping with GNSS receiver",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "竖图，底部可加轻微暗色遮罩。"
+  },
+  {
+    id: "asset-home-application-construction",
+    label: "首页应用场景 - Construction",
+    page: "index.html",
+    currentPath: "public/assets/home-app-construction.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "Construction engineering GNSS application",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "建议使用建筑工地、塔吊、测量人员相关图片。"
+  },
+  {
+    id: "asset-home-application-agriculture",
+    label: "首页应用场景 - Precision Agriculture",
+    page: "index.html",
+    currentPath: "public/assets/home-app-agriculture.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "Precision agriculture guidance and GNSS positioning",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "建议使用拖拉机、田地、自动驾驶农业场景。"
+  },
+  {
+    id: "asset-home-application-machine",
+    label: "首页应用场景 - Machine Control",
+    page: "index.html",
+    currentPath: "public/assets/home-app-machine.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "Machine control and road construction positioning",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "建议使用压路机、推土机或施工机械场景。"
+  },
+  {
+    id: "asset-home-application-monitoring",
+    label: "首页应用场景 - Monitoring",
+    page: "index.html",
+    currentPath: "public/assets/home-app-monitoring.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "Monitoring and deformation GNSS application",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "建议使用水坝、桥梁、边坡监测场景。"
+  },
+  {
+    id: "asset-home-application-gis",
+    label: "首页应用场景 - GIS Data",
+    page: "index.html",
+    currentPath: "public/assets/home-app-gis.jpg",
+    recommendedSize: "900 x 1200 px",
+    alt: "GIS data collection and mapping application",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "建议使用航拍、地图数据或 GIS 采集场景。"
+  },
+  {
+    id: "asset-logo-blue",
+    label: "全站蓝色 Logo",
+    page: "Global Header",
+    currentPath: "public/assets/toknav-logo-blue.png",
+    recommendedSize: "Transparent PNG / WebP",
+    alt: "TOKNAV logo",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于导航栏和浅色背景。"
+  }
+];
+
+const DEFAULT_BLOG_DRAFT = {
+  id: "draft-tr10pro-white",
+  title: "TR10Pro Gets a New White Body: What Changed from the Green Version?",
+  slug: "tr10pro-new-white-body",
+  category: "Product Updates",
+  date: todayDate(),
+  seoTitle: "TR10Pro New White Body: Updated Line Marking Robot Design",
+  metaDescription: "Learn why the TR10Pro line marking robot changed from a green body to a white body and what it means for buyers, dealers and field users.",
+  cover: "../public/assets/products/tr10pro-marking-robot.png",
+  coverDataUrl: "",
+  excerpt: "TOKNAV TR10Pro has moved from the earlier green body to a cleaner white body, keeping the product focused on field marking and easier visual presentation.",
+  content: "## Why TOKNAV Updated the TR10Pro Body Color\nThe new white body gives TR10Pro a cleaner and more consistent product appearance for overseas distributors, sports field contractors and municipal marking teams.\n\n## What Remains Focused on Field Work\nThe update is mainly about visual presentation and brand consistency. Buyers should still evaluate positioning workflow, paint handling, field preparation and after-sales support before placing an order.\n\n## Who Should Pay Attention\nDealers, line marking service providers and project buyers can use the new visual version for product demonstrations, catalog updates and marketing materials.",
+  faq: "Is the new TR10Pro a completely different product? | The main change discussed here is the body appearance update from green to white.\nWho is TR10Pro suitable for? | It is suitable for sports field marking, project marking and related field automation scenarios.",
+  ctaText: "Send Your Requirements",
+  ctaHref: "../contact.html"
+};
+
+function ensureAdminContent() {
+  if (!state.data.site) state.data.site = { updatedAt: todayDate() };
+  if (!Array.isArray(state.data.textSlots) || !state.data.textSlots.length) {
+    state.data.textSlots = DEFAULT_TEXT_SLOTS.map((item) => ({ ...item }));
+  }
+  if (!Array.isArray(state.data.assets) || !state.data.assets.length) {
+    state.data.assets = DEFAULT_ASSET_SLOTS.map((item) => ({ ...item }));
+  }
+  if (!Array.isArray(state.data.blogDrafts) || !state.data.blogDrafts.length) {
+    state.data.blogDrafts = [{ ...DEFAULT_BLOG_DRAFT }];
+  }
+  state.selectedTextId = state.selectedTextId || state.data.textSlots[0]?.id;
+  state.selectedAssetId = state.selectedAssetId || state.data.assets[0]?.id;
+  state.selectedBlogDraftId = state.selectedBlogDraftId || state.data.blogDrafts[0]?.id;
+}
+
 async function loadInitialData() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     state.data = JSON.parse(saved);
+    ensureAdminContent();
     return;
   }
   const response = await fetch("./seo-data.json", { cache: "no-store" });
   state.data = await response.json();
+  ensureAdminContent();
 }
 
 function saveData() {
@@ -240,6 +479,506 @@ function addBlogIdea() {
   renderBlogIdeas();
 }
 
+function currentTextSlot() {
+  return state.data.textSlots.find((item) => item.id === state.selectedTextId) || state.data.textSlots[0];
+}
+
+function renderTextSlots() {
+  if (!els.textSlotList) return;
+  els.textSlotList.innerHTML = state.data.textSlots.map((item) => {
+    const hasNewText = Boolean(item.newText?.trim());
+    return `
+      <button class="page-card ${item.id === state.selectedTextId ? "is-active" : ""}" data-id="${escapeHtml(item.id)}" type="button">
+        <strong>${escapeHtml(item.label)}</strong>
+        <small>${escapeHtml(item.page)} · ${escapeHtml(item.section)}</small>
+        <div class="tag-row">
+          <span class="tag">${escapeHtml(item.locale || "English")}</span>
+          <span class="tag ${hasNewText ? "live" : "draft"}">${hasNewText ? "Updated" : "Waiting"}</span>
+        </div>
+      </button>
+    `;
+  }).join("");
+  els.textSlotList.querySelectorAll(".page-card").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.selectedTextId = button.dataset.id;
+      renderTextEditor();
+      renderTextSlots();
+    });
+  });
+}
+
+function renderTextEditor() {
+  if (!els.textEditor) return;
+  const item = currentTextSlot();
+  if (!item) return;
+  state.selectedTextId = item.id;
+  els.textEditorTitle.textContent = item.label;
+  els.textStatusPill.textContent = item.newText?.trim() ? "Updated" : "Draft";
+  els.textEditor.elements.label.value = item.label || "";
+  els.textEditor.elements.page.value = item.page || "";
+  els.textEditor.elements.section.value = item.section || "";
+  els.textEditor.elements.locale.value = item.locale || "";
+  els.textEditor.elements.currentText.value = item.currentText || "";
+  els.textEditor.elements.newText.value = item.newText || "";
+  els.textEditor.elements.notes.value = item.notes || "";
+}
+
+function saveCurrentText(event) {
+  event.preventDefault();
+  const item = currentTextSlot();
+  if (!item) return;
+  const fields = new FormData(els.textEditor);
+  item.label = fields.get("label").trim();
+  item.page = fields.get("page").trim();
+  item.section = fields.get("section").trim();
+  item.locale = fields.get("locale").trim();
+  item.currentText = fields.get("currentText").trim();
+  item.newText = fields.get("newText").trim();
+  item.notes = fields.get("notes").trim();
+  saveData();
+  renderTextSlots();
+  renderTextEditor();
+}
+
+function addTextSlot() {
+  const label = prompt("请输入文字位置名称，例如：首页按钮文案");
+  if (!label) return;
+  const item = {
+    id: contentId("copy"),
+    label,
+    page: "index.html",
+    section: "New Section",
+    locale: "English",
+    currentText: "",
+    newText: "",
+    notes: ""
+  };
+  state.data.textSlots.unshift(item);
+  state.selectedTextId = item.id;
+  saveData();
+  renderTextSlots();
+  renderTextEditor();
+}
+
+function textSnippet(item) {
+  return [
+    `位置: ${item.label}`,
+    `页面: ${item.page}`,
+    `区域: ${item.section}`,
+    `语言: ${item.locale}`,
+    `当前文字: ${item.currentText}`,
+    `修改后文字: ${item.newText || "(未填写)"}`,
+    `备注: ${item.notes}`
+  ].join("\n");
+}
+
+function copyTextSnippet() {
+  const text = textSnippet(currentTextSlot());
+  navigator.clipboard?.writeText(text);
+  els.exportOutput.value = text;
+}
+
+function downloadTextPackage() {
+  const payload = {
+    type: "toknav-website-copy-update",
+    updatedAt: new Date().toISOString(),
+    instructions: [
+      "把 newText 非空的项目同步到对应页面。",
+      "如果 newText 为空，表示该位置只是记录当前文案，不需要替换。",
+      "同步后请检查桌面端、移动端和多语言切换。"
+    ],
+    items: state.data.textSlots
+  };
+  const content = JSON.stringify(payload, null, 2);
+  els.exportOutput.value = content;
+  downloadFile("toknav-website-copy-update.json", content, "application/json");
+}
+
+function currentAsset() {
+  return state.data.assets.find((item) => item.id === state.selectedAssetId) || state.data.assets[0];
+}
+
+function assetPreviewSrc(item) {
+  const value = item?.replacementDataUrl || item?.currentPath || "../public/assets/toknav-logo-blue.png";
+  if (value.startsWith("data:") || value.startsWith("http")) return value;
+  if (value.startsWith("../")) return value;
+  if (value.startsWith("/")) return `..${value}`;
+  if (value.startsWith("public/")) return `../${value}`;
+  return value;
+}
+
+function renderAssetSlots() {
+  if (!els.assetSlotList) return;
+  els.assetSlotList.innerHTML = state.data.assets.map((item) => {
+    const hasFile = Boolean(item.replacementDataUrl);
+    return `
+      <button class="page-card ${item.id === state.selectedAssetId ? "is-active" : ""}" data-id="${escapeHtml(item.id)}" type="button">
+        <strong>${escapeHtml(item.label)}</strong>
+        <small>${escapeHtml(item.page)} · ${escapeHtml(item.recommendedSize)}</small>
+        <div class="tag-row">
+          <span class="tag">${escapeHtml(item.currentPath || "No path")}</span>
+          <span class="tag ${hasFile ? "live" : "draft"}">${hasFile ? "New file" : "Waiting"}</span>
+        </div>
+      </button>
+    `;
+  }).join("");
+  els.assetSlotList.querySelectorAll(".page-card").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.selectedAssetId = button.dataset.id;
+      renderAssetEditor();
+      renderAssetSlots();
+    });
+  });
+}
+
+function renderAssetEditor() {
+  if (!els.assetEditor) return;
+  const item = currentAsset();
+  if (!item) return;
+  state.selectedAssetId = item.id;
+  els.assetEditorTitle.textContent = item.label;
+  els.assetStatusPill.textContent = item.replacementDataUrl ? "New File" : "Ready";
+  els.assetPreview.src = assetPreviewSrc(item);
+  els.assetPreview.alt = item.alt || item.label;
+  els.assetEditor.elements.label.value = item.label || "";
+  els.assetEditor.elements.page.value = item.page || "";
+  els.assetEditor.elements.currentPath.value = item.currentPath || "";
+  els.assetEditor.elements.recommendedSize.value = item.recommendedSize || "";
+  els.assetEditor.elements.alt.value = item.alt || "";
+  els.assetEditor.elements.replacementName.value = item.replacementName || "";
+  els.assetEditor.elements.notes.value = item.notes || "";
+}
+
+function saveCurrentAsset(event) {
+  event.preventDefault();
+  const item = currentAsset();
+  if (!item) return;
+  const fields = new FormData(els.assetEditor);
+  item.label = fields.get("label").trim();
+  item.page = fields.get("page").trim();
+  item.currentPath = fields.get("currentPath").trim();
+  item.recommendedSize = fields.get("recommendedSize").trim();
+  item.alt = fields.get("alt").trim();
+  item.replacementName = fields.get("replacementName").trim();
+  item.notes = fields.get("notes").trim();
+  saveData();
+  renderAssetSlots();
+  renderAssetEditor();
+}
+
+function addAssetSlot() {
+  const label = prompt("请输入素材位置名称，例如：产品页主图");
+  if (!label) return;
+  const item = {
+    id: contentId("asset"),
+    label,
+    page: "index.html",
+    currentPath: "",
+    recommendedSize: "1200 x 800 px",
+    alt: "",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: ""
+  };
+  state.data.assets.unshift(item);
+  state.selectedAssetId = item.id;
+  saveData();
+  renderAssetSlots();
+  renderAssetEditor();
+}
+
+function assetSnippet(item) {
+  return [
+    `素材位置: ${item.label}`,
+    `页面: ${item.page}`,
+    `当前路径: ${item.currentPath}`,
+    `推荐尺寸: ${item.recommendedSize}`,
+    `ALT: ${item.alt}`,
+    `新文件名: ${item.replacementName || "(未上传)"}`,
+    `备注: ${item.notes}`
+  ].join("\n");
+}
+
+function copyAssetSnippet() {
+  const text = assetSnippet(currentAsset());
+  navigator.clipboard?.writeText(text);
+  els.exportOutput.value = text;
+}
+
+function downloadAssetPackage() {
+  const payload = {
+    type: "toknav-website-asset-update",
+    updatedAt: new Date().toISOString(),
+    instructions: [
+      "把 replacementDataUrl 非空的图片保存成 replacementName。",
+      "上传到对应 currentPath 所在目录，或按维护人员建议重命名路径。",
+      "同步页面里的 img src 与 alt，并检查移动端裁切。"
+    ],
+    assets: state.data.assets
+  };
+  const content = JSON.stringify(payload, null, 2);
+  els.exportOutput.value = content;
+  downloadFile("toknav-website-asset-update.json", content, "application/json");
+}
+
+function readImageInput(input, callback) {
+  const file = input.files?.[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = () => callback(file, reader.result);
+  reader.readAsDataURL(file);
+}
+
+function currentBlogDraft() {
+  return state.data.blogDrafts.find((item) => item.id === state.selectedBlogDraftId) || state.data.blogDrafts[0];
+}
+
+function parseFaq(value) {
+  return String(value || "")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const [question, ...answerParts] = line.split("|");
+      return {
+        question: question?.trim() || "",
+        answer: answerParts.join("|").trim()
+      };
+    })
+    .filter((item) => item.question && item.answer);
+}
+
+function markdownToHtml(value) {
+  const lines = String(value || "").split("\n");
+  let inList = false;
+  const html = [];
+  lines.forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (!line) {
+      if (inList) {
+        html.push("</ul>");
+        inList = false;
+      }
+      return;
+    }
+    if (line.startsWith("- ")) {
+      if (!inList) {
+        html.push("<ul>");
+        inList = true;
+      }
+      html.push(`<li>${escapeHtml(line.slice(2))}</li>`);
+      return;
+    }
+    if (inList) {
+      html.push("</ul>");
+      inList = false;
+    }
+    if (line.startsWith("### ")) {
+      html.push(`<h3>${escapeHtml(line.slice(4))}</h3>`);
+    } else if (line.startsWith("## ")) {
+      html.push(`<h2>${escapeHtml(line.slice(3))}</h2>`);
+    } else {
+      html.push(`<p>${escapeHtml(line)}</p>`);
+    }
+  });
+  if (inList) html.push("</ul>");
+  return html.join("\n");
+}
+
+function blogCoverSrc(draft) {
+  return draft.coverDataUrl || draft.cover || "../public/assets/products/tr10pro-marking-robot.png";
+}
+
+function renderBlogEditor() {
+  if (!els.blogEditor) return;
+  const draft = currentBlogDraft();
+  if (!draft) return;
+  state.selectedBlogDraftId = draft.id;
+  els.blogEditor.elements.title.value = draft.title || "";
+  els.blogEditor.elements.slug.value = draft.slug || makeSlug(draft.title);
+  els.blogEditor.elements.category.value = draft.category || "";
+  els.blogEditor.elements.date.value = draft.date || todayDate();
+  els.blogEditor.elements.seoTitle.value = draft.seoTitle || "";
+  els.blogEditor.elements.metaDescription.value = draft.metaDescription || "";
+  els.blogEditor.elements.cover.value = draft.cover || "";
+  els.blogEditor.elements.excerpt.value = draft.excerpt || "";
+  els.blogEditor.elements.content.value = draft.content || "";
+  els.blogEditor.elements.faq.value = draft.faq || "";
+  els.blogEditor.elements.ctaText.value = draft.ctaText || "Send Your Requirements";
+  els.blogEditor.elements.ctaHref.value = draft.ctaHref || "../contact.html";
+  renderBlogPreview();
+}
+
+function updateDraftFromEditor(draft) {
+  const fields = new FormData(els.blogEditor);
+  draft.title = fields.get("title").trim();
+  draft.slug = makeSlug(fields.get("slug") || draft.title);
+  draft.category = fields.get("category").trim();
+  draft.date = fields.get("date") || todayDate();
+  draft.seoTitle = fields.get("seoTitle").trim();
+  draft.metaDescription = fields.get("metaDescription").trim();
+  draft.cover = fields.get("cover").trim();
+  draft.excerpt = fields.get("excerpt").trim();
+  draft.content = fields.get("content").trim();
+  draft.faq = fields.get("faq").trim();
+  draft.ctaText = fields.get("ctaText").trim();
+  draft.ctaHref = fields.get("ctaHref").trim();
+}
+
+function saveCurrentBlogDraft(event) {
+  event?.preventDefault();
+  const draft = currentBlogDraft();
+  if (!draft) return;
+  updateDraftFromEditor(draft);
+  saveData();
+  renderBlogPreview();
+}
+
+function addBlogDraft() {
+  const draft = {
+    ...DEFAULT_BLOG_DRAFT,
+    id: contentId("draft"),
+    title: "New Blog Article",
+    slug: `new-blog-${Date.now()}`,
+    date: todayDate(),
+    coverDataUrl: ""
+  };
+  state.data.blogDrafts.unshift(draft);
+  state.selectedBlogDraftId = draft.id;
+  saveData();
+  renderBlogEditor();
+}
+
+function blogCardHtml(draft) {
+  const slug = makeSlug(draft.slug || draft.title);
+  const cover = blogCoverSrc(draft);
+  return `<article class="blog-card">
+  <a href="./${escapeHtml(slug)}.html">
+    <img src="${escapeHtml(cover)}" alt="${escapeHtml(draft.title)}">
+    <span>${escapeHtml(draft.category || "Blog")}</span>
+    <h3>${escapeHtml(draft.title)}</h3>
+    <p>${escapeHtml(draft.excerpt || draft.metaDescription || "")}</p>
+  </a>
+</article>`;
+}
+
+function blogHtml(draft) {
+  const slug = makeSlug(draft.slug || draft.title);
+  const faqs = parseFaq(draft.faq);
+  const faqHtml = faqs.length ? `
+      <section class="article-faq">
+        <h2>FAQ</h2>
+        ${faqs.map((item) => `<details><summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p></details>`).join("\n        ")}
+      </section>` : "";
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>${escapeHtml(draft.seoTitle || draft.title)}</title>
+  <meta name="description" content="${escapeHtml(draft.metaDescription || draft.excerpt || "")}">
+  <style>
+    :root { --blue: #1b2c96; --ink: #061124; --muted: #617089; --line: #d8e5f6; --soft: #f4f8ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; color: var(--ink); background: linear-gradient(180deg, #fff, #f4f8ff); font-family: Inter, Arial, sans-serif; }
+    a { color: inherit; }
+    .blog-article-page { padding: 56px 20px; }
+    .article-shell { max-width: 980px; margin: 0 auto; }
+    .article-back { display: inline-flex; margin-bottom: 28px; color: var(--blue); font-weight: 900; text-decoration: none; }
+    .article-meta { color: var(--blue); font-weight: 900; letter-spacing: .02em; }
+    h1 { max-width: 860px; margin: 12px 0 16px; font-size: clamp(38px, 6vw, 72px); line-height: 1; letter-spacing: 0; }
+    .article-excerpt { max-width: 760px; color: var(--muted); font-size: 20px; line-height: 1.7; }
+    .article-cover { width: 100%; max-height: 560px; margin: 32px 0; border-radius: 8px; object-fit: cover; border: 1px solid var(--line); box-shadow: 0 22px 70px rgba(20,40,137,.12); }
+    .article-content { display: grid; gap: 8px; }
+    .article-content h2, .article-faq h2, .article-cta h2 { margin: 34px 0 8px; font-size: 34px; line-height: 1.15; }
+    .article-content h3 { margin: 24px 0 6px; font-size: 24px; }
+    .article-content p, .article-content li, .article-faq p, .article-cta p { color: var(--muted); font-size: 18px; line-height: 1.85; }
+    .article-faq { margin-top: 36px; }
+    details { padding: 18px 0; border-top: 1px solid var(--line); }
+    summary { cursor: pointer; font-weight: 900; }
+    .article-cta { margin-top: 44px; padding: 30px; border-radius: 8px; color: #fff; background: var(--blue); }
+    .article-cta h2, .article-cta p { color: #fff; margin-top: 0; }
+    .article-cta a { display: inline-flex; min-height: 46px; align-items: center; padding: 0 20px; border-radius: 8px; color: var(--blue); background: #fff; font-weight: 900; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="blog-article-page">
+    <article class="article-shell">
+      <a href="./index.html" class="article-back">Back to Blog</a>
+      <p class="article-meta">${escapeHtml(draft.category || "Blog")} · ${escapeHtml(draft.date || todayDate())}</p>
+      <h1>${escapeHtml(draft.title)}</h1>
+      <p class="article-excerpt">${escapeHtml(draft.excerpt || "")}</p>
+      <img class="article-cover" src="${escapeHtml(blogCoverSrc(draft))}" alt="${escapeHtml(draft.title)}">
+      <div class="article-content">
+        ${markdownToHtml(draft.content)}
+      </div>${faqHtml}
+      <section class="article-cta">
+        <h2>Need a product recommendation?</h2>
+        <p>Send your application, quantity and target market. TOKNAV will help you prepare a practical product selection and quote.</p>
+        <a href="${escapeHtml(draft.ctaHref || "../contact.html")}">${escapeHtml(draft.ctaText || "Send Your Requirements")}</a>
+      </section>
+    </article>
+  </main>
+  <script src="../public/assets/i18n-static.js?v=20260618c"></script>
+</body>
+</html>
+<!-- Suggested file path: /blog/${escapeHtml(slug)}.html -->`;
+}
+
+function renderBlogPreview() {
+  if (!els.blogPreview) return;
+  const draft = currentBlogDraft();
+  if (!draft) return;
+  updateDraftFromEditor(draft);
+  const faqs = parseFaq(draft.faq);
+  els.blogPreview.innerHTML = `
+    <article>
+      <img src="${escapeHtml(blogCoverSrc(draft))}" alt="${escapeHtml(draft.title)}">
+      <span class="tag">${escapeHtml(draft.category || "Blog")}</span>
+      <h1>${escapeHtml(draft.title || "Untitled Blog")}</h1>
+      <p class="preview-meta">${escapeHtml(draft.date || todayDate())}</p>
+      <p>${escapeHtml(draft.excerpt || draft.metaDescription || "")}</p>
+      <div class="preview-body">${markdownToHtml(draft.content)}</div>
+      ${faqs.length ? `<h2>FAQ</h2>${faqs.map((item) => `<details><summary>${escapeHtml(item.question)}</summary><p>${escapeHtml(item.answer)}</p></details>`).join("")}` : ""}
+    </article>
+  `;
+}
+
+function downloadBlogHtml() {
+  saveCurrentBlogDraft();
+  const draft = currentBlogDraft();
+  const content = blogHtml(draft);
+  els.blogOutput.value = content;
+  downloadFile(`${makeSlug(draft.slug || draft.title)}.html`, content, "text/html;charset=utf-8");
+}
+
+function copyBlogCard() {
+  saveCurrentBlogDraft();
+  const content = blogCardHtml(currentBlogDraft());
+  els.blogOutput.value = content;
+  navigator.clipboard?.writeText(content);
+}
+
+function downloadBlogPackage() {
+  saveCurrentBlogDraft();
+  const draft = currentBlogDraft();
+  const payload = {
+    type: "toknav-blog-update",
+    updatedAt: new Date().toISOString(),
+    instructions: [
+      "把 html 保存到 /blog/slug.html。",
+      "把 blogCardHtml 添加到博客汇总页。",
+      "发布后检查 title、meta description、封面图片、CTA 和移动端排版。"
+    ],
+    draft,
+    html: blogHtml(draft),
+    blogCardHtml: blogCardHtml(draft)
+  };
+  const content = JSON.stringify(payload, null, 2);
+  els.blogOutput.value = content;
+  downloadFile(`toknav-blog-package-${makeSlug(draft.slug || draft.title)}.json`, content, "application/json");
+}
+
 function renderTechnicalList() {
   els.technicalList.innerHTML = state.data.technicalChecklist
     .map((item) => `<li>${escapeHtml(item)}</li>`)
@@ -321,6 +1060,9 @@ async function resetData() {
   localStorage.removeItem(STORAGE_KEY);
   await loadInitialData();
   state.selectedId = state.data.pages[0]?.id;
+  state.selectedTextId = state.data.textSlots[0]?.id;
+  state.selectedAssetId = state.data.assets[0]?.id;
+  state.selectedBlogDraftId = state.data.blogDrafts[0]?.id;
   renderAll();
 }
 
@@ -346,13 +1088,55 @@ function bindEvents() {
   els.typeFilter.addEventListener("change", renderPageList);
   els.statusFilter.addEventListener("change", renderPageList);
   els.pageEditor.addEventListener("submit", saveCurrentPage);
+  els.textEditor.addEventListener("submit", saveCurrentText);
+  els.assetEditor.addEventListener("submit", saveCurrentAsset);
+  els.blogEditor.addEventListener("submit", saveCurrentBlogDraft);
   els.addPageButton.addEventListener("click", addPage);
+  els.addTextButton.addEventListener("click", addTextSlot);
+  els.addAssetButton.addEventListener("click", addAssetSlot);
   els.addBlogButton.addEventListener("click", addBlogIdea);
+  els.newBlogDraftButton.addEventListener("click", addBlogDraft);
   els.resetButton.addEventListener("click", resetData);
   els.copySnippetButton.addEventListener("click", copySnippet);
+  els.copyTextButton.addEventListener("click", copyTextSnippet);
+  els.copyAssetButton.addEventListener("click", copyAssetSnippet);
+  els.copyBlogCardButton.addEventListener("click", copyBlogCard);
   els.downloadJsonButton.addEventListener("click", exportJson);
   els.downloadCsvButton.addEventListener("click", exportCsv);
+  els.downloadTextPackageButton.addEventListener("click", downloadTextPackage);
+  els.downloadAssetPackageButton.addEventListener("click", downloadAssetPackage);
+  els.downloadBlogHtmlButton.addEventListener("click", downloadBlogHtml);
+  els.downloadBlogPackageButton.addEventListener("click", downloadBlogPackage);
   els.copyAllButton.addEventListener("click", copyAll);
+  els.assetFileInput.addEventListener("change", () => {
+    readImageInput(els.assetFileInput, (file, result) => {
+      const item = currentAsset();
+      if (!item) return;
+      item.replacementName = file.name;
+      item.replacementDataUrl = result;
+      saveData();
+      renderAssetEditor();
+      renderAssetSlots();
+    });
+  });
+  els.blogCoverInput.addEventListener("change", () => {
+    readImageInput(els.blogCoverInput, (file, result) => {
+      const draft = currentBlogDraft();
+      if (!draft) return;
+      draft.cover = file.name;
+      draft.coverDataUrl = result;
+      saveData();
+      renderBlogEditor();
+    });
+  });
+  els.blogEditor.elements.title.addEventListener("input", () => {
+    if (!els.blogEditor.elements.slug.value.trim()) {
+      els.blogEditor.elements.slug.value = makeSlug(els.blogEditor.elements.title.value);
+    }
+  });
+  ["title", "slug", "category", "date", "seoTitle", "metaDescription", "cover", "excerpt", "content", "faq", "ctaText", "ctaHref"].forEach((name) => {
+    els.blogEditor.elements[name].addEventListener("input", renderBlogPreview);
+  });
   ["seoTitle", "metaDescription"].forEach((name) => {
     els.pageEditor.elements[name].addEventListener("input", () => {
       els.titleCount.textContent = `${els.pageEditor.elements.seoTitle.value.length} chars`;
@@ -376,20 +1160,44 @@ function cacheElements() {
     statusFilter: qs("#statusFilter"),
     pageList: qs("#pageList"),
     pageEditor: qs("#pageEditor"),
+    textEditor: qs("#textEditor"),
+    assetEditor: qs("#assetEditor"),
+    blogEditor: qs("#blogEditor"),
     editorTitle: qs("#editorTitle"),
+    textEditorTitle: qs("#textEditorTitle"),
+    assetEditorTitle: qs("#assetEditorTitle"),
     scorePill: qs("#scorePill"),
+    textStatusPill: qs("#textStatusPill"),
+    assetStatusPill: qs("#assetStatusPill"),
     titleCount: qs("#titleCount"),
     metaCount: qs("#metaCount"),
     seoChecklist: qs("#seoChecklist"),
     openPageLink: qs("#openPageLink"),
     addPageButton: qs("#addPageButton"),
+    addTextButton: qs("#addTextButton"),
+    addAssetButton: qs("#addAssetButton"),
     addBlogButton: qs("#addBlogButton"),
+    newBlogDraftButton: qs("#newBlogDraftButton"),
     resetButton: qs("#resetButton"),
     copySnippetButton: qs("#copySnippetButton"),
+    copyTextButton: qs("#copyTextButton"),
+    copyAssetButton: qs("#copyAssetButton"),
+    copyBlogCardButton: qs("#copyBlogCardButton"),
     downloadJsonButton: qs("#downloadJsonButton"),
     downloadCsvButton: qs("#downloadCsvButton"),
+    downloadTextPackageButton: qs("#downloadTextPackageButton"),
+    downloadAssetPackageButton: qs("#downloadAssetPackageButton"),
+    downloadBlogHtmlButton: qs("#downloadBlogHtmlButton"),
+    downloadBlogPackageButton: qs("#downloadBlogPackageButton"),
     copyAllButton: qs("#copyAllButton"),
     exportOutput: qs("#exportOutput"),
+    textSlotList: qs("#textSlotList"),
+    assetSlotList: qs("#assetSlotList"),
+    assetFileInput: qs("#assetFileInput"),
+    assetPreview: qs("#assetPreview"),
+    blogCoverInput: qs("#blogCoverInput"),
+    blogPreview: qs("#blogPreview"),
+    blogOutput: qs("#blogOutput"),
     blogGrid: qs("#blogGrid"),
     technicalList: qs("#technicalList")
   });
@@ -400,14 +1208,23 @@ function renderAll() {
   renderMetrics();
   renderPageList();
   renderEditor();
+  renderTextSlots();
+  renderTextEditor();
+  renderAssetSlots();
+  renderAssetEditor();
   renderBlogIdeas();
+  renderBlogEditor();
   renderTechnicalList();
 }
 
 async function init() {
   cacheElements();
   await loadInitialData();
+  ensureAdminContent();
   state.selectedId = state.data.pages[0]?.id;
+  state.selectedTextId = state.data.textSlots[0]?.id;
+  state.selectedAssetId = state.data.assets[0]?.id;
+  state.selectedBlogDraftId = state.data.blogDrafts[0]?.id;
   els.lockedLayer.classList.add("is-locked");
   if (localStorage.getItem("toknav-seo-admin-unlocked") === "1") {
     state.unlocked = true;
