@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight, CheckCircle2, Download, HelpCircle, Send } from "lucide-react";
 import { notFound } from "next/navigation";
 import SiteHeader from "../../../components/SiteHeader";
+import { resolveDownloadHref } from "../../../lib/assetUrls";
 import {
   getCategory,
   getProduct,
@@ -269,17 +270,20 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               </p>
             </div>
             <div className="download-grid">
-              {downloads.map((item) => (
-                <a
-                  className={`download-card ${item.kind}`}
-                  download={item.kind !== "quote" && item.href.endsWith(".pdf") ? true : undefined}
-                  href={item.href}
-                  key={item.label}
-                >
-                  {item.kind === "quote" ? <Send size={22} /> : <Download size={22} />}
-                  <strong>{item.label}</strong>
-                </a>
-              ))}
+              {downloads.map((item) => {
+                const href = resolveDownloadHref(item.href);
+                return (
+                  <a
+                    className={`download-card ${item.kind}`}
+                    download={item.kind !== "quote" && href === item.href && item.href.endsWith(".pdf") ? true : undefined}
+                    href={href}
+                    key={item.label}
+                  >
+                    {item.kind === "quote" ? <Send size={22} /> : <Download size={22} />}
+                    <strong>{item.label}</strong>
+                  </a>
+                );
+              })}
             </div>
             <div className="quote-cta-panel">
               <div>

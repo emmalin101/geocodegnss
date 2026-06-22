@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
+import { resolveDownloadHref } from "./lib/assetUrls";
 import { getBlockData, getCmsSettings, getPublishedCmsPageByPath } from "./lib/cms/public";
 import { productCategories } from "./lib/products";
 
@@ -155,7 +156,7 @@ export default function Home() {
           <a className="home-primary-button" href={String(cta.buttonLink)}>
             {String(cta.buttonText)} <ArrowRight size={18} />
           </a>
-          <a className="home-secondary-button" href={String(cta.secondaryButtonLink)}>
+          <a className="home-secondary-button" href={resolveDownloadHref(String(cta.secondaryButtonLink))}>
             {String(cta.secondaryButtonText)}
           </a>
         </div>
