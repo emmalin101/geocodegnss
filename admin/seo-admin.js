@@ -266,7 +266,7 @@ const DEFAULT_BLOG_DRAFT = {
   date: todayDate(),
   seoTitle: "TR10Pro New White Body: Updated Line Marking Robot Design",
   metaDescription: "Learn why the TR10Pro line marking robot changed from a green body to a white body and what it means for buyers, dealers and field users.",
-  cover: "../public/assets/products/tr10pro-marking-robot.png",
+  cover: "/public/assets/products/tr10pro-marking-robot.png",
   coverDataUrl: "",
   excerpt: "TOKNAV TR10Pro has moved from the earlier green body to a cleaner white body, keeping the product focused on field marking and easier visual presentation.",
   content: "## Why TOKNAV Updated the TR10Pro Body Color\nThe new white body gives TR10Pro a cleaner and more consistent product appearance for overseas distributors, sports field contractors and municipal marking teams.\n\n## What Remains Focused on Field Work\nThe update is mainly about visual presentation and brand consistency. Buyers should still evaluate positioning workflow, paint handling, field preparation and after-sales support before placing an order.\n\n## Who Should Pay Attention\nDealers, line marking service providers and project buyers can use the new visual version for product demonstrations, catalog updates and marketing materials.",
@@ -634,11 +634,12 @@ function currentAsset() {
 }
 
 function assetPreviewSrc(item) {
-  const value = item?.replacementDataUrl || item?.currentPath || "../public/assets/toknav-logo-blue.png";
+  const value = item?.replacementDataUrl || item?.currentPath || "/public/assets/toknav-logo-blue.png";
   if (value.startsWith("data:") || value.startsWith("http")) return value;
+  if (value.startsWith("../public/")) return value.replace("..", "");
   if (value.startsWith("../")) return value;
-  if (value.startsWith("/")) return `..${value}`;
-  if (value.startsWith("public/")) return `../${value}`;
+  if (value.startsWith("/")) return value;
+  if (value.startsWith("public/")) return `/${value}`;
   return value;
 }
 
@@ -824,7 +825,9 @@ function markdownToHtml(value) {
 }
 
 function blogCoverSrc(draft) {
-  return draft.coverDataUrl || draft.cover || "../public/assets/products/tr10pro-marking-robot.png";
+  const value = draft.coverDataUrl || draft.cover || "/public/assets/products/tr10pro-marking-robot.png";
+  if (typeof value === "string" && value.startsWith("../public/")) return value.replace("..", "");
+  return value;
 }
 
 function renderBlogEditor() {
@@ -957,7 +960,7 @@ function blogHtml(draft) {
       </section>
     </article>
   </main>
-  <script src="../public/assets/i18n-static.js?v=20260618c"></script>
+  <script src="/public/assets/i18n-static.js?v=20260618c"></script>
 </body>
 </html>
 <!-- Suggested file path: /blog/${escapeHtml(slug)}.html -->`;
