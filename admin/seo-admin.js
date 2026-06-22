@@ -298,7 +298,7 @@ async function loadInitialData() {
     ensureAdminContent();
     return;
   }
-  const response = await fetch("./seo-data.json", { cache: "no-store" });
+  const response = await fetch("/admin/seo-data.json", { cache: "no-store" });
   state.data = await response.json();
   ensureAdminContent();
 }
