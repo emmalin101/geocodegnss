@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import Link from "next/link";
 import type React from "react";
+import { getPublishedCmsBlogPosts } from "./cms/public";
 
 const blogDirectory = path.join(process.cwd(), "content", "blogs");
 
@@ -62,7 +63,22 @@ function cleanSlug(value: string, fallback: string) {
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-  return articleFiles.map((file, index) => {
+  const cmsPosts = getPublishedCmsBlogPosts().map((post, index) => ({
+    file: "cms",
+    slug: post.slug,
+    title: post.title,
+    seoTitle: post.seoTitle || post.title,
+    metaDescription: post.seoDescription || post.summary,
+    primaryKeyword: post.tags[0] || post.category,
+    searchIntent: "B2B buyer research",
+    excerpt: post.summary || extractExcerpt(post.body),
+    content: post.body,
+    wordCount: post.body.split(/\s+/).filter(Boolean).length,
+    priority: index + 1
+  }));
+
+  const cmsSlugs = new Set(cmsPosts.map((post) => post.slug));
+  const filePosts = articleFiles.map((file, index) => {
     const content = fs.readFileSync(path.join(blogDirectory, file), "utf8");
     const slug = cleanSlug(extractField(content, "URL Slug"), file);
     const title = extractH1(content);
@@ -84,9 +100,11 @@ export function getAllBlogPosts(): BlogPost[] {
       excerpt: extractExcerpt(content),
       content: articleBody,
       wordCount,
-      priority: index + 1
+      priority: cmsPosts.length + index + 1
     };
-  });
+  }).filter((post) => !cmsSlugs.has(post.slug));
+
+  return [...cmsPosts, ...filePosts];
 }
 
 export function getBlogPost(slug: string) {

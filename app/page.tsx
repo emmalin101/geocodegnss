@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronRight } from "lucide-react";
 import SiteHeader from "./components/SiteHeader";
+import { getBlockData, getCmsSettings, getPublishedCmsPageByPath } from "./lib/cms/public";
 import { productCategories } from "./lib/products";
 
 const heroProducts = [
@@ -24,6 +25,25 @@ const applications = [
   ["GIS Data Collection", "/products/rugged-gis", "/assets/products/pcr500.webp"]
 ];
 
+const fallbackHero = {
+  title: "High-Precision GNSS Receivers & RTK Solutions Manufacturer",
+  subtitle: "Reliable centimeter-level positioning solutions for surveying, construction, agriculture and industrial applications worldwide.",
+  buttonText: "Get a Quote",
+  buttonLink: "/inquiry",
+  secondaryButtonText: "Explore Products",
+  secondaryButtonLink: "/products",
+  backgroundImage: "/assets/gnss-receiver-homepage-banner-original.png"
+};
+
+const fallbackCta = {
+  title: "Need a GNSS Solution?",
+  description: "Tell us your product, quantity, country and application. TOKNAV will recommend a practical quote package.",
+  buttonText: "Get a Quote",
+  buttonLink: "/inquiry",
+  secondaryButtonText: "Download Catalog",
+  secondaryButtonLink: "/assets/downloads/catalogs/gnss-receiver.pdf"
+};
+
 function HomeSectionTitle({ title, text }: { title: string; text?: string }) {
   return (
     <div className="home-section-title compact">
@@ -34,20 +54,24 @@ function HomeSectionTitle({ title, text }: { title: string; text?: string }) {
 }
 
 export default function Home() {
+  const cmsPage = getPublishedCmsPageByPath("/");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "home-hero");
+  const cta = getBlockData(cmsPage, "cta", fallbackCta, "home-cta");
+
   return (
     <main className="home-page">
       <SiteHeader />
 
       <section className="home-hero simple">
         <div className="home-hero-copy">
-          <h1>High-Precision GNSS Receivers & RTK Solutions Manufacturer</h1>
-          <p>Reliable centimeter-level positioning solutions for surveying, construction, agriculture and industrial applications worldwide.</p>
+          <h1>{String(hero.title)}</h1>
+          <p>{String(hero.subtitle)}</p>
           <div className="home-hero-actions">
-            <a className="home-primary-button" href="/inquiry">
-              Get a Quote <ArrowRight size={18} />
+            <a className="home-primary-button" href={String(hero.buttonLink)}>
+              {String(hero.buttonText)} <ArrowRight size={18} />
             </a>
-            <a className="home-secondary-button" href="/products">
-              Explore Products <ChevronRight size={18} />
+            <a className="home-secondary-button" href={String(hero.secondaryButtonLink)}>
+              {String(hero.secondaryButtonText)} <ChevronRight size={18} />
             </a>
           </div>
           <div className="home-hero-proof mini">
@@ -58,7 +82,7 @@ export default function Home() {
           </div>
         </div>
         <div className="home-hero-stage">
-          <img className="home-hero-banner-clean" src="/assets/gnss-receiver-homepage-banner-original.png" alt="TOKNAV GNSS receiver product banner" />
+          <img className="home-hero-banner-clean" src={String(hero.backgroundImage)} alt="TOKNAV GNSS receiver product banner" />
           <div className="home-hero-product-row simple">
             {heroProducts.map((item) => (
               <a href={item.href} key={item.name}>
@@ -124,19 +148,29 @@ export default function Home() {
 
       <section className="home-section home-cta compact" id="contact">
         <div>
-          <h2>Need a GNSS Solution?</h2>
-          <p>Tell us your product, quantity, country and application. TOKNAV will recommend a practical quote package.</p>
+          <h2>{String(cta.title)}</h2>
+          <p>{String(cta.description)}</p>
         </div>
         <div className="home-cta-actions">
-          <a className="home-primary-button" href="/inquiry">
-            Get a Quote <ArrowRight size={18} />
+          <a className="home-primary-button" href={String(cta.buttonLink)}>
+            {String(cta.buttonText)} <ArrowRight size={18} />
           </a>
-          <a className="home-secondary-button" href="/assets/downloads/catalogs/gnss-receiver.pdf">
-            Download Catalog
+          <a className="home-secondary-button" href={String(cta.secondaryButtonLink)}>
+            {String(cta.secondaryButtonText)}
           </a>
         </div>
       </section>
 
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/");
+  const settings = getCmsSettings();
+  return {
+    title: cmsPage?.seoTitle || settings.defaultSeoTitle,
+    description: cmsPage?.seoDescription || settings.defaultSeoDescription,
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

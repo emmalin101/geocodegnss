@@ -1,6 +1,6 @@
 import { ArrowRight, BookOpen, Boxes, CheckCircle2 } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
-import { productCategories, products } from "../lib/products";
+import { getAllProducts, productCategories } from "../lib/products";
 
 export const metadata = {
   title: "TOKNAV Products | GNSS Receivers, Antennas, Controllers and RTK Solutions",
@@ -9,6 +9,7 @@ export const metadata = {
 };
 
 export default function ProductsPage() {
+  const allProducts = getAllProducts();
   return (
     <main>
       <SiteHeader />
@@ -33,7 +34,7 @@ export default function ProductsPage() {
         </div>
         <div className="product-hero-panel">
           <Boxes size={34} />
-          <strong>{products.length}+ listed products and solutions</strong>
+          <strong>{allProducts.length}+ listed products and solutions</strong>
           <span>Structured from TOKNAV product brochures and product asset folders.</span>
         </div>
       </section>
@@ -41,7 +42,7 @@ export default function ProductsPage() {
       <section className="product-section">
         <div className="product-category-grid">
           {productCategories.map((category) => {
-            const count = products.filter((item) => item.categorySlug === category.slug).length;
+            const count = allProducts.filter((item) => item.categorySlug === category.slug).length;
             return (
               <a className="product-category-card" href={`/products/${category.slug}`} key={category.slug}>
                 <div className="product-card-image">

@@ -3,6 +3,11 @@ node_modules
 .next
 .vercel
 *.log
+tsconfig.tsbuildinfo
+.env
+.env.local
+content/cms-auth.json
+data/
 
 # Local Codex/plugin workspace files, not needed for the public site.
 .agents/

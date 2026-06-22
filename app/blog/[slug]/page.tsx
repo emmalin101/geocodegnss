@@ -5,15 +5,16 @@ import SiteHeader from "../../components/SiteHeader";
 import { getAllBlogPosts, getBlogPost, renderMarkdown } from "../../lib/blogs";
 
 type BlogDetailPageProps = {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 };
 
 export function generateStaticParams() {
   return getAllBlogPosts().map((post) => ({ slug: post.slug }));
 }
 
-export function generateMetadata({ params }: BlogDetailPageProps) {
-  const post = getBlogPost(params.slug);
+export async function generateMetadata({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
   if (!post) return {};
 
   return {
@@ -22,8 +23,9 @@ export function generateMetadata({ params }: BlogDetailPageProps) {
   };
 }
 
-export default function BlogDetailPage({ params }: BlogDetailPageProps) {
-  const post = getBlogPost(params.slug);
+export default async function BlogDetailPage({ params }: BlogDetailPageProps) {
+  const { slug } = await params;
+  const post = getBlogPost(slug);
   if (!post) notFound();
 
   const relatedPosts = getAllBlogPosts().filter((item) => item.slug !== post.slug);

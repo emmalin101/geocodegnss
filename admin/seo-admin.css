@@ -570,6 +570,52 @@ a { color: inherit; }
   margin-bottom: 0;
 }
 
+.content-toolbar {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) 1fr;
+  gap: 14px;
+  align-items: end;
+  margin: -6px 0 20px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+.content-toolbar label {
+  display: grid;
+  gap: 8px;
+  color: #32445f;
+  font-size: 14px;
+  font-weight: 900;
+}
+
+.content-toolbar select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px 14px;
+  color: var(--ink);
+  background: #fbfdff;
+}
+
+.content-toolbar p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+  font-weight: 800;
+}
+
+.empty-state {
+  padding: 18px;
+  border: 1px dashed #b8c8df;
+  border-radius: 8px;
+  color: var(--muted);
+  background: #fbfdff;
+  line-height: 1.6;
+  font-weight: 800;
+}
+
 .content-tip {
   display: flex;
   align-items: center;
@@ -726,6 +772,7 @@ a { color: inherit; }
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
   .admin-hero,
   .page-workspace,
+  .content-toolbar,
   .content-workspace,
   .asset-workspace,
   .blog-builder-layout { grid-template-columns: 1fr; }
@@ -744,6 +791,7 @@ a { color: inherit; }
   .technical-list,
   .handoff-grid,
   .blog-grid,
+  .content-toolbar,
   .content-workspace,
   .asset-workspace,
   .blog-builder-layout { grid-template-columns: 1fr; }

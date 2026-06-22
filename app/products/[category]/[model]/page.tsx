@@ -18,7 +18,7 @@ import {
 } from "../../../lib/products";
 
 type ProductDetailPageProps = {
-  params: { category: string; model: string };
+  params: Promise<{ category: string; model: string }>;
 };
 
 export function generateStaticParams() {
@@ -30,8 +30,9 @@ export function generateStaticParams() {
   );
 }
 
-export function generateMetadata({ params }: ProductDetailPageProps) {
-  const product = getProduct(params.category, params.model);
+export async function generateMetadata({ params }: ProductDetailPageProps) {
+  const { category, model } = await params;
+  const product = getProduct(category, model);
   if (!product) return {};
 
   return {
@@ -40,9 +41,10 @@ export function generateMetadata({ params }: ProductDetailPageProps) {
   };
 }
 
-export default function ProductDetailPage({ params }: ProductDetailPageProps) {
-  const category = getCategory(params.category);
-  const product = getProduct(params.category, params.model);
+export default async function ProductDetailPage({ params }: ProductDetailPageProps) {
+  const { category: categorySlug, model } = await params;
+  const category = getCategory(categorySlug);
+  const product = getProduct(categorySlug, model);
   if (!category || !product) notFound();
 
   const related = getProductsByCategory(category.slug)

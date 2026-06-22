@@ -1,3 +1,5 @@
+import { getPublishedCmsProducts } from "./cms/public";
+
 export type ProductSpec = {
   label: string;
   value: string;
@@ -1531,8 +1533,30 @@ export function getCategory(slug: string) {
   return productCategories.find((category) => category.slug === slug);
 }
 
+function mapCmsProduct(product: ReturnType<typeof getPublishedCmsProducts>[number]): Product {
+  return {
+    slug: product.slug,
+    name: product.name,
+    categorySlug: product.category,
+    type: product.tags[0] || "CMS product",
+    image: product.image || "/assets/products/gnss-receiver-series-combo.webp",
+    excerpt: product.summary || product.description.slice(0, 180),
+    applications: product.tags.length ? product.tags : ["Surveying", "B2B projects"],
+    highlights: product.specs.length ? product.specs.slice(0, 6).map((spec) => `${spec.label}: ${spec.value}`) : product.tags,
+    specs: product.specs,
+    source: "CMS",
+    gallery: product.gallery.length ? product.gallery : product.image ? [product.image] : undefined
+  };
+}
+
+export function getAllProducts() {
+  const cmsProducts = getPublishedCmsProducts().map(mapCmsProduct);
+  const cmsKeys = new Set(cmsProducts.map((product) => `${product.categorySlug}/${product.slug}`));
+  return [...cmsProducts, ...products.filter((product) => !cmsKeys.has(`${product.categorySlug}/${product.slug}`))];
+}
+
 export function getProductsByCategory(categorySlug: string) {
-  return products.filter((product) => product.categorySlug === categorySlug);
+  return getAllProducts().filter((product) => product.categorySlug === categorySlug);
 }
 
 export function getCategoryApplications(categorySlug: string) {
@@ -1540,7 +1564,7 @@ export function getCategoryApplications(categorySlug: string) {
 }
 
 export function getProduct(categorySlug: string, productSlug: string) {
-  return products.find((product) => product.categorySlug === categorySlug && product.slug === productSlug);
+  return getAllProducts().find((product) => product.categorySlug === categorySlug && product.slug === productSlug);
 }
 
 export function getProductSpecGroups(product: Product): ProductSpecGroup[] {
@@ -1565,32 +1589,30 @@ export function getProductDownloads(product: Product): ProductDownload[] {
   const inquiryHref = getProductInquiryUrl(product);
   const catalog = catalogDownloads[product.categorySlug];
   const datasheet = modelDatasheets[product.slug];
-  return [
-    ...(catalog ? [catalog] : []),
-    ...(datasheet
-      ? [
-          {
-            label: datasheet.label,
-            description: datasheet.description,
-            href: datasheet.href,
-            kind: "datasheet"
-          }
-        ]
-      : [
-          {
-            label: "Ask for Latest Model Datasheet",
-            description: `Request the latest ${product.name} datasheet, packing list, dealer price and firmware-related notes before ordering.`,
-            href: inquiryHref,
-            kind: "datasheet"
-          }
-        ]),
-    {
-      label: "Send Project Requirements",
-      description: "Share quantity, country, application, correction method and accessory needs for a faster quotation.",
-      href: inquiryHref,
-      kind: "quote"
-    }
-  ];
+  const downloads: ProductDownload[] = [];
+  if (catalog) downloads.push(catalog);
+  downloads.push(
+    datasheet
+      ? {
+          label: datasheet.label,
+          description: datasheet.description,
+          href: datasheet.href,
+          kind: "datasheet"
+        }
+      : {
+          label: "Ask for Latest Model Datasheet",
+          description: `Request the latest ${product.name} datasheet, packing list, dealer price and firmware-related notes before ordering.`,
+          href: inquiryHref,
+          kind: "datasheet"
+        }
+  );
+  downloads.push({
+    label: "Send Project Requirements",
+    description: "Share quantity, country, application, correction method and accessory needs for a faster quotation.",
+    href: inquiryHref,
+    kind: "quote"
+  });
+  return downloads;
 }
 
 export function getProductDatasheet(product: Product) {

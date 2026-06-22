@@ -74,6 +74,25 @@ function makeSlug(value) {
     .slice(0, 80) || `blog-${Date.now()}`;
 }
 
+const PAGE_OPTIONS = [
+  ["index.html", "首页"],
+  ["products.html", "产品总览页"],
+  ["products/gnss-receivers/index.html", "GNSS Receivers 类目页"],
+  ["products/gnss-receivers/{model}.html", "GNSS Receiver 型号详情页"],
+  ["products/gnss-antennas/index.html", "GNSS Antennas 类目页"],
+  ["products/rugged-gis/index.html", "Rugged & GIS 类目页"],
+  ["products/precision-agriculture-machine-control/index.html", "Precision Agriculture & Machine Control 类目页"],
+  ["products/solutions/index.html", "Solutions 类目页"],
+  ["about.html", "About 页面"],
+  ["contact.html", "Contact 页面"],
+  ["inquiry.html", "询盘页面"],
+  ["blog/index.html", "Blog 汇总页"],
+  ["blog/{slug}.html", "Blog 详情页"],
+  ["news.html", "新闻资讯页"],
+  ["Global Header", "全站页头"],
+  ["Global Footer", "全站页脚"]
+];
+
 const DEFAULT_TEXT_SLOTS = [
   {
     id: "copy-home-hero-title",
@@ -164,6 +183,146 @@ const DEFAULT_TEXT_SLOTS = [
     currentText: "High-precision positioning solutions for a smarter world.",
     newText: "",
     notes: "保持简短，适合全站页脚。"
+  },
+  {
+    id: "copy-product-overview-title",
+    label: "产品总览页标题",
+    page: "products.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "TOKNAV Product Categories",
+    newText: "",
+    notes: "用于产品总览页首屏，建议清楚说明 GNSS、GIS、农业、机器控制和方案产品线。"
+  },
+  {
+    id: "copy-gnss-receiver-category-title",
+    label: "GNSS Receivers 类目页标题",
+    page: "products/gnss-receivers/index.html",
+    section: "Category Hero",
+    locale: "English",
+    currentText: "GNSS Receivers for Surveying, Mapping and Construction",
+    newText: "",
+    notes: "该页面适合承接 GNSS receiver、RTK receiver、survey receiver 相关关键词。"
+  },
+  {
+    id: "copy-product-detail-hero-title",
+    label: "产品详情页标题模板",
+    page: "products/gnss-receivers/{model}.html",
+    section: "Product Detail Hero",
+    locale: "English",
+    currentText: "{Model Name} GNSS Receiver",
+    newText: "",
+    notes: "每个型号详情页都可以复制这个文字位，再改成具体型号。"
+  },
+  {
+    id: "copy-product-detail-cta",
+    label: "产品详情页询盘 CTA",
+    page: "products/gnss-receivers/{model}.html",
+    section: "CTA",
+    locale: "English",
+    currentText: "Send Requirements",
+    newText: "",
+    notes: "建议保持短按钮文案，适合广告落地页转化。"
+  },
+  {
+    id: "copy-solutions-title",
+    label: "Solutions 类目页标题",
+    page: "products/solutions/index.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "GNSS Application Solutions",
+    newText: "",
+    notes: "用于形变监测、划线机器人、无人船、SLAM 等方案入口。"
+  },
+  {
+    id: "copy-antennas-category-title",
+    label: "GNSS Antennas 类目页标题",
+    page: "products/gnss-antennas/index.html",
+    section: "Category Hero",
+    locale: "English",
+    currentText: "GNSS Antennas for High-Precision Positioning",
+    newText: "",
+    notes: "用于天线类目页，适合 antenna、survey antenna、RTK antenna 相关关键词。"
+  },
+  {
+    id: "copy-rugged-gis-category-title",
+    label: "Rugged & GIS 类目页标题",
+    page: "products/rugged-gis/index.html",
+    section: "Category Hero",
+    locale: "English",
+    currentText: "Rugged GIS Data Collectors and Field Terminals",
+    newText: "",
+    notes: "用于手簿、P8、GIS 采集设备相关页面。"
+  },
+  {
+    id: "copy-ag-machine-category-title",
+    label: "农业和机械控制类目页标题",
+    page: "products/precision-agriculture-machine-control/index.html",
+    section: "Category Hero",
+    locale: "English",
+    currentText: "Precision Agriculture and Machine Control Solutions",
+    newText: "",
+    notes: "用于农机导航、自动驾驶、机器控制产品页。"
+  },
+  {
+    id: "copy-about-title",
+    label: "About 页面标题",
+    page: "about.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "About TOKNAV",
+    newText: "",
+    notes: "用于公司介绍页，可突出研发、制造、海外项目支持。"
+  },
+  {
+    id: "copy-about-timeline-title",
+    label: "About 产品时间轴标题",
+    page: "about.html",
+    section: "Product Timeline",
+    locale: "English",
+    currentText: "Product Development Timeline",
+    newText: "",
+    notes: "用于展示产品发布历史。"
+  },
+  {
+    id: "copy-inquiry-title",
+    label: "询盘页标题",
+    page: "inquiry.html",
+    section: "Form Hero",
+    locale: "English",
+    currentText: "Tell Us Your Project Requirements",
+    newText: "",
+    notes: "询盘页面标题要减少压力，突出快速响应。"
+  },
+  {
+    id: "copy-blog-index-title",
+    label: "Blog 汇总页标题",
+    page: "blog/index.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "TOKNAV Blog",
+    newText: "",
+    notes: "用于 SEO 内容入口，可强调 GNSS buying guide、applications、product updates。"
+  },
+  {
+    id: "copy-news-title",
+    label: "新闻资讯页标题",
+    page: "news.html",
+    section: "Hero",
+    locale: "English",
+    currentText: "Surveying Industry News",
+    newText: "",
+    notes: "用于测绘行业资讯和轻资讯入口。"
+  },
+  {
+    id: "copy-header-quote-button",
+    label: "页头询盘按钮",
+    page: "Global Header",
+    section: "Navigation CTA",
+    locale: "English",
+    currentText: "Get a Quote",
+    newText: "",
+    notes: "全站页头按钮，建议保持短而明确。"
   }
 ];
 
@@ -255,6 +414,182 @@ const DEFAULT_ASSET_SLOTS = [
     replacementName: "",
     replacementDataUrl: "",
     notes: "用于导航栏和浅色背景。"
+  },
+  {
+    id: "asset-product-overview-hero",
+    label: "产品总览页首屏图",
+    page: "products.html",
+    currentPath: "public/assets/products/gnss-receiver-series-combo.webp",
+    recommendedSize: "1600 x 760 px",
+    alt: "TOKNAV product categories for GNSS and positioning solutions",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于产品总览页，建议展示多类产品而不是单个套装。"
+  },
+  {
+    id: "asset-gnss-receiver-category-main",
+    label: "GNSS Receivers 类目主图",
+    page: "products/gnss-receivers/index.html",
+    currentPath: "public/assets/products/gnss-receiver-series-combo.webp",
+    recommendedSize: "1400 x 900 px",
+    alt: "TOKNAV GNSS receiver models combination",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "类目页主图应展示多个接收机型号组合，不要出现整套箱包。"
+  },
+  {
+    id: "asset-product-detail-main",
+    label: "产品详情页主图模板",
+    page: "products/gnss-receivers/{model}.html",
+    currentPath: "public/assets/products/{model}.webp",
+    recommendedSize: "1200 x 900 px",
+    alt: "TOKNAV {Model Name} GNSS receiver product image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "每个型号详情页可复制这个素材位，替换成具体型号单品图。"
+  },
+  {
+    id: "asset-product-detail-gallery",
+    label: "产品详情页细节图/应用图",
+    page: "products/gnss-receivers/{model}.html",
+    currentPath: "public/assets/products/{model}-detail.webp",
+    recommendedSize: "1200 x 800 px",
+    alt: "TOKNAV {Model Name} detail and application image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于产品细节、接口、屏幕、现场安装或应用场景。"
+  },
+  {
+    id: "asset-solutions-hero",
+    label: "Solutions 类目页首屏图",
+    page: "products/solutions/index.html",
+    currentPath: "public/assets/products/tr10pro-marking-robot.png",
+    recommendedSize: "1600 x 760 px",
+    alt: "TOKNAV GNSS application solutions",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "可轮换为划线机器人、TBoat、TSR20 SLAM 或形变监测方案图。"
+  },
+  {
+    id: "asset-antennas-category-main",
+    label: "GNSS Antennas 类目主图",
+    page: "products/gnss-antennas/index.html",
+    currentPath: "public/assets/products/tsa520.webp",
+    recommendedSize: "1400 x 900 px",
+    alt: "TOKNAV GNSS antenna product image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于天线类目页，可放 TSA520、TAG66、TAG88 等单品或组合图。"
+  },
+  {
+    id: "asset-rugged-gis-category-main",
+    label: "Rugged & GIS 类目主图",
+    page: "products/rugged-gis/index.html",
+    currentPath: "public/assets/products/pcr500.webp",
+    recommendedSize: "1400 x 900 px",
+    alt: "TOKNAV rugged GIS data collector",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于手簿、GIS 采集器、Rugged 设备类目页。"
+  },
+  {
+    id: "asset-ag-machine-category-main",
+    label: "农业和机械控制类目主图",
+    page: "products/precision-agriculture-machine-control/index.html",
+    currentPath: "public/assets/products/tmc20.webp",
+    recommendedSize: "1400 x 900 px",
+    alt: "TOKNAV precision agriculture and machine control display",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于农机导航、机械控制屏幕和应用场景图。"
+  },
+  {
+    id: "asset-inquiry-form-visual",
+    label: "询盘页表单辅助图",
+    page: "inquiry.html",
+    currentPath: "public/assets/customer-visit.jpg",
+    recommendedSize: "1200 x 900 px",
+    alt: "TOKNAV project inquiry support",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于询盘页侧边图，可展示销售支持、出货检查、客户沟通等。"
+  },
+  {
+    id: "asset-about-video-cover",
+    label: "About 公司视频封面",
+    page: "about.html",
+    currentPath: "public/assets/customer-visit.jpg",
+    recommendedSize: "1600 x 900 px",
+    alt: "TOKNAV company introduction video cover",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于公司介绍视频区域，最好有人物、工厂或团队画面。"
+  },
+  {
+    id: "asset-about-feedback-gallery",
+    label: "About 客户反馈照片墙",
+    page: "about.html",
+    currentPath: "public/assets/about/feedback-las-vegas-group.webp",
+    recommendedSize: "1200 x 900 px",
+    alt: "TOKNAV customer feedback and exhibition photo",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "可维护多张客户返图，优先选择客户出镜多的照片。"
+  },
+  {
+    id: "asset-about-cert-gallery",
+    label: "About 证书照片墙",
+    page: "about.html",
+    currentPath: "public/assets/about/cert-iso9001.webp",
+    recommendedSize: "1000 x 1400 px",
+    alt: "TOKNAV certification gallery image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于 CE、FCC、RoHS、ISO 等证书图片更新。"
+  },
+  {
+    id: "asset-contact-map",
+    label: "Contact 地址地图/办公室图",
+    page: "contact.html",
+    currentPath: "public/assets/customer-visit.jpg",
+    recommendedSize: "1400 x 900 px",
+    alt: "TOKNAV office location in Guangzhou",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "可替换为 OpenStreetMap 截图、办公室照片或公司门头图。"
+  },
+  {
+    id: "asset-blog-cover-template",
+    label: "Blog 默认封面图",
+    page: "blog/{slug}.html",
+    currentPath: "public/assets/products/tr10pro-marking-robot.png",
+    recommendedSize: "1600 x 900 px",
+    alt: "TOKNAV blog cover image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "新增博客时可替换成对应产品或应用场景图。"
+  },
+  {
+    id: "asset-news-fallback",
+    label: "新闻资讯默认配图",
+    page: "news.html",
+    currentPath: "public/assets/rtk-rooftop-test.jpg",
+    recommendedSize: "1200 x 720 px",
+    alt: "TOKNAV GNSS news fallback image",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "没有新闻配图时使用 Toknav 产品或测试场景图。"
+  },
+  {
+    id: "asset-footer-logo-white",
+    label: "全站页脚白色 Logo",
+    page: "Global Footer",
+    currentPath: "public/assets/toknav-logo-white.png",
+    recommendedSize: "Transparent PNG / WebP",
+    alt: "TOKNAV white logo",
+    replacementName: "",
+    replacementDataUrl: "",
+    notes: "用于深蓝色页脚。"
   }
 ];
 
@@ -279,9 +614,13 @@ function ensureAdminContent() {
   if (!state.data.site) state.data.site = { updatedAt: todayDate() };
   if (!Array.isArray(state.data.textSlots) || !state.data.textSlots.length) {
     state.data.textSlots = DEFAULT_TEXT_SLOTS.map((item) => ({ ...item }));
+  } else {
+    mergeMissingItems(state.data.textSlots, DEFAULT_TEXT_SLOTS);
   }
   if (!Array.isArray(state.data.assets) || !state.data.assets.length) {
     state.data.assets = DEFAULT_ASSET_SLOTS.map((item) => ({ ...item }));
+  } else {
+    mergeMissingItems(state.data.assets, DEFAULT_ASSET_SLOTS);
   }
   if (!Array.isArray(state.data.blogDrafts) || !state.data.blogDrafts.length) {
     state.data.blogDrafts = [{ ...DEFAULT_BLOG_DRAFT }];
@@ -289,6 +628,22 @@ function ensureAdminContent() {
   state.selectedTextId = state.selectedTextId || state.data.textSlots[0]?.id;
   state.selectedAssetId = state.selectedAssetId || state.data.assets[0]?.id;
   state.selectedBlogDraftId = state.selectedBlogDraftId || state.data.blogDrafts[0]?.id;
+}
+
+function mergeMissingItems(target, defaults) {
+  const existingIds = new Set(target.map((item) => item.id));
+  defaults.forEach((item) => {
+    if (!existingIds.has(item.id)) target.push({ ...item });
+  });
+}
+
+function knownPagesFor(kind) {
+  const source = kind === "asset" ? state.data.assets : state.data.textSlots;
+  const map = new Map(PAGE_OPTIONS);
+  source.forEach((item) => {
+    if (item.page && !map.has(item.page)) map.set(item.page, item.page);
+  });
+  return [...map.entries()];
 }
 
 async function loadInitialData() {
@@ -515,9 +870,25 @@ function currentTextSlot() {
   return state.data.textSlots.find((item) => item.id === state.selectedTextId) || state.data.textSlots[0];
 }
 
+function renderTextPageFilter() {
+  if (!els.textPageFilter) return;
+  const current = els.textPageFilter.value;
+  els.textPageFilter.innerHTML = '<option value="">全部页面</option>' +
+    knownPagesFor("text").map(([value, label]) => `<option value="${escapeHtml(value)}" ${value === current ? "selected" : ""}>${escapeHtml(label)} · ${escapeHtml(value)}</option>`).join("");
+}
+
+function filteredTextSlots() {
+  const page = els.textPageFilter?.value || "";
+  return state.data.textSlots.filter((item) => !page || item.page === page);
+}
+
 function renderTextSlots() {
   if (!els.textSlotList) return;
-  els.textSlotList.innerHTML = state.data.textSlots.map((item) => {
+  const items = filteredTextSlots();
+  if (!items.some((item) => item.id === state.selectedTextId) && items[0]) {
+    state.selectedTextId = items[0].id;
+  }
+  els.textSlotList.innerHTML = items.length ? items.map((item) => {
     const hasNewText = Boolean(item.newText?.trim());
     return `
       <button class="page-card ${item.id === state.selectedTextId ? "is-active" : ""}" data-id="${escapeHtml(item.id)}" type="button">
@@ -529,7 +900,7 @@ function renderTextSlots() {
         </div>
       </button>
     `;
-  }).join("");
+  }).join("") : '<div class="empty-state">当前页面还没有文字位，点击“新增文字位”即可添加。</div>';
   els.textSlotList.querySelectorAll(".page-card").forEach((button) => {
     button.addEventListener("click", () => {
       state.selectedTextId = button.dataset.id;
@@ -576,10 +947,11 @@ function saveCurrentText(event) {
 function addTextSlot() {
   const label = prompt("请输入文字位置名称，例如：首页按钮文案");
   if (!label) return;
+  const page = els.textPageFilter?.value || "index.html";
   const item = {
     id: contentId("copy"),
     label,
-    page: "index.html",
+    page,
     section: "New Section",
     locale: "English",
     currentText: "",
@@ -633,6 +1005,18 @@ function currentAsset() {
   return state.data.assets.find((item) => item.id === state.selectedAssetId) || state.data.assets[0];
 }
 
+function renderAssetPageFilter() {
+  if (!els.assetPageFilter) return;
+  const current = els.assetPageFilter.value;
+  els.assetPageFilter.innerHTML = '<option value="">全部页面</option>' +
+    knownPagesFor("asset").map(([value, label]) => `<option value="${escapeHtml(value)}" ${value === current ? "selected" : ""}>${escapeHtml(label)} · ${escapeHtml(value)}</option>`).join("");
+}
+
+function filteredAssets() {
+  const page = els.assetPageFilter?.value || "";
+  return state.data.assets.filter((item) => !page || item.page === page);
+}
+
 function assetPreviewSrc(item) {
   const value = item?.replacementDataUrl || item?.currentPath || "/public/assets/toknav-logo-blue.png";
   if (value.startsWith("data:") || value.startsWith("http")) return value;
@@ -645,7 +1029,11 @@ function assetPreviewSrc(item) {
 
 function renderAssetSlots() {
   if (!els.assetSlotList) return;
-  els.assetSlotList.innerHTML = state.data.assets.map((item) => {
+  const items = filteredAssets();
+  if (!items.some((item) => item.id === state.selectedAssetId) && items[0]) {
+    state.selectedAssetId = items[0].id;
+  }
+  els.assetSlotList.innerHTML = items.length ? items.map((item) => {
     const hasFile = Boolean(item.replacementDataUrl);
     return `
       <button class="page-card ${item.id === state.selectedAssetId ? "is-active" : ""}" data-id="${escapeHtml(item.id)}" type="button">
@@ -657,7 +1045,7 @@ function renderAssetSlots() {
         </div>
       </button>
     `;
-  }).join("");
+  }).join("") : '<div class="empty-state">当前页面还没有素材位，点击“新增素材位”即可添加。</div>';
   els.assetSlotList.querySelectorAll(".page-card").forEach((button) => {
     button.addEventListener("click", () => {
       state.selectedAssetId = button.dataset.id;
@@ -706,10 +1094,11 @@ function saveCurrentAsset(event) {
 function addAssetSlot() {
   const label = prompt("请输入素材位置名称，例如：产品页主图");
   if (!label) return;
+  const page = els.assetPageFilter?.value || "index.html";
   const item = {
     id: contentId("asset"),
     label,
-    page: "index.html",
+    page,
     currentPath: "",
     recommendedSize: "1200 x 800 px",
     alt: "",
@@ -1142,6 +1531,14 @@ function bindEvents() {
   els.textEditor.addEventListener("submit", saveCurrentText);
   els.assetEditor.addEventListener("submit", saveCurrentAsset);
   els.blogEditor.addEventListener("submit", saveCurrentBlogDraft);
+  els.textPageFilter.addEventListener("change", () => {
+    renderTextSlots();
+    renderTextEditor();
+  });
+  els.assetPageFilter.addEventListener("change", () => {
+    renderAssetSlots();
+    renderAssetEditor();
+  });
   els.addPageButton.addEventListener("click", addPage);
   els.addTextButton.addEventListener("click", addTextSlot);
   els.addAssetButton.addEventListener("click", addAssetSlot);
@@ -1246,7 +1643,9 @@ function cacheElements() {
     copyAllButton: qs("#copyAllButton"),
     exportOutput: qs("#exportOutput"),
     textSlotList: qs("#textSlotList"),
+    textPageFilter: qs("#textPageFilter"),
     assetSlotList: qs("#assetSlotList"),
+    assetPageFilter: qs("#assetPageFilter"),
     assetFileInput: qs("#assetFileInput"),
     assetPreview: qs("#assetPreview"),
     blogCoverInput: qs("#blogCoverInput"),
@@ -1262,8 +1661,10 @@ function renderAll() {
   renderMetrics();
   renderPageList();
   renderEditor();
+  renderTextPageFilter();
   renderTextSlots();
   renderTextEditor();
+  renderAssetPageFilter();
   renderAssetSlots();
   renderAssetEditor();
   renderBlogIdeas();

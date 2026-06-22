@@ -1,4 +1,5 @@
 import { socialLinks, type SocialPlatform } from "../lib/socialLinks";
+import { getCmsSettings } from "../lib/cms/public";
 
 function SocialIcon({ platform }: { platform: SocialPlatform }) {
   if (platform === "Facebook") {
@@ -25,9 +26,17 @@ function SocialIcon({ platform }: { platform: SocialPlatform }) {
 }
 
 export default function SocialLinks() {
+  const settings = getCmsSettings();
+  const configuredLinks = socialLinks
+    .map((item) => {
+      const key = item.platform.toLowerCase() as "facebook" | "instagram" | "linkedin";
+      return { ...item, url: settings.socialLinks[key] || item.url };
+    })
+    .filter((item) => item.url);
+
   return (
     <div className="social-links" aria-label="TOKNAV social media links">
-      {socialLinks.map((item) => (
+      {configuredLinks.map((item) => (
         <a
           className={`social-link social-link-${item.platform.toLowerCase()}`}
           href={item.url}

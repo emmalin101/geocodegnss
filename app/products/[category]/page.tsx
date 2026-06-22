@@ -4,15 +4,16 @@ import SiteHeader from "../../components/SiteHeader";
 import { getCategory, getCategoryApplications, getProductsByCategory, productCategories } from "../../lib/products";
 
 type CategoryPageProps = {
-  params: { category: string };
+  params: Promise<{ category: string }>;
 };
 
 export function generateStaticParams() {
   return productCategories.map((category) => ({ category: category.slug }));
 }
 
-export function generateMetadata({ params }: CategoryPageProps) {
-  const category = getCategory(params.category);
+export async function generateMetadata({ params }: CategoryPageProps) {
+  const { category: categorySlug } = await params;
+  const category = getCategory(categorySlug);
   if (!category) return {};
 
   return {
@@ -21,8 +22,9 @@ export function generateMetadata({ params }: CategoryPageProps) {
   };
 }
 
-export default function ProductCategoryPage({ params }: CategoryPageProps) {
-  const category = getCategory(params.category);
+export default async function ProductCategoryPage({ params }: CategoryPageProps) {
+  const { category: categorySlug } = await params;
+  const category = getCategory(categorySlug);
   if (!category) notFound();
 
   const categoryProducts = getProductsByCategory(category.slug);
