@@ -16,12 +16,41 @@ function qs(selector) {
   return document.querySelector(selector);
 }
 
+function qsa(selector) {
+  return Array.from(document.querySelectorAll(selector));
+}
+
 function escapeHtml(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;");
+}
+
+function showToast(message) {
+  if (!els.adminToast) return;
+  els.adminToast.textContent = message;
+  els.adminToast.classList.add("is-visible");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    els.adminToast.classList.remove("is-visible");
+  }, 2600);
+}
+
+function activatePanel(panelId, updateHash = true) {
+  const id = panelId === "dashboard" ? "dashboard-panel" : panelId;
+  if (!id) return;
+  const panel = document.getElementById(id);
+  if (!panel || !panel.classList.contains("admin-panel")) return;
+  qsa(".admin-panel").forEach((item) => item.classList.toggle("is-active", item.id === id));
+  qsa(".admin-nav a").forEach((link) => {
+    const target = link.getAttribute("href")?.replace("#", "");
+    link.classList.toggle("active", target === id);
+  });
+  localStorage.setItem("toknav-admin-active-panel", id);
+  if (updateHash) history.replaceState(null, "", `#${id}`);
+  window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 function slugId() {
@@ -426,6 +455,7 @@ function saveCurrentPage(event) {
   page.internalLinks = Number(fields.get("internalLinks") || 0);
   page.notes = fields.get("notes").trim();
   saveData();
+  showToast("页面 SEO 已保存");
   renderAll();
 }
 
@@ -447,6 +477,7 @@ function addPage() {
   state.data.pages.unshift(page);
   state.selectedId = page.id;
   saveData();
+  showToast("已新增页面");
   renderAll();
 }
 
@@ -476,6 +507,7 @@ function addBlogIdea() {
     notes: "Add target keyword, CTA and internal links."
   });
   saveData();
+  showToast("已新增博客选题");
   renderBlogIdeas();
 }
 
@@ -536,6 +568,7 @@ function saveCurrentText(event) {
   item.newText = fields.get("newText").trim();
   item.notes = fields.get("notes").trim();
   saveData();
+  showToast("网站文字已保存");
   renderTextSlots();
   renderTextEditor();
 }
@@ -556,6 +589,7 @@ function addTextSlot() {
   state.data.textSlots.unshift(item);
   state.selectedTextId = item.id;
   saveData();
+  showToast("已新增文字位");
   renderTextSlots();
   renderTextEditor();
 }
@@ -591,6 +625,7 @@ function downloadTextPackage() {
   };
   const content = JSON.stringify(payload, null, 2);
   els.exportOutput.value = content;
+  showToast("文字更新包已生成");
   downloadFile("toknav-website-copy-update.json", content, "application/json");
 }
 
@@ -662,6 +697,7 @@ function saveCurrentAsset(event) {
   item.replacementName = fields.get("replacementName").trim();
   item.notes = fields.get("notes").trim();
   saveData();
+  showToast("素材信息已保存");
   renderAssetSlots();
   renderAssetEditor();
 }
@@ -683,6 +719,7 @@ function addAssetSlot() {
   state.data.assets.unshift(item);
   state.selectedAssetId = item.id;
   saveData();
+  showToast("已新增素材位");
   renderAssetSlots();
   renderAssetEditor();
 }
@@ -718,6 +755,7 @@ function downloadAssetPackage() {
   };
   const content = JSON.stringify(payload, null, 2);
   els.exportOutput.value = content;
+  showToast("素材更新包已生成");
   downloadFile("toknav-website-asset-update.json", content, "application/json");
 }
 
@@ -1067,7 +1105,7 @@ async function resetData() {
 }
 
 function unlock() {
-  if (els.accessCode.value !== ACCESS_CODE) {
+  if (els.accessCode.value.trim() !== ACCESS_CODE) {
     els.accessCode.focus();
     els.accessCode.value = "";
     els.accessCode.placeholder = "访问码不正确";
@@ -1077,9 +1115,19 @@ function unlock() {
   localStorage.setItem("toknav-seo-admin-unlocked", "1");
   els.lockedLayer.classList.remove("is-locked");
   els.accessPanel.style.display = "none";
+  activatePanel(location.hash.replace("#", "") || "dashboard-panel", false);
+  showToast("已进入后台");
 }
 
 function bindEvents() {
+  qsa(".admin-nav a, .home-entry").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = link.getAttribute("href")?.replace("#", "");
+      if (!target) return;
+      event.preventDefault();
+      activatePanel(target);
+    });
+  });
   els.unlockButton.addEventListener("click", unlock);
   els.accessCode.addEventListener("keydown", (event) => {
     if (event.key === "Enter") unlock();
@@ -1115,6 +1163,7 @@ function bindEvents() {
       item.replacementName = file.name;
       item.replacementDataUrl = result;
       saveData();
+      showToast("新素材已读取，可预览并保存");
       renderAssetEditor();
       renderAssetSlots();
     });
@@ -1126,6 +1175,7 @@ function bindEvents() {
       draft.cover = file.name;
       draft.coverDataUrl = result;
       saveData();
+      showToast("博客封面已读取，可预览并保存");
       renderBlogEditor();
     });
   });
@@ -1148,6 +1198,7 @@ function bindEvents() {
 function cacheElements() {
   Object.assign(els, {
     accessPanel: qs("#accessPanel"),
+    adminToast: qs("#adminToast"),
     accessCode: qs("#accessCode"),
     unlockButton: qs("#unlockButton"),
     lockedLayer: qs("#lockedLayer"),
@@ -1233,6 +1284,8 @@ async function init() {
   }
   bindEvents();
   renderAll();
+  const initialPanel = location.hash.replace("#", "") || localStorage.getItem("toknav-admin-active-panel") || "dashboard-panel";
+  activatePanel(initialPanel, Boolean(location.hash));
 }
 
 init();

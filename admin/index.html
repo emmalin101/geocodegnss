@@ -6,16 +6,17 @@
   <meta name="robots" content="noindex,nofollow">
   <title>SEO 后台 | TOKNAV Website</title>
   <link rel="icon" href="../public/assets/toknav-logo-blue.png">
-  <link rel="stylesheet" href="./seo-admin.css">
+  <link rel="stylesheet" href="./seo-admin.css?v=20260622a">
 </head>
 <body>
+  <div class="admin-toast" id="adminToast" role="status" aria-live="polite"></div>
   <main class="admin-shell">
     <aside class="admin-sidebar">
       <a class="admin-brand" href="../index.html" aria-label="Back to website">
         <img src="../public/assets/toknav-logo-blue.png" alt="TOKNAV">
       </a>
       <nav class="admin-nav" aria-label="SEO backend navigation">
-        <a href="#dashboard" class="active">总览</a>
+        <a href="#dashboard-panel" class="active">总览</a>
         <a href="#pages">页面 SEO</a>
         <a href="#copy">网站文字</a>
         <a href="#materials">网站素材</a>
@@ -43,16 +44,53 @@
             <input id="accessCode" type="password" placeholder="输入访问码">
           </label>
           <button id="unlockButton" type="button">进入后台</button>
-          <small>默认访问码可在 <code>admin/seo-admin.js</code> 修改。静态访问码只适合轻量交接，不适合存放敏感信息。</small>
+          <small>当前访问码：<code>toknav-seo</code>。静态访问码只适合轻量交接，不适合存放敏感信息。</small>
         </div>
       </section>
 
       <div class="locked-layer" id="lockedLayer">
-        <section class="metric-grid">
-          <article><span>页面总数</span><strong id="metricTotal">0</strong></article>
-          <article><span>平均 SEO 分</span><strong id="metricScore">0</strong></article>
-          <article><span>高优先级</span><strong id="metricHigh">0</strong></article>
-          <article><span>待优化</span><strong id="metricDraft">0</strong></article>
+        <section class="admin-panel admin-dashboard-panel is-active" id="dashboard-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="eyebrow">Dashboard</span>
+              <h2>后台总览</h2>
+            </div>
+          </div>
+
+          <section class="metric-grid">
+            <article><span>页面总数</span><strong id="metricTotal">0</strong></article>
+            <article><span>平均 SEO 分</span><strong id="metricScore">0</strong></article>
+            <article><span>高优先级</span><strong id="metricHigh">0</strong></article>
+            <article><span>待优化</span><strong id="metricDraft">0</strong></article>
+          </section>
+
+          <div class="admin-home-grid">
+            <a href="#copy" class="home-entry">
+              <span>01</span>
+              <strong>修改网站文字</strong>
+              <em>首页标题、按钮、产品说明、联系页地址。</em>
+            </a>
+            <a href="#materials" class="home-entry">
+              <span>02</span>
+              <strong>更换网站素材</strong>
+              <em>上传新图、预览、填写 ALT、导出素材包。</em>
+            </a>
+            <a href="#blog-builder" class="home-entry">
+              <span>03</span>
+              <strong>新增 Blog</strong>
+              <em>生成文章 HTML、SEO 信息和汇总页卡片。</em>
+            </a>
+            <a href="#pages" class="home-entry">
+              <span>04</span>
+              <strong>优化页面 SEO</strong>
+              <em>维护 Title、Meta、H1、关键词和内链。</em>
+            </a>
+          </div>
+
+          <div class="content-tip dashboard-tip">
+            <strong>推荐流程</strong>
+            <span>先改文字，再换素材，最后新增 Blog。全部确认后在“导出”里下载备份，或把更新包交给 Codex 同步上线。</span>
+          </div>
         </section>
 
         <section class="admin-panel" id="pages">
@@ -338,6 +376,6 @@
     </section>
   </main>
 
-  <script src="./seo-admin.js"></script>
+  <script src="./seo-admin.js?v=20260622a"></script>
 </body>
 </html>
