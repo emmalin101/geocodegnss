@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T03:47:22.827Z",
+  "updatedAt": "2026-06-23T03:51:17.622Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -481,6 +481,33 @@
       ],
       "createdAt": "2026-06-23T02:19:53.189Z",
       "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_f9742401-f033-4300-9e69-5477edf4d93f",
+      "title": "Accessories",
+      "slug": "products-accessories",
+      "path": "/products/accessories",
+      "seoTitle": "Accessories | TOKNAV Product Category",
+      "seoDescription": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
+      "ogImage": "/assets/products/tbase.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_90cf26c7-1edc-4ab2-b99f-b0446d3fdd94",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Power / Antenna / Cables / Cases",
+            "title": "GNSS Accessories for RTK Receiver Kits and Base Stations",
+            "subtitle": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
+            "backgroundImage": "/assets/products/tbase.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T03:51:17.620Z",
+      "updatedAt": "2026-06-23T03:51:17.620Z"
     }
   ],
   "blogPosts": [
@@ -683,7 +710,7 @@
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T03:40:07.078Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
@@ -827,7 +854,7 @@
       "seoTitle": "T5 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_879eaca6-0a99-40b2-ab19-e0389942dec5",
@@ -979,7 +1006,7 @@
       "seoTitle": "T10Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_7c25c093-4d83-4192-b641-c177bbd4cde1",
@@ -1131,7 +1158,7 @@
       "seoTitle": "T20Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_5db38ff2-ee2b-4ed1-b3f0-216d5df33687",
@@ -1187,7 +1214,7 @@
       "seoTitle": "tBase GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Base station receiver designed for stable correction transmission and RTK base deployment.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_01d4a61f-8861-41c9-a39a-4392ed05654f",
@@ -1303,7 +1330,7 @@
       "seoTitle": "T30 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_006d88ab-be93-47da-8c87-49f463c08ef5",
@@ -1419,7 +1446,7 @@
       "seoTitle": "T30Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_e3af32a8-7395-40f2-ac4d-a84d16e89297",
@@ -1535,7 +1562,7 @@
       "seoTitle": "T40 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_fc9c4860-1651-4b70-b69b-1992254dcf98",
@@ -1651,7 +1678,7 @@
       "seoTitle": "T40Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_34141b8a-980b-4ceb-8d7d-e5a7481dc327",
@@ -1771,7 +1798,7 @@
       "seoTitle": "T50basic GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_9916dc1d-1c30-4cb8-bf89-769b8ace917f",
@@ -1891,7 +1918,7 @@
       "seoTitle": "T50 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_4bb7ecb1-3b68-466b-a049-a7b1c77caba9",
@@ -2011,7 +2038,7 @@
       "seoTitle": "T50Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_d7678307-c6ce-4a75-bbf2-19040d5c8ddb",
@@ -2143,7 +2170,7 @@
       "seoTitle": "NET660 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_f98781b9-8eab-43e3-ba43-8348d9b20198",
@@ -2275,7 +2302,7 @@
       "seoTitle": "NET660i GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_9b10c2f3-3038-4fa3-9131-d0d9c53aefa9",
@@ -2407,7 +2434,7 @@
       "seoTitle": "NET660i-H GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_62c10c59-619a-447f-99c0-c71cac71a463",
@@ -2539,7 +2566,7 @@
       "seoTitle": "NET660i-1U GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_67c1465f-ad30-4956-a4e6-27f51a49416d",
@@ -2651,7 +2678,7 @@
       "seoTitle": "PCR100T Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Flagship RTK measurement controller for field data collection and survey software operation.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_72fa7fbd-0f38-4766-b0e3-0648f90a7776",
@@ -2763,7 +2790,7 @@
       "seoTitle": "PCR500 Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_32e8d1b9-b8b7-4236-b41c-c008b5822157",
@@ -2875,7 +2902,7 @@
       "seoTitle": "PCR500Pro Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional handheld terminal for high-efficiency mobile field operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_96515ccc-d8de-4306-ba0a-422546b75923",
@@ -2927,7 +2954,7 @@
       "seoTitle": "PCR600 Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Full-keyboard surveying data collector designed for professional field crews.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_3217ed0d-06bd-4cd5-8440-8ac6c8bf41b2",
@@ -2979,7 +3006,7 @@
       "seoTitle": "P8 / P8Pro Portable RTK Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_9aaf8b67-db75-48ad-b7bd-3491205146d9",
@@ -3031,7 +3058,7 @@
       "seoTitle": "P8Glo Portable RTK Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Portable intelligent positioning terminal for global high-precision field applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_afbc3623-cd45-4eef-a779-e921cd2fc08e",
@@ -3083,7 +3110,7 @@
       "seoTitle": "TCA920 Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_6a392242-13f5-4830-ad74-8fd699082bfa",
@@ -3187,7 +3214,7 @@
       "seoTitle": "TCA930 Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance choke ring antenna for CORS and monitoring applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.621Z"
     },
     {
       "id": "product_c431274e-0316-4c18-aa2c-e44779dd63dc",
@@ -3291,7 +3318,7 @@
       "seoTitle": "TCA930M Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Choke ring antenna variant for high-precision fixed GNSS applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_9b283541-92e0-4d20-8983-0f93119e93b1",
@@ -3343,7 +3370,7 @@
       "seoTitle": "TSA320 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "External measurement antenna for survey-grade positioning workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_4bd08499-9b9f-4a4d-a3ce-ffc933ab25b4",
@@ -3395,7 +3422,7 @@
       "seoTitle": "TSA500 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Survey GNSS antenna designed for superior field satellite reception.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_7af0e55c-4e72-4841-8bf6-e8c9fb0ee74e",
@@ -3503,7 +3530,7 @@
       "seoTitle": "TSA520 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "External measurement antenna covering four major GNSS systems for survey applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_46de24df-dae5-486d-80de-a1e74eef95ab",
@@ -3555,7 +3582,7 @@
       "seoTitle": "TSA1000 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Survey antenna for high-precision GNSS signal reception in field applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_bd1a1ce0-4233-4035-bdec-9cdd8038ba48",
@@ -3636,7 +3663,7 @@
       "seoTitle": "TAG66 Electric Steering Wheel Autonomous Driving System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_c24bf696-3370-4090-bbeb-0f8af52c2417",
@@ -3712,7 +3739,7 @@
       "seoTitle": "TAG88 Automated GNSS Land Leveling System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Automated GNSS land leveling system for precision agriculture leveling applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_bd7754e2-996f-48e0-9b67-a41ac6473376",
@@ -3792,7 +3819,7 @@
       "seoTitle": "TMC10 Dozer 3D Guidance System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_526bdc45-e7c0-4b41-9815-effe112aec85",
@@ -3856,7 +3883,7 @@
       "seoTitle": "TMC20 Excavator Guidance System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_8ed40099-901b-4721-b3e3-2cbb144e3e47",
@@ -3909,7 +3936,7 @@
       "seoTitle": "Deformation Monitoring Solution Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_547220f2-8263-4035-8060-4f1cbc9984ee",
@@ -3961,7 +3988,7 @@
       "seoTitle": "CORS and VRS Service Solution Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_91d32b5e-4fba-42ed-9ad4-540102a97ed8",
@@ -4100,7 +4127,7 @@
       "seoTitle": "TR10Pro Line Marking Robot Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_c2bcb18b-15f0-4a02-a71e-74d76e4afbc3",
@@ -4219,7 +4246,7 @@
       "seoTitle": "Tboat USV Series Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_11aa7cd5-5a38-4164-8ba2-8c516244c928",
@@ -4351,7 +4378,7 @@
       "seoTitle": "TSR20 Handheld LiDAR SLAM Scanner Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:43:36.072Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_19c0e09a-bfae-4e51-aa7d-f90c5f55c827",
@@ -4406,7 +4433,7 @@
       "seoTitle": "THA-X601A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_a9e4e95b-f9a6-47af-833d-917a1ff891f6",
@@ -4461,7 +4488,7 @@
       "seoTitle": "THA-X603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_4afd0ab9-5141-43f6-bfef-f1a71c1856aa",
@@ -4516,7 +4543,7 @@
       "seoTitle": "THA-7603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_c05c8e04-d2b4-4d10-be74-27502e01ebce",
@@ -4571,7 +4598,7 @@
       "seoTitle": "THA-7609A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_abc074b7-aff9-461e-a70c-22ea7b3fcfc2",
@@ -4626,7 +4653,7 @@
       "seoTitle": "THA-9603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_8b1c5f26-f58e-4a2d-b735-bc9d036c2014",
@@ -4681,7 +4708,7 @@
       "seoTitle": "RTK Receiver Accessory Kit Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Tripods, tribrachs, brackets, suction cup bases and kit accessories for RTK receiver sets.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_72f793b4-d9e2-48d6-adf0-23e3782ec665",
@@ -4736,7 +4763,7 @@
       "seoTitle": "Power Adapter Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "USB and Lemo power adapters for charging and powering receivers and controllers.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_a9de7dc7-53b9-459b-a396-603a79acc5e8",
@@ -4791,7 +4818,7 @@
       "seoTitle": "Antenna Accessories Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "410-470MHz antennas and GNSS antenna accessories for receiver and base-station setups.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_6cca570f-1c88-4d7a-bba7-a8b3bc96fcdc",
@@ -4846,7 +4873,7 @@
       "seoTitle": "GNSS Cables and Wires Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "TNC-TNC GNSS antenna cables and power/data cables for NET660 and receiver workflows.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     },
     {
       "id": "product_9b65a616-9caf-4d56-8942-2d420e1b57e0",
@@ -4901,7 +4928,7 @@
       "seoTitle": "RTK Cases and Toolboxes Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Foam RTK rover kits and 1+1 toolboxes for T10Pro, T20Pro and receiver kits.",
       "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:51:17.622Z"
     }
   ],
   "media": [
