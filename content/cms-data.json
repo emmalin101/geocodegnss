@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T03:36:03.472Z",
+  "updatedAt": "2026-06-23T03:38:24.152Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -436,10 +436,6 @@
           "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS 修改B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
         },
         {
-          "label": "Update frequency",
-          "value": "5Hz max"
-        },
-        {
           "label": "Channels",
           "value": "1408"
         },
@@ -545,7 +541,7 @@
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:59:54.103Z"
+      "updatedAt": "2026-06-23T03:38:24.151Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
