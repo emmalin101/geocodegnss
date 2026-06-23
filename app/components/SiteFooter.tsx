@@ -2,10 +2,9 @@ import { Mail } from "lucide-react";
 import SocialLinks from "./SocialLinks";
 import { getCmsSettings } from "../lib/cms/public";
 import {
+  CONTACT_EMAILS,
   CONTACT_PHONE,
-  PRIMARY_CONTACT_EMAIL,
-  SALES_CONTACT_EMAIL,
-  TOKNAV_CHINA_OFFICE,
+  MOLDOVA_DEALER,
   WHATSAPP_PHONE,
   mailtoHref,
   whatsappHref
@@ -56,11 +55,9 @@ const footerColumns = [
 
 export default function SiteFooter() {
   const settings = getCmsSettings();
-  const primaryEmail = settings.contactEmail || PRIMARY_CONTACT_EMAIL;
-  const secondaryEmail = settings.contactEmailSecondary || SALES_CONTACT_EMAIL;
-  const emails = [primaryEmail, secondaryEmail].filter(Boolean);
-  const phone = settings.contactPhone || CONTACT_PHONE;
-  const whatsapp = settings.whatsappPhone || WHATSAPP_PHONE;
+  const emails = [...CONTACT_EMAILS];
+  const phone = CONTACT_PHONE;
+  const whatsapp = WHATSAPP_PHONE;
 
   return (
     <footer className="site-footer">
@@ -100,13 +97,15 @@ export default function SiteFooter() {
             <span>Email: <a href={mailtoHref(emails)}>{emails.join(" / ")}</a></span>
             <span>Phone: <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a></span>
             <span>WhatsApp: <a href={whatsappHref(whatsapp)} target="_blank" rel="noopener noreferrer">{whatsapp}</a></span>
-            <span>Address: {TOKNAV_CHINA_OFFICE.address}</span>
+            <span>Company Name: {MOLDOVA_DEALER.companyName}</span>
+            <span>Legal address: {MOLDOVA_DEALER.legalAddress}</span>
+            <span>Office address: {MOLDOVA_DEALER.officeAddress}</span>
           </div>
         </div>
       </div>
 
       <div className="site-footer-bottom">
-        <span>© 2026 Guangzhou Toksurvey Information Technology Co., Ltd. All rights reserved.</span>
+        <span>© 2026 {MOLDOVA_DEALER.companyName} All rights reserved.</span>
         <div>
           <a href="/privacy">Privacy Policy</a>
           <a href="/terms">Terms of Use</a>

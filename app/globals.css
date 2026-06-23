@@ -3973,7 +3973,7 @@ footer strong { color: white; font-size: 24px; }
 }
 .site-footer-columns {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, .85fr)) minmax(260px, 1.45fr);
   gap: 28px;
 }
 .site-footer-column {
@@ -4001,6 +4001,7 @@ footer strong { color: white; font-size: 24px; }
 }
 .site-footer-contact span {
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 .site-footer-bottom {
   display: flex;
