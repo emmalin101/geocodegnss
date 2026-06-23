@@ -34,6 +34,9 @@ export async function PUT(request: Request) {
       youtube: cleanString(body.socialLinks?.youtube, 500)
     },
     contactEmail: cleanString(body.contactEmail, 160),
+    contactEmailSecondary: cleanString(body.contactEmailSecondary, 160),
+    contactPhone: cleanString(body.contactPhone, 80),
+    whatsappPhone: cleanString(body.whatsappPhone, 80),
     footerText: cleanString(body.footerText, 500),
     updatedAt: nowIso()
   };

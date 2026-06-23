@@ -1,4 +1,5 @@
 import type { CmsAuthStore, CmsData, CmsSettings } from "./types";
+import { CONTACT_PHONE, PRIMARY_CONTACT_EMAIL, SALES_CONTACT_EMAIL, WHATSAPP_PHONE } from "../contactInfo";
 
 export function nowIso() {
   return new Date().toISOString();
@@ -33,12 +34,15 @@ export function getDefaultSettings(): CmsSettings {
     defaultSeoDescription:
       "TOKNAV manufactures GNSS receivers, RTK systems, antennas, CORS/VRS solutions, precision agriculture and machine control products for global B2B buyers.",
     socialLinks: {
-      facebook: "",
-      instagram: "",
-      linkedin: "",
+      facebook: "https://www.facebook.com/tiganu.eugen1/",
+      instagram: "https://www.instagram.com/tiganueugen/",
+      linkedin: "https://md.linkedin.com/in/tiganueugeniu",
       youtube: "https://www.youtube.com/@Toknav2024"
     },
-    contactEmail: "emma@toknav.cn",
+    contactEmail: PRIMARY_CONTACT_EMAIL,
+    contactEmailSecondary: SALES_CONTACT_EMAIL,
+    contactPhone: CONTACT_PHONE,
+    whatsappPhone: WHATSAPP_PHONE,
     footerText: "High-precision GNSS positioning solutions for a smarter world.",
     updatedAt: nowIso()
   };

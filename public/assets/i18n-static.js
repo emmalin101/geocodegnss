@@ -2,301 +2,153 @@
   const STORAGE_KEY = "toknav-preferred-language";
   const languages = [
     { code: "en", nativeName: "English", dir: "ltr" },
-    { code: "es", nativeName: "Español", dir: "ltr" },
-    { code: "ar", nativeName: "العربية", dir: "rtl" },
-    { code: "fr", nativeName: "Français", dir: "ltr" },
-    { code: "ru", nativeName: "Русский", dir: "ltr" },
-    { code: "de", nativeName: "Deutsch", dir: "ltr" },
-    { code: "ro", nativeName: "Română", dir: "ltr" }
+    { code: "ro", nativeName: "Română", dir: "ltr" },
+    { code: "ru", nativeName: "Русский", dir: "ltr" }
   ];
 
   const copy = {
     "Language": {
-      es: "Idioma",
-      ar: "اللغة",
-      fr: "Langue",
       ru: "Язык",
-      de: "Sprache",
       ro: "Limbă"
     },
     "Products": {
-      es: "Productos",
-      ar: "المنتجات",
-      fr: "Produits",
       ru: "Продукты",
-      de: "Produkte",
       ro: "Produse"
     },
     "Solutions": {
-      es: "Soluciones",
-      ar: "الحلول",
-      fr: "Solutions",
       ru: "Решения",
-      de: "Lösungen",
       ro: "Soluții"
     },
     "About": {
-      es: "Acerca de",
-      ar: "من نحن",
-      fr: "À propos",
       ru: "О нас",
-      de: "Über uns",
       ro: "Despre noi"
     },
     "Blog": {
-      es: "Blog",
-      ar: "المدونة",
-      fr: "Blog",
       ru: "Блог",
-      de: "Blog",
       ro: "Blog"
     },
     "Contact": {
-      es: "Contacto",
-      ar: "اتصل بنا",
-      fr: "Contact",
       ru: "Контакты",
-      de: "Kontakt",
       ro: "Contact"
     },
     "Get a Quote": {
-      es: "Solicitar cotización",
-      ar: "اطلب عرض سعر",
-      fr: "Demander un devis",
       ru: "Получить цену",
-      de: "Angebot anfordern",
       ro: "Solicită ofertă"
     },
     "Get a Quote →": {
-      es: "Solicitar cotización →",
-      ar: "اطلب عرض سعر →",
-      fr: "Demander un devis →",
       ru: "Получить цену →",
-      de: "Angebot anfordern →",
       ro: "Solicită ofertă →"
     },
     "Explore Products ›": {
-      es: "Explorar productos ›",
-      ar: "استكشف المنتجات ›",
-      fr: "Voir les produits ›",
       ru: "Посмотреть продукты ›",
-      de: "Produkte ansehen ›",
       ro: "Explorează produsele ›"
     },
     "Download Catalog": {
-      es: "Descargar catálogo",
-      ar: "تنزيل الكتالوج",
-      fr: "Télécharger le catalogue",
       ru: "Скачать каталог",
-      de: "Katalog herunterladen",
       ro: "Descarcă catalogul"
     },
     "Send Requirements →": {
-      es: "Enviar requisitos →",
-      ar: "أرسل متطلباتك →",
-      fr: "Envoyer vos besoins →",
       ru: "Отправить требования →",
-      de: "Anforderungen senden →",
       ro: "Trimite cerințele →"
     },
     "View All Products →": {
-      es: "Ver todos los productos →",
-      ar: "عرض جميع المنتجات →",
-      fr: "Voir tous les produits →",
       ru: "Все продукты →",
-      de: "Alle Produkte ansehen →",
       ro: "Vezi toate produsele →"
     },
     "View More ›": {
-      es: "Ver más ›",
-      ar: "المزيد ›",
-      fr: "Voir plus ›",
       ru: "Подробнее ›",
-      de: "Mehr ansehen ›",
       ro: "Vezi mai multe ›"
     },
     "High-Precision GNSS Receivers & RTK Solutions Manufacturer": {
-      es: "Fabricante de receptores GNSS de alta precisión y soluciones RTK",
-      ar: "مصنع أجهزة استقبال GNSS عالية الدقة وحلول RTK",
-      fr: "Fabricant de récepteurs GNSS haute précision et de solutions RTK",
       ru: "Производитель высокоточных GNSS-приемников и RTK-решений",
-      de: "Hersteller hochpräziser GNSS-Empfänger und RTK-Lösungen",
       ro: "Producător de receptoare GNSS de înaltă precizie și soluții RTK"
     },
     "Reliable centimeter-level positioning solutions for surveying, construction, agriculture and industrial applications worldwide.": {
-      es: "Soluciones de posicionamiento centimétrico para topografía, construcción, agricultura e industria en todo el mundo.",
-      ar: "حلول تموضع بدقة السنتيمتر للمساحة والبناء والزراعة والتطبيقات الصناعية حول العالم.",
-      fr: "Solutions de positionnement centimétrique pour la topographie, la construction, l’agriculture et l’industrie.",
       ru: "Решения сантиметрового позиционирования для геодезии, строительства, сельского хозяйства и промышленности.",
-      de: "Zentimetergenaue Positionierung für Vermessung, Bau, Landwirtschaft und industrielle Anwendungen weltweit.",
       ro: "Soluții fiabile de poziționare la nivel de centimetru pentru topografie, construcții, agricultură și aplicații industriale la nivel global."
     },
     "Our Product Categories": {
-      es: "Categorías de productos",
-      ar: "فئات المنتجات",
-      fr: "Catégories de produits",
       ru: "Категории продуктов",
-      de: "Produktkategorien",
       ro: "Categoriile noastre de produse"
     },
     "Professional GNSS and positioning solutions for diverse industries and applications.": {
-      es: "Soluciones GNSS y de posicionamiento para diferentes industrias y aplicaciones.",
-      ar: "حلول GNSS وتموضع احترافية لمختلف الصناعات والتطبيقات.",
-      fr: "Solutions GNSS et de positionnement pour de nombreuses industries.",
       ru: "Профессиональные GNSS-решения для разных отраслей и задач.",
-      de: "Professionelle GNSS- und Positionierungslösungen für viele Branchen.",
       ro: "Soluții profesionale GNSS și de poziționare pentru industrii și aplicații diverse."
     },
     "Why Choose TOKNAV": {
-      es: "Por qué elegir TOKNAV",
-      ar: "لماذا تختار TOKNAV",
-      fr: "Pourquoi choisir TOKNAV",
       ru: "Почему выбирают TOKNAV",
-      de: "Warum TOKNAV",
       ro: "De ce să alegeți TOKNAV"
     },
     "Built on innovation. Backed by experience. Trusted worldwide.": {
-      es: "Innovación, experiencia y confianza global.",
-      ar: "ابتكار وخبرة وثقة عالمية.",
-      fr: "Innovation, expérience et confiance mondiale.",
       ru: "Инновации, опыт и доверие по всему миру.",
-      de: "Innovation, Erfahrung und weltweites Vertrauen.",
       ro: "Bazat pe inovație. Susținut de experiență. De încredere la nivel global."
     },
     "Applications": {
-      es: "Aplicaciones",
-      ar: "التطبيقات",
-      fr: "Applications",
       ru: "Применения",
-      de: "Anwendungen",
       ro: "Aplicații"
     },
     "High-precision positioning empowers a wide range of industries.": {
-      es: "El posicionamiento de alta precisión impulsa muchas industrias.",
-      ar: "التموضع عالي الدقة يخدم مجموعة واسعة من الصناعات.",
-      fr: "Le positionnement haute précision sert de nombreux secteurs.",
       ru: "Высокоточное позиционирование помогает многим отраслям.",
-      de: "Hochpräzise Positionierung unterstützt viele Branchen.",
       ro: "Poziționarea de înaltă precizie susține o gamă largă de industrii."
     },
     "Trusted by Professionals Around the World": {
-      es: "Confiado por profesionales de todo el mundo",
-      ar: "يثق به محترفون حول العالم",
-      fr: "Reconnu par des professionnels du monde entier",
       ru: "Нам доверяют профессионалы по всему миру",
-      de: "Weltweit von Profis geschätzt",
       ro: "De încredere pentru profesioniști din întreaga lume"
     },
     "TOKNAV products support reliable positioning work across surveying, construction, agriculture and monitoring projects.": {
-      es: "Los productos TOKNAV apoyan trabajos fiables en topografía, construcción, agricultura y monitoreo.",
-      ar: "تدعم منتجات TOKNAV أعمال التموضع في المساحة والبناء والزراعة والمراقبة.",
-      fr: "Les produits TOKNAV accompagnent la topographie, la construction, l’agriculture et le monitoring.",
       ru: "Продукты TOKNAV помогают в геодезии, строительстве, сельском хозяйстве и мониторинге.",
-      de: "TOKNAV unterstützt Vermessung, Bau, Landwirtschaft und Monitoring.",
       ro: "Produsele TOKNAV susțin lucrări fiabile de poziționare în proiecte de topografie, construcții, agricultură și monitorizare."
     },
     "Learn More About Us": {
-      es: "Conozca más sobre nosotros",
-      ar: "تعرف علينا أكثر",
-      fr: "En savoir plus",
       ru: "Узнать больше о нас",
-      de: "Mehr über uns",
       ro: "Aflați mai multe despre noi"
     },
     "Need a GNSS Solution?": {
-      es: "¿Necesita una solución GNSS?",
-      ar: "هل تحتاج إلى حل GNSS؟",
-      fr: "Besoin d’une solution GNSS ?",
       ru: "Нужно GNSS-решение?",
-      de: "Benötigen Sie eine GNSS-Lösung?",
       ro: "Aveți nevoie de o soluție GNSS?"
     },
     "Tell us your product, quantity, country and application. TOKNAV will recommend a practical quote package.": {
-      es: "Indique producto, cantidad, país y aplicación. TOKNAV recomendará un paquete práctico de cotización.",
-      ar: "أخبرنا بالمنتج والكمية والبلد والتطبيق، وسنوصي بحزمة عرض مناسبة.",
-      fr: "Indiquez produit, quantité, pays et application. TOKNAV recommandera un devis adapté.",
       ru: "Укажите продукт, количество, страну и применение. TOKNAV подготовит практичное предложение.",
-      de: "Nennen Sie Produkt, Menge, Land und Anwendung. TOKNAV empfiehlt ein passendes Angebotspaket.",
       ro: "Spuneți-ne produsul, cantitatea, țara și aplicația. TOKNAV va recomanda un pachet de ofertă practic."
     },
     "Product Center": {
-      es: "Centro de productos",
-      ar: "مركز المنتجات",
-      fr: "Centre produits",
       ru: "Центр продуктов",
-      de: "Produktzentrum",
       ro: "Centru de produse"
     },
     "Application Scenarios": {
-      es: "Escenarios de aplicación",
-      ar: "سيناريوهات التطبيق",
-      fr: "Scénarios d’application",
       ru: "Сценарии применения",
-      de: "Anwendungsszenarien",
       ro: "Scenarii de aplicație"
     },
     "Key Features": {
-      es: "Características clave",
-      ar: "الميزات الرئيسية",
-      fr: "Fonctions clés",
       ru: "Ключевые особенности",
-      de: "Hauptmerkmale",
       ro: "Funcții cheie"
     },
     "Complete Specifications": {
-      es: "Especificaciones completas",
-      ar: "المواصفات الكاملة",
-      fr: "Spécifications complètes",
       ru: "Полные характеристики",
-      de: "Vollständige Spezifikationen",
       ro: "Specificații complete"
     },
     "Downloads": {
-      es: "Descargas",
-      ar: "التنزيلات",
-      fr: "Téléchargements",
       ru: "Загрузки",
-      de: "Downloads",
       ro: "Descărcări"
     },
     "Inquiry": {
-      es: "Consulta",
-      ar: "استفسار",
-      fr: "Demande",
       ru: "Запрос",
-      de: "Anfrage",
       ro: "Solicitare"
     },
     "Related Models": {
-      es: "Modelos relacionados",
-      ar: "موديلات ذات صلة",
-      fr: "Modèles associés",
       ru: "Похожие модели",
-      de: "Ähnliche Modelle",
       ro: "Modele conexe"
     },
     "Contact Sales": {
-      es: "Contactar ventas",
-      ar: "تواصل مع المبيعات",
-      fr: "Contacter les ventes",
       ru: "Связаться с продажами",
-      de: "Vertrieb kontaktieren",
       ro: "Contactați vânzările"
     },
     "Submit Inquiry": {
-      es: "Enviar consulta",
-      ar: "إرسال الاستفسار",
-      fr: "Envoyer la demande",
       ru: "Отправить запрос",
-      de: "Anfrage senden",
       ro: "Trimite solicitarea"
     },
     "GNSS Receiver Manufacturer · Professional OEM & ODM": {
-      es: "Fabricante de receptores GNSS · OEM y ODM profesional",
-      ar: "مصنع أجهزة استقبال GNSS · OEM وODM احترافي",
-      fr: "Fabricant de récepteurs GNSS · OEM et ODM professionnel",
       ru: "Производитель GNSS-приемников · Профессиональный OEM и ODM",
-      de: "GNSS-Empfänger-Hersteller · Professioneller OEM & ODM",
       ro: "Producător de receptoare GNSS · OEM și ODM profesional"
     }
   };
@@ -569,10 +421,10 @@
   function ensureFooterEmailIcon() {
     injectGlobalUtilitiesStyle();
     document.querySelectorAll(".social-links").forEach((list) => {
-      if (list.querySelector('a[href^="mailto:emma@toknav.cn"]')) return;
+      if (list.querySelector('a[href^="mailto:info@toknavgnss.md"]')) return;
       const link = document.createElement("a");
       link.className = "social-link social-link-email";
-      link.href = "mailto:emma@toknav.cn";
+      link.href = "mailto:info@toknavgnss.md,sales@toknavgnss.md";
       link.setAttribute("aria-label", "Email TOKNAV");
       link.title = "Email";
       link.innerHTML = '<svg aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m4 7 8 6 8-6"></path></svg>';

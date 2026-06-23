@@ -1,5 +1,6 @@
 import { CheckCircle2, Mail, MessageCircle } from "lucide-react";
 import SiteHeader from "../components/SiteHeader";
+import { CONTACT_EMAILS, WHATSAPP_PHONE } from "../lib/contactInfo";
 
 export default function ThanksPage() {
   return (
@@ -20,8 +21,8 @@ export default function ThanksPage() {
             <a className="secondary-button" href="/contact.html">Contact Page</a>
           </div>
           <div className="thanks-contact-row">
-            <span><Mail size={18} /> emma@toknav.cn</span>
-            <span><MessageCircle size={18} /> WhatsApp: +86 191 9534 6957</span>
+            <span><Mail size={18} /> {CONTACT_EMAILS.join(" / ")}</span>
+            <span><MessageCircle size={18} /> WhatsApp: {WHATSAPP_PHONE}</span>
           </div>
         </div>
       </section>

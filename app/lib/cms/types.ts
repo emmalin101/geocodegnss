@@ -93,6 +93,9 @@ export type CmsSettings = {
     youtube: string;
   };
   contactEmail: string;
+  contactEmailSecondary: string;
+  contactPhone: string;
+  whatsappPhone: string;
   footerText: string;
   updatedAt: string;
 };

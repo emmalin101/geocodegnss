@@ -234,6 +234,159 @@
             "buttonText": "Get a Quote",
             "buttonLink": "/inquiry"
           }
+        },
+        {
+          "id": "block_about_feedback_gallery",
+          "type": "custom",
+          "title": "about-feedback-gallery",
+          "data": {
+            "items": [
+              {
+                "title": "Product demonstration at a Las Vegas exhibition booth",
+                "alt": "Product demonstration at a Las Vegas exhibition booth",
+                "image": "/assets/about/feedback-las-vegas-demo.webp"
+              },
+              {
+                "title": "Customer discussion around TOKNAV GNSS solutions",
+                "alt": "Customer discussion around TOKNAV GNSS solutions",
+                "image": "/assets/about/feedback-las-vegas-talk.webp"
+              },
+              {
+                "title": "Overseas visitors reviewing TOKNAV products",
+                "alt": "Overseas visitors reviewing TOKNAV products",
+                "image": "/assets/about/feedback-las-vegas-booth.webp"
+              },
+              {
+                "title": "TR10 Pro field-marking demonstration with customers",
+                "alt": "TR10 Pro field-marking demonstration with customers",
+                "image": "/assets/about/feedback-las-vegas-field.webp"
+              },
+              {
+                "title": "Customer meeting at TOKNAV booth",
+                "alt": "Customer meeting at TOKNAV booth",
+                "image": "/assets/about/feedback-las-vegas-group.webp"
+              },
+              {
+                "title": "Partner feedback at Russia CTT Expo",
+                "alt": "Partner feedback at Russia CTT Expo",
+                "image": "/assets/about/feedback-russia-group.webp"
+              },
+              {
+                "title": "TOKNAV partner storefront in Saudi Arabia",
+                "alt": "TOKNAV partner storefront in Saudi Arabia",
+                "image": "/assets/about/feedback-saudi-storefront.webp"
+              },
+              {
+                "title": "Customer office display with TOKNAV equipment",
+                "alt": "Customer office display with TOKNAV equipment",
+                "image": "/assets/about/feedback-cameroon-office.webp"
+              },
+              {
+                "title": "Visitors watching TOKNAV robot demonstration in Las Vegas",
+                "alt": "Visitors watching TOKNAV robot demonstration in Las Vegas",
+                "image": "/assets/about/feedback-las-vegas-robot-demo.webp"
+              },
+              {
+                "title": "Overseas customers visiting the TOKNAV exhibition booth",
+                "alt": "Overseas customers visiting the TOKNAV exhibition booth",
+                "image": "/assets/about/feedback-las-vegas-visitors.webp"
+              },
+              {
+                "title": "Customer discussion beside TOKNAV USV and GNSS products",
+                "alt": "Customer discussion beside TOKNAV USV and GNSS products",
+                "image": "/assets/about/feedback-las-vegas-usv-talk.webp"
+              },
+              {
+                "title": "Busy exhibition booth with international visitors",
+                "alt": "Busy exhibition booth with international visitors",
+                "image": "/assets/about/feedback-las-vegas-booth-crowd.webp"
+              },
+              {
+                "title": "TOKNAV SLAM and GNSS product demonstration",
+                "alt": "TOKNAV SLAM and GNSS product demonstration",
+                "image": "/assets/about/feedback-las-vegas-slam-demo.webp"
+              },
+              {
+                "title": "TOKNAV product display at overseas exhibition",
+                "alt": "TOKNAV product display at overseas exhibition",
+                "image": "/assets/about/feedback-las-vegas-display.webp"
+              },
+              {
+                "title": "TOKNAV booth at Russia CTT Expo outdoor area",
+                "alt": "TOKNAV booth at Russia CTT Expo outdoor area",
+                "image": "/assets/about/feedback-russia-outdoor-booth.webp"
+              },
+              {
+                "title": "Field demonstration at Russia construction exhibition",
+                "alt": "Field demonstration at Russia construction exhibition",
+                "image": "/assets/about/feedback-russia-field-demo.webp"
+              },
+              {
+                "title": "Customers visiting TOKNAV product demo room",
+                "alt": "Customers visiting TOKNAV product demo room",
+                "image": "/assets/about/feedback-factory-customer-visit.webp"
+              },
+              {
+                "title": "Product training session with visiting customers",
+                "alt": "Product training session with visiting customers",
+                "image": "/assets/about/feedback-factory-training.webp"
+              },
+              {
+                "title": "Customer cooperation discussion at TOKNAV office",
+                "alt": "Customer cooperation discussion at TOKNAV office",
+                "image": "/assets/about/feedback-factory-handshake.webp"
+              },
+              {
+                "title": "Product demo table prepared for customer visit",
+                "alt": "Product demo table prepared for customer visit",
+                "image": "/assets/about/feedback-factory-demo-table.webp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "block_about_certification_gallery",
+          "type": "custom",
+          "title": "about-certification-gallery",
+          "data": {
+            "items": [
+              {
+                "title": "CE certificate for P8 series",
+                "alt": "CE certificate for P8 series",
+                "image": "/assets/about/cert-ce-p8.webp"
+              },
+              {
+                "title": "CE certificate for T10Pro",
+                "alt": "CE certificate for T10Pro",
+                "image": "/assets/about/cert-ce-t10pro.webp"
+              },
+              {
+                "title": "FCC grant for T30 series",
+                "alt": "FCC grant for T30 series",
+                "image": "/assets/about/cert-fcc-t30.webp"
+              },
+              {
+                "title": "IGS certification for T10Pro",
+                "alt": "IGS certification for T10Pro",
+                "image": "/assets/about/cert-igs-t10pro.webp"
+              },
+              {
+                "title": "NGS calibration certificate",
+                "alt": "NGS calibration certificate",
+                "image": "/assets/about/cert-ngs.webp"
+              },
+              {
+                "title": "KC certification",
+                "alt": "KC certification",
+                "image": "/assets/about/cert-kc.webp"
+              },
+              {
+                "title": "ISO9001 company certificate",
+                "alt": "ISO9001 company certificate",
+                "image": "/assets/about/cert-iso9001.webp"
+              }
+            ]
+          }
         }
       ],
       "createdAt": "2026-06-23T02:19:53.189Z",
@@ -5770,13 +5923,16 @@
     "defaultSeoTitle": "TOKNAV | GNSS Receivers & RTK Solutions Manufacturer",
     "defaultSeoDescription": "TOKNAV manufactures GNSS receivers, RTK systems, antennas, CORS/VRS solutions, precision agriculture and machine control products for global B2B buyers.",
     "socialLinks": {
-      "facebook": "https://www.facebook.com/Toknavgnss/",
-      "instagram": "https://www.instagram.com/toknavgnss/",
-      "linkedin": "https://www.linkedin.com/company/toknav-information-technology/",
+      "facebook": "https://www.facebook.com/tiganu.eugen1/",
+      "instagram": "https://www.instagram.com/tiganueugen/",
+      "linkedin": "https://md.linkedin.com/in/tiganueugeniu",
       "youtube": "https://www.youtube.com/@Toknav2024"
     },
-    "contactEmail": "emma@toknav.cn",
+    "contactEmail": "info@toknavgnss.md",
+    "contactEmailSecondary": "sales@toknavgnss.md",
+    "contactPhone": "+373 62022040",
+    "whatsappPhone": "+373 62022040",
     "footerText": "High-precision GNSS positioning solutions for a smarter world.",
-    "updatedAt": "2026-06-22T04:46:09.873Z"
+    "updatedAt": "2026-06-23T07:03:56.146Z"
   }
 }

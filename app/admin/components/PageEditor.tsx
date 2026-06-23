@@ -177,6 +177,61 @@ function HomeImageItemsEditor({
   );
 }
 
+function AboutGalleryItemsEditor({
+  block,
+  media,
+  itemLabel,
+  onChange
+}: {
+  block: CmsBlock;
+  media: CmsMediaItem[];
+  itemLabel: string;
+  onChange: (block: CmsBlock) => void;
+}) {
+  const items = objectItems(block.data.items);
+
+  function updateItem(index: number, key: string, value: string) {
+    const nextItems = items.map((item, itemIndex) => (itemIndex === index ? { ...item, [key]: value } : item));
+    onChange(updateBlockData(block, "items", nextItems));
+  }
+
+  function addItem() {
+    onChange(updateBlockData(block, "items", [...items, { title: "", image: "", alt: "" }]));
+  }
+
+  function removeItem(index: number) {
+    onChange(updateBlockData(block, "items", items.filter((_, itemIndex) => itemIndex !== index)));
+  }
+
+  return (
+    <div className="admin-home-image-list">
+      {items.map((item, index) => (
+        <article className="admin-home-image-card" key={`${item.image || item.title || itemLabel}-${index}`}>
+          <div className="admin-home-image-card-head">
+            <strong>{itemLabel} {index + 1}</strong>
+            <button className="admin-danger-button" type="button" onClick={() => removeItem(index)}>Remove</button>
+          </div>
+          <label className="admin-field">
+            <span>Caption</span>
+            <input className="admin-input" value={textValue(item.title || item.caption)} onChange={(event) => updateItem(index, "title", event.target.value)} />
+          </label>
+          <label className="admin-field">
+            <span>Alt text</span>
+            <input className="admin-input" value={textValue(item.alt)} onChange={(event) => updateItem(index, "alt", event.target.value)} />
+          </label>
+          <MediaImagePicker
+            label="Gallery image"
+            value={textValue(item.image)}
+            media={media}
+            onChange={(value) => updateItem(index, "image", value)}
+          />
+        </article>
+      ))}
+      <button className="admin-button-secondary" type="button" onClick={addItem}>Add {itemLabel}</button>
+    </div>
+  );
+}
+
 function BlockFields({
   block,
   media,
@@ -323,6 +378,18 @@ function BlockFields({
           <small className="admin-muted">Icon keys: global, building, team, support.</small>
         </label>
       </>
+    );
+  }
+
+  if (block.type === "custom" && block.title === "about-feedback-gallery") {
+    return (
+      <AboutGalleryItemsEditor block={block} media={media} itemLabel="Customer photo" onChange={onChange} />
+    );
+  }
+
+  if (block.type === "custom" && block.title === "about-certification-gallery") {
+    return (
+      <AboutGalleryItemsEditor block={block} media={media} itemLabel="Certificate" onChange={onChange} />
     );
   }
 

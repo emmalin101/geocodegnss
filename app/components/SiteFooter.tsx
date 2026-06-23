@@ -1,6 +1,15 @@
 import { Mail } from "lucide-react";
 import SocialLinks from "./SocialLinks";
 import { getCmsSettings } from "../lib/cms/public";
+import {
+  CONTACT_PHONE,
+  PRIMARY_CONTACT_EMAIL,
+  SALES_CONTACT_EMAIL,
+  TOKNAV_CHINA_OFFICE,
+  WHATSAPP_PHONE,
+  mailtoHref,
+  whatsappHref
+} from "../lib/contactInfo";
 
 const footerColumns = [
   {
@@ -47,7 +56,11 @@ const footerColumns = [
 
 export default function SiteFooter() {
   const settings = getCmsSettings();
-  const contactEmail = settings.contactEmail || "emma@toknav.cn";
+  const primaryEmail = settings.contactEmail || PRIMARY_CONTACT_EMAIL;
+  const secondaryEmail = settings.contactEmailSecondary || SALES_CONTACT_EMAIL;
+  const emails = [primaryEmail, secondaryEmail].filter(Boolean);
+  const phone = settings.contactPhone || CONTACT_PHONE;
+  const whatsapp = settings.whatsappPhone || WHATSAPP_PHONE;
 
   return (
     <footer className="site-footer">
@@ -59,7 +72,7 @@ export default function SiteFooter() {
           <p>{settings.footerText || "High-precision positioning solutions for a smarter world."}</p>
           <div className="site-footer-icons">
             <SocialLinks />
-            <a className="social-link social-link-email" href={`mailto:${contactEmail}`} aria-label="Email TOKNAV" title="Email">
+            <a className="social-link social-link-email" href={mailtoHref(emails)} aria-label="Email TOKNAV" title="Email">
               <Mail size={20} />
             </a>
           </div>
@@ -84,9 +97,10 @@ export default function SiteFooter() {
 
           <div className="site-footer-column site-footer-contact">
             <strong>Contact Us</strong>
-            <span>Email: <a href={`mailto:${contactEmail}`}>{contactEmail}</a></span>
-            <span>WhatsApp: <a href="https://wa.me/8619195346957" target="_blank" rel="noopener noreferrer">+86 191 9534 6957</a></span>
-            <span>Address: No. 9 Caipin Road, Huangpu District, Guangzhou, China</span>
+            <span>Email: <a href={mailtoHref(emails)}>{emails.join(" / ")}</a></span>
+            <span>Phone: <a href={`tel:${phone.replace(/\s/g, "")}`}>{phone}</a></span>
+            <span>WhatsApp: <a href={whatsappHref(whatsapp)} target="_blank" rel="noopener noreferrer">{whatsapp}</a></span>
+            <span>Address: {TOKNAV_CHINA_OFFICE.address}</span>
           </div>
         </div>
       </div>

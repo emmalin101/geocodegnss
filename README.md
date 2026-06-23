@@ -104,7 +104,7 @@ Open `/admin/login`.
 
 If no admin exists yet, the first successful login creates the administrator account. Use:
 
-- Email: your admin email, for example `emma@toknav.cn`
+- Email: your admin email, for example `your-admin@example.com`
 - Password: at least 10 characters
 
 The password is stored as a scrypt hash in `content/cms-auth.json` or via the configured storage mode.
@@ -118,7 +118,7 @@ node scripts/create-admin-hash.mjs "your-secure-password"
 Then set:
 
 ```bash
-CMS_ADMIN_EMAIL="emma@toknav.cn"
+CMS_ADMIN_EMAIL="your-admin@example.com"
 CMS_ADMIN_PASSWORD_HASH="scrypt$..."
 ```
 

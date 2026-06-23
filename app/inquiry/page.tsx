@@ -3,6 +3,7 @@ import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import InquiryForm from "../components/InquiryForm";
 import SiteHeader from "../components/SiteHeader";
 import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
+import { CONTACT_EMAILS, MOLDOVA_DEALER, WHATSAPP_PHONE } from "../lib/contactInfo";
 
 const fallbackHero = {
   label: "B2B Inquiry",
@@ -27,15 +28,15 @@ export default function InquiryPage() {
           <div className="inquiry-contact-list">
             <div>
               <Mail size={20} />
-              <span>emma@toknav.cn</span>
+              <span>{CONTACT_EMAILS.join(" / ")}</span>
             </div>
             <div>
               <MessageCircle size={20} />
-              <span>WhatsApp consultation available</span>
+              <span>WhatsApp: {WHATSAPP_PHONE}</span>
             </div>
             <div>
               <MapPinned size={20} />
-              <span data-i18n="home.location.address">No. 9 Caipin Road, Huangpu District, Guangzhou, China</span>
+              <span>{MOLDOVA_DEALER.officeAddress}</span>
             </div>
             <div>
               <Clock size={20} />

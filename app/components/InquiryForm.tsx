@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { ArrowRight, CheckCircle2, Loader2, ShieldCheck, XCircle } from "lucide-react";
 import { useI18n } from "./I18nProvider";
+import { PRIMARY_CONTACT_EMAIL, SALES_CONTACT_EMAIL } from "../lib/contactInfo";
 
 type InquiryFormValues = {
   name: string;
@@ -30,7 +31,7 @@ const initialValues: InquiryFormValues = {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const whatsappPattern = /^\+?[0-9 ()-]{7,22}$/;
-const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
+const inquiryFormAction = `https://formsubmit.co/${PRIMARY_CONTACT_EMAIL}`;
 const productOptions = [
   "GNSS Receiver",
   "Rugged & GIS",
@@ -130,6 +131,7 @@ export default function InquiryForm() {
       noValidate
     >
       <input type="hidden" name="_subject" value="New TOKNAV Website Inquiry" />
+      <input type="hidden" name="_cc" value={SALES_CONTACT_EMAIL} />
       <input type="hidden" name="_template" value="table" />
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html" />

@@ -1,12 +1,15 @@
-const whatsappHref =
-  "https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details.";
+import { getCmsSettings } from "../lib/cms/public";
+import { WHATSAPP_PHONE, whatsappHref } from "../lib/contactInfo";
 
 export default function WhatsAppButton() {
+  const settings = getCmsSettings();
+  const href = whatsappHref(settings.whatsappPhone || WHATSAPP_PHONE);
+
   return (
     <a
       aria-label="Contact TOKNAV on WhatsApp"
       className="whatsapp-float"
-      href={whatsappHref}
+      href={href}
       rel="noopener noreferrer"
       target="_blank"
       title="Contact TOKNAV on WhatsApp"

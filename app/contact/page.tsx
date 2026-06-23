@@ -8,17 +8,29 @@ import {
   Mail,
   MapPinned,
   MessageCircle,
+  PhoneCall,
   Search,
   ShieldCheck,
   Store
 } from "lucide-react";
 import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
-import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
+import { getBlockData, getCmsSettings, getPublishedCmsPageByPath } from "../lib/cms/public";
+import {
+  CONTACT_PHONE,
+  MOLDOVA_DEALER,
+  PRIMARY_CONTACT_EMAIL,
+  SALES_CONTACT_EMAIL,
+  TOKNAV_CHINA_OFFICE,
+  WHATSAPP_PHONE,
+  mailtoHref,
+  osmEmbedUrl,
+  osmSearchUrl,
+  whatsappHref
+} from "../lib/contactInfo";
 
-const mapSrc =
-  "https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&layer=mapnik&marker=23.1646848%2C113.4295982";
-const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
+const moldovaMapSrc = osmEmbedUrl(MOLDOVA_DEALER.lat, MOLDOVA_DEALER.lon);
+const chinaMapSrc = osmEmbedUrl(TOKNAV_CHINA_OFFICE.lat, TOKNAV_CHINA_OFFICE.lon);
 
 const fallbackHero = {
   label: "Contact TOKNAV",
@@ -31,7 +43,7 @@ const contactEntries = [
   {
     href: "#locations",
     title: "Locations",
-    text: "TOKNAV Guangzhou office and OpenStreetMap location.",
+    text: "Moldova dealer, TOKNAV China office and OpenStreetMap locations.",
     icon: MapPinned
   },
   {
@@ -56,7 +68,16 @@ const contactEntries = [
 
 export default function ContactPage() {
   const cmsPage = getPublishedCmsPageByPath("/contact");
+  const settings = getCmsSettings();
   const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+  const primaryEmail = settings.contactEmail || PRIMARY_CONTACT_EMAIL;
+  const secondaryEmail = settings.contactEmailSecondary || SALES_CONTACT_EMAIL;
+  const contactEmails = [primaryEmail, secondaryEmail].filter(Boolean);
+  const phone = settings.contactPhone || CONTACT_PHONE;
+  const whatsapp = settings.whatsappPhone || WHATSAPP_PHONE;
+  const emailHref = mailtoHref(contactEmails);
+  const whatsappUrl = whatsappHref(whatsapp);
+  const inquiryFormAction = `https://formsubmit.co/${primaryEmail}`;
 
   return (
     <main>
@@ -81,29 +102,92 @@ export default function ContactPage() {
       </section>
       <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
-      <section className="contact-section" id="locations">
-        <div className="contact-info-panel">
-          <span className="contact-label" data-i18n="contact.location.label">Company Location</span>
+      <section className="contact-section dealer-location-section" id="locations">
+        <div className="contact-info-panel dealer-info-panel">
+          <span className="contact-label">Authorized Dealer in Moldova</span>
           <div className="contact-company-heading">
-            <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
-            <span>TOKNAV GNSS sales and project support office</span>
+            <h2>{MOLDOVA_DEALER.companyName}</h2>
+            <span>TOKNAV Moldova dealer and local project support</span>
+          </div>
+          <div className="contact-info-list">
+            <div>
+              <Building2 size={22} />
+              <span>Company Name: {MOLDOVA_DEALER.companyName}</span>
+            </div>
+            <div>
+              <MapPinned size={22} />
+              <span>Legal address: {MOLDOVA_DEALER.legalAddress}</span>
+            </div>
+            <div>
+              <MapPinned size={22} />
+              <span>Office address: {MOLDOVA_DEALER.officeAddress}</span>
+            </div>
+            <div>
+              <Mail size={22} />
+              <a href={emailHref}>{contactEmails.join(" / ")}</a>
+            </div>
+            <div>
+              <PhoneCall size={22} />
+              <a href={`tel:${phone.replace(/\s/g, "")}`}>Phone: {phone}</a>
+            </div>
+            <div>
+              <MessageCircle size={22} />
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp: {whatsapp}
+              </a>
+            </div>
+          </div>
+          <div className="contact-proof-row">
+            <span>
+              <Store size={18} /> Local dealer
+            </span>
+            <span>
+              <ShieldCheck size={18} /> TOKNAV product support
+            </span>
+            <span>
+              <Globe2 size={18} /> Moldova project contact
+            </span>
+          </div>
+          <div className="contact-panel-actions">
+            <a href="#inquiry">Product Inquiry <ArrowRight size={16} /></a>
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">WhatsApp Dealer</a>
+          </div>
+        </div>
+
+        <div className="osm-card" aria-label="EDTS S.R.L. Moldova location on OpenStreetMap">
+          <iframe
+            src={moldovaMapSrc}
+            title="EDTS S.R.L. Moldova dealer location on OpenStreetMap"
+            loading="lazy"
+          />
+          <div className="map-overlay">
+            <strong>{MOLDOVA_DEALER.mapLabel}</strong>
+            <span>{MOLDOVA_DEALER.officeAddress}</span>
+            <a href={osmSearchUrl(MOLDOVA_DEALER.officeAddress)} target="_blank" rel="noopener noreferrer">Open in OpenStreetMap</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="contact-section china-location-section" id="china-office">
+        <div className="contact-info-panel">
+          <span className="contact-label" data-i18n="contact.location.label">TOKNAV China Office</span>
+          <div className="contact-company-heading">
+            <h2 data-i18n="contact.location.title">{TOKNAV_CHINA_OFFICE.companyName}</h2>
+            <span>TOKNAV GNSS manufacturer and product support office</span>
           </div>
           <div className="contact-info-list">
             <div>
               <MapPinned size={22} />
-              <span data-i18n="home.location.address">
-                Room 801-6, Building B, No. 9 Caipin Road, Huangpu District,
-                Guangzhou, China 510000
-              </span>
+              <span data-i18n="home.location.address">{TOKNAV_CHINA_OFFICE.address}</span>
             </div>
             <div>
               <Mail size={22} />
-              <a href="mailto:emma@toknav.cn">emma@toknav.cn</a>
+              <a href={emailHref}>{contactEmails.join(" / ")}</a>
             </div>
             <div>
               <MessageCircle size={22} />
-              <a href="https://wa.me/8619195346957?text=Hello%2C%20I%20am%20interested%20in%20your%20products.%20Please%20send%20me%20more%20details." target="_blank" rel="noopener noreferrer">
-                WhatsApp: +86 191 9534 6957
+              <a href={whatsappUrl} target="_blank" rel="noopener noreferrer">
+                WhatsApp: {whatsapp}
               </a>
             </div>
             <div>
@@ -124,19 +208,20 @@ export default function ContactPage() {
           </div>
           <div className="contact-panel-actions">
             <a href="#inquiry">Product Inquiry <ArrowRight size={16} /></a>
-            <a href="mailto:emma@toknav.cn">Email TOKNAV</a>
+            <a href={emailHref}>Email TOKNAV</a>
           </div>
         </div>
 
-        <div className="osm-card" aria-label="OpenStreetMap company location">
+        <div className="osm-card" aria-label="TOKNAV China office location on OpenStreetMap">
           <iframe
-            src={mapSrc}
-            title="TOKNAV location on OpenStreetMap"
+            src={chinaMapSrc}
+            title="TOKNAV China office location on OpenStreetMap"
             loading="lazy"
           />
           <div className="map-overlay">
-            <strong>TOKNAV Guangzhou Office</strong>
-            <span>No. 9 Caipin Road, Huangpu District</span>
+            <strong>{TOKNAV_CHINA_OFFICE.mapLabel}</strong>
+            <span>{TOKNAV_CHINA_OFFICE.address}</span>
+            <a href={osmSearchUrl(TOKNAV_CHINA_OFFICE.address)} target="_blank" rel="noopener noreferrer">Open in OpenStreetMap</a>
           </div>
         </div>
       </section>
@@ -185,20 +270,24 @@ export default function ContactPage() {
               <MapPinned size={22} />
               <div className="contact-bilingual-list">
                 <article>
-                  <strong>Company Name</strong>
-                  <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
+                  <strong>Moldova Dealer</strong>
+                  <span>{MOLDOVA_DEALER.companyName}</span>
                 </article>
                 <article>
-                  <strong>Brand</strong>
-                  <span>TOKNAV</span>
+                  <strong>Moldova Legal Address</strong>
+                  <span>{MOLDOVA_DEALER.legalAddress}</span>
                 </article>
                 <article>
-                  <strong>Office Address</strong>
-                  <span>Room 801-6, Building B, No. 9 Caipin Road, Huangpu District, Guangzhou, China 510000</span>
+                  <strong>Moldova Office Address</strong>
+                  <span>{MOLDOVA_DEALER.officeAddress}</span>
                 </article>
                 <article>
-                  <strong>Region</strong>
-                  <span>Guangzhou, Guangdong, China</span>
+                  <strong>TOKNAV China Office</strong>
+                  <span>{TOKNAV_CHINA_OFFICE.companyName}</span>
+                </article>
+                <article>
+                  <strong>China Office Address</strong>
+                  <span>{TOKNAV_CHINA_OFFICE.address}</span>
                 </article>
               </div>
             </div>
@@ -208,6 +297,7 @@ export default function ContactPage() {
           <input type="hidden" name="_subject" value="New TOKNAV Contact Page Inquiry" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_cc" value={secondaryEmail} />
           <input type="hidden" name="_next" value="https://www.geocodegnss.com/thanks.html" />
           <input type="text" name="_honey" className="honeypot" tabIndex={-1} autoComplete="off" />
           <label>
@@ -220,7 +310,7 @@ export default function ContactPage() {
           </label>
           <label>
             <span data-i18n="form.whatsapp">WhatsApp</span>
-            <input name="whatsapp" placeholder="+86 191 9534 6957" data-i18n-placeholder="form.placeholder.whatsapp" type="tel" required />
+            <input name="whatsapp" placeholder="+373 62022040" data-i18n-placeholder="form.placeholder.whatsapp" type="tel" required />
           </label>
           <label>
             <span data-i18n="form.country">Country</span>

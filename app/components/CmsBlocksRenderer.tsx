@@ -9,7 +9,7 @@ function list(value: unknown) {
 }
 
 export default function CmsBlocksRenderer({ blocks }: { blocks: CmsBlock[] }) {
-  const visibleBlocks = blocks.filter((block) => block.type !== "hero");
+  const visibleBlocks = blocks.filter((block) => block.type !== "hero" && block.type !== "custom");
   if (!visibleBlocks.length) return null;
 
   return (

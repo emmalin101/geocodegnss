@@ -1,6 +1,7 @@
 import { mkdir, appendFile } from "node:fs/promises";
 import { join } from "node:path";
 import { NextResponse } from "next/server";
+import { CONTACT_EMAILS, PRIMARY_CONTACT_EMAIL } from "../../lib/contactInfo";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const whatsappPattern = /^\+?[0-9 ()-]{7,22}$/;
@@ -31,7 +32,10 @@ async function sendInquiryEmail(payload: {
   createdAt: string;
 }) {
   const apiKey = process.env.RESEND_API_KEY;
-  const toEmail = process.env.INQUIRY_TO_EMAIL || "emma@toknav.cn";
+  const toEmails = (process.env.INQUIRY_TO_EMAIL || CONTACT_EMAILS.join(","))
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
   const fromEmail = process.env.INQUIRY_FROM_EMAIL || "TOKNAV Website <onboarding@resend.dev>";
 
   if (!apiKey) return;
@@ -57,7 +61,7 @@ async function sendInquiryEmail(payload: {
     },
     body: JSON.stringify({
       from: fromEmail,
-      to: [toEmail],
+      to: toEmails,
       reply_to: payload.email,
       subject: `New TOKNAV Inquiry from ${payload.name}`,
       html
@@ -114,7 +118,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true, message: "Inquiry submitted successfully." });
   } catch {
     return NextResponse.json(
-      { ok: false, message: "Submission failed. Please email emma@toknav.cn directly." },
+      { ok: false, message: `Submission failed. Please email ${PRIMARY_CONTACT_EMAIL} directly.` },
       { status: 500 }
     );
   }

@@ -9,17 +9,17 @@ export type SocialLink = {
 export const socialLinks: SocialLink[] = [
   {
     platform: "Facebook",
-    url: "https://www.facebook.com/Toknavgnss/",
+    url: "https://www.facebook.com/tiganu.eugen1/",
     ariaLabel: "Follow TOKNAV on Facebook"
   },
   {
     platform: "Instagram",
-    url: "https://www.instagram.com/toknavgnss/",
+    url: "https://www.instagram.com/tiganueugen/",
     ariaLabel: "Follow TOKNAV on Instagram"
   },
   {
     platform: "LinkedIn",
-    url: "https://www.linkedin.com/company/toknav-information-technology/",
+    url: "https://md.linkedin.com/in/tiganueugeniu",
     ariaLabel: "Follow TOKNAV on LinkedIn"
   }
 ];

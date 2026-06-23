@@ -2,8 +2,10 @@ import { ArrowRight, BadgeCheck, CalendarDays, Globe2, ShieldCheck, UsersRound }
 import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
 import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
+import type { CmsPage } from "../lib/cms/types";
 
 const youtubeUploadsEmbed = "https://www.youtube.com/embed/videoseries?list=UU7YvmJlQYioSnNjsoxlBPxQ";
+type GalleryTuple = [string, string];
 
 const timeline = [
   ["2020", "GNSS RTK T5", "TOKNAV introduced the T5 RTK receiver line for practical field surveying."],
@@ -25,7 +27,7 @@ const timeline = [
   ["2026.1", "Terrestrial Laser Scanner", "TOKNAV's roadmap expanded toward terrestrial laser scanning for professional geospatial projects."]
 ];
 
-const feedbackPhotos = [
+const defaultFeedbackPhotos: GalleryTuple[] = [
   ["/assets/about/feedback-las-vegas-demo.webp", "Product demonstration at a Las Vegas exhibition booth"],
   ["/assets/about/feedback-las-vegas-talk.webp", "Customer discussion around TOKNAV GNSS solutions"],
   ["/assets/about/feedback-las-vegas-booth.webp", "Overseas visitors reviewing TOKNAV products"],
@@ -48,7 +50,7 @@ const feedbackPhotos = [
   ["/assets/about/feedback-factory-demo-table.webp", "Product demo table prepared for customer visit"]
 ];
 
-const certificates = [
+const defaultCertificates: GalleryTuple[] = [
   ["/assets/about/cert-ce-p8.webp", "CE certificate for P8 series"],
   ["/assets/about/cert-ce-t10pro.webp", "CE certificate for T10Pro"],
   ["/assets/about/cert-fcc-t30.webp", "FCC grant for T30 series"],
@@ -65,9 +67,42 @@ const fallbackHero = {
     "TOKNAV develops GNSS receivers, CORS/VRS systems, rugged controllers, precision agriculture products and application solutions for surveying, construction, machine control and monitoring customers worldwide."
 };
 
+function textValue(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function galleryTupleFromItem(item: unknown): GalleryTuple | null {
+  if (Array.isArray(item)) {
+    const image = textValue(item[0]);
+    const alt = textValue(item[1]) || "TOKNAV gallery image";
+    return image ? [image, alt] : null;
+  }
+
+  if (!item || typeof item !== "object") return null;
+  const record = item as Record<string, unknown>;
+  const image = textValue(record.image);
+  const alt =
+    textValue(record.alt) ||
+    textValue(record.caption) ||
+    textValue(record.title) ||
+    "TOKNAV gallery image";
+
+  return image ? [image, alt] : null;
+}
+
+function getGalleryItems(cmsPage: CmsPage | null | undefined, blockTitle: string, fallback: GalleryTuple[]) {
+  const block = cmsPage?.blocks.find((item) => item.type === "custom" && item.title === blockTitle);
+  const items = Array.isArray(block?.data.items)
+    ? block.data.items.map(galleryTupleFromItem).filter((item): item is GalleryTuple => Boolean(item))
+    : [];
+  return items.length ? items : fallback;
+}
+
 export default function AboutPage() {
   const cmsPage = getPublishedCmsPageByPath("/about");
   const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+  const feedbackPhotos = getGalleryItems(cmsPage, "about-feedback-gallery", defaultFeedbackPhotos);
+  const certificates = getGalleryItems(cmsPage, "about-certification-gallery", defaultCertificates);
 
   return (
     <main>
