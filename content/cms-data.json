@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T06:41:23.456Z",
+  "updatedAt": "2026-06-23T06:41:25.826Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -526,9 +526,9 @@
       "seoDescription": "Learn how to choose an RTK GNSS receiver for surveying, mapping and construction projects, including accuracy, satellite tracking, IMU tilt, radio, battery, rugged design and supplier evaluation.",
       "publishedAt": "2026-06-22T04:46:09.873Z",
       "author": "TOKNAV",
-      "status": "draft",
+      "status": "published",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T06:41:23.456Z"
+      "updatedAt": "2026-06-23T06:41:25.826Z"
     },
     {
       "id": "blog_e632c8ec-917c-4dc0-8b33-06d6acd60321",
