@@ -3348,18 +3348,59 @@ footer strong { color: white; font-size: 24px; }
 /* Final homepage and footer alignment based on the approved TOKNAV reference. */
 .site-header {
   min-height: 72px;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  gap: clamp(12px, 1.45vw, 28px);
+  padding-inline: clamp(20px, 4vw, 72px);
+  overflow: visible;
   background: linear-gradient(90deg, #053a91 0%, #082b7f 48%, #051a61 100%);
   border-bottom: 0;
   box-shadow: 0 10px 30px rgba(5, 26, 97, .18);
 }
+.site-header .brand {
+  flex: 0 1 188px;
+  min-width: 136px;
+  overflow: hidden;
+}
+.site-header details.mega-nav-item {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  width: auto;
+  min-width: 0;
+  min-height: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.site-header .mega-nav-trigger {
+  min-height: 42px;
+  padding: 0;
+  white-space: nowrap;
+  color: rgba(255,255,255,.94);
+}
 .brand img {
-  width: 168px;
+  width: clamp(142px, 12vw, 168px);
   max-height: 42px;
+  max-width: 100%;
+}
+.main-nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  justify-content: center;
+  gap: clamp(14px, 1.65vw, 30px);
 }
 .main-nav,
 .main-nav a,
 .mega-nav-trigger {
   color: rgba(255,255,255,.94);
+}
+.main-nav a,
+.mega-nav-trigger {
+  white-space: nowrap;
 }
 .main-nav a:hover,
 .mega-nav-trigger:hover {
@@ -3382,6 +3423,8 @@ footer strong { color: white; font-size: 24px; }
   color: white;
   background: rgba(255,255,255,.06);
   box-shadow: none;
+  min-width: max-content;
+  padding-inline: clamp(14px, 1.2vw, 20px);
 }
 .header-cta:hover,
 .site-search-button:hover {
@@ -3390,7 +3433,12 @@ footer strong { color: white; font-size: 24px; }
 }
 .site-search {
   display: inline-flex;
+  flex: 0 0 auto;
   align-items: center;
+}
+.language-switcher,
+.header-cta {
+  flex: 0 0 auto;
 }
 .site-search-button {
   display: inline-grid;
@@ -3453,6 +3501,36 @@ footer strong { color: white; font-size: 24px; }
   color: var(--ink);
   background: #eef4ff;
   cursor: pointer;
+}
+
+@media (max-width: 1320px) {
+  .site-header {
+    gap: 12px;
+    padding-inline: 22px;
+  }
+  .site-header .brand {
+    flex-basis: 154px;
+    min-width: 126px;
+  }
+  .main-nav {
+    gap: 16px;
+    font-size: 13px;
+  }
+  .language-switcher-label {
+    display: none;
+  }
+  .language-switcher-select {
+    min-width: 78px;
+  }
+  .site-search-button {
+    width: 40px;
+    height: 40px;
+  }
+  .header-cta {
+    min-height: 42px;
+    padding-inline: 14px;
+    font-size: 13px;
+  }
 }
 .site-search-results {
   display: grid;
