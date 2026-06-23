@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import type { CmsMediaItem, CmsProduct } from "../../lib/cms/types";
+import type { CmsMediaItem, CmsProduct, CmsProductSpec } from "../../lib/cms/types";
 
 const categoryOptions = [
   ["gnss-receivers", "GNSS Receivers"],
@@ -33,23 +33,15 @@ const emptyProduct: Partial<CmsProduct> = {
   seoDescription: ""
 };
 
-function specsToText(specs: CmsProduct["specs"]) {
-  return (specs || []).map((spec) => `${spec.label} | ${spec.value}`).join("\n");
-}
-
-function textToSpecs(text: string) {
-  return text
-    .split("\n")
-    .map((row) => row.split("|"))
-    .map(([label, value]) => ({ label: label?.trim() || "", value: value?.trim() || "" }))
-    .filter((item) => item.label && item.value);
-}
-
 function linesToArray(text: string) {
   return text
     .split("\n")
     .map((item) => item.trim())
     .filter(Boolean);
+}
+
+function cleanEditableSpecs(specs: CmsProductSpec[] | undefined) {
+  return (specs || []).filter((spec) => spec.label.trim() || spec.value.trim());
 }
 
 export default function ProductEditor({ id }: { id?: string }) {
@@ -78,6 +70,21 @@ export default function ProductEditor({ id }: { id?: string }) {
 
   function update<K extends keyof CmsProduct>(key: K, value: CmsProduct[K]) {
     setProduct((current) => ({ ...current, [key]: value }));
+  }
+
+  function updateSpec(index: number, key: keyof CmsProductSpec, value: string) {
+    const next = [...(product.specs || [])];
+    while (next.length <= index) next.push({ label: "", value: "" });
+    next[index] = { ...next[index], [key]: value };
+    update("specs", next);
+  }
+
+  function addSpec() {
+    update("specs", [...(product.specs || []), { label: "", value: "" }]);
+  }
+
+  function removeSpec(index: number) {
+    update("specs", (product.specs || []).filter((_, itemIndex) => itemIndex !== index));
   }
 
   async function save(status?: "draft" | "published") {
@@ -132,7 +139,33 @@ export default function ProductEditor({ id }: { id?: string }) {
           <label className="admin-field"><span>Detailed product page description</span><textarea className="admin-textarea" style={{ minHeight: 220 }} value={product.description || ""} onChange={(event) => update("description", event.target.value)} /></label>
           <label className="admin-field"><span>Applications, one per line</span><textarea className="admin-textarea" value={(product.applications || []).join("\n")} onChange={(event) => update("applications", linesToArray(event.target.value))} placeholder={"Surveying\nRoad construction\nDealer demo kit"} /></label>
           <label className="admin-field"><span>Highlights / selling points, one per line</span><textarea className="admin-textarea" value={(product.highlights || []).join("\n")} onChange={(event) => update("highlights", linesToArray(event.target.value))} placeholder={"Multi-constellation tracking\nIMU tilt measurement\nRugged field housing"} /></label>
-          <label className="admin-field"><span>Specs / parameters, one row per line: Label | Value</span><textarea className="admin-textarea" style={{ minHeight: 220 }} value={specsToText(product.specs || [])} onChange={(event) => update("specs", textToSpecs(event.target.value))} /></label>
+          <div className="admin-field">
+            <span>Specs / parameters</span>
+            <div className="admin-spec-list">
+              {(product.specs?.length ? product.specs : [{ label: "", value: "" }]).map((spec, index) => (
+                <div className="admin-spec-row" key={index}>
+                  <input
+                    className="admin-input"
+                    value={spec.label}
+                    onChange={(event) => updateSpec(index, "label", event.target.value)}
+                    placeholder="Parameter name, e.g. Protection"
+                  />
+                  <input
+                    className="admin-input"
+                    value={spec.value}
+                    onChange={(event) => updateSpec(index, "value", event.target.value)}
+                    placeholder="Parameter value, e.g. IP68"
+                  />
+                  <button className="admin-danger-button" type="button" onClick={() => removeSpec(index)}>Delete</button>
+                </div>
+              ))}
+            </div>
+            <div className="admin-actions">
+              <button className="admin-button-secondary" type="button" onClick={addSpec}>Add parameter</button>
+              <button className="admin-button-secondary" type="button" onClick={() => update("specs", cleanEditableSpecs(product.specs))}>Remove blank rows</button>
+            </div>
+            <small className="admin-muted">Only rows with both parameter name and value will appear on the website. Blank rows are removed after publishing.</small>
+          </div>
           <label className="admin-field"><span>SEO tags, comma separated</span><input className="admin-input" value={(product.tags || []).join(", ")} onChange={(event) => update("tags", event.target.value.split(",").map((item) => item.trim()).filter(Boolean))} /></label>
           <label className="admin-field"><span>Gallery URLs, one per line</span><textarea className="admin-textarea" value={(product.gallery || []).join("\n")} onChange={(event) => update("gallery", event.target.value.split("\n").map((item) => item.trim()).filter(Boolean))} /></label>
           <label className="admin-field"><span>SEO title</span><input className="admin-input" value={product.seoTitle || ""} onChange={(event) => update("seoTitle", event.target.value)} /></label>

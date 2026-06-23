@@ -11,7 +11,6 @@ import {
   getProductGallery,
   getProductInquiryUrl,
   getProductMetaDescription,
-  getProductQuickSpecs,
   getProductSeoTitle,
   getProductSpecGroups,
   getProductsByCategory,
@@ -51,10 +50,14 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
   const related = getProductsByCategory(category.slug)
     .filter((item) => item.slug !== product.slug)
     .slice(0, 4);
-  const specGroups = getProductSpecGroups(product);
+  const specGroups = getProductSpecGroups(product)
+    .map((group) => ({
+      ...group,
+      specs: group.specs.filter((spec) => spec.label.trim() && spec.value.trim())
+    }))
+    .filter((group) => group.specs.length > 0);
   const downloads = getProductDownloads(product);
   const gallery = getProductGallery(product);
-  const quickSpecs = getProductQuickSpecs(product);
   const buyerBenefits = getProductBuyerBenefits(product);
   const inquiryUrl = getProductInquiryUrl(product);
   const faqs = getProductFaqs(product);
@@ -134,19 +137,10 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
       <nav className="product-anchor-nav" aria-label="Product sections">
         <a href="#overview">Overview</a>
         <a href="#applications">Applications</a>
-        <a href="#specifications">Specifications</a>
+        {specGroups.length > 0 ? <a href="#specifications">Specifications</a> : null}
         <a href="#downloads">Downloads</a>
         <a href="#inquiry">Inquiry</a>
       </nav>
-
-      <section className="product-quick-spec-strip">
-        {quickSpecs.map((spec) => (
-          <div key={spec.label}>
-            <strong>{spec.label}</strong>
-            <span>{spec.value}</span>
-          </div>
-        ))}
-      </section>
 
       {product.slug === "marking-robot" && (
         <section className="robot-story-section">
@@ -231,32 +225,34 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             </div>
           </section>
 
-          <section id="specifications">
-            <div className="product-section-heading">
-              <span>Brochure-based details</span>
-              <h2>Complete Specifications</h2>
-              <p>
-                The table below organizes key parameters from TOKNAV catalogs
-                and model datasheets into procurement-friendly groups for easier
-                comparison.
-              </p>
-            </div>
-            <div className="spec-group-stack">
-              {specGroups.map((group) => (
-                <div className="spec-group" key={group.title}>
-                  <h3>{group.title}</h3>
-                  <div className="spec-table">
-                    {group.specs.map((spec) => (
-                      <div key={`${group.title}-${spec.label}`}>
-                        <strong>{spec.label}</strong>
-                        <span>{spec.value}</span>
-                      </div>
-                    ))}
+          {specGroups.length > 0 && (
+            <section id="specifications">
+              <div className="product-section-heading">
+                <span>Brochure-based details</span>
+                <h2>Complete Specifications</h2>
+                <p>
+                  The table below organizes key parameters from TOKNAV catalogs
+                  and model datasheets into procurement-friendly groups for easier
+                  comparison.
+                </p>
+              </div>
+              <div className="spec-group-stack">
+                {specGroups.map((group) => (
+                  <div className="spec-group" key={group.title}>
+                    <h3>{group.title}</h3>
+                    <div className="spec-table">
+                      {group.specs.map((spec) => (
+                        <div key={`${group.title}-${spec.label}`}>
+                          <strong>{spec.label}</strong>
+                          <span>{spec.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
-          </section>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="product-download-section" id="downloads">
             <div className="product-section-heading">

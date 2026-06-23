@@ -188,7 +188,16 @@ export function renderMarkdown(markdown: string) {
 
     flushList();
 
-    if (trimmed.startsWith("# ")) {
+    const imageMatch = trimmed.match(/^!\[([^\]]*)\]\(([^)\s]+)(?:\s+"([^"]+)")?\)$/);
+    if (imageMatch) {
+      const [, alt, src, title] = imageMatch;
+      elements.push(
+        <figure className="blog-image-block" key={index}>
+          <img src={src} alt={alt || title || "TOKNAV blog image"} />
+          {alt || title ? <figcaption>{title || alt}</figcaption> : null}
+        </figure>
+      );
+    } else if (trimmed.startsWith("# ")) {
       elements.push(<h1 key={index}>{renderInline(trimmed.slice(2))}</h1>);
     } else if (trimmed.startsWith("### ")) {
       elements.push(<h3 key={index}>{renderInline(trimmed.slice(4))}</h3>);

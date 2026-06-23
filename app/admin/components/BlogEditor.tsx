@@ -1,7 +1,7 @@
 "use client";
 
 import type React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import type { CmsBlogPost, CmsMediaItem } from "../../lib/cms/types";
 
@@ -24,8 +24,11 @@ export default function BlogEditor({ id }: { id?: string }) {
   const router = useRouter();
   const [post, setPost] = useState<Partial<CmsBlogPost>>(emptyPost);
   const [media, setMedia] = useState<CmsMediaItem[]>([]);
+  const [bodyImageUrl, setBodyImageUrl] = useState("");
+  const [bodyImageAlt, setBodyImageAlt] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
+  const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const isEditing = Boolean(id);
 
   useEffect(() => {
@@ -46,6 +49,28 @@ export default function BlogEditor({ id }: { id?: string }) {
 
   function update<K extends keyof CmsBlogPost>(key: K, value: CmsBlogPost[K]) {
     setPost((current) => ({ ...current, [key]: value }));
+  }
+
+  function insertBodyImage() {
+    const imageUrl = bodyImageUrl.trim();
+    if (!imageUrl) {
+      setError("Please choose an image before inserting it into the article body.");
+      return;
+    }
+    setError("");
+    const alt = bodyImageAlt.trim() || "TOKNAV product image";
+    const imageMarkdown = `\n\n![${alt}](${imageUrl})\n\n`;
+    const currentBody = post.body || "";
+    const textarea = bodyRef.current;
+    const start = textarea?.selectionStart ?? currentBody.length;
+    const end = textarea?.selectionEnd ?? currentBody.length;
+    const nextBody = `${currentBody.slice(0, start)}${imageMarkdown}${currentBody.slice(end)}`;
+    update("body", nextBody);
+    window.setTimeout(() => {
+      bodyRef.current?.focus();
+      const cursor = start + imageMarkdown.length;
+      bodyRef.current?.setSelectionRange(cursor, cursor);
+    }, 0);
   }
 
   async function save(status?: "draft" | "published") {
@@ -92,7 +117,20 @@ export default function BlogEditor({ id }: { id?: string }) {
             <label className="admin-field"><span>Status</span><select className="admin-select" value={post.status || "draft"} onChange={(event) => update("status", event.target.value as CmsBlogPost["status"])}><option value="draft">Draft</option><option value="published">Published</option></select></label>
           </div>
           <label className="admin-field"><span>Summary</span><textarea className="admin-textarea" value={post.summary || ""} onChange={(event) => update("summary", event.target.value)} /></label>
-          <label className="admin-field"><span>Body</span><textarea className="admin-textarea" style={{ minHeight: 360 }} value={post.body || ""} onChange={(event) => update("body", event.target.value)} /></label>
+          <div className="admin-help-card">
+            <strong>Insert image inside the article</strong>
+            <p>Upload images in Media Library first, choose one here, then click Insert image. It will add Markdown image code at the current cursor position in the Body field.</p>
+            <div className="admin-inline-tools">
+              <select className="admin-select" value={bodyImageUrl} onChange={(event) => setBodyImageUrl(event.target.value)}>
+                <option value="">Choose body image</option>
+                {media.map((item) => <option value={item.url} key={item.id}>{item.filename}</option>)}
+              </select>
+              <input className="admin-input" value={bodyImageAlt} onChange={(event) => setBodyImageAlt(event.target.value)} placeholder="Image ALT text / caption" />
+              <button className="admin-button-secondary" type="button" onClick={insertBodyImage}>Insert image</button>
+            </div>
+            {bodyImageUrl ? <img src={bodyImageUrl} alt="" style={{ width: "100%", maxHeight: 220, objectFit: "cover", borderRadius: 12 }} /> : null}
+          </div>
+          <label className="admin-field"><span>Body</span><textarea ref={bodyRef} className="admin-textarea" style={{ minHeight: 360 }} value={post.body || ""} onChange={(event) => update("body", event.target.value)} /></label>
           <label className="admin-field"><span>Tags, comma separated</span><input className="admin-input" value={(post.tags || []).join(", ")} onChange={(event) => update("tags", event.target.value.split(",").map((item) => item.trim()).filter(Boolean))} /></label>
           <label className="admin-field"><span>SEO title</span><input className="admin-input" value={post.seoTitle || ""} onChange={(event) => update("seoTitle", event.target.value)} /></label>
           <label className="admin-field"><span>SEO description</span><textarea className="admin-textarea" value={post.seoDescription || ""} onChange={(event) => update("seoDescription", event.target.value)} /></label>

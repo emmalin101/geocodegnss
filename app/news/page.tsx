@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flame, TrendingUp } from "lucide-react";
 import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
 import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
@@ -30,6 +30,15 @@ const newsItems = [
   }
 ];
 
+const hotSearches = [
+  { keyword: "RTK GNSS receiver price", trend: "Buyer intent", heat: "98" },
+  { keyword: "CORS / VRS correction workflow", trend: "Infrastructure", heat: "92" },
+  { keyword: "UAV LiDAR and SLAM mapping", trend: "Reality capture", heat: "89" },
+  { keyword: "USV bathymetric survey", trend: "Hydrographic", heat: "84" },
+  { keyword: "Machine control GNSS", trend: "Construction", heat: "81" },
+  { keyword: "Precision agriculture auto steering", trend: "Agriculture", heat: "78" }
+];
+
 const fallbackHero = {
   label: "News",
   title: "GNSS and Geospatial Industry Updates",
@@ -49,6 +58,33 @@ export default function NewsPage() {
           <h1>{String(hero.title)}</h1>
           <p>{String(hero.subtitle)}</p>
         </div>
+        <aside className="news-hot-panel" aria-label="Industry trending searches">
+          <div className="news-hot-panel-head">
+            <span><Flame size={18} /> Industry Hot Searches</span>
+            <strong>业内资讯热搜榜</strong>
+          </div>
+          <div className="news-hot-list">
+            {hotSearches.map((item, index) => (
+              <a
+                href={`https://news.google.com/search?q=${encodeURIComponent(item.keyword)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={item.keyword}
+              >
+                <em>{String(index + 1).padStart(2, "0")}</em>
+                <span>
+                  <strong>{item.keyword}</strong>
+                  <small>{item.trend}</small>
+                </span>
+                <b>{item.heat}</b>
+              </a>
+            ))}
+          </div>
+          <div className="news-hot-foot">
+            <TrendingUp size={17} />
+            <span>Focused on surveying, GNSS, GIS, SLAM, USV and machine-control buyer topics.</span>
+          </div>
+        </aside>
       </section>
       <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
       <section className="blog-index section">

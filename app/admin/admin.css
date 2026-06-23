@@ -341,6 +341,29 @@
   align-items: center;
 }
 
+.admin-spec-list {
+  display: grid;
+  gap: 10px;
+}
+
+.admin-spec-row {
+  display: grid;
+  grid-template-columns: minmax(180px, .7fr) minmax(220px, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+  padding: 10px;
+  border: 1px solid #d7e5f7;
+  border-radius: 14px;
+  background: #f8fbff;
+}
+
+.admin-inline-tools {
+  display: grid;
+  grid-template-columns: minmax(180px, .8fr) minmax(180px, 1fr) auto;
+  gap: 10px;
+  align-items: start;
+}
+
 .admin-media-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
@@ -380,7 +403,9 @@
   .admin-grid,
   .admin-stats-grid,
   .admin-editor,
-  .admin-field-grid {
+  .admin-field-grid,
+  .admin-spec-row,
+  .admin-inline-tools {
     grid-template-columns: 1fr;
   }
 }

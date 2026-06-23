@@ -1634,65 +1634,6 @@ export function getProductDatasheet(product: Product) {
   return modelDatasheets[product.slug];
 }
 
-export function getProductQuickSpecs(product: Product): ProductSpec[] {
-  if (product.source === "CMS" && product.specs.length > 0) {
-    return product.specs.slice(0, 4);
-  }
-
-  if (product.slug === "marking-robot") {
-    return [
-      { label: "Marking accuracy", value: "+/-1.5cm" },
-      { label: "Speed", value: "Up to 1m/s" },
-      { label: "Drawing width", value: "5cm-15cm adjustable nozzle" },
-      { label: "Endurance", value: "Up to 30km" }
-    ];
-  }
-  if (product.slug === "tboat-usv-series") {
-    return [
-      { label: "Models", value: "Tboat10 / Tboat20" },
-      { label: "Payload", value: "35kg / 50kg" },
-      { label: "RTK accuracy", value: "H +/-8mm + 1ppm, V +/-15mm + 1ppm" },
-      { label: "Endurance", value: "Up to 7 hours at 1.5m/s" }
-    ];
-  }
-  if (product.slug === "tsr20-slam") {
-    return [
-      { label: "Mapping mode", value: "SLAM / RTK-SLAM / PPK-SLAM" },
-      { label: "Accuracy", value: "≤3cm relative, ≤5cm absolute" },
-      { label: "Scan rate", value: "200,000 points/sec" },
-      { label: "Weight", value: "1.0kg including battery" }
-    ];
-  }
-
-  const specs = getProductSpecGroups(product).flatMap((group) => group.specs);
-  const preferredLabels = [
-    "Channels",
-    "Channels / output",
-    "Update frequency",
-    "RTK accuracy",
-    "Tilt correction",
-    "Radio power",
-    "Radio",
-    "Battery",
-    "Work time",
-    "Protection",
-    "Dimensions / weight"
-  ];
-  const picked: ProductSpec[] = [];
-  for (const label of preferredLabels) {
-    const spec = specs.find((item) => item.label === label);
-    if (spec) picked.push(spec);
-    if (picked.length >= 4) break;
-  }
-
-  if (picked.length >= 3) return picked;
-
-  return product.highlights.slice(0, 4).map((highlight) => ({
-    label: highlight,
-    value: product.type
-  }));
-}
-
 export function getProductGallery(product: Product) {
   return product.gallery ?? [product.image];
 }
