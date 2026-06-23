@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T01:39:33.688Z",
+  "updatedAt": "2026-06-23T01:39:50.882Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -109,26 +109,26 @@
   "products": [
     {
       "id": "product_049d3b69-c1c3-4f93-b3ce-2f7cbe38edae",
-      "slug": "t5lite",
       "name": "T5Lite GNSS Receiver",
+      "slug": "t5lite",
+      "summary": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
+      "description": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
+      "price": "",
+      "image": "/uploads/2026/06/dsc-13781-1782178763092.png",
+      "gallery": [
+        "/assets/products/t5.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Entry RTK receiver"
       ],
-      "image": "/assets/products/t5.webp",
-      "summary": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
-      "description": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t5.webp"
-      ],
       "specs": [],
-      "status": "draft",
+      "status": "published",
       "featured": false,
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T01:39:50.882Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
