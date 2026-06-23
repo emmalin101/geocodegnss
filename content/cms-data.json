@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T01:39:50.882Z",
+  "updatedAt": "2026-06-23T01:44:34.687Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -983,6 +983,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_f9d0453d-2fb2-4c86-b056-ce9c70cf63f5",
+      "url": "/uploads/2026/06/snipaste-2025-08-08-09-49-56-1782179073624.jpg",
+      "filename": "snipaste-2025-08-08-09-49-56-1782179073624.jpg",
+      "mimeType": "image/jpeg",
+      "size": 179052,
+      "alt": "",
+      "createdAt": "2026-06-23T01:44:34.594Z",
+      "updatedAt": "2026-06-23T01:44:34.594Z"
+    },
     {
       "id": "media_e9d03d2f-1123-47dc-88d9-8d3146dd1d6b",
       "url": "/uploads/2026/06/dsc-13781-1782178763092.png",
