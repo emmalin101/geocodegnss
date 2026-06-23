@@ -34,6 +34,12 @@
   margin-bottom: 28px;
 }
 
+.admin-login-language {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 18px;
+}
+
 .admin-login-card h1,
 .admin-page-title h1,
 .admin-card h2 {
@@ -166,6 +172,48 @@
 
 .admin-sidebar small {
   color: rgba(255, 255, 255, 0.72);
+}
+
+.admin-language-switcher {
+  display: grid;
+  gap: 7px;
+  color: inherit;
+  font-weight: 800;
+}
+
+.admin-language-switcher span {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+}
+
+.admin-login-card .admin-language-switcher span {
+  color: #607089;
+}
+
+.admin-language-switcher select {
+  width: 100%;
+  min-height: 42px;
+  border: 1px solid rgba(255, 255, 255, .24);
+  border-radius: 12px;
+  padding: 0 12px;
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  font: inherit;
+  font-weight: 800;
+  outline: none;
+}
+
+.admin-login-card .admin-language-switcher select {
+  min-width: 170px;
+  border-color: #c8d9f0;
+  background: #fff;
+  color: #202a98;
+}
+
+.admin-language-switcher select:focus {
+  box-shadow: 0 0 0 3px rgba(146, 213, 255, .34);
 }
 
 .admin-nav {

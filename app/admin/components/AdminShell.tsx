@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import type React from "react";
+import AdminLanguageSwitcher from "./AdminLanguageSwitcher";
 
 const navItems = [
   ["Dashboard", "/admin/dashboard"],
@@ -31,6 +32,7 @@ export default function AdminShell({ children, email }: { children: React.ReactN
             <img src="/assets/toknav-logo-white.png" alt="TOKNAV" />
             <small>CMS / SEO Admin</small>
           </div>
+          <AdminLanguageSwitcher />
           <nav className="admin-nav" aria-label="Admin navigation">
             {navItems.map(([label, href]) => (
               <Link className={pathname === href || pathname.startsWith(`${href}/`) ? "active" : ""} href={href} key={href}>

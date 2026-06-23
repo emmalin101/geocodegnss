@@ -3,6 +3,7 @@
 import type React from "react";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import AdminLanguageSwitcher from "../components/AdminLanguageSwitcher";
 
 export default function AdminLoginPage() {
   const router = useRouter();
@@ -43,6 +44,9 @@ export default function AdminLoginPage() {
   return (
     <main className="admin-body admin-login-page">
       <form className="admin-login-card admin-form" onSubmit={submit}>
+        <div className="admin-login-language">
+          <AdminLanguageSwitcher />
+        </div>
         <img src="/assets/toknav-logo-blue.png" alt="TOKNAV" />
         <div>
           <h1>{hasAdmin ? "Admin Login" : "Initialize Admin"}</h1>
