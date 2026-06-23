@@ -13,6 +13,7 @@ import {
   UsersRound,
   Waves
 } from "lucide-react";
+import type { CSSProperties, ElementType } from "react";
 import InquiryForm from "./components/InquiryForm";
 import SiteHeader from "./components/SiteHeader";
 import { resolveDownloadHref } from "./lib/assetUrls";
@@ -20,9 +21,9 @@ import { getBlockData, getCmsSettings, getPublishedCmsPageByPath } from "./lib/c
 import { productCategories } from "./lib/products";
 
 const heroProducts = [
-  { name: "T50Pro", href: "/products/gnss-receivers/t50pro", image: "/assets/products/t50pro.webp" },
-  { name: "TR10Pro", href: "/products/gnss-application-solutions/marking-robot", image: "/assets/products/tr10pro-marking-robot-front.png" },
-  { name: "U6", href: "/products/gnss-application-solutions/deformation-monitoring", image: "/assets/products/u6.webp" }
+  { title: "T50Pro", href: "/products/gnss-receivers/t50pro", image: "/assets/products/t50pro.webp" },
+  { title: "TR10Pro", href: "/products/gnss-application-solutions/marking-robot", image: "/assets/products/tr10pro-marking-robot-front.png" },
+  { title: "U6", href: "/products/gnss-application-solutions/deformation-monitoring", image: "/assets/products/u6.webp" }
 ];
 
 const whyItems = [
@@ -33,19 +34,19 @@ const whyItems = [
 ];
 
 const applications = [
-  { title: "Land Surveying & Mapping", href: "/products/gnss-receivers", image: "/assets/home-app-survey.jpg", icon: MapPinned },
-  { title: "Construction & Engineering", href: "/products/gnss-receivers", image: "/assets/home-app-construction.jpg", icon: Construction },
-  { title: "Precision Agriculture", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-agriculture.jpg", icon: Sprout },
-  { title: "Machine Control", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-machine.jpg", icon: Waves },
-  { title: "Monitoring & Deformation", href: "/products/gnss-application-solutions", image: "/assets/home-app-monitoring.jpg", icon: Headset },
-  { title: "GIS Data Collection", href: "/products/rugged-gis", image: "/assets/home-app-gis.jpg", icon: Layers3 }
+  { title: "Land Surveying & Mapping", href: "/products/gnss-receivers", image: "/assets/home-app-survey.jpg", icon: "survey" },
+  { title: "Construction & Engineering", href: "/products/gnss-receivers", image: "/assets/home-app-construction.jpg", icon: "construction" },
+  { title: "Precision Agriculture", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-agriculture.jpg", icon: "agriculture" },
+  { title: "Machine Control", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-machine.jpg", icon: "machine" },
+  { title: "Monitoring & Deformation", href: "/products/gnss-application-solutions", image: "/assets/home-app-monitoring.jpg", icon: "monitoring" },
+  { title: "GIS Data Collection", href: "/products/rugged-gis", image: "/assets/home-app-gis.jpg", icon: "gis" }
 ];
 
 const trustedMetrics = [
-  { value: "100+", label: "Countries & Regions", icon: Globe2 },
-  { value: "15+", label: "Years of Innovation", icon: Building2 },
-  { value: "60%+", label: "R&D Engineers", icon: UsersRound },
-  { value: "24/7", label: "Global Support", icon: Headset }
+  { value: "100+", label: "Countries & Regions", icon: "global" },
+  { value: "15+", label: "Years of Innovation", icon: "building" },
+  { value: "60%+", label: "R&D Engineers", icon: "team" },
+  { value: "24/7", label: "Global Support", icon: "support" }
 ];
 
 const homeFaqs = [
@@ -86,6 +87,65 @@ const fallbackCta = {
   secondaryButtonLink: "/assets/downloads/catalogs/gnss-receiver.pdf"
 };
 
+const fallbackCategories = productCategories.map((category) => ({
+  title: category.name,
+  href: `/products/${category.slug}`,
+  image: category.image
+}));
+
+const fallbackTrusted = {
+  title: "Trusted by Professionals Around the World",
+  description: "TOKNAV products are widely used in more than 100 countries and regions, helping clients improve efficiency and accuracy in every project.",
+  buttonText: "Learn More About Us",
+  buttonLink: "/about",
+  backgroundImage: "/assets/customer-visit.jpg",
+  metrics: trustedMetrics
+};
+
+const applicationIconMap: Record<string, ElementType> = {
+  survey: MapPinned,
+  construction: Construction,
+  agriculture: Sprout,
+  machine: Waves,
+  monitoring: Headset,
+  gis: Layers3
+};
+
+const metricIconMap: Record<string, ElementType> = {
+  global: Globe2,
+  building: Building2,
+  team: UsersRound,
+  support: Headset
+};
+
+type HomeImageItem = {
+  title?: string;
+  href?: string;
+  image?: string;
+  icon?: string;
+  value?: string;
+  label?: string;
+};
+
+function normalizeItems(value: unknown, fallback: HomeImageItem[]) {
+  if (!Array.isArray(value)) return fallback;
+  const items = value
+    .map((item) => {
+      if (!item || typeof item !== "object") return null;
+      const record = item as Record<string, unknown>;
+      const title = String(record.title || record.name || record.label || "").trim();
+      const href = String(record.href || record.link || "").trim();
+      const image = String(record.image || "").trim();
+      const icon = String(record.icon || "").trim();
+      const value = String(record.value || "").trim();
+      const label = String(record.label || title).trim();
+      if (!title && !label && !value) return null;
+      return { title, href, image, icon, value, label };
+    })
+    .filter(Boolean) as HomeImageItem[];
+  return items.length ? items : fallback;
+}
+
 function HomeSectionTitle({ title, text }: { title: string; text?: string }) {
   return (
     <div className="home-section-title compact">
@@ -99,9 +159,19 @@ export default function Home() {
   const cmsPage = getPublishedCmsPageByPath("/");
   const hero = getBlockData(cmsPage, "hero", fallbackHero, "home-hero");
   const cta = getBlockData(cmsPage, "cta", fallbackCta, "home-cta");
-  const heroImage = String(hero.backgroundImage).includes("gnss-receiver-homepage-banner-original")
-    ? "/assets/home-app-construction.jpg"
-    : String(hero.backgroundImage);
+  const categoryBlock = getBlockData(cmsPage, "custom", { items: fallbackCategories }, "home-product-categories");
+  const heroProductBlock = getBlockData(cmsPage, "custom", { items: heroProducts }, "home-hero-products");
+  const applicationBlock = getBlockData(cmsPage, "custom", { items: applications }, "home-applications");
+  const trusted = getBlockData(cmsPage, "custom", fallbackTrusted, "home-trusted-band");
+  const heroImage = String(hero.backgroundImage || fallbackHero.backgroundImage);
+  const categoryItems = normalizeItems(categoryBlock.items, fallbackCategories);
+  const heroProductItems = normalizeItems(heroProductBlock.items, heroProducts).slice(0, 3);
+  const applicationItems = normalizeItems(applicationBlock.items, applications);
+  const trustedMetricsItems = normalizeItems(trusted.metrics, trustedMetrics as HomeImageItem[]);
+  const trustedBackground = String(trusted.backgroundImage || fallbackTrusted.backgroundImage);
+  const trustedStyle = {
+    background: `linear-gradient(90deg, rgba(6,29,74,.94), rgba(7,43,105,.82)), url("${trustedBackground}") center / cover no-repeat`
+  } as CSSProperties;
 
   return (
     <main className="home-page">
@@ -129,10 +199,10 @@ export default function Home() {
         <div className="home-hero-stage">
           <img className="home-hero-banner-clean" src={heroImage} alt="TOKNAV GNSS receiver product banner" />
           <div className="home-hero-product-row simple">
-            {heroProducts.map((item) => (
-              <a href={item.href} key={item.name}>
-                <img src={item.image} alt={item.name} />
-                <span>{item.name}</span>
+            {heroProductItems.map((item) => (
+              <a href={item.href || "#products"} key={item.title || item.image}>
+                <img src={item.image} alt={item.title || "TOKNAV product"} />
+                <span>{item.title}</span>
               </a>
             ))}
           </div>
@@ -142,10 +212,10 @@ export default function Home() {
       <section className="home-section home-products compact" id="products">
         <HomeSectionTitle title="Our Product Categories" text="Professional GNSS and positioning solutions for diverse industries and applications." />
         <div className="home-category-grid compact">
-          {productCategories.map((category) => (
-            <a href={`/products/${category.slug}`} className="home-category-card compact" key={category.slug}>
-              <img src={category.image} alt={category.name} />
-              <h3>{category.name}</h3>
+          {categoryItems.map((category) => (
+            <a href={category.href || "/products"} className="home-category-card compact" key={category.title || category.href}>
+              <img src={category.image} alt={category.title || "TOKNAV product category"} />
+              <h3>{category.title}</h3>
               <strong>View More <ChevronRight size={15} /></strong>
             </a>
           ))}
@@ -171,11 +241,11 @@ export default function Home() {
       <section className="home-applications" id="solutions">
         <HomeSectionTitle title="Applications" text="High-precision positioning empowers a wide range of industries." />
         <div className="home-application-strip">
-          {applications.map((item) => {
-            const Icon = item.icon;
+          {applicationItems.map((item) => {
+            const Icon = applicationIconMap[item.icon || ""] || MapPinned;
             return (
-              <a href={item.href} key={item.title}>
-                <img src={item.image} alt={item.title} />
+              <a href={item.href || "/products"} key={item.title || item.href}>
+                <img src={item.image} alt={item.title || "TOKNAV application"} />
                 <span>
                   <Icon size={42} strokeWidth={1.7} />
                   <strong>{item.title}</strong>
@@ -186,17 +256,17 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="home-trusted-band" id="about">
+      <section className="home-trusted-band" id="about" style={trustedStyle}>
         <div>
-          <h2>Trusted by Professionals Around the World</h2>
-          <p>TOKNAV products are widely used in more than 100 countries and regions, helping clients improve efficiency and accuracy in every project.</p>
-          <a href="/about">Learn More About Us</a>
+          <h2>{String(trusted.title)}</h2>
+          <p>{String(trusted.description)}</p>
+          <a href={String(trusted.buttonLink)}>{String(trusted.buttonText)}</a>
         </div>
         <div className="home-trusted-metrics">
-          {trustedMetrics.map((item) => {
-            const Icon = item.icon;
+          {trustedMetricsItems.map((item) => {
+            const Icon = metricIconMap[item.icon || ""] || Globe2;
             return (
-              <strong key={item.label}>
+              <strong key={`${item.value}-${item.label}`}>
                 <Icon size={48} strokeWidth={1.6} />
                 {item.value}
                 <span>{item.label}</span>

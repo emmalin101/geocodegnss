@@ -9,7 +9,7 @@
       "path": "/",
       "seoTitle": "TOKNAV | GNSS Receivers & RTK Solutions Manufacturer",
       "seoDescription": "TOKNAV manufactures GNSS receivers, RTK systems, antennas, CORS/VRS solutions, precision agriculture and machine control products for global B2B buyers.",
-      "ogImage": "/assets/gnss-receiver-homepage-banner-original.png",
+      "ogImage": "/assets/home-app-construction.jpg",
       "status": "published",
       "blocks": [
         {
@@ -23,7 +23,7 @@
             "buttonLink": "/inquiry",
             "secondaryButtonText": "Explore Products",
             "secondaryButtonLink": "/products",
-            "backgroundImage": "/assets/gnss-receiver-homepage-banner-original.png"
+            "backgroundImage": "/assets/home-app-construction.jpg"
           }
         },
         {
@@ -38,10 +38,152 @@
             "secondaryButtonText": "Download Catalog",
             "secondaryButtonLink": "/assets/downloads/catalogs/gnss-receiver.pdf"
           }
+        },
+        {
+          "id": "block_76f014d4-b6a1-4ba4-937c-a2d3bbaa880b",
+          "type": "custom",
+          "title": "home-hero-products",
+          "data": {
+            "items": [
+              {
+                "title": "T50Pro",
+                "href": "/products/gnss-receivers/t50pro",
+                "image": "/assets/products/t50pro.webp"
+              },
+              {
+                "title": "TR10Pro",
+                "href": "/products/gnss-application-solutions/marking-robot",
+                "image": "/assets/products/tr10pro-marking-robot-front.png"
+              },
+              {
+                "title": "U6",
+                "href": "/products/gnss-application-solutions/deformation-monitoring",
+                "image": "/assets/products/u6.webp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "block_feddc36a-2229-459e-ae42-b7055ce81a8c",
+          "type": "custom",
+          "title": "home-product-categories",
+          "data": {
+            "items": [
+              {
+                "title": "GNSS Receiver",
+                "href": "/products/gnss-receivers",
+                "image": "/assets/products/gnss-receiver-series-combo.webp"
+              },
+              {
+                "title": "Rugged & GIS",
+                "href": "/products/rugged-gis",
+                "image": "/assets/products/pcr500.webp"
+              },
+              {
+                "title": "GNSS Antenna",
+                "href": "/products/gnss-antennas",
+                "image": "/assets/products/tca930.webp"
+              },
+              {
+                "title": "Precision Agriculture",
+                "href": "/products/precision-agriculture-machine-control",
+                "image": "/assets/products/tag66.webp"
+              },
+              {
+                "title": "Machine Control",
+                "href": "/products/precision-agriculture-machine-control",
+                "image": "/assets/products/tbase.webp"
+              },
+              {
+                "title": "VRS Solution",
+                "href": "/products/gnss-application-solutions",
+                "image": "/assets/products/tboat20.webp"
+              }
+            ]
+          }
+        },
+        {
+          "id": "block_0a8a0642-4c95-4b92-94f9-474a6bfcdc66",
+          "type": "custom",
+          "title": "home-applications",
+          "data": {
+            "items": [
+              {
+                "title": "Land Surveying & Mapping",
+                "href": "/products/gnss-receivers",
+                "image": "/assets/home-app-survey.jpg",
+                "icon": "survey"
+              },
+              {
+                "title": "Construction & Engineering",
+                "href": "/products/gnss-receivers",
+                "image": "/assets/home-app-construction.jpg",
+                "icon": "construction"
+              },
+              {
+                "title": "Precision Agriculture",
+                "href": "/products/precision-agriculture-machine-control",
+                "image": "/assets/home-app-agriculture.jpg",
+                "icon": "agriculture"
+              },
+              {
+                "title": "Machine Control",
+                "href": "/products/precision-agriculture-machine-control",
+                "image": "/assets/home-app-machine.jpg",
+                "icon": "machine"
+              },
+              {
+                "title": "Monitoring & Deformation",
+                "href": "/products/gnss-application-solutions",
+                "image": "/assets/home-app-monitoring.jpg",
+                "icon": "monitoring"
+              },
+              {
+                "title": "GIS Data Collection",
+                "href": "/products/rugged-gis",
+                "image": "/assets/home-app-gis.jpg",
+                "icon": "gis"
+              }
+            ]
+          }
+        },
+        {
+          "id": "block_ee3bdd8b-f5b9-4bd6-bee4-586012e208dd",
+          "type": "custom",
+          "title": "home-trusted-band",
+          "data": {
+            "title": "Trusted by Professionals Around the World",
+            "description": "TOKNAV products are widely used in more than 100 countries and regions, helping clients improve efficiency and accuracy in every project.",
+            "buttonText": "Learn More About Us",
+            "buttonLink": "/about",
+            "backgroundImage": "/assets/customer-visit.jpg",
+            "metrics": [
+              {
+                "value": "100+",
+                "label": "Countries & Regions",
+                "icon": "global"
+              },
+              {
+                "value": "15+",
+                "label": "Years of Innovation",
+                "icon": "building"
+              },
+              {
+                "value": "60%+",
+                "label": "R&D Engineers",
+                "icon": "team"
+              },
+              {
+                "value": "24/7",
+                "label": "Global Support",
+                "icon": "support"
+              }
+            ]
+          }
         }
       ],
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
+      "updatedAt": "2026-06-23T03:35:36.567Z"
     },
     {
       "id": "page_18df0e74-0f5c-40b3-a71e-e79e075df349",

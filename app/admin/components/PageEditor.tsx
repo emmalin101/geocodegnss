@@ -45,6 +45,29 @@ function updateBlockData(block: CmsBlock, key: string, value: unknown): CmsBlock
   return { ...block, data: { ...block.data, [key]: value } };
 }
 
+function rowsFromItems(value: unknown, columns: string[]) {
+  if (!Array.isArray(value)) return "";
+  return value
+    .map((item) => {
+      const record = item && typeof item === "object" ? (item as Record<string, unknown>) : {};
+      return columns.map((column) => String(record[column] || "")).join(" | ");
+    })
+    .join("\n");
+}
+
+function itemsFromRows(value: string, columns: string[]) {
+  return value
+    .split("\n")
+    .map((row) => row.split("|").map((cell) => cell.trim()))
+    .map((cells) =>
+      columns.reduce<Record<string, string>>((item, column, index) => {
+        item[column] = cells[index] || "";
+        return item;
+      }, {})
+    )
+    .filter((item) => Object.values(item).some(Boolean));
+}
+
 function MediaSelect({ value, media, onChange }: { value: string; media: CmsMediaItem[]; onChange: (value: string) => void }) {
   return (
     <select className="admin-select" value={value} onChange={(event) => onChange(event.target.value)}>
@@ -150,6 +173,70 @@ function BlockFields({
           }
         />
       </label>
+    );
+  }
+
+  if (block.type === "custom" && block.title === "home-hero-products") {
+    return (
+      <label className="admin-field">
+        <span>Hero product thumbnails, one row per line: Title | Link | Image URL</span>
+        <textarea
+          className="admin-textarea"
+          value={rowsFromItems(block.data.items, ["title", "href", "image"])}
+          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image"])))}
+        />
+      </label>
+    );
+  }
+
+  if (block.type === "custom" && block.title === "home-product-categories") {
+    return (
+      <label className="admin-field">
+        <span>Homepage product category cards, one row per line: Title | Link | Image URL</span>
+        <textarea
+          className="admin-textarea"
+          value={rowsFromItems(block.data.items, ["title", "href", "image"])}
+          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image"])))}
+        />
+      </label>
+    );
+  }
+
+  if (block.type === "custom" && block.title === "home-applications") {
+    return (
+      <label className="admin-field">
+        <span>Application image strip, one row per line: Title | Link | Image URL | Icon key</span>
+        <textarea
+          className="admin-textarea"
+          value={rowsFromItems(block.data.items, ["title", "href", "image", "icon"])}
+          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image", "icon"])))}
+        />
+        <small className="admin-muted">Icon keys: survey, construction, agriculture, machine, monitoring, gis.</small>
+      </label>
+    );
+  }
+
+  if (block.type === "custom" && block.title === "home-trusted-band") {
+    const metrics = rowsFromItems(block.data.metrics, ["value", "label", "icon"]);
+    return (
+      <>
+        {["title", "description", "buttonText", "buttonLink", "backgroundImage"].map((key) => (
+          <label className="admin-field" key={key}>
+            <span>{key}</span>
+            <input className="admin-input" value={getValue(block, key)} onChange={(event) => onChange(updateBlockData(block, key, event.target.value))} />
+            {key === "backgroundImage" ? <MediaSelect value={getValue(block, key)} media={media} onChange={(value) => onChange(updateBlockData(block, key, value))} /> : null}
+          </label>
+        ))}
+        <label className="admin-field">
+          <span>Metrics, one row per line: Value | Label | Icon key</span>
+          <textarea
+            className="admin-textarea"
+            value={metrics}
+            onChange={(event) => onChange(updateBlockData(block, "metrics", itemsFromRows(event.target.value, ["value", "label", "icon"])))}
+          />
+          <small className="admin-muted">Icon keys: global, building, team, support.</small>
+        </label>
+      </>
     );
   }
 
