@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T03:32:46.822Z",
+  "updatedAt": "2026-06-23T03:36:03.472Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -305,33 +305,6 @@
             "title": "GNSS Auto-Steering, Land Leveling and Machine Control Systems",
             "subtitle": "Precision agriculture and machine-control systems for tractors, land leveling, dozer guidance and excavator guidance.",
             "backgroundImage": "/assets/products/tag66.webp",
-            "buttonText": "Get a Quote",
-            "buttonLink": "/inquiry"
-          }
-        }
-      ],
-      "createdAt": "2026-06-23T02:19:53.189Z",
-      "updatedAt": "2026-06-23T02:19:53.189Z"
-    },
-    {
-      "id": "page_14b99973-9c18-4462-8efc-eec1626f1aee",
-      "title": "Accessories",
-      "slug": "products-accessories",
-      "path": "/products/accessories",
-      "seoTitle": "Accessories | TOKNAV Product Category",
-      "seoDescription": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
-      "ogImage": "/assets/products/tbase.webp",
-      "status": "published",
-      "blocks": [
-        {
-          "id": "block_54067439-7956-4a81-8ea9-86c695a85ee4",
-          "type": "hero",
-          "title": "page-hero",
-          "data": {
-            "label": "Power / Antenna / Cables / Cases",
-            "title": "GNSS Accessories for RTK Receiver Kits and Base Stations",
-            "subtitle": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
-            "backgroundImage": "/assets/products/tbase.webp",
             "buttonText": "Get a Quote",
             "buttonLink": "/inquiry"
           }
