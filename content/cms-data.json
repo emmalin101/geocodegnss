@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T01:39:24.649Z",
+  "updatedAt": "2026-06-23T01:39:28.814Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -992,16 +992,6 @@
       "alt": "Toknav T5 GNSS Receiver",
       "createdAt": "2026-06-23T01:39:24.538Z",
       "updatedAt": "2026-06-23T01:39:24.538Z"
-    },
-    {
-      "id": "media_8495431b-ec9b-4e54-99ac-bf4c96336278",
-      "url": "/uploads/2026/06/dsc-13781-1782178761167.png",
-      "filename": "dsc-13781-1782178761167.png",
-      "mimeType": "image/png",
-      "size": 1830506,
-      "alt": "Toknav T5 GNSS Receiver",
-      "createdAt": "2026-06-23T01:39:22.527Z",
-      "updatedAt": "2026-06-23T01:39:22.527Z"
     },
     {
       "id": "media_6787ab95-a9b3-4649-ae3d-fd71004b95f3",
