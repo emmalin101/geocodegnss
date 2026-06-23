@@ -1,12 +1,68 @@
 import { ArrowRight, Boxes, ChevronDown } from "lucide-react";
 import LanguageSwitcher from "./LanguageSwitcher";
-import { productCategories } from "../lib/products";
+import SiteSearch, { type SearchItem } from "./SiteSearch";
+import { productCategories, products } from "../lib/products";
+
+const staticSearchItems: SearchItem[] = [
+  {
+    title: "Home",
+    url: "/",
+    category: "Page",
+    text: "High-precision GNSS receivers and RTK solutions manufacturer."
+  },
+  {
+    title: "About TOKNAV",
+    url: "/about",
+    category: "Page",
+    text: "Company video, product timeline, customer feedback and certificates."
+  },
+  {
+    title: "Blog",
+    url: "/blog",
+    category: "Resources",
+    text: "SEO articles and buying guides for GNSS, RTK and machine control."
+  },
+  {
+    title: "News",
+    url: "/news",
+    category: "Resources",
+    text: "Surveying, GNSS, robotics and mapping industry updates."
+  },
+  {
+    title: "Contact TOKNAV",
+    url: "/contact",
+    category: "Contact",
+    text: "Company address, map and inquiry options."
+  },
+  {
+    title: "Get a Quote",
+    url: "/inquiry",
+    category: "Inquiry",
+    text: "Send project requirements and product inquiry details."
+  }
+];
 
 export default function SiteHeader() {
+  const searchItems: SearchItem[] = [
+    ...staticSearchItems,
+    ...productCategories.map((category) => ({
+      title: category.name,
+      url: `/products/${category.slug}`,
+      category: "Product Category",
+      text: category.buyerIntent
+    })),
+    ...products.map((product) => ({
+      title: product.name,
+      url: `/products/${product.categorySlug}/${product.slug}`,
+      category: "Product",
+      text: product.excerpt
+    }))
+  ];
+
   return (
     <header className="site-header">
       <a className="brand" href="/">
-        <img src="/assets/toknav-logo-blue.png" alt="TOKNAV" />
+        <img src="/assets/toknav-logo-white.png" alt="TOKNAV" />
       </a>
       <nav className="main-nav" aria-label="Primary navigation">
         <details className="mega-nav-item">
@@ -55,6 +111,7 @@ export default function SiteHeader() {
         <a href="/news" data-i18n="nav.news">News</a>
         <a href="/contact" data-i18n="nav.contact">Contact</a>
       </nav>
+      <SiteSearch items={searchItems} />
       <LanguageSwitcher />
       <a className="header-cta" href="/inquiry">
         <span data-i18n="cta.getQuote">Get a Quote</span> <ArrowRight size={16} />

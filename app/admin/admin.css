@@ -231,6 +231,21 @@
   padding: 22px;
 }
 
+.admin-card-button {
+  display: grid;
+  gap: 8px;
+  width: 100%;
+  border: 1px solid #cfe0f7;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.admin-card-button:disabled {
+  cursor: progress;
+  opacity: .72;
+}
+
 .admin-stat strong {
   display: block;
   font-size: 34px;
@@ -298,6 +313,25 @@
   background: #f8fbff;
   display: grid;
   gap: 12px;
+}
+
+.admin-help-card {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border: 1px solid #cfe0f7;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f7fbff, #eef5ff);
+}
+
+.admin-help-card strong {
+  color: #202a98;
+}
+
+.admin-help-card p {
+  margin: 0;
+  color: #607089;
+  line-height: 1.55;
 }
 
 .admin-block-top {

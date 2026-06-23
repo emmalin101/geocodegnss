@@ -12,11 +12,20 @@ import {
   ShieldCheck,
   Store
 } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
 
 const mapSrc =
   "https://www.openstreetmap.org/export/embed.html?bbox=113.4245982%2C23.1616848%2C113.4345982%2C23.1676848&layer=mapnik&marker=23.1646848%2C113.4295982";
 const inquiryFormAction = "https://formsubmit.co/emma@toknav.cn";
+
+const fallbackHero = {
+  label: "Contact TOKNAV",
+  title: "How Can We Help?",
+  subtitle:
+    "Reach TOKNAV for GNSS product quotation, distributor cooperation, OEM/ODM projects and technical solution support."
+};
 
 const contactEntries = [
   {
@@ -46,17 +55,17 @@ const contactEntries = [
 ];
 
 export default function ContactPage() {
+  const cmsPage = getPublishedCmsPageByPath("/contact");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+
   return (
     <main>
       <SiteHeader />
 
       <section className="contact-hero">
-        <span className="contact-label">Contact TOKNAV</span>
-        <h1>How Can We Help?</h1>
-        <p>
-          Reach TOKNAV for GNSS product quotation, distributor cooperation,
-          OEM/ODM projects and technical solution support.
-        </p>
+        <span className="contact-label">{String(hero.label)}</span>
+        <h1>{String(hero.title)}</h1>
+        <p>{String(hero.subtitle)}</p>
         <div className="contact-quick-grid" aria-label="TOKNAV contact options">
           {contactEntries.map((item) => {
             const Icon = item.icon;
@@ -70,6 +79,7 @@ export default function ContactPage() {
           })}
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
       <section className="contact-section" id="locations">
         <div className="contact-info-panel">
@@ -242,4 +252,15 @@ export default function ContactPage() {
 
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/contact");
+  return {
+    title: cmsPage?.seoTitle || "Contact TOKNAV | GNSS Receiver Quote and Dealer Cooperation",
+    description:
+      cmsPage?.seoDescription ||
+      "Contact TOKNAV for GNSS receiver quotation, distributor cooperation, OEM/ODM projects and technical solution support.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

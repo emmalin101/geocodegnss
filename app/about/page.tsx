@@ -1,5 +1,7 @@
 import { ArrowRight, BadgeCheck, CalendarDays, Globe2, ShieldCheck, UsersRound } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
 
 const youtubeUploadsEmbed = "https://www.youtube.com/embed/videoseries?list=UU7YvmJlQYioSnNjsoxlBPxQ";
 
@@ -56,26 +58,26 @@ const certificates = [
   ["/assets/about/cert-iso9001.webp", "ISO9001 company certificate"]
 ];
 
-export const metadata = {
-  title: "About TOKNAV | GNSS Receiver Manufacturer, Certifications and Global Customers",
-  description:
-    "Learn about TOKNAV's GNSS product history, latest company video, overseas customer feedback and certification portfolio including CE, FCC, IGS, NGS, KC and ISO9001."
+const fallbackHero = {
+  label: "About TOKNAV",
+  title: "High-Precision GNSS Innovation Built for Global B2B Projects",
+  subtitle:
+    "TOKNAV develops GNSS receivers, CORS/VRS systems, rugged controllers, precision agriculture products and application solutions for surveying, construction, machine control and monitoring customers worldwide."
 };
 
 export default function AboutPage() {
+  const cmsPage = getPublishedCmsPageByPath("/about");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+
   return (
     <main>
       <SiteHeader />
 
       <section className="about-hero">
         <div className="about-hero-copy">
-          <span className="contact-label">About TOKNAV</span>
-          <h1>High-Precision GNSS Innovation Built for Global B2B Projects</h1>
-          <p>
-            TOKNAV develops GNSS receivers, CORS/VRS systems, rugged controllers,
-            precision agriculture products and application solutions for surveying,
-            construction, machine control and monitoring customers worldwide.
-          </p>
+          <span className="contact-label">{String(hero.label)}</span>
+          <h1>{String(hero.title)}</h1>
+          <p>{String(hero.subtitle)}</p>
           <div className="about-hero-actions">
             <a className="primary-button" href="/inquiry">
               Send Requirements <ArrowRight size={18} />
@@ -104,6 +106,7 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
       <section className="about-section">
         <div className="about-section-heading">
@@ -186,4 +189,15 @@ export default function AboutPage() {
       </section>
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/about");
+  return {
+    title: cmsPage?.seoTitle || "About TOKNAV | GNSS Receiver Manufacturer, Certifications and Global Customers",
+    description:
+      cmsPage?.seoDescription ||
+      "Learn about TOKNAV's GNSS product history, latest company video, overseas customer feedback and certification portfolio including CE, FCC, IGS, NGS, KC and ISO9001.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

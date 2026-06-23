@@ -22,6 +22,8 @@ async function loadResource<T>(url: string) {
 export default function AdminDashboard() {
   const [data, setData] = useState<Counts>(empty);
   const [error, setError] = useState("");
+  const [syncMessage, setSyncMessage] = useState("");
+  const [syncing, setSyncing] = useState(false);
 
   useEffect(() => {
     Promise.all([
@@ -41,6 +43,29 @@ export default function AdminDashboard() {
     ["Media", data.media.length]
   ];
 
+  async function syncCurrentWebsite() {
+    setError("");
+    setSyncMessage("");
+    setSyncing(true);
+    try {
+      const response = await fetch("/api/cms/sync-current", { method: "POST" });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) throw new Error(payload.message || "Sync failed.");
+      setSyncMessage(`Synced: ${payload.data.pagesAdded} pages added, ${payload.data.productsAdded} products added, ${payload.data.productsUpdated} products updated.`);
+      const [pages, blogPosts, products, media] = await Promise.all([
+        loadResource<CmsPage[]>("/api/cms/pages"),
+        loadResource<CmsBlogPost[]>("/api/cms/blog"),
+        loadResource<CmsProduct[]>("/api/cms/products"),
+        loadResource<CmsMediaItem[]>("/api/cms/media")
+      ]);
+      setData({ pages, blogPosts, products, media });
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Sync failed.");
+    } finally {
+      setSyncing(false);
+    }
+  }
+
   return (
     <>
       <div className="admin-topbar">
@@ -50,6 +75,7 @@ export default function AdminDashboard() {
         </div>
       </div>
       {error ? <div className="admin-error">{error}</div> : null}
+      {syncMessage ? <div className="admin-success">{syncMessage}</div> : null}
       <section className="admin-stats-grid">
         {stats.map(([label, value]) => (
           <article className="admin-card admin-stat" key={label}>
@@ -75,6 +101,10 @@ export default function AdminDashboard() {
           <h2>Upload Media</h2>
           <p className="admin-muted">Manage product photos, blog covers and SEO image alt text.</p>
         </a>
+        <button className="admin-card admin-card-button" type="button" onClick={syncCurrentWebsite} disabled={syncing}>
+          <h2>{syncing ? "Syncing..." : "Sync Current Website Content"}</h2>
+          <p className="admin-muted">Import all visible pages and product model data into the CMS for editing.</p>
+        </button>
       </section>
     </>
   );

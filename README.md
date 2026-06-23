@@ -10,6 +10,7 @@ This project now runs as a Next.js website with a lightweight CMS admin at `/adm
 - Product create / edit / delete / draft / publish
 - Media library upload / delete / copy URL / image alt text
 - Global settings for site name, logo, favicon, default SEO, social links, contact email and footer text
+- One-click sync of current website pages and product model data into the CMS
 
 ## Admin Paths
 
@@ -68,6 +69,34 @@ This creates `content/cms-data.json` with:
 - Existing markdown blog posts
 - Existing product records that can be detected from the product data file
 - Default TOKNAV settings
+
+The dashboard also includes **Sync Current Website Content**. Use it when you want to import the current visible website pages and product models into the CMS without touching code. It adds:
+
+- Home, Products, About, Contact, Inquiry, Blog and News pages
+- Product category pages
+- Existing product model records
+- Product type, summary, applications, highlights, gallery and specifications
+
+## Edit Product Parameters
+
+Go to:
+
+```text
+/admin/products
+```
+
+Open a product model and edit:
+
+- `Product type / kicker`: the short product category shown near the title
+- `Short summary`: text shown on product cards and the product hero
+- `Detailed product page description`: main product detail text
+- `Applications`: one application per line
+- `Highlights`: one selling point per line
+- `Specs / parameters`: one row per line in `Label | Value` format
+- `Main image` and `Gallery URLs`: product image and gallery
+- `SEO title` and `SEO description`: product page metadata
+
+Published products are used by the frontend first. If a CMS product has specs, those specs override the older hardcoded specification table for that model.
 
 ## Create Administrator Account
 
@@ -131,6 +160,9 @@ The current website design is preserved.
 Frontend pages read CMS data first where implemented:
 
 - Home page hero and CTA
+- Products, About, Contact, Inquiry, Blog and News page hero/SEO fields
+- Product category page hero/SEO fields
+- Extra CMS page blocks: rich text, image, gallery, CTA and FAQ
 - Blog index and details
 - Product index, category and details
 - Footer settings and social links

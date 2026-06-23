@@ -1,6 +1,8 @@
 import { ArrowRight, FileText, Layers3, Search } from "lucide-react";
 import { notFound } from "next/navigation";
+import CmsBlocksRenderer from "../../components/CmsBlocksRenderer";
 import SiteHeader from "../../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../../lib/cms/public";
 import { getCategory, getCategoryApplications, getProductsByCategory, productCategories } from "../../lib/products";
 
 type CategoryPageProps = {
@@ -15,10 +17,12 @@ export async function generateMetadata({ params }: CategoryPageProps) {
   const { category: categorySlug } = await params;
   const category = getCategory(categorySlug);
   if (!category) return {};
+  const cmsPage = getPublishedCmsPageByPath(`/products/${category.slug}`);
 
   return {
-    title: `${category.name} | TOKNAV Product Category`,
-    description: category.description
+    title: cmsPage?.seoTitle || `${category.name} | TOKNAV Product Category`,
+    description: cmsPage?.seoDescription || category.description,
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
   };
 }
 
@@ -29,6 +33,18 @@ export default async function ProductCategoryPage({ params }: CategoryPageProps)
 
   const categoryProducts = getProductsByCategory(category.slug);
   const categoryApplications = getCategoryApplications(category.slug);
+  const cmsPage = getPublishedCmsPageByPath(`/products/${category.slug}`);
+  const hero = getBlockData(
+    cmsPage,
+    "hero",
+    {
+      label: category.kicker,
+      title: category.title,
+      subtitle: category.description,
+      backgroundImage: category.image
+    },
+    "page-hero"
+  );
 
   return (
     <main>
@@ -39,18 +55,19 @@ export default async function ProductCategoryPage({ params }: CategoryPageProps)
           <a className="back-link" href="/products">
             <ArrowRight size={16} className="reverse-icon" /> All Products
           </a>
-          <span className="contact-label">{category.kicker}</span>
-          <h1>{category.title}</h1>
-          <p>{category.description}</p>
+          <span className="contact-label">{String(hero.label)}</span>
+          <h1>{String(hero.title)}</h1>
+          <p>{String(hero.subtitle)}</p>
           <div className="product-meta-row">
             <span><Layers3 size={16} /> {categoryProducts.length} products</span>
             <span><FileText size={16} /> Source: {category.sourcePdf}</span>
           </div>
         </div>
         <div className="category-visual-card">
-          <img src={category.image} alt={category.name} />
+          <img src={String(hero.backgroundImage || category.image)} alt={category.name} />
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
       {categoryApplications.length > 0 && (
         <section className="category-application-section">

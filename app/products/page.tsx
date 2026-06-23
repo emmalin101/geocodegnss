@@ -1,31 +1,35 @@
 import { ArrowRight, BookOpen, Boxes, CheckCircle2 } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
 import { getAllProducts, productCategories } from "../lib/products";
 
-export const metadata = {
-  title: "TOKNAV Products | GNSS Receivers, Antennas, Controllers and RTK Solutions",
-  description:
-    "Explore TOKNAV GNSS receivers, rugged controllers, GNSS antennas, precision agriculture, machine control, accessories and application solutions."
+const fallbackHero = {
+  label: "Product Center",
+  title: "TOKNAV Product Categories for High-Precision Positioning",
+  subtitle:
+    "Browse product lines from TOKNAV brochures and website structure: GNSS receivers, rugged controllers, antennas, precision agriculture, accessories and complete GNSS application solutions.",
+  buttonText: "Get a Quote",
+  buttonLink: "/inquiry"
 };
 
 export default function ProductsPage() {
   const allProducts = getAllProducts();
+  const cmsPage = getPublishedCmsPageByPath("/products");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+
   return (
     <main>
       <SiteHeader />
 
       <section className="product-hero">
         <div>
-          <span className="contact-label">Product Center</span>
-          <h1>TOKNAV Product Categories for High-Precision Positioning</h1>
-          <p>
-            Browse product lines from TOKNAV brochures and website structure:
-            GNSS receivers, rugged controllers, antennas, precision agriculture,
-            accessories and complete GNSS application solutions.
-          </p>
+          <span className="contact-label">{String(hero.label)}</span>
+          <h1>{String(hero.title)}</h1>
+          <p>{String(hero.subtitle)}</p>
           <div className="product-hero-actions">
-            <a className="primary-button" href="/inquiry">
-              Get a Quote <ArrowRight size={18} />
+            <a className="primary-button" href={String(hero.buttonLink)}>
+              {String(hero.buttonText)} <ArrowRight size={18} />
             </a>
             <a className="secondary-button" href="/contact">
               Contact Sales
@@ -38,6 +42,7 @@ export default function ProductsPage() {
           <span>Structured from TOKNAV product brochures and product asset folders.</span>
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
       <section className="product-section">
         <div className="product-category-grid">
@@ -80,4 +85,15 @@ export default function ProductsPage() {
       </section>
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/products");
+  return {
+    title: cmsPage?.seoTitle || "TOKNAV Products | GNSS Receivers, Antennas, Controllers and RTK Solutions",
+    description:
+      cmsPage?.seoDescription ||
+      "Explore TOKNAV GNSS receivers, rugged controllers, GNSS antennas, precision agriculture, machine control, accessories and application solutions.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

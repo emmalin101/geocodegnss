@@ -1,21 +1,29 @@
 import { Clock, Mail, MapPinned, MessageCircle, ShieldCheck } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import InquiryForm from "../components/InquiryForm";
 import SiteHeader from "../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
+
+const fallbackHero = {
+  label: "B2B Inquiry",
+  title: "Request a GNSS Receiver Quote",
+  subtitle:
+    "Send your project details to TOKNAV. Our team will help match the right GNSS receiver, antenna, CORS/VRS solution or OEM/ODM plan for your market."
+};
 
 export default function InquiryPage() {
+  const cmsPage = getPublishedCmsPageByPath("/inquiry");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+
   return (
     <main>
       <SiteHeader />
 
       <section className="inquiry-page-shell">
         <div className="inquiry-intro-panel">
-          <span className="contact-label">B2B Inquiry</span>
-          <h1 data-i18n="inquiry.title">Request a GNSS Receiver Quote</h1>
-          <p data-i18n="inquiry.text">
-            Send your project details to TOKNAV. Our team will help match the
-            right GNSS receiver, antenna, CORS/VRS solution or OEM/ODM plan for
-            your market.
-          </p>
+          <span className="contact-label">{String(hero.label)}</span>
+          <h1 data-i18n="inquiry.title">{String(hero.title)}</h1>
+          <p data-i18n="inquiry.text">{String(hero.subtitle)}</p>
           <div className="inquiry-contact-list">
             <div>
               <Mail size={20} />
@@ -47,6 +55,18 @@ export default function InquiryPage() {
           <InquiryForm />
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/inquiry");
+  return {
+    title: cmsPage?.seoTitle || "Request a GNSS Receiver Quote | TOKNAV",
+    description:
+      cmsPage?.seoDescription ||
+      "Send your project details to TOKNAV for GNSS receiver, antenna, CORS/VRS, machine control or OEM/ODM quotation support.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

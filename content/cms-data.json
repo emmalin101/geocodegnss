@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T01:46:18.008Z",
+  "updatedAt": "2026-06-23T02:43:36.072Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -41,7 +41,331 @@
         }
       ],
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_18df0e74-0f5c-40b3-a71e-e79e075df349",
+      "title": "Products",
+      "slug": "products",
+      "path": "/products",
+      "seoTitle": "TOKNAV Products | GNSS Receivers, Antennas, Controllers and RTK Solutions",
+      "seoDescription": "Explore TOKNAV GNSS receivers, rugged controllers, GNSS antennas, precision agriculture, machine control, accessories and application solutions.",
+      "ogImage": "/assets/products/gnss-receiver-series-combo.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_a2406639-e01e-4ca0-90f7-3f192783223d",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Product Center",
+            "title": "TOKNAV Product Categories for High-Precision Positioning",
+            "subtitle": "Browse GNSS receivers, rugged controllers, antennas, precision agriculture, accessories and complete application solutions.",
+            "backgroundImage": "/assets/products/gnss-receiver-series-combo.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_eca1b9d7-1b11-4464-8970-59cbde7293cf",
+      "title": "About",
+      "slug": "about",
+      "path": "/about",
+      "seoTitle": "About TOKNAV | GNSS Receiver Manufacturer, Certifications and Global Customers",
+      "seoDescription": "Learn about TOKNAV's GNSS product history, latest company video, overseas customer feedback and certification portfolio.",
+      "ogImage": "/assets/customer-visit.jpg",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_a56986ea-17f4-4244-9198-3cf919695eb0",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "About TOKNAV",
+            "title": "High-Precision GNSS Innovation Built for Global B2B Projects",
+            "subtitle": "TOKNAV develops GNSS receivers, CORS/VRS systems, rugged controllers, precision agriculture products and application solutions.",
+            "backgroundImage": "/assets/customer-visit.jpg",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_ca8a0df3-5750-453f-a5f0-47efeab3d5ce",
+      "title": "Contact",
+      "slug": "contact",
+      "path": "/contact",
+      "seoTitle": "Contact TOKNAV | GNSS Receiver Quote and Dealer Cooperation",
+      "seoDescription": "Contact TOKNAV for GNSS receiver quotation, distributor cooperation, OEM/ODM projects and technical solution support.",
+      "ogImage": "/assets/rtk-rooftop-test.jpg",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_92372758-6279-45f2-a897-9cfa104d435b",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Contact TOKNAV",
+            "title": "How Can We Help?",
+            "subtitle": "Reach TOKNAV for product quotation, distributor cooperation, OEM/ODM projects and technical support.",
+            "backgroundImage": "/assets/rtk-rooftop-test.jpg",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_47cfbae1-6a0d-4485-a119-ee6e3dd21e55",
+      "title": "Inquiry",
+      "slug": "inquiry",
+      "path": "/inquiry",
+      "seoTitle": "Request a GNSS Receiver Quote | TOKNAV",
+      "seoDescription": "Send your project details to TOKNAV for GNSS receiver, antenna, CORS/VRS, machine control or OEM/ODM quotation support.",
+      "ogImage": "/assets/products/gnss-receiver-series-combo.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_b43b5ae1-26ef-4e05-a00b-660cc907b1de",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "B2B Inquiry",
+            "title": "Request a GNSS Receiver Quote",
+            "subtitle": "Send your project details and our team will help match the right GNSS product or solution package.",
+            "backgroundImage": "/assets/products/gnss-receiver-series-combo.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_bdf462e3-252b-4645-aa3a-fb66a6a1220e",
+      "title": "Blog",
+      "slug": "blog",
+      "path": "/blog",
+      "seoTitle": "TOKNAV Blog | GNSS, RTK and Precision Positioning Guides",
+      "seoDescription": "Read TOKNAV guides for RTK GNSS receivers, CORS/VRS correction solutions, precision agriculture and machine control procurement.",
+      "ogImage": "/assets/products/t50pro.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_96207c69-7b8c-4da6-bfcd-161741ab129a",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Knowledge Center",
+            "title": "GNSS, RTK and Precision Positioning Guides for B2B Buyers",
+            "subtitle": "Practical buying guides for overseas distributors, surveying teams, engineering contractors and system integrators.",
+            "backgroundImage": "/assets/products/t50pro.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_84a0a2e8-0cf5-4bcf-90f0-61ca659f2186",
+      "title": "News",
+      "slug": "news",
+      "path": "/news",
+      "seoTitle": "TOKNAV News | GNSS and Geospatial Industry Updates",
+      "seoDescription": "Read concise GNSS, RTK, surveying, GIS, LiDAR, USV and machine-control industry updates from TOKNAV.",
+      "ogImage": "/assets/products/tsr20.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_2b178713-aa30-4e1d-bad5-9e108f5d9121",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "News",
+            "title": "GNSS and Geospatial Industry Updates",
+            "subtitle": "Short, easy-to-read updates for surveying, mapping, construction, machine control and positioning buyers.",
+            "backgroundImage": "/assets/products/tsr20.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_169c8527-1597-482a-8b96-50201177b0ba",
+      "title": "GNSS Receivers",
+      "slug": "products-gnss-receivers",
+      "path": "/products/gnss-receivers",
+      "seoTitle": "GNSS Receivers | TOKNAV Product Category",
+      "seoDescription": "TOKNAV GNSS receiver line covers T series RTK rovers, tBase base station receivers and NET660 CORS/base-station receivers for distributors, contractors and system integrators.",
+      "ogImage": "/assets/products/gnss-receiver-series-combo.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_d5fde7cb-9056-4e28-8ba2-34acaec7fd5f",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "RTK / CORS / Base Station",
+            "title": "High-Precision GNSS Receivers for Surveying, Mapping and Construction",
+            "subtitle": "TOKNAV GNSS receiver line covers T series RTK rovers, tBase base station receivers and NET660 CORS/base-station receivers for distributors, contractors and system integrators.",
+            "backgroundImage": "/assets/products/gnss-receiver-series-combo.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_e47d3ee0-b0eb-467b-9e6c-ab68e29260f4",
+      "title": "Rugged & GIS",
+      "slug": "products-rugged-gis",
+      "path": "/products/rugged-gis",
+      "seoTitle": "Rugged & GIS | TOKNAV Product Category",
+      "seoDescription": "Android field controllers and portable high-precision positioning terminals for surveying crews, GIS data collection and mobile field operations.",
+      "ogImage": "/assets/products/pcr500.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_141a4b73-9794-4f94-a390-947b60c0b503",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Controllers / Portable RTK",
+            "title": "Rugged Data Controllers and Portable RTK Terminals",
+            "subtitle": "Android field controllers and portable high-precision positioning terminals for surveying crews, GIS data collection and mobile field operations.",
+            "backgroundImage": "/assets/products/pcr500.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_b3196e10-c89d-492b-bf2a-7a4a6bf2e596",
+      "title": "GNSS Antennas",
+      "slug": "products-gnss-antennas",
+      "path": "/products/gnss-antennas",
+      "seoTitle": "GNSS Antennas | TOKNAV Product Category",
+      "seoDescription": "Choke ring, survey and helix antenna families for CORS stations, monitoring, surveying, handheld and machine-control applications.",
+      "ogImage": "/assets/products/tca930.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_39ef179f-ad75-4273-96b4-13bba3401d2b",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Choke Ring / Survey / Helix",
+            "title": "GNSS Antennas for High-Precision Positioning Systems",
+            "subtitle": "Choke ring, survey and helix antenna families for CORS stations, monitoring, surveying, handheld and machine-control applications.",
+            "backgroundImage": "/assets/products/tca930.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_ee7b3777-0253-4e64-ab5a-0546416cd93b",
+      "title": "Precision Agriculture & Machine Control",
+      "slug": "products-precision-agriculture-machine-control",
+      "path": "/products/precision-agriculture-machine-control",
+      "seoTitle": "Precision Agriculture & Machine Control | TOKNAV Product Category",
+      "seoDescription": "Precision agriculture and machine-control systems for tractors, land leveling, dozer guidance and excavator guidance.",
+      "ogImage": "/assets/products/tag66.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_27de20ce-14c7-4b56-bf05-da3ec74946b3",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Auto-Steering / Land Leveling / 3D Guidance",
+            "title": "GNSS Auto-Steering, Land Leveling and Machine Control Systems",
+            "subtitle": "Precision agriculture and machine-control systems for tractors, land leveling, dozer guidance and excavator guidance.",
+            "backgroundImage": "/assets/products/tag66.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_14b99973-9c18-4462-8efc-eec1626f1aee",
+      "title": "Accessories",
+      "slug": "products-accessories",
+      "path": "/products/accessories",
+      "seoTitle": "Accessories | TOKNAV Product Category",
+      "seoDescription": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
+      "ogImage": "/assets/products/tbase.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_54067439-7956-4a81-8ea9-86c695a85ee4",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Power / Antenna / Cables / Cases",
+            "title": "GNSS Accessories for RTK Receiver Kits and Base Stations",
+            "subtitle": "Power adapters, antennas, brackets, cables, cases, tripods and kit accessories used with TOKNAV RTK receivers, controllers and antennas.",
+            "backgroundImage": "/assets/products/tbase.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "page_dff4cfd2-8ed3-4339-98bf-6e9952770707",
+      "title": "GNSS Application Solutions",
+      "slug": "products-gnss-application-solutions",
+      "path": "/products/gnss-application-solutions",
+      "seoTitle": "GNSS Application Solutions | TOKNAV Product Category",
+      "seoDescription": "Solution packages for deformation monitoring, CORS/VRS deployment, automated line marking, unmanned surface vehicle survey and handheld LiDAR SLAM mapping.",
+      "ogImage": "/assets/products/tboat20.webp",
+      "status": "published",
+      "blocks": [
+        {
+          "id": "block_bb5daad1-61e2-45c1-98b6-b89ba0cd689e",
+          "type": "hero",
+          "title": "page-hero",
+          "data": {
+            "label": "Monitoring / CORS / Marking Robot / USV / SLAM",
+            "title": "GNSS Application Solutions for Monitoring, CORS/VRS, Marking, USV and SLAM",
+            "subtitle": "Solution packages for deformation monitoring, CORS/VRS deployment, automated line marking, unmanned surface vehicle survey and handheld LiDAR SLAM mapping.",
+            "backgroundImage": "/assets/products/tboat20.webp",
+            "buttonText": "Get a Quote",
+            "buttonLink": "/inquiry"
+          }
+        }
+      ],
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
     }
   ],
   "blogPosts": [
@@ -111,6 +435,7 @@
       "id": "product_049d3b69-c1c3-4f93-b3ce-2f7cbe38edae",
       "name": "T5Lite GNSS Receiver",
       "slug": "t5lite",
+      "type": "Entry RTK receiver",
       "summary": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "description": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "price": "",
@@ -122,864 +447,4351 @@
       "tags": [
         "Entry RTK receiver"
       ],
-      "specs": [],
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "GIS field work"
+      ],
+      "highlights": [
+        "ARM Cortex-A7 platform",
+        "Linux OS",
+        "Multi-constellation tracking",
+        "Rover workflow support"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Update frequency",
+          "value": "5Hz max"
+        },
+        {
+          "label": "Channels",
+          "value": "1408"
+        },
+        {
+          "label": "Standard output",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Correction protocol",
+          "value": "RTCM 3.x, with RTCM 2.x also listed for T10Pro"
+        },
+        {
+          "label": "Single point accuracy",
+          "value": "Horizontal 1.5m RMS / Vertical 2.5m RMS"
+        },
+        {
+          "label": "DGPS accuracy",
+          "value": "Horizontal 0.4m RMS / Vertical 0.8m RMS"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Speed accuracy",
+          "value": "0.03m/s RMS"
+        },
+        {
+          "label": "Reacquisition",
+          "value": "<1s"
+        },
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 with Linux OS"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BR + EDR + BLE"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "802.11 b/g/n"
+        },
+        {
+          "label": "4G network",
+          "value": "LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees on IMU-supported receiver models"
+        },
+        {
+          "label": "Data radio",
+          "value": "T5 supports receive-only 410-470MHz radio; T5Lite focuses on 4G, Bluetooth and Wi-Fi workflows"
+        },
+        {
+          "label": "Radio protocol",
+          "value": "TRIMTALK, TRIMMK3, SOUTH, TRANSEOT on T5"
+        },
+        {
+          "label": "Battery",
+          "value": "3.7V, 9600mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "More than 16 hours typical rover GSM; static collection up to 24 hours"
+        },
+        {
+          "label": "Charging",
+          "value": "MTK PE+ 9V/2A and USB PD 12V/1.25A or 5V/3A fast charging support"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T5Lite 100.5 x 100.5 x 69mm, 600g; T5 100.5 x 100.5 x 72mm, 630g"
+        }
+      ],
       "status": "published",
       "featured": false,
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T01:46:18.008Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
-      "slug": "t5",
       "name": "T5 GNSS Receiver",
+      "slug": "t5",
+      "type": "RTK receiver",
+      "summary": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
+      "description": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
+      "price": "",
+      "image": "/assets/products/t5.webp",
+      "gallery": [
+        "/assets/products/t5.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "RTK receiver"
       ],
-      "image": "/assets/products/t5.webp",
-      "summary": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
-      "description": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t5.webp"
+      "applications": [
+        "Surveying",
+        "Construction staking",
+        "Mapping"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "410-470MHz radio option",
+        "Bluetooth and Wi-Fi",
+        "NMEA-0183 output",
+        "Field-ready receiver kit"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Update frequency",
+          "value": "5Hz max"
+        },
+        {
+          "label": "Channels",
+          "value": "1408"
+        },
+        {
+          "label": "Standard output",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Correction protocol",
+          "value": "RTCM 3.x, with RTCM 2.x also listed for T10Pro"
+        },
+        {
+          "label": "Single point accuracy",
+          "value": "Horizontal 1.5m RMS / Vertical 2.5m RMS"
+        },
+        {
+          "label": "DGPS accuracy",
+          "value": "Horizontal 0.4m RMS / Vertical 0.8m RMS"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Speed accuracy",
+          "value": "0.03m/s RMS"
+        },
+        {
+          "label": "Reacquisition",
+          "value": "<1s"
+        },
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 with Linux OS"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BR + EDR + BLE"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "802.11 b/g/n"
+        },
+        {
+          "label": "4G network",
+          "value": "LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees on IMU-supported receiver models"
+        },
+        {
+          "label": "Data radio",
+          "value": "T5 supports receive-only 410-470MHz radio; T5Lite focuses on 4G, Bluetooth and Wi-Fi workflows"
+        },
+        {
+          "label": "Radio protocol",
+          "value": "TRIMTALK, TRIMMK3, SOUTH, TRANSEOT on T5"
+        },
+        {
+          "label": "Battery",
+          "value": "3.7V, 9600mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "More than 16 hours typical rover GSM; static collection up to 24 hours"
+        },
+        {
+          "label": "Charging",
+          "value": "MTK PE+ 9V/2A and USB PD 12V/1.25A or 5V/3A fast charging support"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T5Lite 100.5 x 100.5 x 69mm, 600g; T5 100.5 x 100.5 x 72mm, 630g"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T5 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T series RTK receiver for standard field surveying, mapping and stakeout work.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_879eaca6-0a99-40b2-ab19-e0389942dec5",
-      "slug": "t10pro",
       "name": "T10Pro GNSS Receiver",
+      "slug": "t10pro",
+      "type": "Professional RTK receiver",
+      "summary": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
+      "description": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
+      "price": "",
+      "image": "/assets/products/t10pro.webp",
+      "gallery": [
+        "/assets/products/t10pro.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Professional RTK receiver"
       ],
-      "image": "/assets/products/t10pro.webp",
-      "summary": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
-      "description": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t10pro.webp"
+      "applications": [
+        "Surveying",
+        "Road construction",
+        "Contractor projects"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "410-470MHz radio",
+        "RTCM 3.x correction",
+        "LTE communication",
+        "Rover and base workflows"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels",
+          "value": "1408"
+        },
+        {
+          "label": "Update frequency",
+          "value": "T10Pro 5Hz typical / 20Hz max; T20Pro 20Hz max"
+        },
+        {
+          "label": "Standard output",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Correction protocol",
+          "value": "RTCM 3.x, with RTCM 2.x also listed for T10Pro"
+        },
+        {
+          "label": "Single point accuracy",
+          "value": "Horizontal 1.5m RMS / Vertical 2.5m RMS"
+        },
+        {
+          "label": "DGPS accuracy",
+          "value": "Horizontal 0.4m RMS / Vertical 0.8m RMS"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Speed accuracy",
+          "value": "0.03m/s RMS"
+        },
+        {
+          "label": "Reacquisition",
+          "value": "<1s"
+        },
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 with Linux OS"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BR + EDR + BLE"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "802.11 b/g/n"
+        },
+        {
+          "label": "4G network",
+          "value": "LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees on IMU-supported receiver models"
+        },
+        {
+          "label": "Radio frequency",
+          "value": "410-470MHz"
+        },
+        {
+          "label": "Radio power",
+          "value": "T10Pro 0.5W/1.5W; T20Pro adjustable 1W/2W/5W"
+        },
+        {
+          "label": "Radio protocol",
+          "value": "TRIMTALK, TRIMMK3, SOUTH, TRANSEOT"
+        },
+        {
+          "label": "Open area distance",
+          "value": "T20Pro built-in 5W radio is described for up to 16km in open areas"
+        },
+        {
+          "label": "Display",
+          "value": "T20Pro includes 1.3-inch TFT LCD, 240 x 240"
+        },
+        {
+          "label": "Battery",
+          "value": "T10Pro 3.7V 9600mAh; T20Pro 7.4V 6500mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "T10Pro more than 16 hours typical; T20Pro more than 18 hours typical and static mode up to 26 hours"
+        },
+        {
+          "label": "Charging",
+          "value": "USB PD fast charging support"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T10Pro Phi147.9 x 68mm, 740g; T20Pro Phi143.5 x 90.7mm, 900g"
+        },
+        {
+          "label": "Certification",
+          "value": "T10Pro NGS, CE, FCC, KC; T20Pro NGS, CE, FCC"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T10Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver for overseas dealers that need strong field performance and kit packaging.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_7c25c093-4d83-4192-b641-c177bbd4cde1",
-      "slug": "t20pro",
       "name": "T20Pro GNSS Receiver",
+      "slug": "t20pro",
+      "type": "High-power radio RTK receiver",
+      "summary": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
+      "description": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
+      "price": "",
+      "image": "/assets/products/t20pro.webp",
+      "gallery": [
+        "/assets/products/t20pro.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "High-power radio RTK receiver"
       ],
-      "image": "/assets/products/t20pro.webp",
-      "summary": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
-      "description": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t20pro.webp"
+      "applications": [
+        "Base-rover RTK",
+        "Construction",
+        "Open-field surveying"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "1W/2W/5W radio power options",
+        "IMU tilt support",
+        "Long work-time design",
+        "Rugged IP protection"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels",
+          "value": "1408"
+        },
+        {
+          "label": "Update frequency",
+          "value": "T10Pro 5Hz typical / 20Hz max; T20Pro 20Hz max"
+        },
+        {
+          "label": "Standard output",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Correction protocol",
+          "value": "RTCM 3.x, with RTCM 2.x also listed for T10Pro"
+        },
+        {
+          "label": "Single point accuracy",
+          "value": "Horizontal 1.5m RMS / Vertical 2.5m RMS"
+        },
+        {
+          "label": "DGPS accuracy",
+          "value": "Horizontal 0.4m RMS / Vertical 0.8m RMS"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm); selected models list +/- (2.5mm+0.5ppm) / +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Speed accuracy",
+          "value": "0.03m/s RMS"
+        },
+        {
+          "label": "Reacquisition",
+          "value": "<1s"
+        },
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 with Linux OS"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BR + EDR + BLE"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "802.11 b/g/n"
+        },
+        {
+          "label": "4G network",
+          "value": "LTE FDD / LTE TDD / WCDMA / GSM bands depending on model and market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees on IMU-supported receiver models"
+        },
+        {
+          "label": "Radio frequency",
+          "value": "410-470MHz"
+        },
+        {
+          "label": "Radio power",
+          "value": "T10Pro 0.5W/1.5W; T20Pro adjustable 1W/2W/5W"
+        },
+        {
+          "label": "Radio protocol",
+          "value": "TRIMTALK, TRIMMK3, SOUTH, TRANSEOT"
+        },
+        {
+          "label": "Open area distance",
+          "value": "T20Pro built-in 5W radio is described for up to 16km in open areas"
+        },
+        {
+          "label": "Display",
+          "value": "T20Pro includes 1.3-inch TFT LCD, 240 x 240"
+        },
+        {
+          "label": "Battery",
+          "value": "T10Pro 3.7V 9600mAh; T20Pro 7.4V 6500mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "T10Pro more than 16 hours typical; T20Pro more than 18 hours typical and static mode up to 26 hours"
+        },
+        {
+          "label": "Charging",
+          "value": "USB PD fast charging support"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T10Pro Phi147.9 x 68mm, 740g; T20Pro Phi143.5 x 90.7mm, 900g"
+        },
+        {
+          "label": "Certification",
+          "value": "T10Pro NGS, CE, FCC, KC; T20Pro NGS, CE, FCC"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T20Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_5db38ff2-ee2b-4ed1-b3f0-216d5df33687",
-      "slug": "tbase",
       "name": "tBase GNSS Receiver",
+      "slug": "tbase",
+      "type": "Base station receiver",
+      "summary": "Base station receiver designed for stable correction transmission and RTK base deployment.",
+      "description": "Base station receiver designed for stable correction transmission and RTK base deployment.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Base station receiver"
       ],
-      "image": "/assets/products/tbase.webp",
-      "summary": "Base station receiver designed for stable correction transmission and RTK base deployment.",
-      "description": "Base station receiver designed for stable correction transmission and RTK base deployment.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tbase.webp"
+      "applications": [
+        "RTK base station",
+        "CORS support",
+        "Construction base setup"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Integrated high-power radio",
+        "32GB storage",
+        "Base station workflows",
+        "Rugged receiver body"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS, GLONASS, Galileo, BDS, QZSS, SBAS and NavIC support depending on model"
+        },
+        {
+          "label": "Channels",
+          "value": "Up to 1408 channels in T series receiver line"
+        },
+        {
+          "label": "Data format",
+          "value": "NMEA-0183 and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Tilt measurement",
+          "value": "IMU 60 degrees on supported receiver models"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65 to IP68 rugged field protection depending on model"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "tBase GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Base station receiver designed for stable correction transmission and RTK base deployment.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_01d4a61f-8861-41c9-a39a-4392ed05654f",
-      "slug": "t30",
       "name": "T30 GNSS Receiver",
+      "slug": "t30",
+      "type": "RTK receiver",
+      "summary": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
+      "description": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
+      "price": "",
+      "image": "/assets/products/t30.webp",
+      "gallery": [
+        "/assets/products/t30.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "RTK receiver"
       ],
-      "image": "/assets/products/t30.webp",
-      "summary": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
-      "description": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t30.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "Construction"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Bluetooth BR+EDR+BLE",
+        "Wi-Fi 802.11 b/g/n",
+        "IP68 receiver class",
+        "IMU 60 degree tilt"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm) on T40/T40Pro"
+        },
+        {
+          "label": "Photogrammetry",
+          "value": "T30Pro/T40Pro include image survey or photogrammetry support"
+        },
+        {
+          "label": "Laser measurement",
+          "value": "T30 laser within 5m; T40 laser module range up to 30m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution on listed visual models"
+        },
+        {
+          "label": "Image survey camera",
+          "value": "T30Pro/T40Pro use 1/2.6-inch image survey camera, f/2.8 aperture, 1920 x 1080 resolution"
+        },
+        {
+          "label": "Laser assist camera",
+          "value": "T30/T40 use 1/3.06-inch laser assist camera, 4224 x 3200 resolution"
+        },
+        {
+          "label": "Radio",
+          "value": "410-470MHz high-power transceiver; T30/T40 family supports up to 5W on selected models"
+        },
+        {
+          "label": "Network",
+          "value": "LTE FDD, LTE TDD, WCDMA and GSM full Netcom bands depending on market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "T30/T30Pro: 7.2V 13800mAh; T40/T40Pro: 7.2V 3400mAh x 2 removable batteries"
+        },
+        {
+          "label": "Endurance",
+          "value": "T30/T30Pro over 48 hours in controller network mode; T40/T40Pro over 20 hours in controller network mode"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T30/T30Pro Phi174.9 x 104.9mm, 1500g; T40/T40Pro Phi160 x 103mm, 850g without battery"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T30 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-precision RTK receiver with Bluetooth, Wi-Fi and 410-470MHz radio support.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_006d88ab-be93-47da-8c87-49f463c08ef5",
-      "slug": "t30pro",
       "name": "T30Pro GNSS Receiver",
+      "slug": "t30pro",
+      "type": "Image survey RTK receiver",
+      "summary": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
+      "description": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
+      "price": "",
+      "image": "/assets/products/t30pro.webp",
+      "gallery": [
+        "/assets/products/t30pro.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Image survey RTK receiver"
       ],
-      "image": "/assets/products/t30pro.webp",
-      "summary": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
-      "description": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t30pro.webp"
+      "applications": [
+        "Image survey",
+        "Surveying",
+        "Stakeout"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Supports image survey",
+        "Integrated radio",
+        "IMU tilt measurement",
+        "RTCM 3.x workflow"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm) on T40/T40Pro"
+        },
+        {
+          "label": "Photogrammetry",
+          "value": "T30Pro/T40Pro include image survey or photogrammetry support"
+        },
+        {
+          "label": "Laser measurement",
+          "value": "T30 laser within 5m; T40 laser module range up to 30m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution on listed visual models"
+        },
+        {
+          "label": "Image survey camera",
+          "value": "T30Pro/T40Pro use 1/2.6-inch image survey camera, f/2.8 aperture, 1920 x 1080 resolution"
+        },
+        {
+          "label": "Laser assist camera",
+          "value": "T30/T40 use 1/3.06-inch laser assist camera, 4224 x 3200 resolution"
+        },
+        {
+          "label": "Radio",
+          "value": "410-470MHz high-power transceiver; T30/T40 family supports up to 5W on selected models"
+        },
+        {
+          "label": "Network",
+          "value": "LTE FDD, LTE TDD, WCDMA and GSM full Netcom bands depending on market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "T30/T30Pro: 7.2V 13800mAh; T40/T40Pro: 7.2V 3400mAh x 2 removable batteries"
+        },
+        {
+          "label": "Endurance",
+          "value": "T30/T30Pro over 48 hours in controller network mode; T40/T40Pro over 20 hours in controller network mode"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T30/T30Pro Phi174.9 x 104.9mm, 1500g; T40/T40Pro Phi160 x 103mm, 850g without battery"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T30Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver supporting image survey workflows for improved field productivity.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_e3af32a8-7395-40f2-ac4d-a84d16e89297",
-      "slug": "t40",
       "name": "T40 GNSS Receiver",
+      "slug": "t40",
+      "type": "AR stakeout RTK receiver",
+      "summary": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
+      "description": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
+      "price": "",
+      "image": "/assets/products/t40.webp",
+      "gallery": [
+        "/assets/products/t40.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "AR stakeout RTK receiver"
       ],
-      "image": "/assets/products/t40.webp",
-      "summary": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
-      "description": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t40.webp"
+      "applications": [
+        "AR stakeout",
+        "Surveying",
+        "Construction"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "NFC and AR stakeout",
+        "Laser measurement/camera support on selected models",
+        "IP68",
+        "20Hz data update"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm) on T40/T40Pro"
+        },
+        {
+          "label": "Photogrammetry",
+          "value": "T30Pro/T40Pro include image survey or photogrammetry support"
+        },
+        {
+          "label": "Laser measurement",
+          "value": "T30 laser within 5m; T40 laser module range up to 30m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution on listed visual models"
+        },
+        {
+          "label": "Image survey camera",
+          "value": "T30Pro/T40Pro use 1/2.6-inch image survey camera, f/2.8 aperture, 1920 x 1080 resolution"
+        },
+        {
+          "label": "Laser assist camera",
+          "value": "T30/T40 use 1/3.06-inch laser assist camera, 4224 x 3200 resolution"
+        },
+        {
+          "label": "Radio",
+          "value": "410-470MHz high-power transceiver; T30/T40 family supports up to 5W on selected models"
+        },
+        {
+          "label": "Network",
+          "value": "LTE FDD, LTE TDD, WCDMA and GSM full Netcom bands depending on market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "T30/T30Pro: 7.2V 13800mAh; T40/T40Pro: 7.2V 3400mAh x 2 removable batteries"
+        },
+        {
+          "label": "Endurance",
+          "value": "T30/T30Pro over 48 hours in controller network mode; T40/T40Pro over 20 hours in controller network mode"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T30/T30Pro Phi174.9 x 104.9mm, 1500g; T40/T40Pro Phi160 x 103mm, 850g without battery"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T40 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_fc9c4860-1651-4b70-b69b-1992254dcf98",
-      "slug": "t40pro",
       "name": "T40Pro GNSS Receiver",
+      "slug": "t40pro",
+      "type": "Photogrammetry RTK receiver",
+      "summary": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
+      "description": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
+      "price": "",
+      "image": "/assets/products/t40pro.webp",
+      "gallery": [
+        "/assets/products/t40pro.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Photogrammetry RTK receiver"
       ],
-      "image": "/assets/products/t40pro.webp",
-      "summary": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
-      "description": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t40pro.webp"
+      "applications": [
+        "Photogrammetry",
+        "AR stakeout",
+        "Surveying"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Integrated receiver/transmitter",
+        "AR stakeout",
+        "Photogrammetry workflow",
+        "IP68 protection"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm) on T40/T40Pro"
+        },
+        {
+          "label": "Photogrammetry",
+          "value": "T30Pro/T40Pro include image survey or photogrammetry support"
+        },
+        {
+          "label": "Laser measurement",
+          "value": "T30 laser within 5m; T40 laser module range up to 30m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution on listed visual models"
+        },
+        {
+          "label": "Image survey camera",
+          "value": "T30Pro/T40Pro use 1/2.6-inch image survey camera, f/2.8 aperture, 1920 x 1080 resolution"
+        },
+        {
+          "label": "Laser assist camera",
+          "value": "T30/T40 use 1/3.06-inch laser assist camera, 4224 x 3200 resolution"
+        },
+        {
+          "label": "Radio",
+          "value": "410-470MHz high-power transceiver; T30/T40 family supports up to 5W on selected models"
+        },
+        {
+          "label": "Network",
+          "value": "LTE FDD, LTE TDD, WCDMA and GSM full Netcom bands depending on market version"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "T30/T30Pro: 7.2V 13800mAh; T40/T40Pro: 7.2V 3400mAh x 2 removable batteries"
+        },
+        {
+          "label": "Endurance",
+          "value": "T30/T30Pro over 48 hours in controller network mode; T40/T40Pro over 20 hours in controller network mode"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to +60°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "Can withstand a 1.5m drop at normal temperature"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "T30/T30Pro Phi174.9 x 104.9mm, 1500g; T40/T40Pro Phi160 x 103mm, 850g without battery"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T40Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional RTK receiver with photogrammetry-oriented field capability and integrated radio.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_34141b8a-980b-4ceb-8d7d-e5a7481dc327",
-      "slug": "t50basic",
       "name": "T50basic GNSS Receiver",
+      "slug": "t50basic",
+      "type": "RTK receiver",
+      "summary": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
+      "description": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
+      "price": "",
+      "image": "/assets/products/t50basic.webp",
+      "gallery": [
+        "/assets/products/t50basic.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "RTK receiver"
       ],
-      "image": "/assets/products/t50basic.webp",
-      "summary": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
-      "description": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t50basic.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "OEM/ODM channel sales"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "NFC",
+        "AR stakeout",
+        "Integrated transceiver radio",
+        "Compact T50 family design"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout",
+          "value": "Supported on T50basic, T50 and T50Pro"
+        },
+        {
+          "label": "Laser / photogrammetry",
+          "value": "T50 includes 100m laser measurement; T50Pro includes photogrammetry with 2-4cm error within 2-15m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution, distortion <0.38%"
+        },
+        {
+          "label": "T50 laser module",
+          "value": "Class 3R, 100m range, +/-5mm +/-100 x 10-6 x D precision, 520 +/-20nm wavelength"
+        },
+        {
+          "label": "T50Pro image camera",
+          "value": "1/2.6-inch sensor, 3.27mm focal length, f/2.8 aperture, 1920 x 1080 resolution, FOV 83 x 72 x 51 degrees"
+        },
+        {
+          "label": "Radio",
+          "value": "Integrated transceiver, 410-470MHz, 0.5W/1.5W, TRIMTALK/TRIMMK3/SOUTH/TRANSEOT/SATEL/LORA"
+        },
+        {
+          "label": "Wireless",
+          "value": "Bluetooth BR+EDR+BLE, Wi-Fi 802.11 b/g/n, LTE FDD/TDD, WCDMA and GSM bands"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "7.4V, 6500mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "Over 16 hours in controller network mode or typical rover GSM use depending on model"
+        },
+        {
+          "label": "Charging",
+          "value": "USB PD 15V/2A and 5V/3A"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-30°C to +65°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Phi132 x 83mm, 770g"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T50basic GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_9916dc1d-1c30-4cb8-bf89-769b8ace917f",
-      "slug": "t50",
       "name": "T50 GNSS Receiver",
+      "slug": "t50",
+      "type": "Laser RTK receiver",
+      "summary": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
+      "description": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
+      "price": "",
+      "image": "/assets/products/t50.webp",
+      "gallery": [
+        "/assets/products/t50.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Laser RTK receiver"
       ],
-      "image": "/assets/products/t50.webp",
-      "summary": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
-      "description": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t50.webp"
+      "applications": [
+        "Surveying",
+        "Laser measurement",
+        "Construction"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Laser measurement and laser camera",
+        "NFC and AR stakeout",
+        "Integrated high-power transceiver",
+        "IP68"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout",
+          "value": "Supported on T50basic, T50 and T50Pro"
+        },
+        {
+          "label": "Laser / photogrammetry",
+          "value": "T50 includes 100m laser measurement; T50Pro includes photogrammetry with 2-4cm error within 2-15m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution, distortion <0.38%"
+        },
+        {
+          "label": "T50 laser module",
+          "value": "Class 3R, 100m range, +/-5mm +/-100 x 10-6 x D precision, 520 +/-20nm wavelength"
+        },
+        {
+          "label": "T50Pro image camera",
+          "value": "1/2.6-inch sensor, 3.27mm focal length, f/2.8 aperture, 1920 x 1080 resolution, FOV 83 x 72 x 51 degrees"
+        },
+        {
+          "label": "Radio",
+          "value": "Integrated transceiver, 410-470MHz, 0.5W/1.5W, TRIMTALK/TRIMMK3/SOUTH/TRANSEOT/SATEL/LORA"
+        },
+        {
+          "label": "Wireless",
+          "value": "Bluetooth BR+EDR+BLE, Wi-Fi 802.11 b/g/n, LTE FDD/TDD, WCDMA and GSM bands"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "7.4V, 6500mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "Over 16 hours in controller network mode or typical rover GSM use depending on model"
+        },
+        {
+          "label": "Charging",
+          "value": "USB PD 15V/2A and 5V/3A"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-30°C to +65°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Phi132 x 83mm, 770g"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T50 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "T50 receiver with laser measurement/camera-oriented capabilities for advanced field tasks.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_4bb7ecb1-3b68-466b-a049-a7b1c77caba9",
-      "slug": "t50pro",
       "name": "T50Pro GNSS Receiver",
+      "slug": "t50pro",
+      "type": "Photogrammetry RTK receiver",
+      "summary": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
+      "description": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
+      "price": "",
+      "image": "/assets/products/t50pro.webp",
+      "gallery": [
+        "/assets/products/t50pro.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Photogrammetry RTK receiver"
       ],
-      "image": "/assets/products/t50pro.webp",
-      "summary": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
-      "description": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
-      "price": "",
-      "gallery": [
-        "/assets/products/t50pro.webp"
+      "applications": [
+        "Photogrammetry",
+        "AR stakeout",
+        "Surveying"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Photogrammetry",
+        "AR stakeout",
+        "RTCM 3.x",
+        "Professional dealer-ready receiver kit"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+        },
+        {
+          "label": "Channels / output",
+          "value": "1408 channels, NMEA-0183 output and RTCM 3.x correction I/O"
+        },
+        {
+          "label": "Update frequency",
+          "value": "20Hz max"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+1ppm), Vertical +/- (5mm+1ppm)"
+        },
+        {
+          "label": "Tilt correction",
+          "value": "<2cm within 60 degrees"
+        },
+        {
+          "label": "AR stakeout",
+          "value": "Supported on T50basic, T50 and T50Pro"
+        },
+        {
+          "label": "Laser / photogrammetry",
+          "value": "T50 includes 100m laser measurement; T50Pro includes photogrammetry with 2-4cm error within 2-15m"
+        },
+        {
+          "label": "AR camera",
+          "value": "1/2.8-inch sensor, f/2.5 aperture, 1920 x 1080 resolution, distortion <0.38%"
+        },
+        {
+          "label": "T50 laser module",
+          "value": "Class 3R, 100m range, +/-5mm +/-100 x 10-6 x D precision, 520 +/-20nm wavelength"
+        },
+        {
+          "label": "T50Pro image camera",
+          "value": "1/2.6-inch sensor, 3.27mm focal length, f/2.8 aperture, 1920 x 1080 resolution, FOV 83 x 72 x 51 degrees"
+        },
+        {
+          "label": "Radio",
+          "value": "Integrated transceiver, 410-470MHz, 0.5W/1.5W, TRIMTALK/TRIMMK3/SOUTH/TRANSEOT/SATEL/LORA"
+        },
+        {
+          "label": "Wireless",
+          "value": "Bluetooth BR+EDR+BLE, Wi-Fi 802.11 b/g/n, LTE FDD/TDD, WCDMA and GSM bands"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB storage"
+        },
+        {
+          "label": "Battery",
+          "value": "7.4V, 6500mAh"
+        },
+        {
+          "label": "Work time",
+          "value": "Over 16 hours in controller network mode or typical rover GSM use depending on model"
+        },
+        {
+          "label": "Charging",
+          "value": "USB PD 15V/2A and 5V/3A"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-30°C to +65°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Phi132 x 83mm, 770g"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "T50Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-end T50 family receiver for photogrammetry, AR stakeout and professional surveying workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_d7678307-c6ce-4a75-bbf2-19040d5c8ddb",
-      "slug": "net660",
       "name": "NET660 GNSS Receiver",
+      "slug": "net660",
+      "type": "CORS/base receiver",
+      "summary": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
+      "description": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
+      "price": "",
+      "image": "/assets/products/net660.webp",
+      "gallery": [
+        "/assets/products/net660.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "CORS/base receiver"
       ],
-      "image": "/assets/products/net660.webp",
-      "summary": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
-      "description": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/net660.webp"
+      "applications": [
+        "CORS",
+        "Deformation monitoring",
+        "Reference station"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "RJ45 Ethernet",
+        "Serial ports",
+        "32GB storage",
+        "Magnesium alloy body"
+      ],
+      "specs": [
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 1.8GHz with Linux OS"
+        },
+        {
+          "label": "GNSS signals",
+          "value": "GPS, GLONASS, BDS, Galileo, QZSS, SBAS and NavIC depending on model; NET660i-H supports dual-antenna directed positioning"
+        },
+        {
+          "label": "Channels",
+          "value": "1408 on NET660i / NET660i-H family"
+        },
+        {
+          "label": "Data format",
+          "value": "RINEX and custom data format"
+        },
+        {
+          "label": "Position data",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Differential data",
+          "value": "RTCM 3.x"
+        },
+        {
+          "label": "Data update frequency",
+          "value": "1Hz, 2Hz, 5Hz, 10Hz, 20Hz"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+0.5ppm), Vertical +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Timing accuracy",
+          "value": "20ns RMS"
+        },
+        {
+          "label": "Serial port",
+          "value": "Standard RS232, baud rates 1200 to 230400bps on NET660i family"
+        },
+        {
+          "label": "Network port",
+          "value": "RJ45 10/100Mbps adaptive Ethernet"
+        },
+        {
+          "label": "Ports",
+          "value": "Power, DATA, PPS, SIM, Ethernet, GNSS antenna and 4G antenna ports depending on model"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB circular storage, multi-channel storage support"
+        },
+        {
+          "label": "Protocols",
+          "value": "Ntrip Client/Server/Caster, TCP Client/Server, FTP, HTTP/HTTPS and private network transfer"
+        },
+        {
+          "label": "Cloud service",
+          "value": "Reports location, network status, signal strength and satellite reception; supports remote restart, reset and upgrade"
+        },
+        {
+          "label": "Voltage input",
+          "value": "9-24V DC, 12V typical on NET660i family"
+        },
+        {
+          "label": "Power dissipation",
+          "value": "1.8W typical for NET660i, 2W typical for NET660i-H"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Material",
+          "value": "Magnesium alloy main body"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "NET660i family 148.8 x 105 x 50.3mm, 490g"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "NET660i-H lists 0.2 degrees/m heading accuracy"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "NET660 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-precision CORS/base-station receiver for monitoring, reference station and network applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_f98781b9-8eab-43e3-ba43-8348d9b20198",
-      "slug": "net660i",
       "name": "NET660i GNSS Receiver",
+      "slug": "net660i",
+      "type": "Miniaturized GNSS receiver",
+      "summary": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
+      "description": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
+      "price": "",
+      "image": "/assets/products/net660i.webp",
+      "gallery": [
+        "/assets/products/net660i.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Miniaturized GNSS receiver"
       ],
-      "image": "/assets/products/net660i.webp",
-      "summary": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
-      "description": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
-      "price": "",
-      "gallery": [
-        "/assets/products/net660i.webp"
+      "applications": [
+        "CORS",
+        "System integration",
+        "Monitoring"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "ARM Cortex-A7 platform",
+        "RS232 serial",
+        "Ethernet",
+        "32GB storage"
+      ],
+      "specs": [
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 1.8GHz with Linux OS"
+        },
+        {
+          "label": "GNSS signals",
+          "value": "GPS, GLONASS, BDS, Galileo, QZSS, SBAS and NavIC depending on model; NET660i-H supports dual-antenna directed positioning"
+        },
+        {
+          "label": "Channels",
+          "value": "1408 on NET660i / NET660i-H family"
+        },
+        {
+          "label": "Data format",
+          "value": "RINEX and custom data format"
+        },
+        {
+          "label": "Position data",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Differential data",
+          "value": "RTCM 3.x"
+        },
+        {
+          "label": "Data update frequency",
+          "value": "1Hz, 2Hz, 5Hz, 10Hz, 20Hz"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+0.5ppm), Vertical +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Timing accuracy",
+          "value": "20ns RMS"
+        },
+        {
+          "label": "Serial port",
+          "value": "Standard RS232, baud rates 1200 to 230400bps on NET660i family"
+        },
+        {
+          "label": "Network port",
+          "value": "RJ45 10/100Mbps adaptive Ethernet"
+        },
+        {
+          "label": "Ports",
+          "value": "Power, DATA, PPS, SIM, Ethernet, GNSS antenna and 4G antenna ports depending on model"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB circular storage, multi-channel storage support"
+        },
+        {
+          "label": "Protocols",
+          "value": "Ntrip Client/Server/Caster, TCP Client/Server, FTP, HTTP/HTTPS and private network transfer"
+        },
+        {
+          "label": "Cloud service",
+          "value": "Reports location, network status, signal strength and satellite reception; supports remote restart, reset and upgrade"
+        },
+        {
+          "label": "Voltage input",
+          "value": "9-24V DC, 12V typical on NET660i family"
+        },
+        {
+          "label": "Power dissipation",
+          "value": "1.8W typical for NET660i, 2W typical for NET660i-H"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Material",
+          "value": "Magnesium alloy main body"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "NET660i family 148.8 x 105 x 50.3mm, 490g"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "NET660i-H lists 0.2 degrees/m heading accuracy"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "NET660i GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS receiver designed for system integration, CORS and monitoring deployments.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_9b10c2f3-3038-4fa3-9131-d0d9c53aefa9",
-      "slug": "net660i-h",
       "name": "NET660i-H GNSS Receiver",
+      "slug": "net660i-h",
+      "type": "Cost-effective compact GNSS receiver",
+      "summary": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
+      "description": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
+      "price": "",
+      "image": "/assets/products/net660i.webp",
+      "gallery": [
+        "/assets/products/net660i.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Cost-effective compact GNSS receiver"
       ],
-      "image": "/assets/products/net660i.webp",
-      "summary": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
-      "description": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
-      "price": "",
-      "gallery": [
-        "/assets/products/net660i.webp"
+      "applications": [
+        "Monitoring",
+        "OEM integration",
+        "CORS"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Cost-effective miniaturized design",
+        "Industrial temperature range",
+        "Ethernet and serial connectivity",
+        "PPS support"
+      ],
+      "specs": [
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 1.8GHz with Linux OS"
+        },
+        {
+          "label": "GNSS signals",
+          "value": "GPS, GLONASS, BDS, Galileo, QZSS, SBAS and NavIC depending on model; NET660i-H supports dual-antenna directed positioning"
+        },
+        {
+          "label": "Channels",
+          "value": "1408 on NET660i / NET660i-H family"
+        },
+        {
+          "label": "Data format",
+          "value": "RINEX and custom data format"
+        },
+        {
+          "label": "Position data",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Differential data",
+          "value": "RTCM 3.x"
+        },
+        {
+          "label": "Data update frequency",
+          "value": "1Hz, 2Hz, 5Hz, 10Hz, 20Hz"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+0.5ppm), Vertical +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Timing accuracy",
+          "value": "20ns RMS"
+        },
+        {
+          "label": "Serial port",
+          "value": "Standard RS232, baud rates 1200 to 230400bps on NET660i family"
+        },
+        {
+          "label": "Network port",
+          "value": "RJ45 10/100Mbps adaptive Ethernet"
+        },
+        {
+          "label": "Ports",
+          "value": "Power, DATA, PPS, SIM, Ethernet, GNSS antenna and 4G antenna ports depending on model"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB circular storage, multi-channel storage support"
+        },
+        {
+          "label": "Protocols",
+          "value": "Ntrip Client/Server/Caster, TCP Client/Server, FTP, HTTP/HTTPS and private network transfer"
+        },
+        {
+          "label": "Cloud service",
+          "value": "Reports location, network status, signal strength and satellite reception; supports remote restart, reset and upgrade"
+        },
+        {
+          "label": "Voltage input",
+          "value": "9-24V DC, 12V typical on NET660i family"
+        },
+        {
+          "label": "Power dissipation",
+          "value": "1.8W typical for NET660i, 2W typical for NET660i-H"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Material",
+          "value": "Magnesium alloy main body"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "NET660i family 148.8 x 105 x 50.3mm, 490g"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "NET660i-H lists 0.2 degrees/m heading accuracy"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "NET660i-H GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_62c10c59-619a-447f-99c0-c71cac71a463",
-      "slug": "net660i-1u",
       "name": "NET660i-1U GNSS Receiver",
+      "slug": "net660i-1u",
+      "type": "Rack-style GNSS receiver",
+      "summary": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
+      "description": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
+      "price": "",
+      "image": "/assets/products/net660i.webp",
+      "gallery": [
+        "/assets/products/net660i.webp"
+      ],
       "category": "gnss-receivers",
       "tags": [
         "Rack-style GNSS receiver"
       ],
-      "image": "/assets/products/net660i.webp",
-      "summary": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
-      "description": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
-      "price": "",
-      "gallery": [
-        "/assets/products/net660i.webp"
+      "applications": [
+        "CORS station room",
+        "Reference network",
+        "Monitoring center"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "1U installation concept",
+        "GNSS and network interfaces",
+        "Industrial receiver design",
+        "Long-term operation"
+      ],
+      "specs": [
+        {
+          "label": "Platform",
+          "value": "ARM Cortex-A7 1.8GHz with Linux OS"
+        },
+        {
+          "label": "GNSS signals",
+          "value": "GPS, GLONASS, BDS, Galileo, QZSS, SBAS and NavIC depending on model; NET660i-H supports dual-antenna directed positioning"
+        },
+        {
+          "label": "Channels",
+          "value": "1408 on NET660i / NET660i-H family"
+        },
+        {
+          "label": "Data format",
+          "value": "RINEX and custom data format"
+        },
+        {
+          "label": "Position data",
+          "value": "NMEA-0183"
+        },
+        {
+          "label": "Differential data",
+          "value": "RTCM 3.x"
+        },
+        {
+          "label": "Data update frequency",
+          "value": "1Hz, 2Hz, 5Hz, 10Hz, 20Hz"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/- (8mm+1ppm), Vertical +/- (15mm+1ppm)"
+        },
+        {
+          "label": "Static accuracy",
+          "value": "Horizontal +/- (2.5mm+0.5ppm), Vertical +/- (5mm+0.5ppm)"
+        },
+        {
+          "label": "Timing accuracy",
+          "value": "20ns RMS"
+        },
+        {
+          "label": "Serial port",
+          "value": "Standard RS232, baud rates 1200 to 230400bps on NET660i family"
+        },
+        {
+          "label": "Network port",
+          "value": "RJ45 10/100Mbps adaptive Ethernet"
+        },
+        {
+          "label": "Ports",
+          "value": "Power, DATA, PPS, SIM, Ethernet, GNSS antenna and 4G antenna ports depending on model"
+        },
+        {
+          "label": "Storage",
+          "value": "32GB circular storage, multi-channel storage support"
+        },
+        {
+          "label": "Protocols",
+          "value": "Ntrip Client/Server/Caster, TCP Client/Server, FTP, HTTP/HTTPS and private network transfer"
+        },
+        {
+          "label": "Cloud service",
+          "value": "Reports location, network status, signal strength and satellite reception; supports remote restart, reset and upgrade"
+        },
+        {
+          "label": "Voltage input",
+          "value": "9-24V DC, 12V typical on NET660i family"
+        },
+        {
+          "label": "Power dissipation",
+          "value": "1.8W typical for NET660i, 2W typical for NET660i-H"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68"
+        },
+        {
+          "label": "Material",
+          "value": "Magnesium alloy main body"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "NET660i family 148.8 x 105 x 50.3mm, 490g"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "NET660i-H lists 0.2 degrees/m heading accuracy"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "NET660i-1U GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "1U GNSS receiver variant for station-room deployment and professional infrastructure projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_67c1465f-ad30-4956-a4e6-27f51a49416d",
-      "slug": "pcr100t",
       "name": "PCR100T Data Controller",
+      "slug": "pcr100t",
+      "type": "RTK data controller",
+      "summary": "Flagship RTK measurement controller for field data collection and survey software operation.",
+      "description": "Flagship RTK measurement controller for field data collection and survey software operation.",
+      "price": "",
+      "image": "/assets/products/pcr100t.webp",
+      "gallery": [
+        "/assets/products/pcr100t.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "RTK data controller"
       ],
-      "image": "/assets/products/pcr100t.webp",
-      "summary": "Flagship RTK measurement controller for field data collection and survey software operation.",
-      "description": "Flagship RTK measurement controller for field data collection and survey software operation.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr100t.webp"
+      "applications": [
+        "Survey control",
+        "RTK field operation",
+        "GIS collection"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Android field controller",
+        "4GB RAM + 64GB ROM class",
+        "IP68 protection",
+        "Long battery work time"
+      ],
+      "specs": [
+        {
+          "label": "OS",
+          "value": "PCR100T Android 11; PCR500 Android 12; PCR500Pro Android 12 GMS support"
+        },
+        {
+          "label": "Processor",
+          "value": "8-core 2.0GHz class processor; PCR500 uses Qualcomm SM6115, PCR500Pro uses Qualcomm SDM662"
+        },
+        {
+          "label": "Memory",
+          "value": "4GB RAM + 64GB ROM"
+        },
+        {
+          "label": "Display",
+          "value": "PCR100T 5.45-inch 720 x 1440; PCR500/PCR500Pro 5.5-inch 1080 x 1920, 500 nit"
+        },
+        {
+          "label": "Keyboard",
+          "value": "Surveying-focused English keypad / QWERTY keypad depending on model"
+        },
+        {
+          "label": "Camera",
+          "value": "Rear 13MP camera with flash or autofocus depending on model"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "IEEE 802.11 a/b/g/n/ac, dual-band 2.4G/5G"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BT5.0 BLE"
+        },
+        {
+          "label": "NFC",
+          "value": "Supported"
+        },
+        {
+          "label": "Cellular",
+          "value": "GSM, WCDMA, LTE-TDD and LTE-FDD global bands depending on region version"
+        },
+        {
+          "label": "GNSS",
+          "value": "GPS, BDS, GLONASS, Galileo and A-GPS support depending on model"
+        },
+        {
+          "label": "PCR500Pro RTK",
+          "value": "1408 channels, RTK 2cm HRMS, SBAS <1m HRMS listed in brochure"
+        },
+        {
+          "label": "Battery",
+          "value": "9000mAh non-removable battery, rapid charging support"
+        },
+        {
+          "label": "Working time",
+          "value": "PCR100T 18 hours; PCR500/PCR500Pro 22 hours typical"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68 dust and water protection"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "1.2m pole drop / fall on concrete depending on model"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "PCR100T -20°C to +55°C; PCR500/PCR500Pro -20°C to +65°C"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Around 228 x 96 x 21mm and 420g for PCR500/PCR500Pro; PCR100T 221 x 78 x 16.5mm and 410.6g"
+        },
+        {
+          "label": "Certifications",
+          "value": "CE, FCC and regional certifications listed for controller line"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "PCR100T Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Flagship RTK measurement controller for field data collection and survey software operation.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_72fa7fbd-0f38-4766-b0e3-0648f90a7776",
-      "slug": "pcr500",
       "name": "PCR500 Data Controller",
+      "slug": "pcr500",
+      "type": "Android data controller",
+      "summary": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
+      "description": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
+      "price": "",
+      "image": "/assets/products/pcr500.webp",
+      "gallery": [
+        "/assets/products/pcr500.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "Android data controller"
       ],
-      "image": "/assets/products/pcr500.webp",
-      "summary": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
-      "description": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr500.webp"
+      "applications": [
+        "Surveying",
+        "Stakeout",
+        "Field software operation"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Android 12",
+        "Qualcomm platform",
+        "BT5.0",
+        "Rapid charging"
+      ],
+      "specs": [
+        {
+          "label": "OS",
+          "value": "PCR100T Android 11; PCR500 Android 12; PCR500Pro Android 12 GMS support"
+        },
+        {
+          "label": "Processor",
+          "value": "8-core 2.0GHz class processor; PCR500 uses Qualcomm SM6115, PCR500Pro uses Qualcomm SDM662"
+        },
+        {
+          "label": "Memory",
+          "value": "4GB RAM + 64GB ROM"
+        },
+        {
+          "label": "Display",
+          "value": "PCR100T 5.45-inch 720 x 1440; PCR500/PCR500Pro 5.5-inch 1080 x 1920, 500 nit"
+        },
+        {
+          "label": "Keyboard",
+          "value": "Surveying-focused English keypad / QWERTY keypad depending on model"
+        },
+        {
+          "label": "Camera",
+          "value": "Rear 13MP camera with flash or autofocus depending on model"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "IEEE 802.11 a/b/g/n/ac, dual-band 2.4G/5G"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BT5.0 BLE"
+        },
+        {
+          "label": "NFC",
+          "value": "Supported"
+        },
+        {
+          "label": "Cellular",
+          "value": "GSM, WCDMA, LTE-TDD and LTE-FDD global bands depending on region version"
+        },
+        {
+          "label": "GNSS",
+          "value": "GPS, BDS, GLONASS, Galileo and A-GPS support depending on model"
+        },
+        {
+          "label": "PCR500Pro RTK",
+          "value": "1408 channels, RTK 2cm HRMS, SBAS <1m HRMS listed in brochure"
+        },
+        {
+          "label": "Battery",
+          "value": "9000mAh non-removable battery, rapid charging support"
+        },
+        {
+          "label": "Working time",
+          "value": "PCR100T 18 hours; PCR500/PCR500Pro 22 hours typical"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68 dust and water protection"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "1.2m pole drop / fall on concrete depending on model"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "PCR100T -20°C to +55°C; PCR500/PCR500Pro -20°C to +65°C"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Around 228 x 96 x 21mm and 420g for PCR500/PCR500Pro; PCR100T 221 x 78 x 16.5mm and 410.6g"
+        },
+        {
+          "label": "Certifications",
+          "value": "CE, FCC and regional certifications listed for controller line"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "PCR500 Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Android 12 data controller for surveying crews that need rugged mobility and reliable connectivity.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_32e8d1b9-b8b7-4236-b41c-c008b5822157",
-      "slug": "pcr500pro",
       "name": "PCR500Pro Data Controller",
+      "slug": "pcr500pro",
+      "type": "Professional handheld terminal",
+      "summary": "Professional handheld terminal for high-efficiency mobile field operations.",
+      "description": "Professional handheld terminal for high-efficiency mobile field operations.",
+      "price": "",
+      "image": "/assets/products/pcr500.webp",
+      "gallery": [
+        "/assets/products/pcr500.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "Professional handheld terminal"
       ],
-      "image": "/assets/products/pcr500.webp",
-      "summary": "Professional handheld terminal for high-efficiency mobile field operations.",
-      "description": "Professional handheld terminal for high-efficiency mobile field operations.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr500.webp"
+      "applications": [
+        "GIS",
+        "Mobile mapping",
+        "Surveying"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Android 14 GMS class",
+        "Rugged handheld design",
+        "NFC support",
+        "Fast charging"
+      ],
+      "specs": [
+        {
+          "label": "OS",
+          "value": "PCR100T Android 11; PCR500 Android 12; PCR500Pro Android 12 GMS support"
+        },
+        {
+          "label": "Processor",
+          "value": "8-core 2.0GHz class processor; PCR500 uses Qualcomm SM6115, PCR500Pro uses Qualcomm SDM662"
+        },
+        {
+          "label": "Memory",
+          "value": "4GB RAM + 64GB ROM"
+        },
+        {
+          "label": "Display",
+          "value": "PCR100T 5.45-inch 720 x 1440; PCR500/PCR500Pro 5.5-inch 1080 x 1920, 500 nit"
+        },
+        {
+          "label": "Keyboard",
+          "value": "Surveying-focused English keypad / QWERTY keypad depending on model"
+        },
+        {
+          "label": "Camera",
+          "value": "Rear 13MP camera with flash or autofocus depending on model"
+        },
+        {
+          "label": "Wi-Fi",
+          "value": "IEEE 802.11 a/b/g/n/ac, dual-band 2.4G/5G"
+        },
+        {
+          "label": "Bluetooth",
+          "value": "BT5.0 BLE"
+        },
+        {
+          "label": "NFC",
+          "value": "Supported"
+        },
+        {
+          "label": "Cellular",
+          "value": "GSM, WCDMA, LTE-TDD and LTE-FDD global bands depending on region version"
+        },
+        {
+          "label": "GNSS",
+          "value": "GPS, BDS, GLONASS, Galileo and A-GPS support depending on model"
+        },
+        {
+          "label": "PCR500Pro RTK",
+          "value": "1408 channels, RTK 2cm HRMS, SBAS <1m HRMS listed in brochure"
+        },
+        {
+          "label": "Battery",
+          "value": "9000mAh non-removable battery, rapid charging support"
+        },
+        {
+          "label": "Working time",
+          "value": "PCR100T 18 hours; PCR500/PCR500Pro 22 hours typical"
+        },
+        {
+          "label": "Protection",
+          "value": "IP68 dust and water protection"
+        },
+        {
+          "label": "Drop resistance",
+          "value": "1.2m pole drop / fall on concrete depending on model"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "PCR100T -20°C to +55°C; PCR500/PCR500Pro -20°C to +65°C"
+        },
+        {
+          "label": "Dimensions / weight",
+          "value": "Around 228 x 96 x 21mm and 420g for PCR500/PCR500Pro; PCR100T 221 x 78 x 16.5mm and 410.6g"
+        },
+        {
+          "label": "Certifications",
+          "value": "CE, FCC and regional certifications listed for controller line"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "PCR500Pro Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Professional handheld terminal for high-efficiency mobile field operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_96515ccc-d8de-4306-ba0a-422546b75923",
-      "slug": "pcr600",
       "name": "PCR600 Data Controller",
+      "slug": "pcr600",
+      "type": "Full-keyboard surveying controller",
+      "summary": "Full-keyboard surveying data collector designed for professional field crews.",
+      "description": "Full-keyboard surveying data collector designed for professional field crews.",
+      "price": "",
+      "image": "/assets/products/pcr500.webp",
+      "gallery": [
+        "/assets/products/pcr500.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "Full-keyboard surveying controller"
       ],
-      "image": "/assets/products/pcr500.webp",
-      "summary": "Full-keyboard surveying data collector designed for professional field crews.",
-      "description": "Full-keyboard surveying data collector designed for professional field crews.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr500.webp"
+      "applications": [
+        "Surveying",
+        "Field coding",
+        "Stakeout"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Full keyboard",
+        "9000mAh battery class",
+        "Surveying-focused design",
+        "Rugged operation"
+      ],
+      "specs": [
+        {
+          "label": "WIFI",
+          "value": "802.11 a/b/g/n/ac"
+        },
+        {
+          "label": "Battery",
+          "value": "9000mAh class"
+        },
+        {
+          "label": "Protection",
+          "value": "Rugged field housing"
+        },
+        {
+          "label": "Use",
+          "value": "Surveying data collection"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "PCR600 Data Controller Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Full-keyboard surveying data collector designed for professional field crews.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_3217ed0d-06bd-4cd5-8440-8ac6c8bf41b2",
-      "slug": "p8-p8pro",
       "name": "P8 / P8Pro Portable RTK Receiver",
+      "slug": "p8-p8pro",
+      "type": "Portable RTK terminal",
+      "summary": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
+      "description": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
+      "price": "",
+      "image": "/assets/products/pcr100t.webp",
+      "gallery": [
+        "/assets/products/pcr100t.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "Portable RTK terminal"
       ],
-      "image": "/assets/products/pcr100t.webp",
-      "summary": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
-      "description": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr100t.webp"
+      "applications": [
+        "Portable RTK",
+        "GIS",
+        "Mapping"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Portable positioning terminal",
+        "BDS high-precision positioning",
+        "Mobile workflow",
+        "Easy field deployment"
+      ],
+      "specs": [
+        {
+          "label": "Positioning",
+          "value": "BDS high-precision positioning technology"
+        },
+        {
+          "label": "Use",
+          "value": "Portable RTK and GIS workflows"
+        },
+        {
+          "label": "Workflow",
+          "value": "Mobile terminal operation"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Dealers and field crews needing lightweight RTK"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "P8 / P8Pro Portable RTK Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Portable intelligent positioning terminal based on BDS high-precision positioning technology.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_9aaf8b67-db75-48ad-b7bd-3491205146d9",
-      "slug": "p8glo",
       "name": "P8Glo Portable RTK Receiver",
+      "slug": "p8glo",
+      "type": "Portable RTK terminal",
+      "summary": "Portable intelligent positioning terminal for global high-precision field applications.",
+      "description": "Portable intelligent positioning terminal for global high-precision field applications.",
+      "price": "",
+      "image": "/assets/products/pcr100t.webp",
+      "gallery": [
+        "/assets/products/pcr100t.webp"
+      ],
       "category": "rugged-gis",
       "tags": [
         "Portable RTK terminal"
       ],
-      "image": "/assets/products/pcr100t.webp",
-      "summary": "Portable intelligent positioning terminal for global high-precision field applications.",
-      "description": "Portable intelligent positioning terminal for global high-precision field applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/pcr100t.webp"
+      "applications": [
+        "Portable RTK",
+        "GIS",
+        "Mapping"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Portable design",
+        "High-precision positioning",
+        "Global field workflow",
+        "Mobile operation"
+      ],
+      "specs": [
+        {
+          "label": "Product family",
+          "value": "P8Global portable positioning terminal"
+        },
+        {
+          "label": "Use",
+          "value": "BDS high-precision positioning workflows"
+        },
+        {
+          "label": "Application",
+          "value": "GIS and mapping"
+        },
+        {
+          "label": "Form",
+          "value": "Portable RTK receiver"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "P8Glo Portable RTK Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Portable intelligent positioning terminal for global high-precision field applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_afbc3623-cd45-4eef-a779-e921cd2fc08e",
-      "slug": "tca920",
       "name": "TCA920 Choke Ring Antenna",
+      "slug": "tca920",
+      "type": "Choke ring antenna",
+      "summary": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
+      "description": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
+      "price": "",
+      "image": "/assets/products/tca930.webp",
+      "gallery": [
+        "/assets/products/tca930.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Choke ring antenna"
       ],
-      "image": "/assets/products/tca930.webp",
-      "summary": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
-      "description": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tca930.webp"
+      "applications": [
+        "CORS",
+        "Monitoring",
+        "Reference station"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "GPS L1/L2/L5/L-Band",
+        "GLONASS L1/L2/L3",
+        "BDS B1/B2/B3",
+        "Choke ring design"
+      ],
+      "specs": [
+        {
+          "label": "Antenna type",
+          "value": "Choke ring antenna"
+        },
+        {
+          "label": "Signals",
+          "value": "GPS, GLONASS, Galileo and BDS multi-frequency support"
+        },
+        {
+          "label": "Use case",
+          "value": "CORS/reference station and monitoring"
+        },
+        {
+          "label": "Source",
+          "value": "GNSS antenna line overview"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TCA920 Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance choke ring antenna for stable multi-frequency GNSS signal reception.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_6a392242-13f5-4830-ad74-8fd699082bfa",
-      "slug": "tca930",
       "name": "TCA930 Choke Ring Antenna",
+      "slug": "tca930",
+      "type": "Choke ring antenna",
+      "summary": "High-performance choke ring antenna for CORS and monitoring applications.",
+      "description": "High-performance choke ring antenna for CORS and monitoring applications.",
+      "price": "",
+      "image": "/assets/products/tca930.webp",
+      "gallery": [
+        "/assets/products/tca930.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Choke ring antenna"
       ],
-      "image": "/assets/products/tca930.webp",
-      "summary": "High-performance choke ring antenna for CORS and monitoring applications.",
-      "description": "High-performance choke ring antenna for CORS and monitoring applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tca930.webp"
+      "applications": [
+        "CORS",
+        "Reference station",
+        "Monitoring"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Multi-frequency tracking",
+        "Choke ring structure",
+        "Professional base installation",
+        "Stable signal reception"
+      ],
+      "specs": [
+        {
+          "label": "Signals",
+          "value": "GPS L1/L2/L5/L-Band, GLONASS L1/L2/L3, Galileo E1/E5a/E5b/E6, BDS B1/B2/B3, QZSS L1/L2/L5/L6, SBAS L1/L5, NavIC L5"
+        },
+        {
+          "label": "Nominal impedance",
+          "value": "50 ohm"
+        },
+        {
+          "label": "Polarization",
+          "value": "RHCP"
+        },
+        {
+          "label": "Axial ratio",
+          "value": "<=2dB"
+        },
+        {
+          "label": "Gain at zenith",
+          "value": "1164-1300MHz 7.0dBi max; 1525-1615MHz 6.5dBi max"
+        },
+        {
+          "label": "LNA gain",
+          "value": "50dB typical"
+        },
+        {
+          "label": "Noise figure",
+          "value": "<=2dB"
+        },
+        {
+          "label": "Group delay ripple",
+          "value": "<5ns"
+        },
+        {
+          "label": "Operation voltage",
+          "value": "+3.3VDC to +12VDC"
+        },
+        {
+          "label": "Operation current",
+          "value": "60mA maximum"
+        },
+        {
+          "label": "Dimensions",
+          "value": "Phi379mm x 312mm"
+        },
+        {
+          "label": "Connector",
+          "value": "TNC female"
+        },
+        {
+          "label": "Weight",
+          "value": "<=10.5kg"
+        },
+        {
+          "label": "Mounting",
+          "value": "BSW 5/8''-11 screw, depth >=22mm"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP67"
+        },
+        {
+          "label": "Compliance",
+          "value": "IGS, NGS, CE, FCC, RoHS"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TCA930 Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "High-performance choke ring antenna for CORS and monitoring applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_c431274e-0316-4c18-aa2c-e44779dd63dc",
-      "slug": "tca930m",
       "name": "TCA930M Choke Ring Antenna",
+      "slug": "tca930m",
+      "type": "Choke ring antenna",
+      "summary": "Choke ring antenna variant for high-precision fixed GNSS applications.",
+      "description": "Choke ring antenna variant for high-precision fixed GNSS applications.",
+      "price": "",
+      "image": "/assets/products/tca930.webp",
+      "gallery": [
+        "/assets/products/tca930.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Choke ring antenna"
       ],
-      "image": "/assets/products/tca930.webp",
-      "summary": "Choke ring antenna variant for high-precision fixed GNSS applications.",
-      "description": "Choke ring antenna variant for high-precision fixed GNSS applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tca930.webp"
+      "applications": [
+        "CORS",
+        "Monitoring",
+        "Base station"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Multi-frequency GNSS",
+        "Professional fixed installation",
+        "Choke ring design",
+        "Stable reference data"
+      ],
+      "specs": [
+        {
+          "label": "Signals",
+          "value": "GPS L1/L2/L5/L-Band, GLONASS L1/L2/L3, Galileo E1/E5a/E5b/E6, BDS B1/B2/B3, QZSS L1/L2/L5/L6, SBAS L1/L5, NavIC L5"
+        },
+        {
+          "label": "Nominal impedance",
+          "value": "50 ohm"
+        },
+        {
+          "label": "Polarization",
+          "value": "RHCP"
+        },
+        {
+          "label": "Axial ratio",
+          "value": "<=2dB"
+        },
+        {
+          "label": "Gain at zenith",
+          "value": "1164-1300MHz 7.0dBi max; 1525-1615MHz 6.5dBi max"
+        },
+        {
+          "label": "LNA gain",
+          "value": "50dB typical"
+        },
+        {
+          "label": "Noise figure",
+          "value": "<=2dB"
+        },
+        {
+          "label": "Group delay ripple",
+          "value": "<5ns"
+        },
+        {
+          "label": "Operation voltage",
+          "value": "+3.3VDC to +12VDC"
+        },
+        {
+          "label": "Operation current",
+          "value": "60mA maximum"
+        },
+        {
+          "label": "Dimensions",
+          "value": "Phi379mm x 312mm"
+        },
+        {
+          "label": "Connector",
+          "value": "TNC female"
+        },
+        {
+          "label": "Weight",
+          "value": "<=10.5kg"
+        },
+        {
+          "label": "Mounting",
+          "value": "BSW 5/8''-11 screw, depth >=22mm"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP67"
+        },
+        {
+          "label": "Compliance",
+          "value": "IGS, NGS, CE, FCC, RoHS"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TCA930M Choke Ring Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Choke ring antenna variant for high-precision fixed GNSS applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_9b283541-92e0-4d20-8983-0f93119e93b1",
-      "slug": "tsa320",
       "name": "TSA320 Survey GNSS Antenna",
+      "slug": "tsa320",
+      "type": "Survey antenna",
+      "summary": "External measurement antenna for survey-grade positioning workflows.",
+      "description": "External measurement antenna for survey-grade positioning workflows.",
+      "price": "",
+      "image": "/assets/products/tsa520.webp",
+      "gallery": [
+        "/assets/products/tsa520.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Survey antenna"
       ],
-      "image": "/assets/products/tsa520.webp",
-      "summary": "External measurement antenna for survey-grade positioning workflows.",
-      "description": "External measurement antenna for survey-grade positioning workflows.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tsa520.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "External antenna workflows"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Survey GNSS antenna",
+        "External measurement antenna",
+        "Multi-frequency coverage",
+        "Portable installation"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Survey GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "External measurement antenna"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Application",
+          "value": "Surveying and mapping"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TSA320 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "External measurement antenna for survey-grade positioning workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_4bd08499-9b9f-4a4d-a3ce-ffc933ab25b4",
-      "slug": "tsa500",
       "name": "TSA500 Survey GNSS Antenna",
+      "slug": "tsa500",
+      "type": "Survey antenna",
+      "summary": "Survey GNSS antenna designed for superior field satellite reception.",
+      "description": "Survey GNSS antenna designed for superior field satellite reception.",
+      "price": "",
+      "image": "/assets/products/tsa520.webp",
+      "gallery": [
+        "/assets/products/tsa520.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Survey antenna"
       ],
-      "image": "/assets/products/tsa520.webp",
-      "summary": "Survey GNSS antenna designed for superior field satellite reception.",
-      "description": "Survey GNSS antenna designed for superior field satellite reception.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tsa520.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "Machine control"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "External antenna",
+        "Survey-grade use",
+        "Stable GNSS reception",
+        "Field installation"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Survey GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "High-precision field measurement"
+        },
+        {
+          "label": "Installation",
+          "value": "External antenna mounting"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Survey dealers and integrators"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TSA500 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Survey GNSS antenna designed for superior field satellite reception.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_7af0e55c-4e72-4841-8bf6-e8c9fb0ee74e",
-      "slug": "tsa520",
       "name": "TSA520 Survey GNSS Antenna",
+      "slug": "tsa520",
+      "type": "Survey antenna",
+      "summary": "External measurement antenna covering four major GNSS systems for survey applications.",
+      "description": "External measurement antenna covering four major GNSS systems for survey applications.",
+      "price": "",
+      "image": "/assets/products/tsa520.webp",
+      "gallery": [
+        "/assets/products/tsa520.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Survey antenna"
       ],
-      "image": "/assets/products/tsa520.webp",
-      "summary": "External measurement antenna covering four major GNSS systems for survey applications.",
-      "description": "External measurement antenna covering four major GNSS systems for survey applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tsa520.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "Monitoring"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Covers four GNSS systems",
+        "External measurement antenna",
+        "Survey-grade reception",
+        "Compact field use"
+      ],
+      "specs": [
+        {
+          "label": "Signals",
+          "value": "GPS L1/L2/L5, GLONASS L1/L2/L3, Galileo E1/E5a/E5b/E6, BDS B1/B2/B3, QZSS L1/L2/L5/L6, SBAS L1/L5, NavIC L5 and L-Band depending on model"
+        },
+        {
+          "label": "Phase center offset",
+          "value": "2mm listed for TSA520"
+        },
+        {
+          "label": "Nominal impedance",
+          "value": "50 ohm"
+        },
+        {
+          "label": "Polarization",
+          "value": "RHCP"
+        },
+        {
+          "label": "Axial ratio",
+          "value": "<=3dB"
+        },
+        {
+          "label": "Gain at zenith",
+          "value": "TSA520 4.5dBi"
+        },
+        {
+          "label": "LNA gain",
+          "value": "L1 34 +/-2dB, L2 36 +/-2dB on TSA520"
+        },
+        {
+          "label": "Noise figure",
+          "value": "<=2dB"
+        },
+        {
+          "label": "Operation voltage",
+          "value": "+3.3VDC to +12VDC"
+        },
+        {
+          "label": "Operation current",
+          "value": "<=45mA on TSA520"
+        },
+        {
+          "label": "Group delay ripple",
+          "value": "<=5ns"
+        },
+        {
+          "label": "Dimensions",
+          "value": "TSA520 Phi152mm x 62.2mm"
+        },
+        {
+          "label": "Connector",
+          "value": "TNC female"
+        },
+        {
+          "label": "Weight",
+          "value": "<=400g on TSA520"
+        },
+        {
+          "label": "Mounting",
+          "value": "BSW 5/8''-11 screw, depth 12-14mm"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-40°C to +85°C"
+        },
+        {
+          "label": "Storage temperature",
+          "value": "-55°C to +85°C"
+        },
+        {
+          "label": "Protection",
+          "value": "IP67"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TSA520 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "External measurement antenna covering four major GNSS systems for survey applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_46de24df-dae5-486d-80de-a1e74eef95ab",
-      "slug": "tsa1000",
       "name": "TSA1000 Survey GNSS Antenna",
+      "slug": "tsa1000",
+      "type": "Survey antenna",
+      "summary": "Survey antenna for high-precision GNSS signal reception in field applications.",
+      "description": "Survey antenna for high-precision GNSS signal reception in field applications.",
+      "price": "",
+      "image": "/assets/products/tsa520.webp",
+      "gallery": [
+        "/assets/products/tsa520.webp"
+      ],
       "category": "gnss-antennas",
       "tags": [
         "Survey antenna"
       ],
-      "image": "/assets/products/tsa520.webp",
-      "summary": "Survey antenna for high-precision GNSS signal reception in field applications.",
-      "description": "Survey antenna for high-precision GNSS signal reception in field applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tsa520.webp"
+      "applications": [
+        "Surveying",
+        "Mapping",
+        "Base setup"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "External measurement antenna",
+        "Survey-grade design",
+        "Multi-system support",
+        "Field-ready installation"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Survey GNSS antenna"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-system GNSS support"
+        },
+        {
+          "label": "Use case",
+          "value": "Survey field operations"
+        },
+        {
+          "label": "Category",
+          "value": "Survey antenna"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TSA1000 Survey GNSS Antenna Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Survey antenna for high-precision GNSS signal reception in field applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_bd1a1ce0-4233-4035-bdec-9cdd8038ba48",
-      "slug": "tag66",
       "name": "TAG66 Electric Steering Wheel Autonomous Driving System",
+      "slug": "tag66",
+      "type": "Auto-steering system",
+      "summary": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
+      "description": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
+      "price": "",
+      "image": "/assets/products/tag66.webp",
+      "gallery": [
+        "/assets/products/tag66.webp"
+      ],
       "category": "precision-agriculture-machine-control",
       "tags": [
         "Auto-steering system"
       ],
-      "image": "/assets/products/tag66.webp",
-      "summary": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
-      "description": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tag66.webp"
+      "applications": [
+        "Sowing",
+        "Spraying",
+        "Plowing",
+        "Harvesting"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "2.5cm pass precision under RTK conditions",
+        "0.15-25km/h speed range",
+        "AB line, A+ line and custom curve modes",
+        "No additional wheel angle sensor required"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "GPS L1/L2/L5, GLONASS L1/L2, Galileo E1/E5a/E5b, BDS B1/B2/B3"
+        },
+        {
+          "label": "RTK accuracy",
+          "value": "Horizontal +/-8mm + 1ppm RMS, Vertical +/-15mm + 1ppm RMS"
+        },
+        {
+          "label": "Speed range",
+          "value": "0.15 to 25km/h"
+        },
+        {
+          "label": "Pass precision",
+          "value": "2.5cm under RTK conditions"
+        },
+        {
+          "label": "Operating modes",
+          "value": "AB line, A+ line, custom curves, angle harrowing and shared multi-vehicle operation"
+        },
+        {
+          "label": "Correction input",
+          "value": "External RTK corrections via UHF radio supported"
+        },
+        {
+          "label": "Display terminal",
+          "value": "12-inch 5-point capacitive touch, Android 11, Linux 5.10 / Qt 5.15.7, 1280 x 800, 750cd/m2"
+        },
+        {
+          "label": "Communication",
+          "value": "4G, Wi-Fi 2.4G/5G, BT 4.2 BLE, USB 3.0, RS232, RS485 and CAN"
+        },
+        {
+          "label": "Auto steering motor",
+          "value": "Rated torque 7.5N.m, max 180RPM, 15A rated current, 9-32VDC"
+        },
+        {
+          "label": "Protection",
+          "value": "Display IP65, GNSS receiver IP69K"
+        },
+        {
+          "label": "Kit",
+          "value": "Receiver, tablet, steering wheel, motor and driver, main cable, tablet power cable, mount and screw accessory pack"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TAG66 Electric Steering Wheel Autonomous Driving System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Electric steering wheel autonomous driving system with integrated controller, 4G, IMU, UHF radio and BeiDou positioning module.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_c24bf696-3370-4090-bbeb-0f8af52c2417",
-      "slug": "tag88",
       "name": "TAG88 Automated GNSS Land Leveling System",
+      "slug": "tag88",
+      "type": "Land leveling system",
+      "summary": "Automated GNSS land leveling system for precision agriculture leveling applications.",
+      "description": "Automated GNSS land leveling system for precision agriculture leveling applications.",
+      "price": "",
+      "image": "/assets/products/tag88.webp",
+      "gallery": [
+        "/assets/products/tag88.webp"
+      ],
       "category": "precision-agriculture-machine-control",
       "tags": [
         "Land leveling system"
       ],
-      "image": "/assets/products/tag88.webp",
-      "summary": "Automated GNSS land leveling system for precision agriculture leveling applications.",
-      "description": "Automated GNSS land leveling system for precision agriculture leveling applications.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tag88.webp"
+      "applications": [
+        "Land leveling",
+        "Farmland preparation",
+        "Precision agriculture"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "GNSS automated leveling",
+        "Full-network signal coverage",
+        "Base station coverage up to 30km described in brochure",
+        "Agricultural terrain workflow"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "BDS, GPS, GLONASS, Galileo, QZSS, IRNSS and L-Band listed in brochure"
+        },
+        {
+          "label": "Coverage",
+          "value": "Base station maximum radius up to 30km"
+        },
+        {
+          "label": "Operation accuracy",
+          "value": "+/-2.5cm land leveling operation accuracy"
+        },
+        {
+          "label": "Operation",
+          "value": "Supports 24-hour continuous operation and multiple simultaneous devices"
+        },
+        {
+          "label": "Applications",
+          "value": "Agricultural field leveling, road construction, building site preparation, airport runway construction, mining and landscape grading"
+        },
+        {
+          "label": "Display terminal",
+          "value": "12-inch 5-point capacitive touch, Android 11, Linux 5.10 / Qt 5.15.7, 1280 x 800, 750cd/m2"
+        },
+        {
+          "label": "ECU",
+          "value": "16 x 10.8 x 4.5cm, 9-36V input, 12V hydraulic output"
+        },
+        {
+          "label": "Environment",
+          "value": "GNSS antenna -40°C to +85°C operating, -55°C to +85°C storage"
+        },
+        {
+          "label": "Protection",
+          "value": "Display IP65"
+        },
+        {
+          "label": "Kit",
+          "value": "Tablet, ECU, GNSS antenna, hydraulic control valve, holder, power cable, hydraulic valve cable and antenna cable"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TAG88 Automated GNSS Land Leveling System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Automated GNSS land leveling system for precision agriculture leveling applications.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_bd7754e2-996f-48e0-9b67-a41ac6473376",
-      "slug": "tmc10",
       "name": "TMC10 Dozer 3D Guidance System",
+      "slug": "tmc10",
+      "type": "Dozer guidance",
+      "summary": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
+      "description": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
+      "price": "",
+      "image": "/assets/products/tmc10.webp",
+      "gallery": [
+        "/assets/products/tmc10.webp"
+      ],
       "category": "precision-agriculture-machine-control",
       "tags": [
         "Dozer guidance"
       ],
-      "image": "/assets/products/tmc10.webp",
-      "summary": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
-      "description": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tmc10.webp"
+      "applications": [
+        "Dozer grading",
+        "Digital construction",
+        "Earthwork"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "GNSS positioning",
+        "Sensor fusion",
+        "3D guidance",
+        "Construction machine workflow"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "BDS, GPS, GLONASS, Galileo, QZSS, IRNSS and L-Band listed in brochure"
+        },
+        {
+          "label": "Positioning accuracy",
+          "value": "2cm positioning accuracy described in brochure"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "0.1 degrees"
+        },
+        {
+          "label": "Use case",
+          "value": "Dozer grading, road and rail grading, dam construction, riverbed leveling and land preparation"
+        },
+        {
+          "label": "Operation",
+          "value": "3D model guidance for stakeless earthwork operations"
+        },
+        {
+          "label": "Display",
+          "value": "10.1-inch 5-point capacitive touch, 1024 x 600, 750cd/m2"
+        },
+        {
+          "label": "Communication",
+          "value": "4G, Wi-Fi 2.4G, BT 4.2 BLE, USB 2.0, RS232, RS485 and CAN"
+        },
+        {
+          "label": "Gyroscope range",
+          "value": "+/-400 degrees/s"
+        },
+        {
+          "label": "Output rate",
+          "value": "0.2Hz to 500Hz, default 10Hz"
+        },
+        {
+          "label": "Protection",
+          "value": "Display IP65; operating temperature -30°C to +70°C"
+        },
+        {
+          "label": "Kit",
+          "value": "Tablet, ECU, gyroscope, 2 GNSS antennas, main cable, data cable, tablet power cable, antenna harness, mount, screws and support rod kit"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TMC10 Dozer 3D Guidance System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Dozer 3D guidance system using GNSS positioning and sensor fusion for digital construction workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_526bdc45-e7c0-4b41-9815-effe112aec85",
-      "slug": "tmc20",
       "name": "TMC20 Excavator Guidance System",
+      "slug": "tmc20",
+      "type": "Excavator guidance",
+      "summary": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
+      "description": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
+      "price": "",
+      "image": "/assets/products/tmc20.webp",
+      "gallery": [
+        "/assets/products/tmc20.webp"
+      ],
       "category": "precision-agriculture-machine-control",
       "tags": [
         "Excavator guidance"
       ],
-      "image": "/assets/products/tmc20.webp",
-      "summary": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
-      "description": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tmc20.webp"
+      "applications": [
+        "Excavation",
+        "Digital construction",
+        "Machine guidance"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Industrial-grade display",
+        "Rugged durability",
+        "GNSS signal support",
+        "Pitch angle measurement up to ±80° described in brochure"
+      ],
+      "specs": [
+        {
+          "label": "GNSS signals",
+          "value": "BDS, GPS, GLONASS, Galileo, QZSS and IRNSS listed in brochure"
+        },
+        {
+          "label": "Planar accuracy",
+          "value": "Up to 2cm"
+        },
+        {
+          "label": "Fill / dig accuracy",
+          "value": "3cm high accuracy for fill and dig volumes"
+        },
+        {
+          "label": "Sensor angle range",
+          "value": "Pitch angle +/-80 degrees, roll angle +/-180 degrees"
+        },
+        {
+          "label": "Angle repeatability",
+          "value": "<0.05 degrees"
+        },
+        {
+          "label": "Dynamic accuracy",
+          "value": "0.7 degrees"
+        },
+        {
+          "label": "Applications",
+          "value": "Trench excavation, river channel excavation, slope trimming, slope leveling, night and all-weather construction"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TMC20 Excavator Guidance System Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Excavator guidance system with rugged industrial display and high-precision positioning workflow.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_8ed40099-901b-4721-b3e3-2cbb144e3e47",
-      "slug": "deformation-monitoring",
       "name": "Deformation Monitoring Solution",
+      "slug": "deformation-monitoring",
+      "type": "Monitoring solution",
+      "summary": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
+      "description": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
+      "price": "",
+      "image": "/assets/products/u6.webp",
+      "gallery": [
+        "/assets/products/u6.webp"
+      ],
       "category": "gnss-application-solutions",
       "tags": [
         "Monitoring solution"
       ],
-      "image": "/assets/products/u6.webp",
-      "summary": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
-      "description": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
-      "price": "",
-      "gallery": [
-        "/assets/products/u6.webp"
+      "applications": [
+        "Landslide monitoring",
+        "Dam monitoring",
+        "Bridge monitoring",
+        "Mining subsidence"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Flexible control without line-of-sight between stations",
+        "Real-time data output",
+        "Safety-focused monitoring workflow",
+        "Product mix can include U6 receiver and solar/power accessories"
+      ],
+      "specs": [
+        {
+          "label": "Application",
+          "value": "Geological hazard and structural deformation monitoring"
+        },
+        {
+          "label": "Data",
+          "value": "Collected data can output results in real time"
+        },
+        {
+          "label": "Deployment",
+          "value": "Flexible positioning options"
+        },
+        {
+          "label": "Product mix",
+          "value": "GNSS receiver, solar panel, controller, battery protection and pole setting"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "Deformation Monitoring Solution Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "GNSS-based monitoring solution for landslide, dam, mining subsidence, tailings reservoir, bridge and high-rise building deformation monitoring.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_547220f2-8263-4035-8060-4f1cbc9984ee",
-      "slug": "cors-vrs-service",
       "name": "CORS and VRS Service Solution",
+      "slug": "cors-vrs-service",
+      "type": "Network RTK solution",
+      "summary": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
+      "description": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
+      "price": "",
+      "image": "/assets/products/net660.webp",
+      "gallery": [
+        "/assets/products/net660.webp"
+      ],
       "category": "gnss-application-solutions",
       "tags": [
         "Network RTK solution"
       ],
-      "image": "/assets/products/net660.webp",
-      "summary": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
-      "description": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
-      "price": "",
-      "gallery": [
-        "/assets/products/net660.webp"
+      "applications": [
+        "CORS network",
+        "VRS service",
+        "Regional correction service"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Self-developed software and hardware technology",
+        "Network RTK service concept",
+        "Reference station infrastructure",
+        "Suitable for integrators and government/enterprise projects"
+      ],
+      "specs": [
+        {
+          "label": "Solution",
+          "value": "CORS and VRS service"
+        },
+        {
+          "label": "Hardware",
+          "value": "Reference station receiver and antenna configuration"
+        },
+        {
+          "label": "Software",
+          "value": "VRS service and correction management workflow"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "System integrators and correction service operators"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "CORS and VRS Service Solution Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Full-stack CORS/VRS service solution for GNSS correction infrastructure projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_91d32b5e-4fba-42ed-9ad4-540102a97ed8",
-      "slug": "marking-robot",
       "name": "TR10Pro Line Marking Robot",
+      "slug": "marking-robot",
+      "type": "Intelligent marking robot",
+      "summary": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
+      "description": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
+      "price": "",
+      "image": "/assets/products/tr10pro-marking-robot.png",
+      "gallery": [
+        "/assets/products/tr10pro-marking-robot.png"
+      ],
       "category": "gnss-application-solutions",
       "tags": [
         "Intelligent marking robot"
       ],
-      "image": "/assets/products/tr10pro-marking-robot.png",
-      "summary": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
-      "description": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tr10pro-marking-robot.png"
+      "applications": [
+        "Sports field marking",
+        "Highway pre-marking",
+        "Municipal road marking",
+        "Airport runway marking"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Centimeter-level marking accuracy",
+        "3 times faster than manual work",
+        "Built-in sports field templates",
+        "DXF and CSV file import",
+        "5cm-15cm adjustable side nozzle",
+        "0-degree turn in place"
+      ],
+      "specs": [
+        {
+          "label": "GNSS positioning",
+          "value": "Full-constellation RTK positioning with 1408 channels"
+        },
+        {
+          "label": "Supported constellations",
+          "value": "BDS, GPS, GLONASS, Galileo, SBAS and QZSS listed in the latest TR10 series brochure"
+        },
+        {
+          "label": "File import",
+          "value": "DXF, CSV and other design file formats supported by the app"
+        },
+        {
+          "label": "Templates",
+          "value": "Built-in sports field models, icons, arrows and numbers, with user-defined editing and template import"
+        },
+        {
+          "label": "Workflow",
+          "value": "Import design file, calculation, task scheduling, route planning, measuring and locating, automatic marking and report output"
+        },
+        {
+          "label": "Marking accuracy",
+          "value": "+/-1.5cm listed in the latest TR10 series brochure"
+        },
+        {
+          "label": "Line types",
+          "value": "Dots, lines, curves, numbers, letters and patterns"
+        },
+        {
+          "label": "Drawing width",
+          "value": "5cm-15cm adjustable side nozzle"
+        },
+        {
+          "label": "Material",
+          "value": "Latex paint / titanium white slurry"
+        },
+        {
+          "label": "Hopper capacity",
+          "value": "10L"
+        },
+        {
+          "label": "Operating speed",
+          "value": "Maximum speed 1m/s; mobility speed listed as 2.6km/h"
+        },
+        {
+          "label": "Productivity",
+          "value": "Brochure describes the workflow as 3 times faster than manual work"
+        },
+        {
+          "label": "Dimensions",
+          "value": "TR10Pro: 525 x 746 x 527mm, with removable side scribing mechanism width of 243mm; TR10: 558 x 610 x 527mm"
+        },
+        {
+          "label": "Weight",
+          "value": "TR10: 36kg; TR10Pro: 39.3kg"
+        },
+        {
+          "label": "Motor",
+          "value": "400W x 2 hub motors"
+        },
+        {
+          "label": "Turning radius",
+          "value": "0-degree turn in place"
+        },
+        {
+          "label": "Climbing ability",
+          "value": "20 degrees"
+        },
+        {
+          "label": "Wheelbase / wheel track",
+          "value": "400mm wheelbase, 465mm wheel track"
+        },
+        {
+          "label": "Controller",
+          "value": "Android tablet control"
+        },
+        {
+          "label": "Battery",
+          "value": "TR10: 48V / 15Ah lithium; TR10Pro: 48V / 7.5Ah lithium"
+        },
+        {
+          "label": "Battery life",
+          "value": "8 hours listed in the brochure"
+        },
+        {
+          "label": "Endurance",
+          "value": "Up to 30km listed in the brochure; customized battery capacity supported"
+        },
+        {
+          "label": "Communication",
+          "value": "CAN"
+        },
+        {
+          "label": "IP rating",
+          "value": "IP3X"
+        },
+        {
+          "label": "Temperature",
+          "value": "Operating -10°C to 60°C; storage -10°C to 45°C"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TR10Pro Line Marking Robot Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK-guided line marking robot for sports fields, highways, municipal roads, airport runways and pre-marking workflows.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_c2bcb18b-15f0-4a02-a71e-74d76e4afbc3",
-      "slug": "tboat-usv-series",
       "name": "Tboat USV Series",
+      "slug": "tboat-usv-series",
+      "type": "Unmanned surface vehicle",
+      "summary": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
+      "description": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
+      "price": "",
+      "image": "/assets/products/tboat20.webp",
+      "gallery": [
+        "/assets/products/tboat20.webp"
+      ],
       "category": "gnss-application-solutions",
       "tags": [
         "Unmanned surface vehicle"
       ],
-      "image": "/assets/products/tboat20.webp",
-      "summary": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
-      "description": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tboat20.webp"
+      "applications": [
+        "Bathymetric survey",
+        "Water quality monitoring",
+        "Patrol USV with side-scan sonar",
+        "Hydrological monitoring"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Tboat10 and Tboat20 platforms",
+        "RTK positioning accuracy",
+        "4G / 2.4G / optional radio communication",
+        "Up to 7 hours endurance",
+        "IP67 hull design",
+        "Multiple payload options"
+      ],
+      "specs": [
+        {
+          "label": "Models",
+          "value": "Tboat10 for compact unmanned surface operations; Tboat20 for full-function professional USV projects"
+        },
+        {
+          "label": "Application scenarios",
+          "value": "Bathymetric survey, water quality monitoring, water quality sampling, patrol USV with side-scan sonar, hydrological monitoring and underwater surveying"
+        },
+        {
+          "label": "Payload",
+          "value": "Tboat10 maximum payload 35kg; Tboat20 maximum payload 50kg"
+        },
+        {
+          "label": "Hull protection",
+          "value": "IP67 waterproof and dustproof hull design with reinforced bumper protection"
+        },
+        {
+          "label": "Tboat10 hull dimensions",
+          "value": "980 x 520 x 254mm; draft 8.5cm; hull 7kg, total weight 30kg"
+        },
+        {
+          "label": "Tboat20 hull dimensions",
+          "value": "1280 x 580 x 430mm; draft 10cm; hull 12kg, total weight 40kg"
+        },
+        {
+          "label": "Battery",
+          "value": "33.6V 25Ah x 2 rechargeable ternary lithium battery packs with hot-swap replacement"
+        },
+        {
+          "label": "Operating time",
+          "value": "3 hours at 2m/s; up to 7 hours at 1.5m/s"
+        },
+        {
+          "label": "Maximum speed",
+          "value": "Tboat10 up to 7m/s and supports safe passage through 4m/s current cross-sections; Tboat20 up to 6m/s"
+        },
+        {
+          "label": "Motor",
+          "value": "Brushless dual motors; Tboat10 rated 900W, Tboat20 rated 1100W"
+        },
+        {
+          "label": "GNSS",
+          "value": "Built-in GNSS positioning and orientation dual antenna with BDS, GPS, GLONASS, Galileo, QZSS and SBAS signal support"
+        },
+        {
+          "label": "RTK positioning accuracy",
+          "value": "Horizontal +/-8mm + 1ppm; vertical +/-15mm + 1ppm"
+        },
+        {
+          "label": "Directional accuracy",
+          "value": "0.1 degree accuracy with 1m baseline"
+        },
+        {
+          "label": "Control modes",
+          "value": "Manual, automatic, hover and return-to-home modes"
+        },
+        {
+          "label": "Communication",
+          "value": "4G and 2.4G data/video communication; optional base station radio and network CORS"
+        },
+        {
+          "label": "Interfaces",
+          "value": "2 x RJ45 Ethernet ports, 2 x RS232 serial ports, 2 x RS485 serial ports"
+        },
+        {
+          "label": "Depth frequency",
+          "value": "200kHz single-beam depth measurement listed in series brochure"
+        },
+        {
+          "label": "Depth range",
+          "value": "0.15-200m, with extended range available as an option"
+        },
+        {
+          "label": "Depth accuracy",
+          "value": "+/-1cm + 0.1% D, where D is water depth"
+        },
+        {
+          "label": "Payload options",
+          "value": "Echo sounder, side-scan sonar, multibeam echo sounder, ADCP, in-situ analyzer, cameras, LiDAR and water quality sensors depending on configuration"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "Tboat USV Series Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Tboat10 and Tboat20 unmanned surface vehicles for bathymetric survey, water quality monitoring, patrol and hydrographic operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
     },
     {
       "id": "product_11aa7cd5-5a38-4164-8ba2-8c516244c928",
-      "slug": "tsr20-slam",
       "name": "TSR20 Handheld LiDAR SLAM Scanner",
+      "slug": "tsr20-slam",
+      "type": "Handheld LiDAR SLAM scanner",
+      "summary": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
+      "description": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
+      "price": "",
+      "image": "/assets/products/tsr20.webp",
+      "gallery": [
+        "/assets/products/tsr20.webp"
+      ],
       "category": "gnss-application-solutions",
       "tags": [
         "Handheld LiDAR SLAM scanner"
       ],
-      "image": "/assets/products/tsr20.webp",
-      "summary": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
-      "description": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
-      "price": "",
-      "gallery": [
-        "/assets/products/tsr20.webp"
+      "applications": [
+        "Indoor mapping",
+        "Outdoor building scanning",
+        "Digital twin modeling",
+        "Power line patrol",
+        "Forestry and low-canopy survey"
       ],
-      "specs": [],
-      "status": "draft",
+      "highlights": [
+        "Livox Mid-360 LiDAR",
+        "SLAM / RTK-SLAM / PPK-SLAM modes",
+        "1.0kg handheld design",
+        "Dual 20MP cameras",
+        "200,000 points/sec",
+        "Up to 5cm absolute accuracy"
+      ],
+      "specs": [
+        {
+          "label": "Mapping mode",
+          "value": "SLAM, RTK-SLAM and PPK-SLAM"
+        },
+        {
+          "label": "Accuracy",
+          "value": "≤3cm relative accuracy and ≤5cm absolute accuracy listed in TSR20 EN brochure"
+        },
+        {
+          "label": "Point cloud thickness",
+          "value": "1cm"
+        },
+        {
+          "label": "Point cloud update frequency",
+          "value": "10Hz"
+        },
+        {
+          "label": "Typical applications",
+          "value": "Underground, indoor, stairs, parking lots, outdoor buildings, low-canopy forest and power line patrol"
+        },
+        {
+          "label": "Laser sensor",
+          "value": "Livox Mid-360 LiDAR"
+        },
+        {
+          "label": "Measuring range",
+          "value": "40m at 10% reflectivity"
+        },
+        {
+          "label": "Scan rate",
+          "value": "Single echo, 200,000 points/sec"
+        },
+        {
+          "label": "Field of view",
+          "value": "Horizontal 360 degrees; vertical -7 degrees to 52 degrees"
+        },
+        {
+          "label": "Range accuracy",
+          "value": "≤2cm at 10m, ≤3cm at 0.2m"
+        },
+        {
+          "label": "Camera",
+          "value": "Dual 20MP cameras with 200-degree ultra-wide time-synchronized scanning"
+        },
+        {
+          "label": "GNSS system",
+          "value": "GPS L1/L2/L5, GLONASS L1/L2, Galileo E1/E5a/E5b and BDS signals listed in brochure"
+        },
+        {
+          "label": "Positioning accuracy",
+          "value": "Horizontal +/-0.02m, vertical +/-0.03m"
+        },
+        {
+          "label": "IMU update rate",
+          "value": "200Hz"
+        },
+        {
+          "label": "Pitch accuracy",
+          "value": "0.015 degrees"
+        },
+        {
+          "label": "Roll accuracy",
+          "value": "0.015 degrees"
+        },
+        {
+          "label": "Heading accuracy",
+          "value": "0.040 degrees"
+        },
+        {
+          "label": "Dimensions",
+          "value": "16.5 x 12.0 x 32.4cm"
+        },
+        {
+          "label": "Weight",
+          "value": "1.0kg including battery"
+        },
+        {
+          "label": "Operating temperature",
+          "value": "-20°C to 55°C"
+        },
+        {
+          "label": "System consumption",
+          "value": "25W"
+        },
+        {
+          "label": "Storage",
+          "value": "64GB internal flash memory and 128GB MicroSD card support"
+        },
+        {
+          "label": "Wi-Fi transmission",
+          "value": "Smooth data reception within 5m"
+        }
+      ],
+      "status": "published",
       "featured": false,
       "seoTitle": "TSR20 Handheld LiDAR SLAM Scanner Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Lightweight real-time mapping LiDAR system for indoor and outdoor 3D point cloud capture in GNSS and GNSS-denied environments.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-22T04:46:09.873Z"
+      "updatedAt": "2026-06-23T02:43:36.072Z"
+    },
+    {
+      "id": "product_19c0e09a-bfae-4e51-aa7d-f90c5f55c827",
+      "name": "THA-X601A Helix Antenna",
+      "slug": "tha-x601a",
+      "type": "Helix antenna",
+      "summary": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "description": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "price": "",
+      "image": "/assets/products/tha-x601a.webp",
+      "gallery": [
+        "/assets/products/tha-x601a.webp"
+      ],
+      "category": "gnss-antennas",
+      "tags": [
+        "Helix antenna",
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "applications": [
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "highlights": [
+        "External handheld antenna",
+        "High-precision positioning support",
+        "Compact helix design",
+        "Multi-frequency family"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Helix GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "Handheld and compact high-precision positioning"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Installation",
+          "value": "Compact external antenna"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "THA-X601A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_a9e4e95b-f9a6-47af-833d-917a1ff891f6",
+      "name": "THA-X603A Helix Antenna",
+      "slug": "tha-x603a",
+      "type": "Helix antenna",
+      "summary": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "description": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "price": "",
+      "image": "/assets/products/tha-x601a.webp",
+      "gallery": [
+        "/assets/products/tha-x601a.webp"
+      ],
+      "category": "gnss-antennas",
+      "tags": [
+        "Helix antenna",
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "applications": [
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "highlights": [
+        "External handheld antenna",
+        "High-precision positioning support",
+        "Compact helix design",
+        "Multi-frequency family"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Helix GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "Handheld and compact high-precision positioning"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Installation",
+          "value": "Compact external antenna"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "THA-X603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_4afd0ab9-5141-43f6-bfef-f1a71c1856aa",
+      "name": "THA-7603A Helix Antenna",
+      "slug": "tha-7603a",
+      "type": "Helix antenna",
+      "summary": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "description": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "price": "",
+      "image": "/assets/products/tha-x601a.webp",
+      "gallery": [
+        "/assets/products/tha-x601a.webp"
+      ],
+      "category": "gnss-antennas",
+      "tags": [
+        "Helix antenna",
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "applications": [
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "highlights": [
+        "External handheld antenna",
+        "High-precision positioning support",
+        "Compact helix design",
+        "Multi-frequency family"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Helix GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "Handheld and compact high-precision positioning"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Installation",
+          "value": "Compact external antenna"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "THA-7603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_c05c8e04-d2b4-4d10-be74-27502e01ebce",
+      "name": "THA-7609A Helix Antenna",
+      "slug": "tha-7609a",
+      "type": "Helix antenna",
+      "summary": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "description": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "price": "",
+      "image": "/assets/products/tha-x601a.webp",
+      "gallery": [
+        "/assets/products/tha-x601a.webp"
+      ],
+      "category": "gnss-antennas",
+      "tags": [
+        "Helix antenna",
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "applications": [
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "highlights": [
+        "External handheld antenna",
+        "High-precision positioning support",
+        "Compact helix design",
+        "Multi-frequency family"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Helix GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "Handheld and compact high-precision positioning"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Installation",
+          "value": "Compact external antenna"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "THA-7609A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_abc074b7-aff9-461e-a70c-22ea7b3fcfc2",
+      "name": "THA-9603A Helix Antenna",
+      "slug": "tha-9603a",
+      "type": "Helix antenna",
+      "summary": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "description": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "price": "",
+      "image": "/assets/products/tha-x601a.webp",
+      "gallery": [
+        "/assets/products/tha-x601a.webp"
+      ],
+      "category": "gnss-antennas",
+      "tags": [
+        "Helix antenna",
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "applications": [
+        "Handheld GNSS",
+        "Machine control",
+        "Compact integration"
+      ],
+      "highlights": [
+        "External handheld antenna",
+        "High-precision positioning support",
+        "Compact helix design",
+        "Multi-frequency family"
+      ],
+      "specs": [
+        {
+          "label": "Type",
+          "value": "Helix GNSS antenna"
+        },
+        {
+          "label": "Use",
+          "value": "Handheld and compact high-precision positioning"
+        },
+        {
+          "label": "Signals",
+          "value": "Multi-frequency GNSS support depending on model"
+        },
+        {
+          "label": "Installation",
+          "value": "Compact external antenna"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "THA-9603A Helix Antenna Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "High-performance helix antenna for handheld, UAV, machine-control and compact GNSS integration workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_8b1c5f26-f58e-4a2d-b735-bc9d036c2014",
+      "name": "RTK Receiver Accessory Kit",
+      "slug": "accessory-kit",
+      "type": "Accessory",
+      "summary": "Tripods, tribrachs, brackets, suction cup bases and kit accessories for RTK receiver sets.",
+      "description": "Tripods, tribrachs, brackets, suction cup bases and kit accessories for RTK receiver sets.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
+      "category": "accessories",
+      "tags": [
+        "Accessory",
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "applications": [
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "highlights": [
+        "Receiver kit completion",
+        "Field replacement parts",
+        "Dealer-ready accessory planning",
+        "Compatible with TOKNAV product families"
+      ],
+      "specs": [
+        {
+          "label": "Accessory family",
+          "value": "RTK Receiver Accessory Kit"
+        },
+        {
+          "label": "Use",
+          "value": "RTK receiver, controller and antenna workflows"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Distributors, field crews and service teams"
+        },
+        {
+          "label": "Source",
+          "value": "Accessories brochure"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "RTK Receiver Accessory Kit Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "Tripods, tribrachs, brackets, suction cup bases and kit accessories for RTK receiver sets.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_72f793b4-d9e2-48d6-adf0-23e3782ec665",
+      "name": "Power Adapter",
+      "slug": "power-adapter",
+      "type": "Accessory",
+      "summary": "USB and Lemo power adapters for charging and powering receivers and controllers.",
+      "description": "USB and Lemo power adapters for charging and powering receivers and controllers.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
+      "category": "accessories",
+      "tags": [
+        "Accessory",
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "applications": [
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "highlights": [
+        "Receiver kit completion",
+        "Field replacement parts",
+        "Dealer-ready accessory planning",
+        "Compatible with TOKNAV product families"
+      ],
+      "specs": [
+        {
+          "label": "Accessory family",
+          "value": "Power Adapter"
+        },
+        {
+          "label": "Use",
+          "value": "RTK receiver, controller and antenna workflows"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Distributors, field crews and service teams"
+        },
+        {
+          "label": "Source",
+          "value": "Accessories brochure"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "Power Adapter Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "USB and Lemo power adapters for charging and powering receivers and controllers.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_a9de7dc7-53b9-459b-a396-603a79acc5e8",
+      "name": "Antenna Accessories",
+      "slug": "antenna-accessories",
+      "type": "Accessory",
+      "summary": "410-470MHz antennas and GNSS antenna accessories for receiver and base-station setups.",
+      "description": "410-470MHz antennas and GNSS antenna accessories for receiver and base-station setups.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
+      "category": "accessories",
+      "tags": [
+        "Accessory",
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "applications": [
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "highlights": [
+        "Receiver kit completion",
+        "Field replacement parts",
+        "Dealer-ready accessory planning",
+        "Compatible with TOKNAV product families"
+      ],
+      "specs": [
+        {
+          "label": "Accessory family",
+          "value": "Antenna Accessories"
+        },
+        {
+          "label": "Use",
+          "value": "RTK receiver, controller and antenna workflows"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Distributors, field crews and service teams"
+        },
+        {
+          "label": "Source",
+          "value": "Accessories brochure"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "Antenna Accessories Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "410-470MHz antennas and GNSS antenna accessories for receiver and base-station setups.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_6cca570f-1c88-4d7a-bba7-a8b3bc96fcdc",
+      "name": "GNSS Cables and Wires",
+      "slug": "wire-cables",
+      "type": "Accessory",
+      "summary": "TNC-TNC GNSS antenna cables and power/data cables for NET660 and receiver workflows.",
+      "description": "TNC-TNC GNSS antenna cables and power/data cables for NET660 and receiver workflows.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
+      "category": "accessories",
+      "tags": [
+        "Accessory",
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "applications": [
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "highlights": [
+        "Receiver kit completion",
+        "Field replacement parts",
+        "Dealer-ready accessory planning",
+        "Compatible with TOKNAV product families"
+      ],
+      "specs": [
+        {
+          "label": "Accessory family",
+          "value": "GNSS Cables and Wires"
+        },
+        {
+          "label": "Use",
+          "value": "RTK receiver, controller and antenna workflows"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Distributors, field crews and service teams"
+        },
+        {
+          "label": "Source",
+          "value": "Accessories brochure"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "GNSS Cables and Wires Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "TNC-TNC GNSS antenna cables and power/data cables for NET660 and receiver workflows.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
+    },
+    {
+      "id": "product_9b65a616-9caf-4d56-8942-2d420e1b57e0",
+      "name": "RTK Cases and Toolboxes",
+      "slug": "rtk-cases",
+      "type": "Accessory",
+      "summary": "Foam RTK rover kits and 1+1 toolboxes for T10Pro, T20Pro and receiver kits.",
+      "description": "Foam RTK rover kits and 1+1 toolboxes for T10Pro, T20Pro and receiver kits.",
+      "price": "",
+      "image": "/assets/products/tbase.webp",
+      "gallery": [
+        "/assets/products/tbase.webp"
+      ],
+      "category": "accessories",
+      "tags": [
+        "Accessory",
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "applications": [
+        "RTK kits",
+        "Receiver setup",
+        "Dealer spare parts"
+      ],
+      "highlights": [
+        "Receiver kit completion",
+        "Field replacement parts",
+        "Dealer-ready accessory planning",
+        "Compatible with TOKNAV product families"
+      ],
+      "specs": [
+        {
+          "label": "Accessory family",
+          "value": "RTK Cases and Toolboxes"
+        },
+        {
+          "label": "Use",
+          "value": "RTK receiver, controller and antenna workflows"
+        },
+        {
+          "label": "Buyer fit",
+          "value": "Distributors, field crews and service teams"
+        },
+        {
+          "label": "Source",
+          "value": "Accessories brochure"
+        }
+      ],
+      "status": "published",
+      "featured": false,
+      "seoTitle": "RTK Cases and Toolboxes Specs, Datasheet and Quote | TOKNAV",
+      "seoDescription": "Foam RTK rover kits and 1+1 toolboxes for T10Pro, T20Pro and receiver kits.",
+      "createdAt": "2026-06-23T02:19:53.189Z",
+      "updatedAt": "2026-06-23T02:19:53.189Z"
     }
   ],
   "media": [

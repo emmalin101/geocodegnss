@@ -1,4 +1,19 @@
-import { ArrowRight, ChevronRight } from "lucide-react";
+import {
+  ArrowRight,
+  BadgeCheck,
+  Building2,
+  ChevronRight,
+  Construction,
+  Factory,
+  Globe2,
+  Headset,
+  Layers3,
+  MapPinned,
+  Sprout,
+  UsersRound,
+  Waves
+} from "lucide-react";
+import InquiryForm from "./components/InquiryForm";
 import SiteHeader from "./components/SiteHeader";
 import { resolveDownloadHref } from "./lib/assetUrls";
 import { getBlockData, getCmsSettings, getPublishedCmsPageByPath } from "./lib/cms/public";
@@ -11,19 +26,45 @@ const heroProducts = [
 ];
 
 const whyItems = [
-  ["OEM/ODM", "Flexible customization"],
-  ["15+ Years R&D", "GNSS experience"],
-  ["60%+ Engineers", "Technical support"],
-  ["Global Projects", "Export service"]
+  { title: "OEM/ODM Services", text: "Flexible customization for hardware, firmware and branding to support your market growth.", icon: Factory },
+  { title: "15+ Years R&D Experience", text: "Continuous innovation in GNSS algorithms, hardware design and software platforms.", icon: BadgeCheck },
+  { title: "60%+ Engineers", text: "A strong R&D team dedicated to high-precision positioning technology.", icon: UsersRound },
+  { title: "Global Project Support", text: "Localized technical support and after-sales service across key regions worldwide.", icon: Globe2 }
 ];
 
 const applications = [
-  ["Land Surveying", "/products/gnss-receivers", "/assets/rtk-field-use-1.jpg"],
-  ["Construction", "/products/gnss-receivers", "/assets/gnss-receiver-homepage-banner-original.png"],
-  ["Precision Agriculture", "/products/precision-agriculture-machine-control", "/assets/products/tag66.webp"],
-  ["Machine Control", "/products/precision-agriculture-machine-control", "/assets/products/tmc20.webp"],
-  ["Monitoring", "/products/gnss-application-solutions", "/assets/products/u6.webp"],
-  ["GIS Data Collection", "/products/rugged-gis", "/assets/products/pcr500.webp"]
+  { title: "Land Surveying & Mapping", href: "/products/gnss-receivers", image: "/assets/home-app-survey.jpg", icon: MapPinned },
+  { title: "Construction & Engineering", href: "/products/gnss-receivers", image: "/assets/home-app-construction.jpg", icon: Construction },
+  { title: "Precision Agriculture", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-agriculture.jpg", icon: Sprout },
+  { title: "Machine Control", href: "/products/precision-agriculture-machine-control", image: "/assets/home-app-machine.jpg", icon: Waves },
+  { title: "Monitoring & Deformation", href: "/products/gnss-application-solutions", image: "/assets/home-app-monitoring.jpg", icon: Headset },
+  { title: "GIS Data Collection", href: "/products/rugged-gis", image: "/assets/home-app-gis.jpg", icon: Layers3 }
+];
+
+const trustedMetrics = [
+  { value: "100+", label: "Countries & Regions", icon: Globe2 },
+  { value: "15+", label: "Years of Innovation", icon: Building2 },
+  { value: "60%+", label: "R&D Engineers", icon: UsersRound },
+  { value: "24/7", label: "Global Support", icon: Headset }
+];
+
+const homeFaqs = [
+  {
+    question: "What accuracy can TOKNAV GNSS receivers achieve?",
+    answer: "TOKNAV RTK receivers are designed for centimeter-level positioning when used with suitable correction data, good satellite visibility and correct field setup."
+  },
+  {
+    question: "Do you provide OEM or ODM services?",
+    answer: "Yes. TOKNAV supports logo branding, kit configuration, firmware customization and product packaging for distributors and project partners."
+  },
+  {
+    question: "What is the warranty and after-sales support?",
+    answer: "Warranty and support terms depend on product model and order plan. Our team can provide datasheets, test guidance and remote technical support."
+  },
+  {
+    question: "Which industries are your products suitable for?",
+    answer: "TOKNAV products are used in surveying, mapping, construction, precision agriculture, machine control, monitoring, GIS and solution integration."
+  }
 ];
 
 const fallbackHero = {
@@ -58,6 +99,9 @@ export default function Home() {
   const cmsPage = getPublishedCmsPageByPath("/");
   const hero = getBlockData(cmsPage, "hero", fallbackHero, "home-hero");
   const cta = getBlockData(cmsPage, "cta", fallbackCta, "home-cta");
+  const heroImage = String(hero.backgroundImage).includes("gnss-receiver-homepage-banner-original")
+    ? "/assets/home-app-construction.jpg"
+    : String(hero.backgroundImage);
 
   return (
     <main className="home-page">
@@ -83,7 +127,7 @@ export default function Home() {
           </div>
         </div>
         <div className="home-hero-stage">
-          <img className="home-hero-banner-clean" src={String(hero.backgroundImage)} alt="TOKNAV GNSS receiver product banner" />
+          <img className="home-hero-banner-clean" src={heroImage} alt="TOKNAV GNSS receiver product banner" />
           <div className="home-hero-product-row simple">
             {heroProducts.map((item) => (
               <a href={item.href} key={item.name}>
@@ -111,54 +155,81 @@ export default function Home() {
       <section className="home-section home-why">
         <HomeSectionTitle title="Why Choose TOKNAV" text="Built on innovation. Backed by experience. Trusted worldwide." />
         <div className="home-why-grid">
-          {whyItems.map(([title, text]) => (
-            <div key={title}>
-              <span>◎</span>
-              <strong>{title}</strong>
-              <p>{text}</p>
-            </div>
-          ))}
+          {whyItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div key={item.title}>
+                <Icon size={32} strokeWidth={1.8} />
+                <strong>{item.title}</strong>
+                <p>{item.text}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
       <section className="home-applications" id="solutions">
         <HomeSectionTitle title="Applications" text="High-precision positioning empowers a wide range of industries." />
         <div className="home-application-strip">
-          {applications.map(([title, href, image]) => (
-            <a href={href} key={title}>
-              <img src={image} alt={title} />
-              <span>{title}</span>
-            </a>
-          ))}
+          {applications.map((item) => {
+            const Icon = item.icon;
+            return (
+              <a href={item.href} key={item.title}>
+                <img src={item.image} alt={item.title} />
+                <span>
+                  <Icon size={42} strokeWidth={1.7} />
+                  <strong>{item.title}</strong>
+                </span>
+              </a>
+            );
+          })}
         </div>
       </section>
 
       <section className="home-trusted-band" id="about">
         <div>
           <h2>Trusted by Professionals Around the World</h2>
-          <p>TOKNAV products support reliable positioning work across surveying, construction, agriculture and monitoring projects.</p>
-          <a href="/contact">Learn More About Us</a>
+          <p>TOKNAV products are widely used in more than 100 countries and regions, helping clients improve efficiency and accuracy in every project.</p>
+          <a href="/about">Learn More About Us</a>
         </div>
         <div className="home-trusted-metrics">
-          <strong>100+<span>Countries & Regions</span></strong>
-          <strong>15+<span>Years of Innovation</span></strong>
-          <strong>60%+<span>R&D Engineers</span></strong>
-          <strong>24/7<span>Global Support</span></strong>
+          {trustedMetrics.map((item) => {
+            const Icon = item.icon;
+            return (
+              <strong key={item.label}>
+                <Icon size={48} strokeWidth={1.6} />
+                {item.value}
+                <span>{item.label}</span>
+              </strong>
+            );
+          })}
         </div>
       </section>
 
-      <section className="home-section home-cta compact" id="contact">
-        <div>
-          <h2>{String(cta.title)}</h2>
-          <p>{String(cta.description)}</p>
+      <section className="home-faq-inquiry" id="contact">
+        <div className="home-faq-panel">
+          <h2>FAQ</h2>
+          <div className="home-faq-list">
+            {homeFaqs.map((item) => (
+              <details key={item.question}>
+                <summary>{item.question}<span>+</span></summary>
+                <p>{item.answer}</p>
+              </details>
+            ))}
+          </div>
+          <a className="home-download-card" href={resolveDownloadHref(String(cta.secondaryButtonLink))}>
+            <Layers3 size={36} />
+            <span>
+              <strong>Download Product Catalog</strong>
+              <small>Get the latest product brochure and technical information.</small>
+            </span>
+          </a>
         </div>
-        <div className="home-cta-actions">
-          <a className="home-primary-button" href={String(cta.buttonLink)}>
-            {String(cta.buttonText)} <ArrowRight size={18} />
-          </a>
-          <a className="home-secondary-button" href={resolveDownloadHref(String(cta.secondaryButtonLink))}>
-            {String(cta.secondaryButtonText)}
-          </a>
+
+        <div className="home-quote-panel">
+          <h2>Get a Quote</h2>
+          <p>Tell us about your project needs. Our team will respond within 24 hours.</p>
+          <InquiryForm />
         </div>
       </section>
 

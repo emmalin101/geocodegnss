@@ -50,6 +50,7 @@ export type CmsProduct = {
   id: string;
   name: string;
   slug: string;
+  type: string;
   summary: string;
   description: string;
   price: string;
@@ -57,6 +58,8 @@ export type CmsProduct = {
   gallery: string[];
   category: string;
   tags: string[];
+  applications: string[];
+  highlights: string[];
   specs: CmsProductSpec[];
   status: CmsStatus;
   featured: boolean;

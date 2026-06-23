@@ -193,9 +193,8 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
               <span>Buyer-focused value</span>
               <h2>Why overseas buyers choose this model</h2>
               <p>
-                Structured for dealers, contractors and system integrators
-                comparing receiver performance, kit completeness and after-sales
-                preparation.
+                {product.description ||
+                  "Structured for dealers, contractors and system integrators comparing receiver performance, kit completeness and after-sales preparation."}
               </p>
             </div>
             <div className="product-benefit-grid">

@@ -1,5 +1,7 @@
 import { ArrowRight } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
 
 const newsItems = [
   {
@@ -28,22 +30,27 @@ const newsItems = [
   }
 ];
 
-export const metadata = {
-  title: "TOKNAV News | GNSS and Geospatial Industry Updates",
-  description: "Read concise GNSS, RTK, surveying, GIS, LiDAR, USV and machine-control industry updates from TOKNAV."
+const fallbackHero = {
+  label: "News",
+  title: "GNSS and Geospatial Industry Updates",
+  subtitle: "Short, easy-to-read updates for surveying, mapping, construction, machine control and positioning buyers."
 };
 
 export default function NewsPage() {
+  const cmsPage = getPublishedCmsPageByPath("/news");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
+
   return (
     <main>
       <SiteHeader />
       <section className="blog-hero">
         <div>
-          <span className="contact-label">News</span>
-          <h1>GNSS and Geospatial Industry Updates</h1>
-          <p>Short, easy-to-read updates for surveying, mapping, construction, machine control and positioning buyers.</p>
+          <span className="contact-label">{String(hero.label)}</span>
+          <h1>{String(hero.title)}</h1>
+          <p>{String(hero.subtitle)}</p>
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
       <section className="blog-index section">
         <div className="blog-card-grid">
           {newsItems.map((item) => (
@@ -64,4 +71,13 @@ export default function NewsPage() {
       </section>
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/news");
+  return {
+    title: cmsPage?.seoTitle || "TOKNAV News | GNSS and Geospatial Industry Updates",
+    description: cmsPage?.seoDescription || "Read concise GNSS, RTK, surveying, GIS, LiDAR, USV and machine-control industry updates from TOKNAV.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }

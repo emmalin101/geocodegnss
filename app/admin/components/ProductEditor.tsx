@@ -16,6 +16,7 @@ const categoryOptions = [
 const emptyProduct: Partial<CmsProduct> = {
   name: "",
   slug: "",
+  type: "",
   summary: "",
   description: "",
   price: "",
@@ -23,6 +24,8 @@ const emptyProduct: Partial<CmsProduct> = {
   gallery: [],
   category: "gnss-receivers",
   tags: [],
+  applications: [],
+  highlights: [],
   specs: [],
   status: "draft",
   featured: false,
@@ -40,6 +43,13 @@ function textToSpecs(text: string) {
     .map((row) => row.split("|"))
     .map(([label, value]) => ({ label: label?.trim() || "", value: value?.trim() || "" }))
     .filter((item) => item.label && item.value);
+}
+
+function linesToArray(text: string) {
+  return text
+    .split("\n")
+    .map((item) => item.trim())
+    .filter(Boolean);
 }
 
 export default function ProductEditor({ id }: { id?: string }) {
@@ -108,15 +118,22 @@ export default function ProductEditor({ id }: { id?: string }) {
           <div className="admin-field-grid">
             <label className="admin-field"><span>Name</span><input className="admin-input" value={product.name || ""} onChange={(event) => update("name", event.target.value)} /></label>
             <label className="admin-field"><span>Slug</span><input className="admin-input" value={product.slug || ""} onChange={(event) => update("slug", event.target.value)} /></label>
+            <label className="admin-field"><span>Product type / kicker</span><input className="admin-input" value={product.type || ""} onChange={(event) => update("type", event.target.value)} placeholder="Entry RTK receiver" /></label>
             <label className="admin-field"><span>Category</span><select className="admin-select" value={product.category || "gnss-receivers"} onChange={(event) => update("category", event.target.value)}>{categoryOptions.map(([value, label]) => <option value={value} key={value}>{label}</option>)}</select></label>
             <label className="admin-field"><span>Price, optional</span><input className="admin-input" value={product.price || ""} onChange={(event) => update("price", event.target.value)} placeholder="Leave blank for quote" /></label>
             <label className="admin-field"><span>Status</span><select className="admin-select" value={product.status || "draft"} onChange={(event) => update("status", event.target.value as CmsProduct["status"])}><option value="draft">Draft</option><option value="published">Published</option></select></label>
             <label className="admin-field"><span>Featured</span><select className="admin-select" value={product.featured ? "yes" : "no"} onChange={(event) => update("featured", event.target.value === "yes")}><option value="no">No</option><option value="yes">Yes</option></select></label>
           </div>
-          <label className="admin-field"><span>Summary</span><textarea className="admin-textarea" value={product.summary || ""} onChange={(event) => update("summary", event.target.value)} /></label>
-          <label className="admin-field"><span>Detailed description</span><textarea className="admin-textarea" style={{ minHeight: 260 }} value={product.description || ""} onChange={(event) => update("description", event.target.value)} /></label>
-          <label className="admin-field"><span>Tags / applications, comma separated</span><input className="admin-input" value={(product.tags || []).join(", ")} onChange={(event) => update("tags", event.target.value.split(",").map((item) => item.trim()).filter(Boolean))} /></label>
-          <label className="admin-field"><span>Specs, one row per line: Label | Value</span><textarea className="admin-textarea" value={specsToText(product.specs || [])} onChange={(event) => update("specs", textToSpecs(event.target.value))} /></label>
+          <div className="admin-help-card">
+            <strong>Where does this appear on the website?</strong>
+            <p>Main image, product type, summary, description, applications, highlights and specs are shown on the product category card and product detail page after publishing.</p>
+          </div>
+          <label className="admin-field"><span>Short summary shown on cards and hero</span><textarea className="admin-textarea" value={product.summary || ""} onChange={(event) => update("summary", event.target.value)} /></label>
+          <label className="admin-field"><span>Detailed product page description</span><textarea className="admin-textarea" style={{ minHeight: 220 }} value={product.description || ""} onChange={(event) => update("description", event.target.value)} /></label>
+          <label className="admin-field"><span>Applications, one per line</span><textarea className="admin-textarea" value={(product.applications || []).join("\n")} onChange={(event) => update("applications", linesToArray(event.target.value))} placeholder={"Surveying\nRoad construction\nDealer demo kit"} /></label>
+          <label className="admin-field"><span>Highlights / selling points, one per line</span><textarea className="admin-textarea" value={(product.highlights || []).join("\n")} onChange={(event) => update("highlights", linesToArray(event.target.value))} placeholder={"Multi-constellation tracking\nIMU tilt measurement\nRugged field housing"} /></label>
+          <label className="admin-field"><span>Specs / parameters, one row per line: Label | Value</span><textarea className="admin-textarea" style={{ minHeight: 220 }} value={specsToText(product.specs || [])} onChange={(event) => update("specs", textToSpecs(event.target.value))} /></label>
+          <label className="admin-field"><span>SEO tags, comma separated</span><input className="admin-input" value={(product.tags || []).join(", ")} onChange={(event) => update("tags", event.target.value.split(",").map((item) => item.trim()).filter(Boolean))} /></label>
           <label className="admin-field"><span>Gallery URLs, one per line</span><textarea className="admin-textarea" value={(product.gallery || []).join("\n")} onChange={(event) => update("gallery", event.target.value.split("\n").map((item) => item.trim()).filter(Boolean))} /></label>
           <label className="admin-field"><span>SEO title</span><input className="admin-input" value={product.seoTitle || ""} onChange={(event) => update("seoTitle", event.target.value)} /></label>
           <label className="admin-field"><span>SEO description</span><textarea className="admin-textarea" value={product.seoDescription || ""} onChange={(event) => update("seoDescription", event.target.value)} /></label>

@@ -31,11 +31,14 @@ export type Product = {
   type: string;
   image: string;
   excerpt: string;
+  description?: string;
   applications: string[];
   highlights: string[];
   specs: ProductSpec[];
   source: string;
   gallery?: string[];
+  seoTitle?: string;
+  seoDescription?: string;
   pageVariant?: "markingRobot";
 };
 
@@ -1538,14 +1541,17 @@ function mapCmsProduct(product: ReturnType<typeof getPublishedCmsProducts>[numbe
     slug: product.slug,
     name: product.name,
     categorySlug: product.category,
-    type: product.tags[0] || "CMS product",
+    type: product.type || product.tags[0] || "CMS product",
     image: product.image || "/assets/products/gnss-receiver-series-combo.webp",
     excerpt: product.summary || product.description.slice(0, 180),
-    applications: product.tags.length ? product.tags : ["Surveying", "B2B projects"],
-    highlights: product.specs.length ? product.specs.slice(0, 6).map((spec) => `${spec.label}: ${spec.value}`) : product.tags,
+    description: product.description,
+    applications: product.applications?.length ? product.applications : product.tags.length ? product.tags : ["Surveying", "B2B projects"],
+    highlights: product.highlights?.length ? product.highlights : product.specs.length ? product.specs.slice(0, 6).map((spec) => `${spec.label}: ${spec.value}`) : product.tags,
     specs: product.specs,
     source: "CMS",
-    gallery: product.gallery.length ? product.gallery : product.image ? [product.image] : undefined
+    gallery: product.gallery.length ? product.gallery : product.image ? [product.image] : undefined,
+    seoTitle: product.seoTitle,
+    seoDescription: product.seoDescription
   };
 }
 
@@ -1568,6 +1574,15 @@ export function getProduct(categorySlug: string, productSlug: string) {
 }
 
 export function getProductSpecGroups(product: Product): ProductSpecGroup[] {
+  if (product.source === "CMS" && product.specs.length > 0) {
+    return [
+      {
+        title: "CMS Specifications",
+        specs: product.specs
+      }
+    ];
+  }
+
   return detailedSpecGroups[product.slug] ?? [
     {
       title: "Technical Snapshot",
@@ -1620,6 +1635,10 @@ export function getProductDatasheet(product: Product) {
 }
 
 export function getProductQuickSpecs(product: Product): ProductSpec[] {
+  if (product.source === "CMS" && product.specs.length > 0) {
+    return product.specs.slice(0, 4);
+  }
+
   if (product.slug === "marking-robot") {
     return [
       { label: "Marking accuracy", value: "+/-1.5cm" },
@@ -1736,10 +1755,12 @@ export function getProductBuyerBenefits(product: Product) {
 }
 
 export function getProductSeoTitle(product: Product) {
+  if (product.seoTitle) return product.seoTitle;
   return `${product.name} Specs, Datasheet and Quote | TOKNAV`;
 }
 
 export function getProductMetaDescription(product: Product) {
+  if (product.seoDescription) return product.seoDescription;
   if (product.slug === "marking-robot") {
     return "Review TR10Pro line marking robot features, RTK positioning, sports field templates, DXF/CSV import, marking accuracy, specifications and quote options.";
   }

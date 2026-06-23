@@ -1,16 +1,21 @@
 import Link from "next/link";
 import { ArrowRight, BookOpen, Search, Sparkles } from "lucide-react";
+import CmsBlocksRenderer from "../components/CmsBlocksRenderer";
 import SiteHeader from "../components/SiteHeader";
 import { getAllBlogPosts } from "../lib/blogs";
+import { getBlockData, getPublishedCmsPageByPath } from "../lib/cms/public";
 
-export const metadata = {
-  title: "TOKNAV Blog | GNSS, RTK and Precision Positioning Guides",
-  description:
-    "Read TOKNAV guides for RTK GNSS receivers, CORS/VRS correction solutions, precision agriculture and machine control procurement."
+const fallbackHero = {
+  label: "Knowledge Center",
+  title: "GNSS, RTK and Precision Positioning Guides for B2B Buyers",
+  subtitle:
+    "Practical buying guides for overseas distributors, surveying teams, engineering contractors, agriculture dealers and system integrators."
 };
 
 export default function BlogIndexPage() {
   const posts = getAllBlogPosts();
+  const cmsPage = getPublishedCmsPageByPath("/blog");
+  const hero = getBlockData(cmsPage, "hero", fallbackHero, "page-hero");
 
   return (
     <main>
@@ -18,12 +23,9 @@ export default function BlogIndexPage() {
 
       <section className="blog-hero">
         <div>
-          <span className="contact-label" data-i18n="blog.hero.label">Knowledge Center</span>
-          <h1 data-i18n="blog.hero.title">GNSS, RTK and Precision Positioning Guides for B2B Buyers</h1>
-          <p data-i18n="blog.hero.text">
-            Practical buying guides for overseas distributors, surveying teams,
-            engineering contractors, agriculture dealers and system integrators.
-          </p>
+          <span className="contact-label" data-i18n="blog.hero.label">{String(hero.label)}</span>
+          <h1 data-i18n="blog.hero.title">{String(hero.title)}</h1>
+          <p data-i18n="blog.hero.text">{String(hero.subtitle)}</p>
         </div>
         <div className="blog-hero-panel">
           <Sparkles size={30} />
@@ -35,6 +37,7 @@ export default function BlogIndexPage() {
           </span>
         </div>
       </section>
+      <CmsBlocksRenderer blocks={cmsPage?.blocks || []} />
 
       <section className="blog-index section">
         <div className="blog-index-top">
@@ -72,4 +75,15 @@ export default function BlogIndexPage() {
       </section>
     </main>
   );
+}
+
+export function generateMetadata() {
+  const cmsPage = getPublishedCmsPageByPath("/blog");
+  return {
+    title: cmsPage?.seoTitle || "TOKNAV Blog | GNSS, RTK and Precision Positioning Guides",
+    description:
+      cmsPage?.seoDescription ||
+      "Read TOKNAV guides for RTK GNSS receivers, CORS/VRS correction solutions, precision agriculture and machine control procurement.",
+    openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
+  };
 }
