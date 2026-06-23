@@ -20,12 +20,54 @@ const emptyPost: Partial<CmsBlogPost> = {
   status: "draft"
 };
 
+type BodyImagePosition = "cursor" | "start" | "end" | "after-paragraph";
+
+function cleanMarkdownText(value: string) {
+  return value.replace(/[\]\n\r]/g, " ").replace(/"/g, "'").trim();
+}
+
+function getParagraphInsertionIndex(text: string, paragraphNumber: number) {
+  const ranges: Array<{ start: number; end: number }> = [];
+  const lines = text.split(/(?<=\n)/);
+  let offset = 0;
+  let start: number | null = null;
+
+  for (const line of lines) {
+    if (line.trim()) {
+      if (start === null) start = offset;
+    } else if (start !== null) {
+      ranges.push({ start, end: offset });
+      start = null;
+    }
+    offset += line.length;
+  }
+
+  if (start !== null) ranges.push({ start, end: text.length });
+  if (ranges.length === 0) return text.length;
+
+  const safeIndex = Math.min(Math.max(paragraphNumber, 1), ranges.length) - 1;
+  return ranges[safeIndex].end;
+}
+
+function insertMarkdownAt(text: string, start: number, end: number, markdown: string) {
+  const before = text.slice(0, start);
+  const after = text.slice(end);
+  const prefix = before.trim() ? (before.endsWith("\n\n") ? "" : "\n\n") : "";
+  const suffix = after.trim() ? (after.startsWith("\n\n") ? "" : "\n\n") : "";
+  const nextBody = `${before}${prefix}${markdown}${suffix}${after}`;
+  const cursor = before.length + prefix.length + markdown.length + suffix.length;
+  return { cursor, nextBody };
+}
+
 export default function BlogEditor({ id }: { id?: string }) {
   const router = useRouter();
   const [post, setPost] = useState<Partial<CmsBlogPost>>(emptyPost);
   const [media, setMedia] = useState<CmsMediaItem[]>([]);
   const [bodyImageUrl, setBodyImageUrl] = useState("");
   const [bodyImageAlt, setBodyImageAlt] = useState("");
+  const [bodyImageCaption, setBodyImageCaption] = useState("");
+  const [bodyImagePosition, setBodyImagePosition] = useState<BodyImagePosition>("cursor");
+  const [bodyImageParagraph, setBodyImageParagraph] = useState("1");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   const bodyRef = useRef<HTMLTextAreaElement | null>(null);
@@ -58,17 +100,31 @@ export default function BlogEditor({ id }: { id?: string }) {
       return;
     }
     setError("");
-    const alt = bodyImageAlt.trim() || "TOKNAV product image";
-    const imageMarkdown = `\n\n![${alt}](${imageUrl})\n\n`;
+    const caption = cleanMarkdownText(bodyImageCaption);
+    const alt = cleanMarkdownText(bodyImageAlt) || caption || "TOKNAV product image";
+    const title = caption ? ` "${caption}"` : "";
+    const imageMarkdown = `![${alt}](${imageUrl}${title})`;
     const currentBody = post.body || "";
     const textarea = bodyRef.current;
-    const start = textarea?.selectionStart ?? currentBody.length;
-    const end = textarea?.selectionEnd ?? currentBody.length;
-    const nextBody = `${currentBody.slice(0, start)}${imageMarkdown}${currentBody.slice(end)}`;
+    let start = textarea?.selectionStart ?? currentBody.length;
+    let end = textarea?.selectionEnd ?? currentBody.length;
+
+    if (bodyImagePosition === "start") {
+      start = 0;
+      end = 0;
+    } else if (bodyImagePosition === "end") {
+      start = currentBody.length;
+      end = currentBody.length;
+    } else if (bodyImagePosition === "after-paragraph") {
+      const paragraphNumber = Number.parseInt(bodyImageParagraph, 10) || 1;
+      start = getParagraphInsertionIndex(currentBody, paragraphNumber);
+      end = start;
+    }
+
+    const { cursor, nextBody } = insertMarkdownAt(currentBody, start, end, imageMarkdown);
     update("body", nextBody);
     window.setTimeout(() => {
       bodyRef.current?.focus();
-      const cursor = start + imageMarkdown.length;
       bodyRef.current?.setSelectionRange(cursor, cursor);
     }, 0);
   }
@@ -117,18 +173,28 @@ export default function BlogEditor({ id }: { id?: string }) {
             <label className="admin-field"><span>Status</span><select className="admin-select" value={post.status || "draft"} onChange={(event) => update("status", event.target.value as CmsBlogPost["status"])}><option value="draft">Draft</option><option value="published">Published</option></select></label>
           </div>
           <label className="admin-field"><span>Summary</span><textarea className="admin-textarea" value={post.summary || ""} onChange={(event) => update("summary", event.target.value)} /></label>
-          <div className="admin-help-card">
-            <strong>Insert image inside the article</strong>
-            <p>Upload images in Media Library first, choose one here, then click Insert image. It will add Markdown image code at the current cursor position in the Body field.</p>
-            <div className="admin-inline-tools">
-              <select className="admin-select" value={bodyImageUrl} onChange={(event) => setBodyImageUrl(event.target.value)}>
-                <option value="">Choose body image</option>
-                {media.map((item) => <option value={item.url} key={item.id}>{item.filename}</option>)}
-              </select>
-              <input className="admin-input" value={bodyImageAlt} onChange={(event) => setBodyImageAlt(event.target.value)} placeholder="Image ALT text / caption" />
-              <button className="admin-button-secondary" type="button" onClick={insertBodyImage}>Insert image</button>
+          <div className="admin-blog-image-tool">
+            <div>
+              <strong>Body image</strong>
+              <small>Choose a saved image and insert it into the Body at a custom position.</small>
             </div>
-            {bodyImageUrl ? <img src={bodyImageUrl} alt="" style={{ width: "100%", maxHeight: 220, objectFit: "cover", borderRadius: 12 }} /> : null}
+            <select className="admin-select" value={bodyImageUrl} onChange={(event) => setBodyImageUrl(event.target.value)}>
+              <option value="">Choose image</option>
+              {media.map((item) => <option value={item.url} key={item.id}>{item.filename}</option>)}
+            </select>
+            <input className="admin-input" value={bodyImageAlt} onChange={(event) => setBodyImageAlt(event.target.value)} placeholder="ALT text" />
+            <input className="admin-input" value={bodyImageCaption} onChange={(event) => setBodyImageCaption(event.target.value)} placeholder="Caption, optional" />
+            <select className="admin-select" value={bodyImagePosition} onChange={(event) => setBodyImagePosition(event.target.value as BodyImagePosition)}>
+              <option value="cursor">Current cursor position</option>
+              <option value="start">Start of body</option>
+              <option value="end">End of body</option>
+              <option value="after-paragraph">After paragraph number</option>
+            </select>
+            {bodyImagePosition === "after-paragraph" ? (
+              <input className="admin-input" inputMode="numeric" min="1" type="number" value={bodyImageParagraph} onChange={(event) => setBodyImageParagraph(event.target.value)} placeholder="Paragraph number" />
+            ) : null}
+            <button className="admin-button" type="button" onClick={insertBodyImage}>Insert into Body</button>
+            {bodyImageUrl ? <img src={bodyImageUrl} alt="" /> : null}
           </div>
           <label className="admin-field"><span>Body</span><textarea ref={bodyRef} className="admin-textarea" style={{ minHeight: 360 }} value={post.body || ""} onChange={(event) => update("body", event.target.value)} /></label>
           <label className="admin-field"><span>Tags, comma separated</span><input className="admin-input" value={(post.tags || []).join(", ")} onChange={(event) => update("tags", event.target.value.split(",").map((item) => item.trim()).filter(Boolean))} /></label>
