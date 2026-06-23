@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T01:46:11.202Z",
+  "updatedAt": "2026-06-23T01:46:16.248Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -123,12 +123,12 @@
         "Entry RTK receiver"
       ],
       "specs": [],
-      "status": "published",
+      "status": "draft",
       "featured": false,
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T01:46:11.201Z"
+      "updatedAt": "2026-06-23T01:46:16.248Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
