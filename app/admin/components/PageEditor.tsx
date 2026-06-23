@@ -45,6 +45,20 @@ function updateBlockData(block: CmsBlock, key: string, value: unknown): CmsBlock
   return { ...block, data: { ...block.data, [key]: value } };
 }
 
+function getMediaLabel(item: CmsMediaItem) {
+  return item.alt ? `${item.filename} - ${item.alt}` : item.filename;
+}
+
+function textValue(value: unknown) {
+  return typeof value === "string" ? value : "";
+}
+
+function objectItems(value: unknown) {
+  return Array.isArray(value)
+    ? value.map((item) => (item && typeof item === "object" ? (item as Record<string, string>) : {}))
+    : [];
+}
+
 function rowsFromItems(value: unknown, columns: string[]) {
   if (!Array.isArray(value)) return "";
   return value
@@ -73,9 +87,93 @@ function MediaSelect({ value, media, onChange }: { value: string; media: CmsMedi
     <select className="admin-select" value={value} onChange={(event) => onChange(event.target.value)}>
       <option value="">Choose media URL</option>
       {media.map((item) => (
-        <option value={item.url} key={item.id}>{item.filename}</option>
+        <option value={item.url} key={item.id}>{getMediaLabel(item)}</option>
       ))}
     </select>
+  );
+}
+
+function MediaImagePicker({
+  label,
+  value,
+  media,
+  onChange
+}: {
+  label: string;
+  value: string;
+  media: CmsMediaItem[];
+  onChange: (value: string) => void;
+}) {
+  return (
+    <div className="admin-image-picker">
+      <div>
+        <strong>{label}</strong>
+        <small>{value || "No image selected"}</small>
+      </div>
+      <MediaSelect value={value} media={media} onChange={onChange} />
+      {value ? <img src={value} alt="" /> : null}
+    </div>
+  );
+}
+
+function HomeImageItemsEditor({
+  block,
+  media,
+  itemLabel,
+  showIcon,
+  onChange
+}: {
+  block: CmsBlock;
+  media: CmsMediaItem[];
+  itemLabel: string;
+  showIcon?: boolean;
+  onChange: (block: CmsBlock) => void;
+}) {
+  const items = objectItems(block.data.items);
+
+  function updateItem(index: number, key: string, value: string) {
+    const nextItems = items.map((item, itemIndex) => (itemIndex === index ? { ...item, [key]: value } : item));
+    onChange(updateBlockData(block, "items", nextItems));
+  }
+
+  return (
+    <div className="admin-home-image-list">
+      {items.map((item, index) => (
+        <article className="admin-home-image-card" key={`${item.title || itemLabel}-${index}`}>
+          <div className="admin-home-image-card-head">
+            <strong>{itemLabel} {index + 1}</strong>
+            <span>{item.title || "Untitled slot"}</span>
+          </div>
+          <label className="admin-field">
+            <span>Title</span>
+            <input className="admin-input" value={textValue(item.title)} onChange={(event) => updateItem(index, "title", event.target.value)} />
+          </label>
+          <label className="admin-field">
+            <span>Link</span>
+            <input className="admin-input" value={textValue(item.href)} onChange={(event) => updateItem(index, "href", event.target.value)} />
+          </label>
+          {showIcon ? (
+            <label className="admin-field">
+              <span>Icon key</span>
+              <select className="admin-select" value={textValue(item.icon)} onChange={(event) => updateItem(index, "icon", event.target.value)}>
+                <option value="survey">survey</option>
+                <option value="construction">construction</option>
+                <option value="agriculture">agriculture</option>
+                <option value="machine">machine</option>
+                <option value="monitoring">monitoring</option>
+                <option value="gis">gis</option>
+              </select>
+            </label>
+          ) : null}
+          <MediaImagePicker
+            label="Image"
+            value={textValue(item.image)}
+            media={media}
+            onChange={(value) => updateItem(index, "image", value)}
+          />
+        </article>
+      ))}
+    </div>
   );
 }
 
@@ -91,13 +189,18 @@ function BlockFields({
   if (block.type === "hero") {
     return (
       <>
-        {["title", "subtitle", "buttonText", "buttonLink", "backgroundImage"].map((key) => (
+        {["title", "subtitle", "buttonText", "buttonLink", "secondaryButtonText", "secondaryButtonLink"].map((key) => (
           <label className="admin-field" key={key}>
             <span>{key}</span>
             <input className="admin-input" value={getValue(block, key)} onChange={(event) => onChange(updateBlockData(block, key, event.target.value))} />
-            {key.toLowerCase().includes("image") ? <MediaSelect value={getValue(block, key)} media={media} onChange={(value) => onChange(updateBlockData(block, key, value))} /> : null}
           </label>
         ))}
+        <MediaImagePicker
+          label="Hero banner image"
+          value={getValue(block, "backgroundImage")}
+          media={media}
+          onChange={(value) => onChange(updateBlockData(block, "backgroundImage", value))}
+        />
       </>
     );
   }
@@ -178,41 +281,19 @@ function BlockFields({
 
   if (block.type === "custom" && block.title === "home-hero-products") {
     return (
-      <label className="admin-field">
-        <span>Hero product thumbnails, one row per line: Title | Link | Image URL</span>
-        <textarea
-          className="admin-textarea"
-          value={rowsFromItems(block.data.items, ["title", "href", "image"])}
-          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image"])))}
-        />
-      </label>
+      <HomeImageItemsEditor block={block} media={media} itemLabel="Hero product" onChange={onChange} />
     );
   }
 
   if (block.type === "custom" && block.title === "home-product-categories") {
     return (
-      <label className="admin-field">
-        <span>Homepage product category cards, one row per line: Title | Link | Image URL</span>
-        <textarea
-          className="admin-textarea"
-          value={rowsFromItems(block.data.items, ["title", "href", "image"])}
-          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image"])))}
-        />
-      </label>
+      <HomeImageItemsEditor block={block} media={media} itemLabel="Category image" onChange={onChange} />
     );
   }
 
   if (block.type === "custom" && block.title === "home-applications") {
     return (
-      <label className="admin-field">
-        <span>Application image strip, one row per line: Title | Link | Image URL | Icon key</span>
-        <textarea
-          className="admin-textarea"
-          value={rowsFromItems(block.data.items, ["title", "href", "image", "icon"])}
-          onChange={(event) => onChange(updateBlockData(block, "items", itemsFromRows(event.target.value, ["title", "href", "image", "icon"])))}
-        />
-        <small className="admin-muted">Icon keys: survey, construction, agriculture, machine, monitoring, gis.</small>
-      </label>
+      <HomeImageItemsEditor block={block} media={media} itemLabel="Application image" showIcon onChange={onChange} />
     );
   }
 
@@ -220,13 +301,18 @@ function BlockFields({
     const metrics = rowsFromItems(block.data.metrics, ["value", "label", "icon"]);
     return (
       <>
-        {["title", "description", "buttonText", "buttonLink", "backgroundImage"].map((key) => (
+        {["title", "description", "buttonText", "buttonLink"].map((key) => (
           <label className="admin-field" key={key}>
             <span>{key}</span>
             <input className="admin-input" value={getValue(block, key)} onChange={(event) => onChange(updateBlockData(block, key, event.target.value))} />
-            {key === "backgroundImage" ? <MediaSelect value={getValue(block, key)} media={media} onChange={(value) => onChange(updateBlockData(block, key, value))} /> : null}
           </label>
         ))}
+        <MediaImagePicker
+          label="Trusted band background image"
+          value={getValue(block, "backgroundImage")}
+          media={media}
+          onChange={(value) => onChange(updateBlockData(block, "backgroundImage", value))}
+        />
         <label className="admin-field">
           <span>Metrics, one row per line: Value | Label | Icon key</span>
           <textarea
