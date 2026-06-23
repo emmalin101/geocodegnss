@@ -743,9 +743,9 @@ export const products: Product[] = [
       { label: "Series", value: "Tboat10 and Tboat20 unmanned surface vehicle platforms" },
       { label: "Applications", value: "Bathymetric survey, water quality monitoring, water quality sampling, patrol, hydrological monitoring and underwater surveying" },
       { label: "Navigation", value: "Full-system multi-frequency GNSS positioning with RTK support" },
-      { label: "Source", value: "PDF合并-Tboat.pdf, 2025 brochure" }
+      { label: "Source", value: "Tboat Series brochure, 2025 edition" }
     ],
-    source: "PDF合并-Tboat.pdf, pages 1-8",
+    source: "Tboat Series brochure, pages 1-8",
     gallery: [
       "/assets/products/tboat20.webp",
       "/assets/products/tboat10.webp",

@@ -61,7 +61,7 @@ export default function NewsPage() {
         <aside className="news-hot-panel" aria-label="Industry trending searches">
           <div className="news-hot-panel-head">
             <span><Flame size={18} /> Industry Hot Searches</span>
-            <strong>业内资讯热搜榜</strong>
+            <strong>Geospatial Trending Topics</strong>
           </div>
           <div className="news-hot-list">
             {hotSearches.map((item, index) => (

@@ -86,7 +86,7 @@ export default function ContactPage() {
           <span className="contact-label" data-i18n="contact.location.label">Company Location</span>
           <div className="contact-company-heading">
             <h2 data-i18n="contact.location.title">Guangzhou Toksurvey Information Technology Co., Ltd.</h2>
-            <span>广州市图科信息技术有限公司</span>
+            <span>TOKNAV GNSS sales and project support office</span>
           </div>
           <div className="contact-info-list">
             <div>
@@ -189,16 +189,16 @@ export default function ContactPage() {
                   <span>Guangzhou Toksurvey Information Technology Co., Ltd.</span>
                 </article>
                 <article>
-                  <strong>公司名称</strong>
-                  <span lang="zh-CN">广州市图科信息技术有限公司</span>
+                  <strong>Brand</strong>
+                  <span>TOKNAV</span>
                 </article>
                 <article>
-                  <strong>Address in English</strong>
+                  <strong>Office Address</strong>
                   <span>Room 801-6, Building B, No. 9 Caipin Road, Huangpu District, Guangzhou, China 510000</span>
                 </article>
                 <article>
-                  <strong>中文地址</strong>
-                  <span lang="zh-CN">广州市黄埔区彩频路9号B栋801-6室</span>
+                  <strong>Region</strong>
+                  <span>Guangzhou, Guangdong, China</span>
                 </article>
               </div>
             </div>

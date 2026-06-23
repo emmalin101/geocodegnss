@@ -602,7 +602,7 @@
       "specs": [
         {
           "label": "GNSS signals",
-          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS 修改B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
+          "value": "GPS L1C/A, L1C, L2P(Y), L2C, L5; GLONASS L1/L2/L3; BDS B1I/B2I/B3I/B1C/B2a/B2b(PPP); Galileo E1/E5a/E5b/E6(PPP); QZSS L1/L2/L5; SBAS L1(PPP); NavIC L5 on supported firmware."
         },
         {
           "label": "Channels",
