@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:10:56.154Z",
+  "updatedAt": "2026-06-24T06:11:12.162Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_b2e20c75-38de-4f1c-beb0-eb4561ddd3a6",
+      "url": "/uploads/2026/06/t20pro-1-1782281470690.png",
+      "filename": "t20pro-1-1782281470690.png",
+      "mimeType": "image/png",
+      "size": 1051751,
+      "alt": "",
+      "createdAt": "2026-06-24T06:11:11.952Z",
+      "updatedAt": "2026-06-24T06:11:11.952Z"
+    },
     {
       "id": "media_387292f0-2014-4aac-b9f3-2c99b6421271",
       "url": "/uploads/2026/06/t10pro-1782281454709.png",
