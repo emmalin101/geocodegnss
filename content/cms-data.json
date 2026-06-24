@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:15:52.503Z",
+  "updatedAt": "2026-06-24T06:16:22.190Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_6998c6aa-971e-438d-a18c-441502aa811d",
+      "url": "/uploads/2026/06/net660i-1782281780760.png",
+      "filename": "net660i-1782281780760.png",
+      "mimeType": "image/png",
+      "size": 1725329,
+      "alt": "",
+      "createdAt": "2026-06-24T06:16:22.060Z",
+      "updatedAt": "2026-06-24T06:16:22.060Z"
+    },
     {
       "id": "media_690b6952-009f-4688-bc7b-341848809296",
       "url": "/uploads/2026/06/net660-1782281751000.png",
