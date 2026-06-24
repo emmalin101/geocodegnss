@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T02:47:03.119Z",
+  "updatedAt": "2026-06-24T06:07:47.546Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -855,7 +855,7 @@
         },
         {
           "label": "Dimensions / weight",
-          "value": "T5Lite 100.5 x 100.5 x 69mm, 550✨g; T5 100.5 x 100.5 x 72mm, 630g"
+          "value": "T5Lite 100.5 x 100.5 x 69mm, 600g; T5 100.5 x 100.5 x 72mm, 630g"
         }
       ],
       "status": "published",
@@ -863,7 +863,7 @@
       "seoTitle": "T5Lite GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Compact GNSS RTK receiver for cost-sensitive surveying and mapping projects.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T09:19:10.414Z"
+      "updatedAt": "2026-06-24T06:07:47.545Z"
     },
     {
       "id": "product_f4d8f235-3901-4f35-b18d-f123b1c09bee",
