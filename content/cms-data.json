@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:18:26.220Z",
+  "updatedAt": "2026-06-24T06:18:57.667Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -1321,7 +1321,7 @@
       "summary": "Base station receiver designed for stable correction transmission and RTK base deployment.",
       "description": "Base station receiver designed for stable correction transmission and RTK base deployment.",
       "price": "",
-      "image": "/assets/products/tbase.webp",
+      "image": "/uploads/2026/06/tbase-1782281542513.png",
       "gallery": [
         "/assets/products/tbase.webp"
       ],
@@ -1367,7 +1367,7 @@
       "seoTitle": "tBase GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "Base station receiver designed for stable correction transmission and RTK base deployment.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T09:19:10.414Z"
+      "updatedAt": "2026-06-24T06:18:57.667Z"
     },
     {
       "id": "product_01d4a61f-8861-41c9-a39a-4392ed05654f",
