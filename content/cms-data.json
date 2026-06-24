@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:14:27.922Z",
+  "updatedAt": "2026-06-24T06:14:44.565Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_b24f05a6-ae73-4c2b-9894-c078da5da25a",
+      "url": "/uploads/2026/06/upload-1782281683562.png",
+      "filename": "upload-1782281683562.png",
+      "mimeType": "image/png",
+      "size": 54428,
+      "alt": "",
+      "createdAt": "2026-06-24T06:14:44.433Z",
+      "updatedAt": "2026-06-24T06:14:44.433Z"
+    },
     {
       "id": "media_483f5f27-2fae-4226-9a69-08adb25b7453",
       "url": "/uploads/2026/06/tboat10-1782281665704.png",
