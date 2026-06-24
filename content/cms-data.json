@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:22:22.257Z",
+  "updatedAt": "2026-06-24T06:24:39.671Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_b74cf3b2-39e0-4a01-a0c9-84e20f8fdb96",
+      "url": "/uploads/2026/06/p8glo-1782282278203.png",
+      "filename": "p8glo-1782282278203.png",
+      "mimeType": "image/png",
+      "size": 978058,
+      "alt": "",
+      "createdAt": "2026-06-24T06:24:39.531Z",
+      "updatedAt": "2026-06-24T06:24:39.531Z"
+    },
     {
       "id": "media_6998c6aa-971e-438d-a18c-441502aa811d",
       "url": "/uploads/2026/06/net660i-1782281780760.png",
