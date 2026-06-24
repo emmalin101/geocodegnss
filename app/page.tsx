@@ -168,6 +168,9 @@ export default function Home() {
   const applicationItems = normalizeItems(applicationBlock.items, applications);
   const trustedMetricsItems = normalizeItems(trusted.metrics, trustedMetrics as HomeImageItem[]);
   const trustedBackground = String(trusted.backgroundImage || fallbackTrusted.backgroundImage);
+  const heroStyle = {
+    "--home-hero-bg": `url("${heroImage}")`
+  } as CSSProperties;
   const trustedStyle = {
     background: `linear-gradient(90deg, rgba(6,29,74,.94), rgba(7,43,105,.82)), url("${trustedBackground}") center / cover no-repeat`
   } as CSSProperties;
@@ -176,7 +179,7 @@ export default function Home() {
     <main className="home-page">
       <SiteHeader />
 
-      <section className="home-hero simple">
+      <section className="home-hero simple" style={heroStyle}>
         <div className="home-hero-copy">
           <h1>{String(hero.title)}</h1>
           <p>{String(hero.subtitle)}</p>
@@ -195,14 +198,29 @@ export default function Home() {
             <span>Global Support</span>
           </div>
         </div>
-        <div className="home-hero-stage">
-          <img className="home-hero-banner-clean" src={heroImage} alt="TOKNAV GNSS receiver product banner" />
-          <div className="home-hero-product-row simple">
-            {heroProductItems.map((item) => (
-              <a href={item.href || "#products"} key={item.title || item.image}>
+        <div className="home-hero-stage" aria-label="Featured TOKNAV products">
+          <div className="home-hero-carousel">
+            {heroProductItems.map((item, index) => (
+              <a
+                className="home-hero-slide"
+                href={item.href || "#products"}
+                key={item.title || item.image}
+                style={{ "--slide-delay": `${index * 4}s` } as CSSProperties}
+              >
                 <img src={item.image} alt={item.title || "TOKNAV product"} />
-                <span>{item.title}</span>
+                <span>
+                  <strong>{item.title}</strong>
+                  <small>View product details</small>
+                </span>
               </a>
+            ))}
+          </div>
+          <div className="home-hero-carousel-dots" aria-hidden="true">
+            {heroProductItems.map((item, index) => (
+              <span
+                key={`${item.title || item.image}-dot`}
+                style={{ "--dot-delay": `${index * 4}s` } as CSSProperties}
+              />
             ))}
           </div>
         </div>
