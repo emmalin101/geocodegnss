@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T02:43:38.073Z",
+  "updatedAt": "2026-06-24T02:43:42.355Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_a3bbcd81-d56a-41b1-b5ca-c7bce05a197b",
+      "url": "/uploads/2026/06/field-marking-white-1782269020905.jpg",
+      "filename": "field-marking-white-1782269020905.jpg",
+      "mimeType": "image/jpeg",
+      "size": 3079898,
+      "alt": "",
+      "createdAt": "2026-06-24T02:43:42.249Z",
+      "updatedAt": "2026-06-24T02:43:42.249Z"
+    },
     {
       "id": "media_760291c8-e3b7-4302-8506-240abe52975b",
       "url": "/uploads/2026/06/field-marking-white-1782269016490.jpg",
