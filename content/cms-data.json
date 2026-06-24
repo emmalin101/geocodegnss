@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:17:59.300Z",
+  "updatedAt": "2026-06-24T06:18:26.220Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -1169,7 +1169,7 @@
       "summary": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
       "description": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
       "price": "",
-      "image": "/assets/products/t20pro.webp",
+      "image": "/uploads/2026/06/t20pro-1-1782281470690.png",
       "gallery": [
         "/assets/products/t20pro.webp"
       ],
@@ -1311,7 +1311,7 @@
       "seoTitle": "T20Pro GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver with integrated high-power transceiver for base-rover field operations.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T09:19:10.414Z"
+      "updatedAt": "2026-06-24T06:18:26.220Z"
     },
     {
       "id": "product_5db38ff2-ee2b-4ed1-b3f0-216d5df33687",
