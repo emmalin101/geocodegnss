@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-23T09:19:10.414Z",
+  "updatedAt": "2026-06-24T02:42:13.822Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_7fbe1980-a3bb-4f97-842a-cc25148920d3",
+      "url": "/uploads/2026/06/field-marking-white-full-1782268931653.jpg",
+      "filename": "field-marking-white-full-1782268931653.jpg",
+      "mimeType": "image/jpeg",
+      "size": 3636160,
+      "alt": "",
+      "createdAt": "2026-06-24T02:42:13.700Z",
+      "updatedAt": "2026-06-24T02:42:13.700Z"
+    },
     {
       "id": "media_3d93fcbf-ad89-492c-a02e-1f0ffe9c9dbc",
       "url": "/uploads/2026/06/net660-1782179119708.png",
