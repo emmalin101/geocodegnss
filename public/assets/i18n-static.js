@@ -147,9 +147,9 @@
       ru: "Отправить запрос",
       ro: "Trimite solicitarea"
     },
-    "GNSS Receiver Manufacturer · Professional OEM & ODM": {
-      ru: "Производитель GNSS-приемников · Профессиональный OEM и ODM",
-      ro: "Producător de receptoare GNSS · OEM și ODM profesional"
+    "GNSS Receiver Manufacturer · High-Precision Positioning Solutions": {
+      ru: "Производитель GNSS-приемников · Высокоточные решения позиционирования",
+      ro: "Producător de receptoare GNSS · Soluții de poziționare de înaltă precizie"
     }
   };
 

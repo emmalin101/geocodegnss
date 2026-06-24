@@ -4,7 +4,6 @@ import {
   Building2,
   ChevronRight,
   Construction,
-  Factory,
   Globe2,
   Headset,
   Layers3,
@@ -27,7 +26,7 @@ const heroProducts = [
 ];
 
 const whyItems = [
-  { title: "OEM/ODM Services", text: "Flexible customization for hardware, firmware and branding to support your market growth.", icon: Factory },
+  { title: "Product Configuration Support", text: "Flexible kits, accessories and field-ready packages to support your market growth.", icon: BadgeCheck },
   { title: "15+ Years R&D Experience", text: "Continuous innovation in GNSS algorithms, hardware design and software platforms.", icon: BadgeCheck },
   { title: "60%+ Engineers", text: "A strong R&D team dedicated to high-precision positioning technology.", icon: UsersRound },
   { title: "Global Project Support", text: "Localized technical support and after-sales service across key regions worldwide.", icon: Globe2 }
@@ -55,8 +54,8 @@ const homeFaqs = [
     answer: "TOKNAV RTK receivers are designed for centimeter-level positioning when used with suitable correction data, good satellite visibility and correct field setup."
   },
   {
-    question: "Do you provide OEM or ODM services?",
-    answer: "Yes. TOKNAV supports logo branding, kit configuration, firmware customization and product packaging for distributors and project partners."
+    question: "Do you support distributor-ready product configuration?",
+    answer: "Yes. TOKNAV supports kit configuration, accessory matching, product packaging and documentation for distributors and project partners."
   },
   {
     question: "What is the warranty and after-sales support?",
@@ -190,7 +189,7 @@ export default function Home() {
             </a>
           </div>
           <div className="home-hero-proof mini">
-            <span>OEM/ODM</span>
+            <span>Dealer Support</span>
             <span>15+ Years R&D</span>
             <span>60%+ Engineers</span>
             <span>Global Support</span>

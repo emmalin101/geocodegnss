@@ -36,7 +36,13 @@ const hotSearches = [
   { keyword: "UAV LiDAR and SLAM mapping", trend: "Reality capture", heat: "89" },
   { keyword: "USV bathymetric survey", trend: "Hydrographic", heat: "84" },
   { keyword: "Machine control GNSS", trend: "Construction", heat: "81" },
-  { keyword: "Precision agriculture auto steering", trend: "Agriculture", heat: "78" }
+  { keyword: "Precision agriculture auto steering", trend: "Agriculture", heat: "78" },
+  { keyword: "GNSS antenna selection", trend: "Survey equipment", heat: "75" },
+  { keyword: "RTK base station setup", trend: "Field workflow", heat: "73" },
+  { keyword: "Construction layout receiver", trend: "Engineering", heat: "70" },
+  { keyword: "Deformation monitoring GNSS", trend: "Monitoring", heat: "68" },
+  { keyword: "GIS handheld data collector", trend: "GIS fieldwork", heat: "65" },
+  { keyword: "Robotic line marking system", trend: "Sports field", heat: "62" }
 ];
 
 const fallbackHero = {
@@ -52,7 +58,7 @@ export default function NewsPage() {
   return (
     <main>
       <SiteHeader />
-      <section className="blog-hero">
+      <section className="blog-hero news-hero">
         <div>
           <span className="contact-label">{String(hero.label)}</span>
           <h1>{String(hero.title)}</h1>

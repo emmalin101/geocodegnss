@@ -9,7 +9,7 @@ const fallbackHero = {
   label: "B2B Inquiry",
   title: "Request a GNSS Receiver Quote",
   subtitle:
-    "Send your project details to TOKNAV. Our team will help match the right GNSS receiver, antenna, CORS/VRS solution or OEM/ODM plan for your market."
+    "Send your project details to TOKNAV. Our team will help match the right GNSS receiver, antenna, CORS/VRS solution or distributor-ready package for your market."
 };
 
 export default function InquiryPage() {
@@ -67,7 +67,7 @@ export function generateMetadata() {
     title: cmsPage?.seoTitle || "Request a GNSS Receiver Quote | TOKNAV",
     description:
       cmsPage?.seoDescription ||
-      "Send your project details to TOKNAV for GNSS receiver, antenna, CORS/VRS, machine control or OEM/ODM quotation support.",
+      "Send your project details to TOKNAV for GNSS receiver, antenna, CORS/VRS, machine control or distributor quotation support.",
     openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
   };
 }

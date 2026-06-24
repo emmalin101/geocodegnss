@@ -36,7 +36,7 @@ const fallbackHero = {
   label: "Contact TOKNAV",
   title: "How Can We Help?",
   subtitle:
-    "Reach TOKNAV for GNSS product quotation, distributor cooperation, OEM/ODM projects and technical solution support."
+    "Reach TOKNAV for GNSS product quotation, distributor cooperation, dealer support and technical solution support."
 };
 
 const contactEntries = [
@@ -61,7 +61,7 @@ const contactEntries = [
   {
     href: "#dealer-support",
     title: "Become a Dealer",
-    text: "Apply for OEM/ODM, channel cooperation and catalog support.",
+    text: "Apply for channel cooperation, dealer support and catalog materials.",
     icon: Store
   }
 ];
@@ -200,7 +200,7 @@ export default function ContactPage() {
               <Building2 size={18} /> Source manufacturer
             </span>
             <span>
-              <ShieldCheck size={18} /> OEM/ODM support
+              <ShieldCheck size={18} /> Dealer support
             </span>
             <span>
               <Globe2 size={18} /> Global project support
@@ -229,7 +229,7 @@ export default function ContactPage() {
       <section className="dealer-support-section" id="dealer-support">
         <div>
           <span className="contact-label">Dealer Cooperation</span>
-          <h2>Distributor and OEM/ODM Support</h2>
+          <h2>Distributor and Dealer Support</h2>
           <p>
             TOKNAV supports overseas dealers, project contractors and system
             integrators with product catalogs, model selection, technical
@@ -244,8 +244,8 @@ export default function ContactPage() {
           </article>
           <article>
             <Building2 size={30} />
-            <strong>OEM/ODM Cooperation</strong>
-            <span>Discuss branding, firmware, packaging and market customization.</span>
+            <strong>Dealer Cooperation</strong>
+            <span>Discuss product kits, packaging, sales materials and market support.</span>
           </article>
           <article>
             <Globe2 size={30} />
@@ -327,7 +327,7 @@ export default function ContactPage() {
               <option>CORS / VRS Solution</option>
               <option>Precision Agriculture</option>
               <option>Machine Control</option>
-              <option>OEM / ODM Project</option>
+              <option>Dealer Cooperation</option>
             </select>
           </label>
           <label>
@@ -350,7 +350,7 @@ export function generateMetadata() {
     title: cmsPage?.seoTitle || "Contact TOKNAV | GNSS Receiver Quote and Dealer Cooperation",
     description:
       cmsPage?.seoDescription ||
-      "Contact TOKNAV for GNSS receiver quotation, distributor cooperation, OEM/ODM projects and technical solution support.",
+      "Contact TOKNAV for GNSS receiver quotation, distributor cooperation, dealer support and technical solution support.",
     openGraph: cmsPage?.ogImage ? { images: [cmsPage.ogImage] } : undefined
   };
 }

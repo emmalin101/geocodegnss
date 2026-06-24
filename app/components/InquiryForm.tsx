@@ -39,7 +39,7 @@ const productOptions = [
   "Precision Agriculture",
   "Machine Control",
   "CORS / VRS Solution",
-  "OEM / ODM Project"
+  "Dealer Cooperation"
 ];
 
 function validate(values: InquiryFormValues, t: (key: string) => string) {

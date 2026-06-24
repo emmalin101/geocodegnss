@@ -295,7 +295,7 @@ export default async function ProductDetailPage({ params }: ProductDetailPagePro
             <h2>Buyer Notes</h2>
             <p>
               Parameters may be updated by the manufacturer. For quotation,
-              distributor cooperation or OEM/ODM projects, please send your
+              distributor cooperation or dealer projects, please send your
               target application, quantity, country and required accessories so
               TOKNAV can confirm the latest configuration.
             </p>

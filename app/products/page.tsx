@@ -69,8 +69,8 @@ export default function ProductsPage() {
       <section className="product-proof-band">
         <div>
           <CheckCircle2 size={24} />
-          <strong>OEM/ODM support</strong>
-          <span>Suitable for distributors and brand partners.</span>
+          <strong>Distributor support</strong>
+          <span>Suitable for regional dealers and project partners.</span>
         </div>
         <div>
           <CheckCircle2 size={24} />

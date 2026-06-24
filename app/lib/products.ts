@@ -246,7 +246,7 @@ export const products: Product[] = [
     type: "RTK receiver",
     image: "/assets/products/t50basic.webp",
     excerpt: "T50 family receiver for distributors needing a practical RTK model with modern field functions.",
-    applications: ["Surveying", "Mapping", "OEM/ODM channel sales"],
+    applications: ["Surveying", "Mapping", "Dealer channel sales"],
     highlights: ["NFC", "AR stakeout", "Integrated transceiver radio", "Compact T50 family design"],
     specs: commonReceiverSpecs,
     source: "GNSS Receiver.pdf, page 16"
@@ -316,7 +316,7 @@ export const products: Product[] = [
     type: "Cost-effective compact GNSS receiver",
     image: "/assets/products/net660i.webp",
     excerpt: "Miniaturized receiver for integration projects that need compact installation and robust interfaces.",
-    applications: ["Monitoring", "OEM integration", "CORS"],
+    applications: ["Monitoring", "System integration", "CORS"],
     highlights: ["Cost-effective miniaturized design", "Industrial temperature range", "Ethernet and serial connectivity", "PPS support"],
     specs: [
       { label: "System", value: "ARM Cortex-A7 1.8GHz platform" },
