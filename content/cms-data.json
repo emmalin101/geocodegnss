@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:10:08.096Z",
+  "updatedAt": "2026-06-24T06:10:32.351Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -5085,6 +5085,16 @@
     }
   ],
   "media": [
+    {
+      "id": "media_c2976004-7987-467a-a06d-c147cb994de0",
+      "url": "/uploads/2026/06/t5-1782281430793.png",
+      "filename": "t5-1782281430793.png",
+      "mimeType": "image/png",
+      "size": 1208275,
+      "alt": "",
+      "createdAt": "2026-06-24T06:10:32.231Z",
+      "updatedAt": "2026-06-24T06:10:32.231Z"
+    },
     {
       "id": "media_81d0c2da-98a8-4fd5-a8f6-637f38875870",
       "url": "/uploads/2026/06/t5lite-1782281406656.png",
