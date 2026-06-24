@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-06-24T06:18:57.667Z",
+  "updatedAt": "2026-06-24T06:20:39.112Z",
   "pages": [
     {
       "id": "page_ee11bc22-86de-4cd0-a986-49460efac5aa",
@@ -1609,7 +1609,7 @@
       "summary": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
       "description": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
       "price": "",
-      "image": "/assets/products/t40.webp",
+      "image": "/uploads/2026/06/t40-1782281501809.png",
       "gallery": [
         "/assets/products/t40.webp"
       ],
@@ -1715,7 +1715,7 @@
       "seoTitle": "T40 GNSS Receiver Specs, Datasheet and Quote | TOKNAV",
       "seoDescription": "RTK receiver family with AR stakeout and laser-related field capabilities depending on configuration.",
       "createdAt": "2026-06-22T04:46:09.873Z",
-      "updatedAt": "2026-06-23T09:19:10.414Z"
+      "updatedAt": "2026-06-24T06:20:39.112Z"
     },
     {
       "id": "product_fc9c4860-1651-4b70-b69b-1992254dcf98",
